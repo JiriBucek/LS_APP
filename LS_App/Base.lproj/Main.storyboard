@@ -83,6 +83,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="UM7-im-dRJ" id="P5Y-Za-oHx"/>
+                                    <outlet property="delegate" destination="UM7-im-dRJ" id="LuP-dW-3xx"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

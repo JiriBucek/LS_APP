@@ -12,5 +12,6 @@ class ArticleClass: NSObject {
     
     var nadpis: String?
     var popisek: String?
+    var obsahClanku: String?
 
 }
