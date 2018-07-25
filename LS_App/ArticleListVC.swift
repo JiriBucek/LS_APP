@@ -16,6 +16,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     
     let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts"
     
+    var articlesArray = [ArticleClass]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +35,31 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     func loadArticles(APIurl: String){
         //pripoji se k API, rozdeli JSON na arraye a vytvori objekty pro Articles
         Alamofire.request(APIadresa).responseJSON{response in
-            if var json = response.result.value as! NSArray?{
             
-        print(json)
+            
+            let value = response.result.value as? [Dictionary<String, Any>]
+            
+            for item in value!{
+                //Doplnit podminky proti crashi
+                let article = ArticleClass()
+                
+                let nadpis = item["title"] as! NSDictionary
+                let nadpis2 = nadpis["rendered"]
+                article.nadpis = nadpis2 as? String
+                
+                let popis = item["excerpt"] as! NSDictionary
+                let popis2 = popis["rendered"]
+                article.popisek = popis2 as? String
+                
+                let content = item["content"] as! NSDictionary
+                let content2 = content["rendered"]
+                article.obsahClanku = content2 as? String
+                
+                self.articlesArray.append(article)
             }
+         self.articlesTableView.reloadData()
         }
+    }
         
         //Connectne se na API a stáhne si JSON, který rozbalí
         /*let URLrequest = URLRequest(url: URL(string: APIurl)!)
@@ -64,8 +86,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
         */
         
         
-        
-    }
+    
     
     
     
@@ -80,6 +101,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     
         //cell.nadpisLabel.text = "ahoj"
         
+        cell.nadpisLabel.text = self.articlesArray[indexPath.item].nadpis
+        
+        
         return cell
     }
     
@@ -89,7 +113,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.articlesArray.count
     }
 
     
