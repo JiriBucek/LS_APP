@@ -16,7 +16,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     
     let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts"
     
-    var articlesArray = [ArticleClass]()
+    var articlesArray: [ArticleClass]? = []
     
     
     override func viewDidLoad() {
@@ -33,61 +33,45 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     }
     
     func loadArticles(APIurl: String){
-        //pripoji se k API, rozdeli JSON na arraye a vytvori objekty pro Articles
+        //pripoji se k API, vyzobe si z JSONa, co potrebuje a vytvori objekty pro Articl esarray
         Alamofire.request(APIadresa).responseJSON{response in
             
             
-            let value = response.result.value as? [Dictionary<String, Any>]
+            if let value = response.result.value as? [Dictionary<String, Any>]{
             
-            for item in value!{
+            for item in value{
                 //Doplnit podminky proti crashi
                 let article = ArticleClass()
                 
-                let nadpis = item["title"] as! NSDictionary
-                let nadpis2 = nadpis["rendered"]
-                article.nadpis = nadpis2 as? String
+                if let nadpis = item["title"] as? NSDictionary{
+                    let nadpis2 = nadpis["rendered"]
+                    article.nadpis = nadpis2 as? String
+                }else{
+                    print("Nerozparsuju JSON")
+                }
                 
-                let popis = item["excerpt"] as! NSDictionary
-                let popis2 = popis["rendered"]
-                article.popisek = popis2 as? String
+                if let popis = item["excerpt"] as? NSDictionary{
+                    let popis2 = popis["rendered"]
+                    article.popisek = popis2 as? String
+                }
                 
-                let content = item["content"] as! NSDictionary
-                let content2 = content["rendered"]
-                article.obsahClanku = content2 as? String
+                if let content = item["content"] as? NSDictionary{
+                    let content2 = content["rendered"]
+                    article.obsahClanku = content2 as? String
+                }
+                self.articlesArray?.append(article)
+                }
                 
-                self.articlesArray.append(article)
+                DispatchQueue.main.async {
+                    self.articlesTableView.reloadData()
+                    //reloaduje pokazde data pro tableview
+                }
+                
             }
-         self.articlesTableView.reloadData()
+            
+         
         }
     }
-        
-        //Connectne se na API a stáhne si JSON, který rozbalí
-        /*let URLrequest = URLRequest(url: URL(string: APIurl)!)
-        let task = URLSession.shared.dataTask(with: URLrequest) { (data,response,error) in
-            
-            if error != nil{
-                print(error)
-                return
-            }
-            
-            do{
-                print(data)
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [AnyObject]
-                //rozbalí json na dictionaty String:Any
-                print(json)
-                
-            }catch let error{
-                print(error)
-
-            }
-            
-        }
-        task.resume()
-        */
-        
-        
-    
-    
     
     
     
@@ -98,10 +82,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
         //povinná funkce protokolu UITAbleViewDataSource. Využívá identifieru, který jsem nastavil ve vlastnostech buňky
         
         let cell = articlesTableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
-    
-        //cell.nadpisLabel.text = "ahoj"
         
-        cell.nadpisLabel.text = self.articlesArray[indexPath.item].nadpis
+        cell.nadpisLabel.text = self.articlesArray?[indexPath.item].nadpis
+        cell.popisekLabel.text = self.articlesArray?[indexPath.item].popisek
         
         
         return cell
@@ -113,7 +96,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.articlesArray.count
+        return self.articlesArray?.count ?? 0
     }
 
     
@@ -129,4 +112,34 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     }
     */
 
+}
+
+extension UIImageView{
+    //Přidává funkci stáhnutí si obrázku k článku
+    
+    func stahniObrazek(id_clanku: Int){
+        let idClankuString = String(id_clanku)
+        let URL = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/media/" + idClankuString
+        
+        Alamofire.request(URL).responseJSON{response in
+            
+            if let value = response.result.value as? [Dictionary<String, Any>]{
+                
+                if let obrazek = item["media_details"] as? NSDictionary{
+                    let obrazek2 = nadpis["rendered"] as? NSDictionary{
+                        let obrazek3 =
+            
+                    }
+                    article.nadpis = nadpis2 as? String
+                }else{
+                    print("Nerozparsuju JSON")
+                }
+                
+            }
+        }
+        
+    
+    }
+    
+    
 }
