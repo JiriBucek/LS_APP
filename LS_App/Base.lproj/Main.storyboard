@@ -21,7 +21,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87s-VF-NEv">
                                 <rect key="frame" x="95" y="182" width="185" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="ČLÁNKY"/>
                                 <connections>
                                     <segue destination="UM7-im-dRJ" kind="show" id="npX-ja-BbG"/>

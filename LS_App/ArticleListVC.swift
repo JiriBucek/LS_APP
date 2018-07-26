@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import Alamofire
 import SwiftyJSON
 
@@ -61,6 +62,11 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
                     article.obsahClanku = obsahClanku
                 }
                 
+                if let mediaId = json["featured_media"].string{
+                    article.mediaId = mediaId
+                }
+                
+                
                 /*
                 if let nadpis = item["title"] as? NSDictionary{
                     let nadpis2 = nadpis["rendered"]
@@ -102,9 +108,10 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
         //povinná funkce protokolu UITAbleViewDataSource. Využívá identifieru, který jsem nastavil ve vlastnostech buňky
         
         let cell = articlesTableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
+        let barva = UIColor.blue
         
-        cell.nadpisLabel.attributedText = self.articlesArray?[indexPath.item].nadpis?.html2Attributed
-        cell.popisekLabel.attributedText = self.articlesArray?[indexPath.item].popisek?.html2Attributed
+        cell.nadpisLabel.attributedText = self.articlesArray?[indexPath.item].nadpis?.htmlAttributed(family: "Avenir", size: 16, color: barva)
+        cell.popisekLabel.attributedText = self.articlesArray?[indexPath.item].popisek?.htmlAttributed(family: "Avenir", size: 12, color: barva)
         
         
         return cell
@@ -134,14 +141,45 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
 
 }
 
-extension String {
-    //Díky tomuto zobrazím text s html tagama tak, jak mi chodí z API v JSONu
+
+extension UIImageView{
+    //umi si stahnout obrazek
+    func downloadObrazek(mediaId: String) -> (String, String){
+        
+        let mediaUrl = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/media/" + mediaId
+        Alamofire.request(mediaUrl).responseJSON{response in
+            
+            if let odpoved = response.result.value as? NSDictionary{
+                
+                let json = JSON(odpoved)
+                
+                let malyObrazekUrl = json["mediadetails"]["sizes"]["thumbnail"]["source_url"].string
+                let velkyObrazekUrl = json["mediadetails"]["sizes"]["full"]["source_url"].string
+            }
+            
+        }
+    return(malyObrazekUrl, velkyObrazekUrl)
+    }
     
-    var html2Attributed: NSAttributedString? {
+    
+}
+
+
+extension String {
+    func htmlAttributed(family: String?, size: CGFloat, color: UIColor) -> NSAttributedString? {
         do {
-            guard let data = data(using: String.Encoding.utf8) else {
+            let htmlCSSString = "<style>" +
+                "html *" +
+                "{" +
+                "font-size: \(size)pt !important;" +
+                "color: #\(color.hexString!) !important;" +
+                "font-family: \(family ?? "Helvetica"), Helvetica !important;" +
+            "}</style> \(self)"
+            
+            guard let data = htmlCSSString.data(using: String.Encoding.utf8) else {
                 return nil
             }
+            
             return try NSAttributedString(data: data,
                                           options: [.documentType: NSAttributedString.DocumentType.html,
                                                     .characterEncoding: String.Encoding.utf8.rawValue],
@@ -153,6 +191,23 @@ extension String {
     }
 }
 
+extension UIColor {
+    var hexString:String? {
+        if let components = self.cgColor.components {
+            print(components)
+            let r = components[0]
+            let g = components[1]
+            var b: CGFloat
+            if components.count > 2{
+                b = components[2]
+            }else{
+                b = 0
+            }
+            return  String(format: "%02X%02X%02X", (Int)(r * 255), (Int)(g * 255), (Int)(b * 255))
+        }
+        return nil
+    }
+}
 
 /*
 extension UIImageView{

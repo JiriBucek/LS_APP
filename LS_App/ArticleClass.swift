@@ -13,5 +13,7 @@ class ArticleClass: NSObject {
     var nadpis: String?
     var popisek: String?
     var obsahClanku: String?
-
+    var mediaId: String?
+    var urlMalehoObrazku: String?
+    var urlVelkehoObrazku: String?
 }
