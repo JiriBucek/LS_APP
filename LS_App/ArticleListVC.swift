@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     //VC, který zobrazuje seznam článků
@@ -34,8 +35,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     
     func loadArticles(APIurl: String){
         //pripoji se k API, vyzobe si z JSONa, co potrebuje a vytvori objekty pro Articl esarray
-        Alamofire.request(APIadresa).responseJSON{response in
-            
+            Alamofire.request(APIadresa).responseJSON{response in
             
             if let value = response.result.value as? [Dictionary<String, Any>]{
             
@@ -43,6 +43,25 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
                 //Doplnit podminky proti crashi
                 let article = ArticleClass()
                 
+                let json = JSON(item)
+                
+                if let nadpis = json["title"]["rendered"].string{
+                    
+                    //let nadpis2 = NSAttributedString(string: nadpis)
+                    article.nadpis = nadpis
+                }
+                
+                
+                if let popisek = json["excerpt"]["rendered"].string{
+                    //let popisek2 = NSAttributedString(string: popisek)
+                    article.popisek = popisek
+                }
+                
+                if let obsahClanku = json["content"]["rendered"].string{
+                    article.obsahClanku = obsahClanku
+                }
+                
+                /*
                 if let nadpis = item["title"] as? NSDictionary{
                     let nadpis2 = nadpis["rendered"]
                     article.nadpis = nadpis2 as? String
@@ -58,14 +77,15 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
                 if let content = item["content"] as? NSDictionary{
                     let content2 = content["rendered"]
                     article.obsahClanku = content2 as? String
-                }
+                }*/
+                
                 self.articlesArray?.append(article)
                 }
                 
-                DispatchQueue.main.async {
+               // DispatchQueue.main.async {
                     self.articlesTableView.reloadData()
                     //reloaduje pokazde data pro tableview
-                }
+                //}
                 
             }
             
@@ -83,8 +103,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
         
         let cell = articlesTableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
         
-        cell.nadpisLabel.text = self.articlesArray?[indexPath.item].nadpis
-        cell.popisekLabel.text = self.articlesArray?[indexPath.item].popisek
+        cell.nadpisLabel.attributedText = self.articlesArray?[indexPath.item].nadpis?.html2Attributed
+        cell.popisekLabel.attributedText = self.articlesArray?[indexPath.item].popisek?.html2Attributed
         
         
         return cell
@@ -114,6 +134,27 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
 
 }
 
+extension String {
+    //Díky tomuto zobrazím text s html tagama tak, jak mi chodí z API v JSONu
+    
+    var html2Attributed: NSAttributedString? {
+        do {
+            guard let data = data(using: String.Encoding.utf8) else {
+                return nil
+            }
+            return try NSAttributedString(data: data,
+                                          options: [.documentType: NSAttributedString.DocumentType.html,
+                                                    .characterEncoding: String.Encoding.utf8.rawValue],
+                                          documentAttributes: nil)
+        } catch {
+            print("error: ", error)
+            return nil
+        }
+    }
+}
+
+
+/*
 extension UIImageView{
     //Přidává funkci stáhnutí si obrázku k článku
     
@@ -124,10 +165,6 @@ extension UIImageView{
         Alamofire.request(URL).responseJSON{response in
             
             if let value = response.result.value as? [Dictionary<String, Any>]{
-                
-                if let obrazek = item["media_details"] as? NSDictionary{
-                    let obrazek2 = nadpis["rendered"] as? NSDictionary{
-                        let obrazek3 =
             
                     }
                     article.nadpis = nadpis2 as? String
@@ -142,4 +179,4 @@ extension UIImageView{
     }
     
     
-}
+}*/
