@@ -14,6 +14,4 @@ class ArticleClass: NSObject {
     var popisek: String?
     var obsahClanku: String?
     var mediaId: String?
-    var urlMalehoObrazku: String?
-    var urlVelkehoObrazku: String?
 }

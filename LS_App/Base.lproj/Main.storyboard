@@ -61,34 +61,44 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="188.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHP-aU-ZeR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="60" id="Kxp-Vh-pNq"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V11-po-AOG">
+                                                    <rect key="frame" x="138" y="147" width="237" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V11-po-AOG">
-                                                    <rect key="frame" x="0.0" y="68" width="375" height="120.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ku2-tl-Juv">
+                                                    <rect key="frame" x="0.0" y="23" width="130" height="130"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="932-85-RV8"/>
+                                                        <constraint firstAttribute="height" constant="130" id="yUf-Vy-Sk4"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHP-aU-ZeR">
+                                                    <rect key="frame" x="138" y="23" width="237" height="116"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="V11-po-AOG" firstAttribute="leading" secondItem="8EN-Qe-d6K" secondAttribute="leading" id="3hh-Ob-mju"/>
-                                                <constraint firstAttribute="bottom" secondItem="V11-po-AOG" secondAttribute="bottom" id="4Dr-V6-Znj"/>
-                                                <constraint firstItem="XHP-aU-ZeR" firstAttribute="leading" secondItem="8EN-Qe-d6K" secondAttribute="leading" id="GP8-O1-F3R"/>
-                                                <constraint firstAttribute="trailing" secondItem="XHP-aU-ZeR" secondAttribute="trailing" id="Lfw-Hc-LTH"/>
-                                                <constraint firstAttribute="trailing" secondItem="V11-po-AOG" secondAttribute="trailing" id="gNo-ff-7YK"/>
-                                                <constraint firstItem="V11-po-AOG" firstAttribute="top" secondItem="XHP-aU-ZeR" secondAttribute="bottom" constant="8" id="hhO-kK-XSx"/>
-                                                <constraint firstItem="XHP-aU-ZeR" firstAttribute="top" secondItem="8EN-Qe-d6K" secondAttribute="top" id="xnE-Kg-QjF"/>
+                                                <constraint firstItem="V11-po-AOG" firstAttribute="leading" secondItem="ku2-tl-Juv" secondAttribute="trailing" constant="8" id="8lf-F0-i8X"/>
+                                                <constraint firstItem="V11-po-AOG" firstAttribute="top" secondItem="XHP-aU-ZeR" secondAttribute="bottom" constant="8" id="EsR-5Y-re9"/>
+                                                <constraint firstItem="V11-po-AOG" firstAttribute="top" secondItem="XHP-aU-ZeR" secondAttribute="bottom" constant="8" id="Q1S-bG-ONI"/>
+                                                <constraint firstItem="ku2-tl-Juv" firstAttribute="leading" secondItem="8EN-Qe-d6K" secondAttribute="leading" id="QgM-x2-Cxi"/>
+                                                <constraint firstItem="ku2-tl-Juv" firstAttribute="top" secondItem="8EN-Qe-d6K" secondAttribute="top" constant="23" id="Qhs-Qu-lKH"/>
+                                                <constraint firstAttribute="bottom" secondItem="V11-po-AOG" secondAttribute="bottom" constant="8" id="U5D-Ph-LOM"/>
+                                                <constraint firstAttribute="trailing" secondItem="V11-po-AOG" secondAttribute="trailing" id="WGE-cQ-d4H"/>
+                                                <constraint firstAttribute="trailing" secondItem="XHP-aU-ZeR" secondAttribute="trailing" id="b5K-4f-3vL"/>
+                                                <constraint firstItem="XHP-aU-ZeR" firstAttribute="leading" secondItem="ku2-tl-Juv" secondAttribute="trailing" constant="8" id="dXD-Ia-cQh"/>
+                                                <constraint firstItem="XHP-aU-ZeR" firstAttribute="top" secondItem="8EN-Qe-d6K" secondAttribute="top" constant="23" id="lC6-w3-cCA"/>
+                                                <constraint firstAttribute="bottom" secondItem="ku2-tl-Juv" secondAttribute="bottom" constant="35.5" id="oDG-iv-0pK"/>
+                                                <constraint firstItem="V11-po-AOG" firstAttribute="leading" secondItem="ku2-tl-Juv" secondAttribute="trailing" constant="8" id="swa-vj-RVE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nadpisLabel" destination="XHP-aU-ZeR" id="9my-q7-LWO"/>
+                                            <outlet property="obrazekView" destination="ku2-tl-Juv" id="D33-eO-N48"/>
                                             <outlet property="popisekLabel" destination="V11-po-AOG" id="qR9-Uq-n6E"/>
                                         </connections>
                                     </tableViewCell>

@@ -14,6 +14,7 @@ class ArticleCell: UITableViewCell {
     
     @IBOutlet weak var popisekLabel: UILabel!
     
+    @IBOutlet weak var obrazekView: UIImageView!
     
     
     override func awakeFromNib() {

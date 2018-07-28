@@ -41,20 +41,17 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
             if let value = response.result.value as? [Dictionary<String, Any>]{
             
             for item in value{
-                //Doplnit podminky proti crashi
                 let article = ArticleClass()
                 
                 let json = JSON(item)
                 
+                
                 if let nadpis = json["title"]["rendered"].string{
                     
-                    //let nadpis2 = NSAttributedString(string: nadpis)
                     article.nadpis = nadpis
                 }
                 
-                
                 if let popisek = json["excerpt"]["rendered"].string{
-                    //let popisek2 = NSAttributedString(string: popisek)
                     article.popisek = popisek
                 }
                 
@@ -62,40 +59,17 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
                     article.obsahClanku = obsahClanku
                 }
                 
-                if let mediaId = json["featured_media"].string{
-                    article.mediaId = mediaId
+                if let mediaId = json["featured_media"].int{
+                    article.mediaId = String(mediaId)
                 }
                 
-                
-                /*
-                if let nadpis = item["title"] as? NSDictionary{
-                    let nadpis2 = nadpis["rendered"]
-                    article.nadpis = nadpis2 as? String
-                }else{
-                    print("Nerozparsuju JSON")
-                }
-                
-                if let popis = item["excerpt"] as? NSDictionary{
-                    let popis2 = popis["rendered"]
-                    article.popisek = popis2 as? String
-                }
-                
-                if let content = item["content"] as? NSDictionary{
-                    let content2 = content["rendered"]
-                    article.obsahClanku = content2 as? String
-                }*/
                 
                 self.articlesArray?.append(article)
                 }
                 
-               // DispatchQueue.main.async {
-                    self.articlesTableView.reloadData()
-                    //reloaduje pokazde data pro tableview
-                //}
                 
             }
-            
-         
+            self.articlesTableView.reloadData()
         }
     }
     
@@ -113,6 +87,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
         cell.nadpisLabel.attributedText = self.articlesArray?[indexPath.item].nadpis?.htmlAttributed(family: "Avenir", size: 16, color: barva)
         cell.popisekLabel.attributedText = self.articlesArray?[indexPath.item].popisek?.htmlAttributed(family: "Avenir", size: 12, color: barva)
         
+       cell.obrazekView.downloadObrazek(mediaId: (self.articlesArray?[indexPath.item].mediaId)!, velikost: "maly")
         
         return cell
     }
@@ -143,25 +118,41 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
 
 
 extension UIImageView{
-    //umi si stahnout obrazek
-    func downloadObrazek(mediaId: String) -> (String, String){
+    //umoznuje stahnout obrazek a rovnou ho dohodit jako Image do tohoto view
+    
+    func downloadObrazek(mediaId: String, velikost: String){
+        //Velikost: maly nebo velky
         
         let mediaUrl = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/media/" + mediaId
+        var malyObrazekUrl: String?
+        var velkyObrazekUrl: String?
+        
         Alamofire.request(mediaUrl).responseJSON{response in
             
             if let odpoved = response.result.value as? NSDictionary{
                 
                 let json = JSON(odpoved)
+                malyObrazekUrl = json["media_details"]["sizes"]["thumbnail"]["source_url"].string
+                velkyObrazekUrl = json["media_details"]["sizes"]["full"]["source_url"].string
                 
-                let malyObrazekUrl = json["mediadetails"]["sizes"]["thumbnail"]["source_url"].string
-                let velkyObrazekUrl = json["mediadetails"]["sizes"]["full"]["source_url"].string
+                if velikost == "maly", malyObrazekUrl != nil{
+                    Alamofire.request(malyObrazekUrl!).responseData{data in
+                        if let obrazek = data.result.value{
+                            self.image = UIImage(data: obrazek)
+                        }
+                    }
+                }
+                
+                if velikost == "velky", velkyObrazekUrl != nil{
+                    Alamofire.request(velkyObrazekUrl!).responseData{data in
+                        if let obrazekVelky = data.result.value{
+                            self.image = UIImage(data: obrazekVelky)
+                        }
+                    }
+                }
             }
-            
         }
-    return(malyObrazekUrl, velkyObrazekUrl)
     }
-    
-    
 }
 
 
