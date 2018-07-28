@@ -82,10 +82,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
         //povinná funkce protokolu UITAbleViewDataSource. Využívá identifieru, který jsem nastavil ve vlastnostech buňky
         
         let cell = articlesTableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
-        let barva = UIColor.blue
         
-        cell.nadpisLabel.attributedText = self.articlesArray?[indexPath.item].nadpis?.htmlAttributed(family: "Avenir", size: 16, color: barva)
-        cell.popisekLabel.attributedText = self.articlesArray?[indexPath.item].popisek?.htmlAttributed(family: "Avenir", size: 12, color: barva)
+        cell.nadpisLabel.text = self.articlesArray?[indexPath.item].nadpis?.htmlAttributed()?.string
+        cell.popisekLabel.text = self.articlesArray?[indexPath.item].popisek?.htmlAttributed()?.string
         
        cell.obrazekView.downloadObrazek(mediaId: (self.articlesArray?[indexPath.item].mediaId)!, velikost: "maly")
         
@@ -157,14 +156,11 @@ extension UIImageView{
 
 
 extension String {
-    func htmlAttributed(family: String?, size: CGFloat, color: UIColor) -> NSAttributedString? {
+    func htmlAttributed() -> NSAttributedString? {
         do {
             let htmlCSSString = "<style>" +
                 "html *" +
                 "{" +
-                "font-size: \(size)pt !important;" +
-                "color: #\(color.hexString!) !important;" +
-                "font-family: \(family ?? "Helvetica"), Helvetica !important;" +
             "}</style> \(self)"
             
             guard let data = htmlCSSString.data(using: String.Encoding.utf8) else {
@@ -180,12 +176,13 @@ extension String {
             return nil
         }
     }
+    
 }
+
 
 extension UIColor {
     var hexString:String? {
         if let components = self.cgColor.components {
-            print(components)
             let r = components[0]
             let g = components[1]
             var b: CGFloat

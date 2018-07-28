@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="-108" y="52.623688155922046"/>
         </scene>
-        <!--Article ListVC-->
+        <!--Články-->
         <scene sceneID="Aff-Tg-2yL">
             <objects>
-                <viewController id="UM7-im-dRJ" customClass="ArticleListVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Články" id="UM7-im-dRJ" customClass="ArticleListVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H25-99-xYX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,39 +63,44 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="188.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V11-po-AOG">
-                                                    <rect key="frame" x="138" y="147" width="237" height="33.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ku2-tl-Juv">
-                                                    <rect key="frame" x="0.0" y="23" width="130" height="130"/>
+                                                    <rect key="frame" x="15" y="29.5" width="130" height="130"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="130" id="932-85-RV8"/>
-                                                        <constraint firstAttribute="height" constant="130" id="yUf-Vy-Sk4"/>
+                                                        <constraint firstAttribute="width" constant="130" id="QK4-yb-Iqs"/>
+                                                        <constraint firstAttribute="height" constant="130" id="r3Q-LY-64b"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHP-aU-ZeR">
-                                                    <rect key="frame" x="138" y="23" width="237" height="116"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHP-aU-ZeR">
+                                                    <rect key="frame" x="153" y="29" width="199" height="65"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="18" name="Avenir-Book"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V11-po-AOG">
+                                                    <rect key="frame" x="153" y="94.5" width="199" height="65"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="V11-po-AOG" firstAttribute="leading" secondItem="ku2-tl-Juv" secondAttribute="trailing" constant="8" id="8lf-F0-i8X"/>
-                                                <constraint firstItem="V11-po-AOG" firstAttribute="top" secondItem="XHP-aU-ZeR" secondAttribute="bottom" constant="8" id="EsR-5Y-re9"/>
-                                                <constraint firstItem="V11-po-AOG" firstAttribute="top" secondItem="XHP-aU-ZeR" secondAttribute="bottom" constant="8" id="Q1S-bG-ONI"/>
-                                                <constraint firstItem="ku2-tl-Juv" firstAttribute="leading" secondItem="8EN-Qe-d6K" secondAttribute="leading" id="QgM-x2-Cxi"/>
-                                                <constraint firstItem="ku2-tl-Juv" firstAttribute="top" secondItem="8EN-Qe-d6K" secondAttribute="top" constant="23" id="Qhs-Qu-lKH"/>
-                                                <constraint firstAttribute="bottom" secondItem="V11-po-AOG" secondAttribute="bottom" constant="8" id="U5D-Ph-LOM"/>
-                                                <constraint firstAttribute="trailing" secondItem="V11-po-AOG" secondAttribute="trailing" id="WGE-cQ-d4H"/>
-                                                <constraint firstAttribute="trailing" secondItem="XHP-aU-ZeR" secondAttribute="trailing" id="b5K-4f-3vL"/>
-                                                <constraint firstItem="XHP-aU-ZeR" firstAttribute="leading" secondItem="ku2-tl-Juv" secondAttribute="trailing" constant="8" id="dXD-Ia-cQh"/>
-                                                <constraint firstItem="XHP-aU-ZeR" firstAttribute="top" secondItem="8EN-Qe-d6K" secondAttribute="top" constant="23" id="lC6-w3-cCA"/>
-                                                <constraint firstAttribute="bottom" secondItem="ku2-tl-Juv" secondAttribute="bottom" constant="35.5" id="oDG-iv-0pK"/>
-                                                <constraint firstItem="V11-po-AOG" firstAttribute="leading" secondItem="ku2-tl-Juv" secondAttribute="trailing" constant="8" id="swa-vj-RVE"/>
+                                                <constraint firstItem="XHP-aU-ZeR" firstAttribute="top" secondItem="ku2-tl-Juv" secondAttribute="top" id="4Fk-yH-6uf"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="V11-po-AOG" secondAttribute="bottom" constant="8" id="FIS-gl-7sZ"/>
+                                                <constraint firstItem="XHP-aU-ZeR" firstAttribute="leading" secondItem="ku2-tl-Juv" secondAttribute="trailing" constant="8" id="K8G-ai-DIw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="V11-po-AOG" secondAttribute="trailing" constant="8" id="Kuw-rD-rr6"/>
+                                                <constraint firstItem="ku2-tl-Juv" firstAttribute="centerY" secondItem="8EN-Qe-d6K" secondAttribute="centerY" id="MUp-bY-szg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XHP-aU-ZeR" secondAttribute="trailing" constant="8" id="V6c-Hf-whp"/>
+                                                <constraint firstItem="XHP-aU-ZeR" firstAttribute="height" secondItem="ku2-tl-Juv" secondAttribute="height" multiplier="0.5" id="aju-iB-dUq"/>
+                                                <constraint firstItem="ku2-tl-Juv" firstAttribute="leading" secondItem="8EN-Qe-d6K" secondAttribute="leadingMargin" id="ilb-yR-fNx"/>
+                                                <constraint firstItem="V11-po-AOG" firstAttribute="leading" secondItem="ku2-tl-Juv" secondAttribute="trailing" constant="8" id="rcr-BS-3ny"/>
+                                                <constraint firstItem="V11-po-AOG" firstAttribute="height" secondItem="ku2-tl-Juv" secondAttribute="height" multiplier="0.5" id="z7f-Jp-7vJ"/>
+                                                <constraint firstItem="V11-po-AOG" firstAttribute="bottom" secondItem="ku2-tl-Juv" secondAttribute="bottom" id="zP7-fb-uk1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
