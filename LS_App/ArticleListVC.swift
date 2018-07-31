@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import Alamofire
 import SwiftyJSON
+import Kingfisher
 
 class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
     //VC, který zobrazuje seznam článků
@@ -62,6 +63,12 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
                 if let mediaId = json["featured_media"].int{
                     article.mediaId = String(mediaId)
                 }
+
+                self.getObrazekURL(mediaId: String(article.mediaId!)){odpoved in
+                    print("Odpoved: " + odpoved)
+                    article.mediaURL = odpoved
+                }
+                
                 
                 
                 self.articlesArray?.append(article)
@@ -83,10 +90,18 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
         
         let cell = articlesTableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
         
+        cell.tag = indexPath.row
+        
         cell.nadpisLabel.text = self.articlesArray?[indexPath.item].nadpis?.htmlAttributed()?.string
         cell.popisekLabel.text = self.articlesArray?[indexPath.item].popisek?.htmlAttributed()?.string
         
-       cell.obrazekView.downloadObrazek(mediaId: (self.articlesArray?[indexPath.item].mediaId)!, velikost: "maly")
+        if let mediaURL = self.articlesArray?[indexPath.item].mediaURL{
+            
+            let resource = ImageResource(downloadURL: URL(string: mediaURL)!, cacheKey: mediaURL)
+        
+            cell.obrazekView?.kf.setImage(with: resource)
+        }
+        //cell.obrazekView.downloadObrazek(mediaId: (self.articlesArray?[indexPath.item].mediaId)!, velikost: "maly")
         
         return cell
     }
@@ -100,7 +115,23 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
         return self.articlesArray?.count ?? 0
     }
 
-    
+    func getObrazekURL(mediaId: String, completion: @escaping ((String) -> ())){
+        
+        let mediaUrl = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/media/" + mediaId
+        var malyObrazekUrl: String?
+        //var velkyObrazekUrl: String?
+        
+        Alamofire.request(mediaUrl).responseJSON{response in
+            if let odpoved = response.result.value as? NSDictionary{
+                
+                let json = JSON(odpoved)
+                malyObrazekUrl = json["media_details"]["sizes"]["thumbnail"]["source_url"].string
+                print(malyObrazekUrl)
+                //velkyObrazekUrl = json["media_details"]["sizes"]["full"]["source_url"].string
+                completion(malyObrazekUrl!)
+            }
+        }
+    }
     
     
     /*
@@ -116,30 +147,21 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource {
 }
 
 
-extension UIImageView{
+/*extension UIImageView{
     //umoznuje stahnout obrazek a rovnou ho dohodit jako Image do tohoto view
     
     func downloadObrazek(mediaId: String, velikost: String){
         //Velikost: maly nebo velky
-        
-        let mediaUrl = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/media/" + mediaId
-        var malyObrazekUrl: String?
-        var velkyObrazekUrl: String?
-        
-        Alamofire.request(mediaUrl).responseJSON{response in
-            
-            if let odpoved = response.result.value as? NSDictionary{
-                
-                let json = JSON(odpoved)
-                malyObrazekUrl = json["media_details"]["sizes"]["thumbnail"]["source_url"].string
-                velkyObrazekUrl = json["media_details"]["sizes"]["full"]["source_url"].string
-                
+
                 if velikost == "maly", malyObrazekUrl != nil{
-                    Alamofire.request(malyObrazekUrl!).responseData{data in
+                    
+                    let resource = ImageResource(downloadURL: URL(string: malyObrazekUrl!)!, cacheKey: mediaId)
+                    self.kf.setImage(with: resource)
+                    /*Alamofire.request(malyObrazekUrl!).responseData{data in
                         if let obrazek = data.result.value{
                             self.image = UIImage(data: obrazek)
                         }
-                    }
+                    }*/
                 }
                 
                 if velikost == "velky", velkyObrazekUrl != nil{
@@ -149,10 +171,10 @@ extension UIImageView{
                         }
                     }
                 }
-            }
+        
         }
     }
-}
+}*/
 
 
 extension String {

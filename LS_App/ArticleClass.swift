@@ -14,4 +14,5 @@ class ArticleClass: NSObject {
     var popisek: String?
     var obsahClanku: String?
     var mediaId: String?
+    var mediaURL: String?
 }
