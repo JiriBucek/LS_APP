@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="articles" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-1b-qXy">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="189" id="KEA-6b-rOq" customClass="ArticleCell" customModule="LS_App" customModuleProvider="target">
@@ -127,6 +127,56 @@
             </objects>
             <point key="canvasLocation" x="700" y="31.934032983508249"/>
         </scene>
+        <!--ArticleVC-->
+        <scene sceneID="k17-NN-EiY">
+            <objects>
+                <viewController storyboardIdentifier="web" id="MaQ-gF-i8v" customClass="ArticleVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Klb-1V-Hbj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RP-Yd-vTX">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="k7J-Hd-2Cp">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Zpět" id="44o-5E-e0g">
+                                            <connections>
+                                                <segue destination="UM7-im-dRJ" kind="show" id="sTG-yB-vGE"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12k-UO-JX0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7RP-Yd-vTX" firstAttribute="top" secondItem="pml-mc-SL7" secondAttribute="top" id="JwF-hc-Dg2"/>
+                            <constraint firstItem="7RP-Yd-vTX" firstAttribute="leading" secondItem="pml-mc-SL7" secondAttribute="leading" id="Lj9-qX-Jct"/>
+                            <constraint firstItem="12k-UO-JX0" firstAttribute="top" secondItem="7RP-Yd-vTX" secondAttribute="bottom" id="RkG-TN-1d8"/>
+                            <constraint firstItem="12k-UO-JX0" firstAttribute="top" secondItem="7RP-Yd-vTX" secondAttribute="bottom" id="YtF-v5-heC"/>
+                            <constraint firstItem="12k-UO-JX0" firstAttribute="bottom" secondItem="pml-mc-SL7" secondAttribute="bottom" id="c4q-w6-gVS"/>
+                            <constraint firstItem="12k-UO-JX0" firstAttribute="leading" secondItem="pml-mc-SL7" secondAttribute="leading" id="iIF-aQ-Hb2"/>
+                            <constraint firstItem="7RP-Yd-vTX" firstAttribute="trailing" secondItem="pml-mc-SL7" secondAttribute="trailing" id="qI8-B6-8fs"/>
+                            <constraint firstItem="12k-UO-JX0" firstAttribute="trailing" secondItem="pml-mc-SL7" secondAttribute="trailing" id="zKC-tO-ud3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pml-mc-SL7"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="12k-UO-JX0" id="Llb-yv-udM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Brx-3g-hKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1405.5999999999999" y="31.934032983508249"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="a5K-bn-ADr">
             <objects>
@@ -145,6 +195,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="npX-ja-BbG"/>
+        <segue reference="sTG-yB-vGE"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,6 +17,7 @@
 		89C105CA210792D0006EBD5F /* ArticleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C105C9210792D0006EBD5F /* ArticleListVC.swift */; };
 		89C105CC210793BF006EBD5F /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C105CB210793BF006EBD5F /* ArticleCell.swift */; };
 		89C105CE210795E3006EBD5F /* ArticleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C105CD210795E3006EBD5F /* ArticleClass.swift */; };
+		89ED1BE52114C766001CC7F6 /* ArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED1BE42114C766001CC7F6 /* ArticleVC.swift */; };
 		B3B72B38AB01A7F20DFEF0B0 /* Pods_LS_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5C6FB3141DBBD8FAB7FD1E /* Pods_LS_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		89C105C9210792D0006EBD5F /* ArticleListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListVC.swift; sourceTree = "<group>"; };
 		89C105CB210793BF006EBD5F /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		89C105CD210795E3006EBD5F /* ArticleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleClass.swift; sourceTree = "<group>"; };
+		89ED1BE42114C766001CC7F6 /* ArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleVC.swift; sourceTree = "<group>"; };
 		A8D97B2D0C8B9F14B3B2F633 /* Pods-LS_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LS_App.release.xcconfig"; path = "Pods/Target Support Files/Pods-LS_App/Pods-LS_App.release.xcconfig"; sourceTree = "<group>"; };
 		E8919F40F65A7A3C65C35171 /* Pods-LS_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LS_App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LS_App/Pods-LS_App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 				89C105A221078BB2006EBD5F /* Assets.xcassets */,
 				89C105A421078BB2006EBD5F /* LaunchScreen.storyboard */,
 				89C105A721078BB2006EBD5F /* Info.plist */,
+				89ED1BE42114C766001CC7F6 /* ArticleVC.swift */,
 			);
 			path = LS_App;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C105CC210793BF006EBD5F /* ArticleCell.swift in Sources */,
+				89ED1BE52114C766001CC7F6 /* ArticleVC.swift in Sources */,
 				89C105CA210792D0006EBD5F /* ArticleListVC.swift in Sources */,
 				89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */,
 				89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */,
