@@ -71,9 +71,15 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
 
                 self.getObrazekURL(mediaId: String(article.mediaId!), velikostImage: .maly){odpoved in
                     //nacita URL adresu thumbnail obrazku
+                    //jede asynchronne a data v table view se reloadnou teprve, az je nacteno vse
                     article.mediaURL = odpoved
-                }
+                    article.downloadedImageResource = ImageResource(downloadURL: URL(string: odpoved)!, cacheKey: odpoved)
+                    if article == self.articlesArray?.last{
+                        print("ted")
+                        self.articlesTableView.reloadData()
+                    }
                 
+                }
                 
                 
                 self.articlesArray?.append(article)
@@ -81,7 +87,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 
             }
-            self.articlesTableView.reloadData()
+            //self.articlesTableView.reloadData()
         }
     }
     
@@ -95,22 +101,18 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         let cell = articlesTableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
         
-        
         cell.nadpisLabel.text = self.articlesArray?[indexPath.item].nadpis?.htmlAttributed()?.string
         cell.popisekLabel.text = self.articlesArray?[indexPath.item].popisek?.htmlAttributed()?.string
         
+        let resource = self.articlesArray?[indexPath.item].downloadedImageResource
         
-        if let mediaURL = self.articlesArray?[indexPath.item].mediaURL{
-        //tady se nacte obrazek do cellu
-            let resource = ImageResource(downloadURL: URL(string: mediaURL)!, cacheKey: mediaURL)
-            cell.obrazekView.kf.indicatorType = .activity
-            cell.obrazekView?.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "LS_logo_male") , options: [.transition(.fade(0.2))], completionHandler: nil)
-        //}else{
-          //  cell.obrazekView.image = #imageLiteral(resourceName: "LS_logo_male")
+        cell.obrazekView.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "LS_logo_male")){ (image, error, cacheType, imageUrl) in
+            cell.setNeedsLayout()
         }
         
         return cell
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         //sekce rozdělují celly do skupin. Potřebuju jen jednu.
