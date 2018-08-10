@@ -20,11 +20,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts"
     
     var articlesArray: [ArticleClass]? = []
-    
-    enum velikostObrazku{
-        case maly
-        case velky
-    }
+
     
     
     override func viewDidLoad() {
@@ -53,33 +49,39 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 
                 if let nadpis = json["title"]["rendered"].string{
-                    
                     article.nadpis = nadpis
+                }
+                
+                if let obsah = json["content"]["rendered"].string{
+                    article.obsah = obsah
                 }
                 
                 if let popisek = json["excerpt"]["rendered"].string{
                     article.popisek = popisek
                 }
                 
-                if let linkClanku = json["link"].string{
+               if let linkClanku = json["link"].string{
                     article.linkClanku = linkClanku
                 }
                 
                 if let mediaId = json["featured_media"].int{
                     article.mediaId = String(mediaId)
                 }
+                
 
-                self.getObrazekURL(mediaId: String(article.mediaId!), velikostImage: .maly){odpoved in
-                    //nacita URL adresu thumbnail obrazku
+                self.getObrazekURL(mediaId: String(article.mediaId!)){malyObrazekUrl, velkyObrazekUrl in
+                    //nacita URL adresu thumbnail obrazku a velkeho obrazku
                     //jede asynchronne a data v table view se reloadnou teprve, az je nacteno vse
-                    article.mediaURL = odpoved
-                    article.downloadedImageResource = ImageResource(downloadURL: URL(string: odpoved)!, cacheKey: odpoved)
+                    article.downloadedImageResource = ImageResource(downloadURL: URL(string: malyObrazekUrl)!, cacheKey: malyObrazekUrl)
+                    
+                    article.velkyObrazekURL = velkyObrazekUrl
+                    
                     if article == self.articlesArray?.last{
                         print("ted")
                         self.articlesTableView.reloadData()
                     }
-                
                 }
+                
                 
                 
                 self.articlesArray?.append(article)
@@ -134,7 +136,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     
 
-    func getObrazekURL(mediaId: String, velikostImage: velikostObrazku, completion: @escaping ((String) -> ())){
+    func getObrazekURL(mediaId: String, completion: @escaping ((String, String) -> ())){
         //propoji se k dalši APIně, stáhne si JSONa a vyzobe z něj URL na obrázky. Nakonec toto URL předá closure completion jako její parametr. Protože stahování URL probíhá asynchronně, nelze normálně returnovat, ale na konci prostě řeknu: proveď tento kód s tímto parametrem. Při voláni funkce pak vytvořím samotnou closure. 
         
         let mediaUrl = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/media/" + mediaId
@@ -150,12 +152,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 
                 if malyObrazekUrl != nil, velkyObrazekUrl != nil{
-                    switch velikostImage{
-                        case .maly:
-                            completion(malyObrazekUrl!)
-                        case .velky:
-                            completion(velkyObrazekUrl!)
-                }
+                    completion(malyObrazekUrl!, velkyObrazekUrl!)
                 }
             }
         }
