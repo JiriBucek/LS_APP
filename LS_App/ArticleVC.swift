@@ -11,19 +11,30 @@ import WebKit
 
 class ArticleVC: UIViewController {
     
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var velkyObrazek: UIImageView!
     
+    @IBOutlet weak var obsahLabel: UILabel!
     var url: String?
 
+    var velkyObrazekUrl: String? = nil
+    var obsahClanku: String? = nil
+    
     override func viewDidLoad() {
         
-        webView.load(URLRequest(url: URL(string: url!)!))
+       // obsahLabel.text = obsahClanku
+        //velkyObrazek.kf.setImage(with: URL(string: velkyObrazekUrl!))
         
         super.viewDidLoad()
-
+        
+    
         // Do any additional setup after loading the view.
     }
 
-   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Hide the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
 }

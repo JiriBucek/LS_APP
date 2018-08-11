@@ -53,7 +53,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 }
                 
                 if let obsah = json["content"]["rendered"].string{
-                    article.obsah = obsah
+                    article.obsah = obsah.htmlAttributed()?.string
                 }
                 
                 if let popisek = json["excerpt"]["rendered"].string{
@@ -129,8 +129,10 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         print("funguje klik")
         let clanekVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "web") as! ArticleVC
-        clanekVC.url = self.articlesArray?[indexPath.item].linkClanku
-        self.present(clanekVC, animated: true, completion: nil)
+        clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah
+        clanekVC.velkyObrazekUrl = self.articlesArray?[indexPath.item].velkyObrazekURL
+       // self.present(clanekVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(clanekVC, animated: true)
     }
     
     
