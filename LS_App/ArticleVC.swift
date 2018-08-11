@@ -11,18 +11,33 @@ import WebKit
 
 class ArticleVC: UIViewController {
     
-    @IBOutlet weak var velkyObrazek: UIImageView!
+    @IBOutlet weak var velkyObrazekOutlet: UIImageView!
     
-    @IBOutlet weak var obsahLabel: UILabel!
+    @IBOutlet weak var nadpisOutlet: UILabel!
+    
+    @IBOutlet weak var textOutlet: UILabel!
+    
     var url: String?
 
     var velkyObrazekUrl: String? = nil
     var obsahClanku: String? = nil
+    var nadpisClanku: String? = nil
     
     override func viewDidLoad() {
         
-       // obsahLabel.text = obsahClanku
-        //velkyObrazek.kf.setImage(with: URL(string: velkyObrazekUrl!))
+        if obsahClanku != nil{
+       textOutlet.text = obsahClanku
+        }
+        
+        if velkyObrazekUrl != nil{
+            velkyObrazekOutlet.kf.setImage(with: URL(string: velkyObrazekUrl!))
+        }else{
+            velkyObrazekOutlet.image = #imageLiteral(resourceName: "LS_logo_male")
+        }
+        
+        if nadpisClanku != nil{
+       nadpisOutlet.text = nadpisClanku
+        }
         
         super.viewDidLoad()
         

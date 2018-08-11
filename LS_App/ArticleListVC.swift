@@ -49,7 +49,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 
                 if let nadpis = json["title"]["rendered"].string{
-                    article.nadpis = nadpis
+                    article.nadpis = nadpis.htmlAttributed()?.string
                 }
                 
                 if let obsah = json["content"]["rendered"].string{
@@ -57,7 +57,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 }
                 
                 if let popisek = json["excerpt"]["rendered"].string{
-                    article.popisek = popisek
+                    article.popisek = popisek.htmlAttributed()?.string
                 }
                 
                if let linkClanku = json["link"].string{
@@ -103,8 +103,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         let cell = articlesTableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
         
-        cell.nadpisLabel.text = self.articlesArray?[indexPath.item].nadpis?.htmlAttributed()?.string
-        cell.popisekLabel.text = self.articlesArray?[indexPath.item].popisek?.htmlAttributed()?.string
+        cell.nadpisLabel.text = self.articlesArray?[indexPath.item].nadpis
+        cell.popisekLabel.text = self.articlesArray?[indexPath.item].popisek
         
         let resource = self.articlesArray?[indexPath.item].downloadedImageResource
         
@@ -131,6 +131,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         let clanekVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "web") as! ArticleVC
         clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah
         clanekVC.velkyObrazekUrl = self.articlesArray?[indexPath.item].velkyObrazekURL
+        clanekVC.nadpisClanku = self.articlesArray?[indexPath.item].nadpis
+        
        // self.present(clanekVC, animated: true, completion: nil)
         self.navigationController?.pushViewController(clanekVC, animated: true)
     }

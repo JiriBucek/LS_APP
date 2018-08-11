@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -135,13 +136,84 @@
                     <view key="view" contentMode="scaleToFill" id="jfj-OQ-5zq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNM-f3-qk9">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nM2-Hg-GfG">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B6H-ay-Xn0">
+                                                <rect key="frame" x="5" y="5" width="365" height="208.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="B6H-ay-Xn0" secondAttribute="height" multiplier="375:214" id="OtH-gs-Jo0"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="dYG-pp-YGY"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="gJU-Zd-ZBF">
+                                                <rect key="frame" x="5" y="218.5" width="365" height="102.5"/>
+                                                <rect key="contentStretch" x="0.90000000000000002" y="0.0" width="1" height="1"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="nTd-Pb-9KY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="1" height="-1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mqd-7V-TFk">
+                                                <rect key="frame" x="5" y="326" width="365" height="82"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="neD-9o-E2V"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="B6H-ay-Xn0" secondAttribute="trailing" constant="5" id="9nh-ac-8GO"/>
+                                            <constraint firstItem="mqd-7V-TFk" firstAttribute="top" secondItem="gJU-Zd-ZBF" secondAttribute="bottom" constant="5" id="Gg7-Dd-G6p"/>
+                                            <constraint firstItem="mqd-7V-TFk" firstAttribute="leading" secondItem="nM2-Hg-GfG" secondAttribute="leading" constant="5" id="W6D-m6-OVy"/>
+                                            <constraint firstItem="B6H-ay-Xn0" firstAttribute="leading" secondItem="nM2-Hg-GfG" secondAttribute="leading" constant="5" id="fcR-07-S71"/>
+                                            <constraint firstItem="B6H-ay-Xn0" firstAttribute="top" secondItem="nM2-Hg-GfG" secondAttribute="top" constant="5" id="hJg-rz-UlY"/>
+                                            <constraint firstAttribute="trailing" secondItem="mqd-7V-TFk" secondAttribute="trailing" constant="5" id="iEI-GT-YKG"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mqd-7V-TFk" secondAttribute="bottom" constant="5" id="rsv-Mh-tBG"/>
+                                            <constraint firstItem="gJU-Zd-ZBF" firstAttribute="leading" secondItem="nM2-Hg-GfG" secondAttribute="leading" constant="5" id="sNg-cL-W26"/>
+                                            <constraint firstItem="gJU-Zd-ZBF" firstAttribute="top" secondItem="B6H-ay-Xn0" secondAttribute="bottom" constant="5" id="vp3-Me-r4l"/>
+                                            <constraint firstAttribute="trailing" secondItem="gJU-Zd-ZBF" secondAttribute="trailing" constant="5" id="xni-Qv-Jwb"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nM2-Hg-GfG" secondAttribute="trailing" id="5hl-SZ-13x"/>
+                                    <constraint firstItem="nM2-Hg-GfG" firstAttribute="height" secondItem="jNM-f3-qk9" secondAttribute="height" placeholder="YES" id="JC2-x7-UOp"/>
+                                    <constraint firstItem="nM2-Hg-GfG" firstAttribute="leading" secondItem="jNM-f3-qk9" secondAttribute="leading" id="MYA-jr-Wga"/>
+                                    <constraint firstItem="nM2-Hg-GfG" firstAttribute="top" secondItem="jNM-f3-qk9" secondAttribute="top" id="N7E-h9-E2I"/>
+                                    <constraint firstAttribute="bottom" secondItem="nM2-Hg-GfG" secondAttribute="bottom" id="g5T-DC-aMk"/>
+                                    <constraint firstItem="nM2-Hg-GfG" firstAttribute="width" secondItem="jNM-f3-qk9" secondAttribute="width" id="swd-DX-tM8"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jNM-f3-qk9" firstAttribute="bottom" secondItem="fKT-zY-CjP" secondAttribute="bottom" id="A7i-65-A2p"/>
+                            <constraint firstItem="jNM-f3-qk9" firstAttribute="top" secondItem="fKT-zY-CjP" secondAttribute="top" id="Z35-Il-0ZM"/>
+                            <constraint firstItem="jNM-f3-qk9" firstAttribute="trailing" secondItem="fKT-zY-CjP" secondAttribute="trailing" id="hjZ-hV-Zz9"/>
+                            <constraint firstItem="jNM-f3-qk9" firstAttribute="leading" secondItem="fKT-zY-CjP" secondAttribute="leading" id="pTa-lc-4NQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fKT-zY-CjP"/>
                     </view>
+                    <connections>
+                        <outlet property="nadpisOutlet" destination="gJU-Zd-ZBF" id="Cr0-Wx-AMX"/>
+                        <outlet property="textOutlet" destination="mqd-7V-TFk" id="EeK-Ip-rCz"/>
+                        <outlet property="velkyObrazekOutlet" destination="B6H-ay-Xn0" id="P3I-MF-Gkc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3B-l4-5Bd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1470" y="32"/>
+            <point key="canvasLocation" x="1469.5999999999999" y="31.934032983508249"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a5K-bn-ADr">
