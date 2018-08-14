@@ -15,7 +15,7 @@ class ArticleVC: UIViewController {
     
     @IBOutlet weak var nadpisOutlet: UILabel!
     
-    @IBOutlet weak var textOutlet: UILabel!
+    @IBOutlet weak var textOutlet: UITextView!
     
     var url: String?
 
@@ -25,8 +25,8 @@ class ArticleVC: UIViewController {
     
     override func viewDidLoad() {
         
-        if obsahClanku != nil{
-       textOutlet.text = obsahClanku
+       if obsahClanku != nil{
+            textOutlet.text = obsahClanku
         }
         
         if velkyObrazekUrl != nil{

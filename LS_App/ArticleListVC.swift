@@ -11,6 +11,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import Kingfisher
+import NVActivityIndicatorView
 
 class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
     //VC, který zobrazuje seznam článků
@@ -21,10 +22,16 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     var articlesArray: [ArticleClass]? = []
 
+
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingLabel: UILabel!
+    var activityIndicatorView: NVActivityIndicatorView? = nil
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //vytvoření loading indikátoru
         
         loadArticles(APIurl: APIadresa)
         
@@ -38,6 +45,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     func loadArticles(APIurl: String){
         //pripoji se k API, vyzobe si z JSONa, co potrebuje a vytvori objekty pro Articl esarray
+            displayInfo(infoText: "Načítám články...")
             Alamofire.request(APIadresa).responseJSON{response in
             
             if let value = response.result.value as? [Dictionary<String, Any>]{
@@ -79,6 +87,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                     if article == self.articlesArray?.last{
                         print("ted")
                         self.articlesTableView.reloadData()
+                        self.hideInfo()
                     }
                 }
                 
@@ -160,6 +169,29 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 }
             }
         }
+    }
+    
+    func displayInfo(infoText: String){
+        //Zobrazí loading animaci a label
+        loadingView.backgroundColor = UIColor(white: 0.6, alpha: 0.2)
+
+        let bodX = UIScreen.main.bounds.width
+        let bodY = UIScreen.main.bounds.height
+        let frame = CGRect(x: bodX/2 - 40  , y: bodY/2 - 40 , width: 80  , height: 80)
+        activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .ballTrianglePath, color: .black)
+        self.view.addSubview(activityIndicatorView!)
+        
+        activityIndicatorView?.startAnimating()
+        loadingLabel.isHidden = false
+        loadingLabel.center.x = bodX/2
+        loadingLabel.center.y = bodY/2
+        loadingLabel.text = infoText
+    }
+    
+    func hideInfo(){
+        activityIndicatorView?.stopAnimating()
+        loadingView.isHidden = true
+        loadingLabel.isHidden = true
     }
     
     
