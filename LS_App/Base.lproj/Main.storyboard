@@ -110,15 +110,14 @@
                                     <outlet property="delegate" destination="UM7-im-dRJ" id="LuP-dW-3xx"/>
                                 </connections>
                             </tableView>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9CB-Ri-QgC">
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9CB-Ri-QgC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBx-BU-aOn">
                                 <rect key="frame" x="0.0" y="321" width="375" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -126,7 +125,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OhX-1b-qXy" firstAttribute="bottom" secondItem="nO6-rU-epd" secondAttribute="bottom" id="3df-9s-XF5"/>
+                            <constraint firstItem="9CB-Ri-QgC" firstAttribute="bottom" secondItem="nO6-rU-epd" secondAttribute="bottom" id="E2X-Gu-vqJ"/>
+                            <constraint firstItem="9CB-Ri-QgC" firstAttribute="leading" secondItem="nO6-rU-epd" secondAttribute="leading" id="Juw-yg-QYb"/>
                             <constraint firstItem="OhX-1b-qXy" firstAttribute="trailing" secondItem="nO6-rU-epd" secondAttribute="trailing" id="NE1-8A-iGX"/>
+                            <constraint firstItem="9CB-Ri-QgC" firstAttribute="trailing" secondItem="nO6-rU-epd" secondAttribute="trailing" id="Sig-Ub-yy1"/>
+                            <constraint firstItem="9CB-Ri-QgC" firstAttribute="top" secondItem="nO6-rU-epd" secondAttribute="top" id="UVB-MB-HQa"/>
                             <constraint firstItem="OhX-1b-qXy" firstAttribute="leading" secondItem="nO6-rU-epd" secondAttribute="leading" id="Y2w-wm-Nzq"/>
                             <constraint firstItem="OhX-1b-qXy" firstAttribute="top" secondItem="nO6-rU-epd" secondAttribute="top" id="dXu-Oy-KOo"/>
                         </constraints>

@@ -28,9 +28,7 @@ class ArticleVC: UIViewController {
         velkyObrazekOutlet.clipsToBounds = true
         //kulaté okraje obrázku
         
-       if obsahClanku != nil{
-        
-            let myAttribute = [NSAttributedStringKey.font: UIFont(name: "Avenir", size: 20.0)!]
+       if obsahClanku != nil{        
             textOutlet.attributedText = obsahClanku
         }
         

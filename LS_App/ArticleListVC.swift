@@ -179,18 +179,18 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     func displayInfo(infoText: String){
         //Zobrazí loading animaci a label
-        loadingView.backgroundColor = UIColor(white: 0.8, alpha: 0.5)
+        loadingView.backgroundColor = UIColor(white: 1, alpha: 1)
 
         let bodX = UIScreen.main.bounds.width
         let bodY = UIScreen.main.bounds.height
-        let frame = CGRect(x: bodX/2 - 40  , y: bodY/2 - 40 , width: 80  , height: 80)
+        let frame = CGRect(x: bodX/2 - 30  , y: bodY/2 - 30 , width: 60  , height: 60)
         activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .ballTrianglePath, color: .black)
         self.view.addSubview(activityIndicatorView!)
         
         activityIndicatorView?.startAnimating()
         loadingLabel.isHidden = false
         loadingLabel.center.x = bodX/2
-        loadingLabel.center.y = bodY/2 + 80
+        loadingLabel.center.y = bodY/2 + 60
         loadingLabel.text = infoText
     }
     
@@ -225,7 +225,6 @@ extension String {
             guard let data = htmlCSSString.data(using: String.Encoding.utf8) else {
                 return nil
             }
-            let myAttribute = [NSAttributedStringKey.font: UIFont(name: "Avenir", size: 20.0)!]
 
             return try NSAttributedString(data: data,
                                           options: [.documentType: NSAttributedString.DocumentType.html,
