@@ -45,7 +45,10 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     func loadArticles(APIurl: String){
         //pripoji se k API, vyzobe si z JSONa, co potrebuje a vytvori objekty pro Articl esarray
+        
             displayInfo(infoText: "Načítám články...")
+            //Loading bar
+        
             Alamofire.request(APIadresa).responseJSON{response in
             
             if let value = response.result.value as? [Dictionary<String, Any>]{
@@ -61,7 +64,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 }
                 
                 if let obsah = json["content"]["rendered"].string{
-                    article.obsah = obsah.htmlAttributed()?.string
+                    article.obsah = obsah.htmlAttributed()
                 }
                 
                 if let popisek = json["excerpt"]["rendered"].string{
@@ -115,8 +118,11 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         cell.nadpisLabel.text = self.articlesArray?[indexPath.item].nadpis
         cell.popisekLabel.text = self.articlesArray?[indexPath.item].popisek
         
-        let resource = self.articlesArray?[indexPath.item].downloadedImageResource
+        cell.obrazekView.layer.cornerRadius = 5
+        cell.obrazekView.clipsToBounds = true
+        //oblé rohy
         
+        let resource = self.articlesArray?[indexPath.item].downloadedImageResource
         cell.obrazekView.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "LS_logo_male")){ (image, error, cacheType, imageUrl) in
             cell.setNeedsLayout()
         }
@@ -173,7 +179,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     func displayInfo(infoText: String){
         //Zobrazí loading animaci a label
-        loadingView.backgroundColor = UIColor(white: 0.6, alpha: 0.2)
+        loadingView.backgroundColor = UIColor(white: 0.8, alpha: 0.5)
 
         let bodX = UIScreen.main.bounds.width
         let bodY = UIScreen.main.bounds.height
@@ -184,7 +190,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         activityIndicatorView?.startAnimating()
         loadingLabel.isHidden = false
         loadingLabel.center.x = bodX/2
-        loadingLabel.center.y = bodY/2
+        loadingLabel.center.y = bodY/2 + 80
         loadingLabel.text = infoText
     }
     
@@ -214,14 +220,13 @@ extension String {
     func htmlAttributed() -> NSAttributedString? {
         do {
             let htmlCSSString = "<style>" +
-                "html *" +
-                "{" +
-            "}</style> \(self)"
+                "html * {font-size: 15.0pt !important;color: #383838 !important;font-family: Avenir !important;}</style> \(self)"
             
             guard let data = htmlCSSString.data(using: String.Encoding.utf8) else {
                 return nil
             }
-            
+            let myAttribute = [NSAttributedStringKey.font: UIFont(name: "Avenir", size: 20.0)!]
+
             return try NSAttributedString(data: data,
                                           options: [.documentType: NSAttributedString.DocumentType.html,
                                                     .characterEncoding: String.Encoding.utf8.rawValue],

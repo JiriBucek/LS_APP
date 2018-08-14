@@ -13,7 +13,7 @@ class ArticleClass: NSObject {
     //classa, která obsahuje veškeré info každého článku zvlášť
     var nadpis: String?
     var popisek: String?
-    var obsah: String?
+    var obsah: NSAttributedString?
     var linkClanku: String?
     var mediaId: String?
     var mediaURL: String?

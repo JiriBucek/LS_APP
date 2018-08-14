@@ -20,13 +20,18 @@ class ArticleVC: UIViewController {
     var url: String?
 
     var velkyObrazekUrl: String? = nil
-    var obsahClanku: String? = nil
+    var obsahClanku: NSAttributedString? = nil
     var nadpisClanku: String? = nil
     
     override func viewDidLoad() {
+        velkyObrazekOutlet.layer.cornerRadius = 15
+        velkyObrazekOutlet.clipsToBounds = true
+        //kulaté okraje obrázku
         
        if obsahClanku != nil{
-            textOutlet.text = obsahClanku
+        
+            let myAttribute = [NSAttributedStringKey.font: UIFont(name: "Avenir", size: 20.0)!]
+            textOutlet.attributedText = obsahClanku
         }
         
         if velkyObrazekUrl != nil{
