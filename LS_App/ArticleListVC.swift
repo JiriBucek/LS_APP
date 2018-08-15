@@ -18,20 +18,28 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     @IBOutlet weak var articlesTableView: UITableView!
     
-    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts"
+    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=15&offset=0"
     
     var articlesArray: [ArticleClass]? = []
+    
+    var loadingMore = false
+    //Stahuju zrovna další články
 
 
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var loadingLabel: UILabel!
     var activityIndicatorView: NVActivityIndicatorView? = nil
+    //indikátor načítání prvtních článků
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //vytvoření loading indikátoru
+        displayInfo(infoText: "Načítám články...")
+        //Loading bar
+        
+        let loadingNib = UINib(nibName: "LoadingCell", bundle: nil)
+        articlesTableView.register(loadingNib, forCellReuseIdentifier: "loadingCell")
         
         loadArticles(APIurl: APIadresa)
         
@@ -46,10 +54,10 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     func loadArticles(APIurl: String){
         //pripoji se k API, vyzobe si z JSONa, co potrebuje a vytvori objekty pro Articl esarray
         
-            displayInfo(infoText: "Načítám články...")
-            //Loading bar
+            loadingMore = true
+        articlesTableView.reloadSections(IndexSet(integer: 1), with: .none)
         
-            Alamofire.request(APIadresa).responseJSON{response in
+            Alamofire.request(APIurl).responseJSON{response in
             
             if let value = response.result.value as? [Dictionary<String, Any>]{
             
@@ -61,6 +69,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 if let nadpis = json["title"]["rendered"].string{
                     article.nadpis = nadpis.htmlAttributed()?.string
+                    print(nadpis)
                 }
                 
                 if let obsah = json["content"]["rendered"].string{
@@ -91,6 +100,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                         print("ted")
                         self.articlesTableView.reloadData()
                         self.hideInfo()
+                        self.loadingMore = false
                     }
                 }
                 
@@ -112,6 +122,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //povinná funkce protokolu UITAbleViewDataSource. Využívá identifieru, který jsem nastavil ve vlastnostech buňky
+        if indexPath.section == 0{
         
         let cell = articlesTableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
         
@@ -128,16 +139,31 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         }
         
         return cell
+        }else{
+            let cell = articlesTableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingCell
+            cell.spinner.startAnimating()
+            return cell
+        }
+        
+        
     }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
         //sekce rozdělují celly do skupin. Potřebuju jen jednu.
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0{
         return self.articlesArray?.count ?? 0
+            
+        }else if section == 1 && loadingMore{
+            //tohle je sekce pro loading spinner
+            return 1
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -152,6 +178,17 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         self.navigationController?.pushViewController(clanekVC, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == articlesArray!.count - 1 {
+            // we are at last cell load more content
+                // we need to bring more records as there are some pending records available
+        print("JSEM TU")
+        if let offset = articlesArray?.count{
+        loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=5&offset=\(offset)")
+        //self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
+        }
+        }
+    }
     
     
 
@@ -184,7 +221,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         let bodX = UIScreen.main.bounds.width
         let bodY = UIScreen.main.bounds.height
         let frame = CGRect(x: bodX/2 - 30  , y: bodY/2 - 30 , width: 60  , height: 60)
-        activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .ballTrianglePath, color: .black)
+        activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .lineScale, color: .black)
         self.view.addSubview(activityIndicatorView!)
         
         activityIndicatorView?.startAnimating()

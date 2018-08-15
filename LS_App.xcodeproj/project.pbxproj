@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		892B332021244FD300BAF2F9 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892B331F21244FD300BAF2F9 /* LoadingCell.xib */; };
+		892B33222124500900BAF2F9 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B33212124500800BAF2F9 /* LoadingCell.swift */; };
 		89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059B21078BAE006EBD5F /* AppDelegate.swift */; };
 		89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059D21078BAE006EBD5F /* HomeVC.swift */; };
 		89C105A121078BAE006EBD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C1059F21078BAE006EBD5F /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		4F5C6FB3141DBBD8FAB7FD1E /* Pods_LS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		892B331F21244FD300BAF2F9 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		892B33212124500800BAF2F9 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		89C1059821078BAE006EBD5F /* LS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C1059B21078BAE006EBD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C1059D21078BAE006EBD5F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				89C105CB210793BF006EBD5F /* ArticleCell.swift */,
 				89C105C9210792D0006EBD5F /* ArticleListVC.swift */,
 				89C105CD210795E3006EBD5F /* ArticleClass.swift */,
+				892B331F21244FD300BAF2F9 /* LoadingCell.xib */,
+				892B33212124500800BAF2F9 /* LoadingCell.swift */,
 				89C1059F21078BAE006EBD5F /* Main.storyboard */,
 				89C105A221078BB2006EBD5F /* Assets.xcassets */,
 				89C105A421078BB2006EBD5F /* LaunchScreen.storyboard */,
@@ -269,6 +275,7 @@
 			files = (
 				89C105A621078BB2006EBD5F /* LaunchScreen.storyboard in Resources */,
 				89C105A321078BB2006EBD5F /* Assets.xcassets in Resources */,
+				892B332021244FD300BAF2F9 /* LoadingCell.xib in Resources */,
 				89C105A121078BAE006EBD5F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +350,7 @@
 				89ED1BE52114C766001CC7F6 /* ArticleVC.swift in Sources */,
 				89C105CA210792D0006EBD5F /* ArticleListVC.swift in Sources */,
 				89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */,
+				892B33222124500900BAF2F9 /* LoadingCell.swift in Sources */,
 				89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */,
 				89C105CE210795E3006EBD5F /* ArticleClass.swift in Sources */,
 			);
