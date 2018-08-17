@@ -24,12 +24,16 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87s-VF-NEv">
                                 <rect key="frame" x="95" y="182" width="185" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="33"/>
                                 <state key="normal" title="ČLÁNKY"/>
                                 <connections>
                                     <segue destination="UM7-im-dRJ" kind="show" id="npX-ja-BbG"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LS_logo_male" translatesAutoresizingMaskIntoConstraints="NO" id="cpi-PU-h4x">
+                                <rect key="frame" x="112" y="468" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="B3g-5I-7vc"/>
@@ -257,6 +261,9 @@
             <point key="canvasLocation" x="-953" y="32"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LS_logo_male" width="100" height="100"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="oul-g1-d8K"/>
     </inferredMetricsTieBreakers>

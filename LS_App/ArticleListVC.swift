@@ -54,10 +54,11 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     func loadArticles(APIurl: String){
         //pripoji se k API, vyzobe si z JSONa, co potrebuje a vytvori objekty pro Articl esarray
         
-            loadingMore = true
+        loadingMore = true
         articlesTableView.reloadSections(IndexSet(integer: 1), with: .none)
         
             Alamofire.request(APIurl).responseJSON{response in
+            print("REQUEST!!")
             
             if let value = response.result.value as? [Dictionary<String, Any>]{
             
@@ -69,7 +70,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 if let nadpis = json["title"]["rendered"].string{
                     article.nadpis = nadpis.htmlAttributed()?.string
-                    print(nadpis)
                 }
                 
                 if let obsah = json["content"]["rendered"].string{
@@ -97,7 +97,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                     article.velkyObrazekURL = velkyObrazekUrl
                     
                     if article == self.articlesArray?.last{
-                        print("ted")
                         self.articlesTableView.reloadData()
                         self.hideInfo()
                         self.loadingMore = false
@@ -139,6 +138,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         }
         
         return cell
+            
         }else{
             let cell = articlesTableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingCell
             cell.spinner.startAnimating()
@@ -168,7 +168,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        print("funguje klik")
         let clanekVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "web") as! ArticleVC
         clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah
         clanekVC.velkyObrazekUrl = self.articlesArray?[indexPath.item].velkyObrazekURL
@@ -179,10 +178,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == articlesArray!.count - 1 {
+        if indexPath.row == articlesArray!.count - 1 && loadingMore == false {
             // we are at last cell load more content
-                // we need to bring more records as there are some pending records available
-        print("JSEM TU")
+            // we need to bring more records as there are some pending records available
         if let offset = articlesArray?.count{
         loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=5&offset=\(offset)")
         //self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
@@ -268,7 +266,7 @@ extension String {
                                                     .characterEncoding: String.Encoding.utf8.rawValue],
                                           documentAttributes: nil)
         } catch {
-            print("error: ", error)
+            //print("error: ", error)
             return nil
         }
     }
