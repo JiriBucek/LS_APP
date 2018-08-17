@@ -18,7 +18,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     @IBOutlet weak var articlesTableView: UITableView!
     
-    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=15&offset=0"
+    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=8&offset=0"
     
     var articlesArray: [ArticleClass]? = []
     
@@ -58,7 +58,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         articlesTableView.reloadSections(IndexSet(integer: 1), with: .none)
         
             Alamofire.request(APIurl).responseJSON{response in
-            print("REQUEST!!")
             
             if let value = response.result.value as? [Dictionary<String, Any>]{
             
@@ -266,7 +265,7 @@ extension String {
                                                     .characterEncoding: String.Encoding.utf8.rawValue],
                                           documentAttributes: nil)
         } catch {
-            //print("error: ", error)
+            print("error: ", error)
             return nil
         }
     }

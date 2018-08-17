@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		892B332021244FD300BAF2F9 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892B331F21244FD300BAF2F9 /* LoadingCell.xib */; };
 		892B33222124500900BAF2F9 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B33212124500800BAF2F9 /* LoadingCell.swift */; };
+		892B3325212710AB00BAF2F9 /* MeditaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B3324212710AB00BAF2F9 /* MeditaceVC.swift */; };
+		892B332A2127496000BAF2F9 /* MeditaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B33292127496000BAF2F9 /* MeditaceCell.swift */; };
+		892B332C21274BFA00BAF2F9 /* MeditaceClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */; };
 		89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059B21078BAE006EBD5F /* AppDelegate.swift */; };
 		89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059D21078BAE006EBD5F /* HomeVC.swift */; };
 		89C105A121078BAE006EBD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C1059F21078BAE006EBD5F /* Main.storyboard */; };
@@ -44,6 +47,9 @@
 		4F5C6FB3141DBBD8FAB7FD1E /* Pods_LS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		892B331F21244FD300BAF2F9 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		892B33212124500800BAF2F9 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		892B3324212710AB00BAF2F9 /* MeditaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditaceVC.swift; sourceTree = "<group>"; };
+		892B33292127496000BAF2F9 /* MeditaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditaceCell.swift; sourceTree = "<group>"; };
+		892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditaceClass.swift; sourceTree = "<group>"; };
 		89C1059821078BAE006EBD5F /* LS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C1059B21078BAE006EBD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C1059D21078BAE006EBD5F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -91,6 +97,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		892B332321270A9000BAF2F9 /* ArticleGroup */ = {
+			isa = PBXGroup;
+			children = (
+				89C105CB210793BF006EBD5F /* ArticleCell.swift */,
+				89C105C9210792D0006EBD5F /* ArticleListVC.swift */,
+				89C105CD210795E3006EBD5F /* ArticleClass.swift */,
+				892B331F21244FD300BAF2F9 /* LoadingCell.xib */,
+				892B33212124500800BAF2F9 /* LoadingCell.swift */,
+				89ED1BE42114C766001CC7F6 /* ArticleVC.swift */,
+			);
+			path = ArticleGroup;
+			sourceTree = "<group>";
+		};
+		892B3326212747D500BAF2F9 /* MeditaceGroup */ = {
+			isa = PBXGroup;
+			children = (
+				892B3324212710AB00BAF2F9 /* MeditaceVC.swift */,
+				892B33292127496000BAF2F9 /* MeditaceCell.swift */,
+				892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */,
+			);
+			path = MeditaceGroup;
+			sourceTree = "<group>";
+		};
 		89C1058F21078BAD006EBD5F = {
 			isa = PBXGroup;
 			children = (
@@ -118,16 +147,12 @@
 			children = (
 				89C1059B21078BAE006EBD5F /* AppDelegate.swift */,
 				89C1059D21078BAE006EBD5F /* HomeVC.swift */,
-				89C105CB210793BF006EBD5F /* ArticleCell.swift */,
-				89C105C9210792D0006EBD5F /* ArticleListVC.swift */,
-				89C105CD210795E3006EBD5F /* ArticleClass.swift */,
-				892B331F21244FD300BAF2F9 /* LoadingCell.xib */,
-				892B33212124500800BAF2F9 /* LoadingCell.swift */,
+				892B332321270A9000BAF2F9 /* ArticleGroup */,
 				89C1059F21078BAE006EBD5F /* Main.storyboard */,
 				89C105A221078BB2006EBD5F /* Assets.xcassets */,
 				89C105A421078BB2006EBD5F /* LaunchScreen.storyboard */,
 				89C105A721078BB2006EBD5F /* Info.plist */,
-				89ED1BE42114C766001CC7F6 /* ArticleVC.swift */,
+				892B3326212747D500BAF2F9 /* MeditaceGroup */,
 			);
 			path = LS_App;
 			sourceTree = "<group>";
@@ -346,12 +371,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892B3325212710AB00BAF2F9 /* MeditaceVC.swift in Sources */,
+				892B332A2127496000BAF2F9 /* MeditaceCell.swift in Sources */,
 				89C105CC210793BF006EBD5F /* ArticleCell.swift in Sources */,
 				89ED1BE52114C766001CC7F6 /* ArticleVC.swift in Sources */,
 				89C105CA210792D0006EBD5F /* ArticleListVC.swift in Sources */,
 				89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */,
 				892B33222124500900BAF2F9 /* LoadingCell.swift in Sources */,
 				89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */,
+				892B332C21274BFA00BAF2F9 /* MeditaceClass.swift in Sources */,
 				89C105CE210795E3006EBD5F /* ArticleClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

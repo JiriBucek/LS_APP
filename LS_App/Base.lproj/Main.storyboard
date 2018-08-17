@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87s-VF-NEv">
-                                <rect key="frame" x="95" y="182" width="185" height="116"/>
+                                <rect key="frame" x="95" y="140" width="185" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="33"/>
                                 <state key="normal" title="ČLÁNKY"/>
@@ -34,6 +34,15 @@
                                 <rect key="frame" x="112" y="468" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExX-ig-ipn">
+                                <rect key="frame" x="95" y="275" width="185" height="116"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="33"/>
+                                <state key="normal" title="MEDITACE"/>
+                                <connections>
+                                    <segue destination="QQN-uS-WsP" kind="show" id="ATV-wx-9MO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="B3g-5I-7vc"/>
@@ -43,6 +52,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="UM7-im-dRJ" kind="show" id="oul-g1-d8K"/>
+                        <segue destination="QQN-uS-WsP" kind="show" id="CNt-Z1-iuX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nKQ-TS-6lG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,7 +192,7 @@
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="1" height="-1"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" pagingEnabled="YES" maximumZoomScale="3" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5S-NP-pz1">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" pagingEnabled="YES" maximumZoomScale="3" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5S-NP-pz1">
                                                 <rect key="frame" x="5" y="326" width="365" height="272"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
@@ -195,6 +205,7 @@
                                                     </fragment>
                                                 </attributedString>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -260,11 +271,91 @@
             </objects>
             <point key="canvasLocation" x="-953" y="32"/>
         </scene>
+        <!--Meditace-->
+        <scene sceneID="Qtg-7y-Ogm">
+            <objects>
+                <viewController title="Meditace" id="QQN-uS-WsP" customClass="MeditaceVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YE1-QZ-TnW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="articles" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5gq-Rz-C7E">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meditaceCell" rowHeight="189" id="c17-Wo-abW" customClass="MeditaceCell" customModule="LS_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="189"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c17-Wo-abW" id="ATU-dm-yQw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="188.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yTA-Ze-A0W">
+                                                    <rect key="frame" x="15" y="44.5" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="H98-dn-DTB"/>
+                                                        <constraint firstAttribute="height" constant="100" id="KNK-WP-xim"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tady je nadpis" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6P6-Ge-8Pb">
+                                                    <rect key="frame" x="123" y="44.5" width="229" height="50"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Tady je popisek Tady je popisek Tady je popisek " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="udk-Sc-UQg">
+                                                    <rect key="frame" x="123" y="94.5" width="229" height="50"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="udk-Sc-UQg" firstAttribute="height" secondItem="yTA-Ze-A0W" secondAttribute="height" multiplier="0.5" id="0kE-4F-mmd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="udk-Sc-UQg" secondAttribute="trailing" constant="8" id="6At-kG-wop"/>
+                                                <constraint firstItem="6P6-Ge-8Pb" firstAttribute="leading" secondItem="yTA-Ze-A0W" secondAttribute="trailing" constant="8" id="6le-xG-Gbh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6P6-Ge-8Pb" secondAttribute="trailing" constant="8" id="Hb3-2u-aRn"/>
+                                                <constraint firstItem="udk-Sc-UQg" firstAttribute="bottom" secondItem="yTA-Ze-A0W" secondAttribute="bottom" id="Jme-AG-k95"/>
+                                                <constraint firstItem="udk-Sc-UQg" firstAttribute="leading" secondItem="yTA-Ze-A0W" secondAttribute="trailing" constant="8" id="MEb-In-Zje"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="udk-Sc-UQg" secondAttribute="bottom" constant="8" id="PaQ-O5-fud"/>
+                                                <constraint firstItem="6P6-Ge-8Pb" firstAttribute="height" secondItem="yTA-Ze-A0W" secondAttribute="height" multiplier="0.5" id="d4d-He-V17"/>
+                                                <constraint firstItem="yTA-Ze-A0W" firstAttribute="centerY" secondItem="ATU-dm-yQw" secondAttribute="centerY" id="nnV-vn-xPL"/>
+                                                <constraint firstItem="yTA-Ze-A0W" firstAttribute="leading" secondItem="ATU-dm-yQw" secondAttribute="leadingMargin" id="rv7-5F-WWb"/>
+                                                <constraint firstItem="6P6-Ge-8Pb" firstAttribute="top" secondItem="yTA-Ze-A0W" secondAttribute="top" id="twv-u5-Awh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nadpisCellMeditace" destination="6P6-Ge-8Pb" id="5ed-Mw-t6I"/>
+                                            <outlet property="obrazekMalyMeditace" destination="yTA-Ze-A0W" id="G2Y-mg-Lx9"/>
+                                            <outlet property="popisekCellMeditace" destination="udk-Sc-UQg" id="fTu-ak-qxf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5gq-Rz-C7E" firstAttribute="bottom" secondItem="mBc-4J-g1q" secondAttribute="bottom" id="5cB-9L-7rF"/>
+                            <constraint firstItem="5gq-Rz-C7E" firstAttribute="top" secondItem="mBc-4J-g1q" secondAttribute="top" id="iN4-pB-pVD"/>
+                            <constraint firstItem="5gq-Rz-C7E" firstAttribute="trailing" secondItem="mBc-4J-g1q" secondAttribute="trailing" id="yG2-pT-ffk"/>
+                            <constraint firstItem="5gq-Rz-C7E" firstAttribute="leading" secondItem="mBc-4J-g1q" secondAttribute="leading" id="zG4-hc-SKB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mBc-4J-g1q"/>
+                    </view>
+                    <connections>
+                        <outlet property="meditaceTableView" destination="5gq-Rz-C7E" id="9vI-X4-Jk9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6qN-oH-Aau" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="866"/>
+        </scene>
     </scenes>
     <resources>
         <image name="LS_logo_male" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="CNt-Z1-iuX"/>
         <segue reference="oul-g1-d8K"/>
     </inferredMetricsTieBreakers>
 </document>
