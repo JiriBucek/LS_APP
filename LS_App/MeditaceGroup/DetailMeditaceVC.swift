@@ -17,12 +17,15 @@ class DetailMeditaceVC: UIViewController {
     
     @IBOutlet weak var playButton: UIButton!
     
+    @IBAction func skipButtonPressed(_ sender: Any) {
+        skipAudio()
+    }
     
     
     @IBAction func playButtonPressed(_ sender: Any) {
         
         if player == nil || player?.isPlaying == false {
-            playSound(file: "overwerk", ext: "mp3")
+            playSound(file: "overwerk", ext: "mp3", time: 0.0)
         }else{
             player?.stop()
         }
@@ -54,18 +57,26 @@ class DetailMeditaceVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func playSound(file:String, ext:String) -> Void {
+    func playSound(file:String, ext:String, time: Double) -> Void {
         //přehrává zvuky
         let url = Bundle.main.url(forResource: file, withExtension: ext)!
         do {
             player = try AVAudioPlayer(contentsOf: url)
             guard let player = player else { return }
-            
+           
             player.prepareToPlay()
             player.play()
+            
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    
+    func skipAudio(){
+        let pozice = player?.currentTime
+        print(pozice)
+        player?.stop()
+        playSound(file: "overwerk", ext: "mp3", time: pozice! + 15.0)
     }
     
 
