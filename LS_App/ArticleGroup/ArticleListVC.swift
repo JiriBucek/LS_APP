@@ -56,6 +56,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         loadingMore = true
         articlesTableView.reloadSections(IndexSet(integer: 1), with: .none)
+        //reloadne spinner section
         
             Alamofire.request(APIurl).responseJSON{response in
             

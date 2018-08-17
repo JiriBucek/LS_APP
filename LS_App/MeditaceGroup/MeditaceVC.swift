@@ -13,12 +13,12 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
 
     var meditaceArray:[MeditaceClass]? = []
     
-    
     @IBOutlet weak var meditaceTableView: UITableView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        loadMeditationData()
 
         // Do any additional setup after loading the view.
     }
@@ -28,13 +28,38 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func loadMeditationData(){
+        
+        for item in meditaceData{
+            
+            let meditaceObjekt = MeditaceClass()
+            
+            meditaceObjekt.nadpis = item["nadpis"]!
+            meditaceObjekt.popisek = item["popisek"]!
+            meditaceObjekt.obrazekName = item["obrazekName"]
+            
+            meditaceArray?.append(meditaceObjekt)
+        }
+        
+        meditaceTableView.reloadData()
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        let cell = meditaceTableView.dequeueReusableCell(withIdentifier: "meditaceCell", for: indexPath) as! MeditaceCell
+        
+        cell.nadpisCellMeditace.text = self.meditaceArray?[indexPath.item].nadpis
+        cell.popisekCellMeditace.text = self.meditaceArray?[indexPath.item].popisek
+        let jmenoObrazku = self.meditaceArray?[indexPath.item].obrazekName
+        
+        cell.obrazekMalyMeditace.image = UIImage(imageLiteralResourceName: jmenoObrazku!)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return meditaceArray?.count ?? 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -51,7 +76,13 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         // Pass the selected object to the new view controller.
     }
     */
-    var meditaceData = ["nadpis":"Meditace osobní prostor", "popisek":"Meditace v bílém prostoru, v osobním prostoru a všude možně", "obrazekName": "meditace_default.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audiosoubor":"meditace_1.mp3"]
+    var meditaceData = [
+        
+        ["nadpis":"Meditace osobní prostor", "popisek":"Meditace v bílém prostoru, v osobním prostoru a všude možně", "obrazekName": "meditace_default.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audiosoubor":"meditace_1.mp3"],
+        
+        ["nadpis":"Meditace prostor 2", "popisek":"Meditace v bílém prostoru, v osobním prostoru a všude možně", "obrazekName": "Ra.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audiosoubor":"meditace_1.mp3"]
+        
+    ]
 
     
 }
