@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class DetailMeditaceVC: UIViewController {
 
@@ -16,14 +17,28 @@ class DetailMeditaceVC: UIViewController {
     
     @IBOutlet weak var playButton: UIButton!
     
+    
+    
+    @IBAction func playButtonPressed(_ sender: Any) {
+        
+        if player == nil || player?.isPlaying == false {
+            playSound(file: "overwerk", ext: "mp3")
+        }else{
+            player?.stop()
+        }
+        
+    }
+    
     var nadpis: String?
     var popisek: String?
     var image: String?
     
-    
+    var player: AVAudioPlayer?
+    //přehrává audio
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+
         if nadpisMeditaceLabel != nil{
             nadpisMeditaceLabel.text = nadpis
         }
@@ -31,18 +46,26 @@ class DetailMeditaceVC: UIViewController {
         if velkyImageMeditace != nil{
             velkyImageMeditace.image = UIImage(imageLiteralResourceName: image!)
         }
-        
-        
-        
-        
-        super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func playSound(file:String, ext:String) -> Void {
+        //přehrává zvuky
+        let url = Bundle.main.url(forResource: file, withExtension: ext)!
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let player = player else { return }
+            
+            player.prepareToPlay()
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     
 
