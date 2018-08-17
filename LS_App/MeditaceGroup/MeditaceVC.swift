@@ -58,6 +58,16 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+        let detailMeditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceDetail") as! DetailMeditaceVC
+        
+        detailMeditaceVC.nadpis = self.meditaceArray?[indexPath.item].nadpis
+        detailMeditaceVC.image = self.meditaceArray?[indexPath.item].obrazekName
+        
+        self.navigationController?.pushViewController(detailMeditaceVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return meditaceArray?.count ?? 0
     }
