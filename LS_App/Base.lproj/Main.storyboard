@@ -404,42 +404,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-0C-MFn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="444"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GA4-X6-P6O">
+                                <rect key="frame" x="0.0" y="547" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play/Pause"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-0C-MFn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="421"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="100"/>
+                                <state key="normal" image="play.png">
+                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="playBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="Kpi-w7-end"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-hj-WGg">
-                                <rect key="frame" x="164" y="532" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-hj-WGg">
+                                <rect key="frame" x="137" y="547" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Hudba"/>
+                                <state key="normal" title="Hudba" image="sound.png"/>
                                 <connections>
                                     <action selector="hudbaBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="EXo-bY-QHx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-fk-xQ9">
-                                <rect key="frame" x="36" y="532" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-fk-xQ9">
+                                <rect key="frame" x="16" y="547" width="113" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Vzad"/>
+                                <state key="normal" title="Vzad" image="left.png"/>
                                 <connections>
                                     <action selector="vzadBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="qCW-w1-p5O"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81f-wV-C2Y">
-                                <rect key="frame" x="301" y="532" width="41" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81f-wV-C2Y">
+                                <rect key="frame" x="245" y="547" width="114" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Vpřed"/>
+                                <state key="normal" title="Vpřed" image="right.png"/>
                                 <connections>
                                     <action selector="vpredBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="eZK-LM-8mc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:38 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
+                                <rect key="frame" x="0.0" y="485" width="375" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UZm-yV-Dmo"/>
                     </view>
+                    <connections>
+                        <outlet property="hudbaBtn" destination="gu1-hj-WGg" id="bh7-Qw-RQo"/>
+                        <outlet property="playBtn" destination="Xwe-0C-MFn" id="cur-r1-tCb"/>
+                        <outlet property="progressLabel" destination="iTh-YA-SNk" id="zYP-NX-hYq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2a-5D-03p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -448,6 +470,10 @@
     </scenes>
     <resources>
         <image name="LS_logo_male" width="100" height="100"/>
+        <image name="left.png" width="444" height="348"/>
+        <image name="play.png" width="296" height="353"/>
+        <image name="right.png" width="444" height="348"/>
+        <image name="sound.png" width="375" height="360"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ATV-wx-9MO"/>

@@ -11,8 +11,16 @@ import AVFoundation
 
 class MeditacePlayerVC: UIViewController {
     
+    @IBOutlet weak var playBtn: UIButton!
     
-    @IBAction func playBtnPressed(_ sender: Any) {
+    @IBOutlet weak var hudbaBtn: UIButton!
+    
+    @IBOutlet weak var progressLabel: UILabel!
+    
+    @IBAction func playBtnPressed(_ sender: UIButton) {
+        animateButton(sender: sender)
+        
+        
         if playerSlovo == nil{
             playSlovo(time: 0)
         }else if (playerSlovo?.isPlaying)!{
@@ -26,21 +34,28 @@ class MeditacePlayerVC: UIViewController {
         }
     }
     
-    @IBAction func hudbaBtnPressed(_ sender: Any) {
+    @IBAction func hudbaBtnPressed(_ sender: UIButton) {
+        animateButton(sender: sender)
+
         if playerHudba == nil{
             playHudba()
         }else if (playerHudba?.isPlaying)!{
             playerHudba?.pause()
+            
         }else{
             playerHudba?.play()
         }
     }
     
-    @IBAction func vpredBtnPressed(_ sender: Any) {
+    @IBAction func vpredBtnPressed(_ sender: UIButton) {
+        animateButton(sender: sender)
+
         skipSlovo(oKolik: 15)
     }
     
-    @IBAction func vzadBtnPressed(_ sender: Any) {
+    @IBAction func vzadBtnPressed(_ sender: UIButton) {
+        animateButton(sender: sender)
+
         skipSlovo(oKolik: -15)
     }
     
@@ -112,7 +127,18 @@ class MeditacePlayerVC: UIViewController {
         }
     }
     
-    
+    func animateButton(sender: UIButton){
+        //animace tlačítka při zmáčknutí
+        UIButton.animate(withDuration: 0.2,
+                         animations: {
+                            sender.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)
+        },
+                         completion: { finish in
+                            UIButton.animate(withDuration: 0.2, animations: {
+                                sender.transform = CGAffineTransform.identity
+                            })
+        })
+    }
     
 
 

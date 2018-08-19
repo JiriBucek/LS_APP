@@ -19,6 +19,12 @@
 		8964D8E521293FE200D59220 /* 1_slovo_niterne_poznani.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */; };
 		8964D8E621293FE200D59220 /* 1_hudba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8E421293FE200D59220 /* 1_hudba.mp3 */; };
 		8964D8E821294ACE00D59220 /* MeditacePlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */; };
+		8964D8F021295DBA00D59220 /* nosound.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8EA21295DB900D59220 /* nosound.png */; };
+		8964D8F121295DBA00D59220 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8EB21295DB900D59220 /* right.png */; };
+		8964D8F221295DBA00D59220 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8EC21295DBA00D59220 /* play.png */; };
+		8964D8F321295DBA00D59220 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8ED21295DBA00D59220 /* left.png */; };
+		8964D8F421295DBA00D59220 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8EE21295DBA00D59220 /* pause.png */; };
+		8964D8F521295DBA00D59220 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8EF21295DBA00D59220 /* sound.png */; };
 		89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059B21078BAE006EBD5F /* AppDelegate.swift */; };
 		89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059D21078BAE006EBD5F /* HomeVC.swift */; };
 		89C105A121078BAE006EBD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C1059F21078BAE006EBD5F /* Main.storyboard */; };
@@ -64,6 +70,12 @@
 		8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_slovo_niterne_poznani.mp3; sourceTree = "<group>"; };
 		8964D8E421293FE200D59220 /* 1_hudba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_hudba.mp3; sourceTree = "<group>"; };
 		8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditacePlayerVC.swift; sourceTree = "<group>"; };
+		8964D8EA21295DB900D59220 /* nosound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nosound.png; sourceTree = "<group>"; };
+		8964D8EB21295DB900D59220 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		8964D8EC21295DBA00D59220 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		8964D8ED21295DBA00D59220 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		8964D8EE21295DBA00D59220 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		8964D8EF21295DBA00D59220 /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
 		89C1059821078BAE006EBD5F /* LS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C1059B21078BAE006EBD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C1059D21078BAE006EBD5F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -127,6 +139,7 @@
 		892B3326212747D500BAF2F9 /* MeditaceGroup */ = {
 			isa = PBXGroup;
 			children = (
+				8964D8E921295D9A00D59220 /* IkonkyPlayer */,
 				892B332F21275AD900BAF2F9 /* Images */,
 				892B333221275B2000BAF2F9 /* Sounds */,
 				892B33292127496000BAF2F9 /* MeditaceCell.swift */,
@@ -155,6 +168,19 @@
 				8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		8964D8E921295D9A00D59220 /* IkonkyPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				8964D8ED21295DBA00D59220 /* left.png */,
+				8964D8EA21295DB900D59220 /* nosound.png */,
+				8964D8EE21295DBA00D59220 /* pause.png */,
+				8964D8EC21295DBA00D59220 /* play.png */,
+				8964D8EB21295DB900D59220 /* right.png */,
+				8964D8EF21295DBA00D59220 /* sound.png */,
+			);
+			path = IkonkyPlayer;
 			sourceTree = "<group>";
 		};
 		89C1058F21078BAD006EBD5F = {
@@ -337,10 +363,16 @@
 			files = (
 				89C105A621078BB2006EBD5F /* LaunchScreen.storyboard in Resources */,
 				892B332E21275AD100BAF2F9 /* meditace_default.jpg in Resources */,
+				8964D8F121295DBA00D59220 /* right.png in Resources */,
 				89C105A321078BB2006EBD5F /* Assets.xcassets in Resources */,
+				8964D8F521295DBA00D59220 /* sound.png in Resources */,
 				892B333421275D1A00BAF2F9 /* Ra.jpg in Resources */,
+				8964D8F221295DBA00D59220 /* play.png in Resources */,
+				8964D8F321295DBA00D59220 /* left.png in Resources */,
+				8964D8F021295DBA00D59220 /* nosound.png in Resources */,
 				892B332021244FD300BAF2F9 /* LoadingCell.xib in Resources */,
 				8964D8E621293FE200D59220 /* 1_hudba.mp3 in Resources */,
+				8964D8F421295DBA00D59220 /* pause.png in Resources */,
 				89C105A121078BAE006EBD5F /* Main.storyboard in Resources */,
 				8964D8E521293FE200D59220 /* 1_slovo_niterne_poznani.mp3 in Resources */,
 				892B333121275B1800BAF2F9 /* overwerk.mp3 in Resources */,
