@@ -380,7 +380,6 @@
                                 <state key="normal" title="PŘEHRÁT MEDITACI"/>
                                 <connections>
                                     <action selector="prehrajMeditaciPressed:" destination="kow-Hp-nJg" eventType="touchUpInside" id="pub-oJ-ct6"/>
-                                    <segue destination="FO9-6C-WA2" kind="show" id="Dbr-jN-yY6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -390,7 +389,7 @@
                     <connections>
                         <outlet property="nadpisMeditaceLabel" destination="3uw-5i-Xaz" id="RDB-rd-hNi"/>
                         <outlet property="velkyImageMeditace" destination="WC5-Vl-5yV" id="Ric-Wv-t5F"/>
-                        <segue destination="FO9-6C-WA2" kind="show" id="kfS-pC-OOo"/>
+                        <segue destination="FO9-6C-WA2" kind="show" id="nzk-pQ-fVJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rvj-a7-qf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -441,10 +440,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UZm-yV-Dmo"/>
                     </view>
-                    <connections>
-                        <outlet property="vpredBtnPressed" destination="81f-wV-C2Y" id="BIJ-uj-oKR"/>
-                        <outlet property="vzadBtnPressed" destination="W7l-fk-xQ9" id="9ag-ab-zS3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2a-5D-03p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -455,8 +450,7 @@
         <image name="LS_logo_male" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kfS-pC-OOo"/>
-        <segue reference="CNt-Z1-iuX"/>
+        <segue reference="ATV-wx-9MO"/>
         <segue reference="oul-g1-d8K"/>
     </inferredMetricsTieBreakers>
 </document>
