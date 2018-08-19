@@ -15,28 +15,21 @@ class DetailMeditaceVC: UIViewController {
     
     @IBOutlet weak var nadpisMeditaceLabel: UILabel!
     
-    @IBOutlet weak var playButton: UIButton!
     
-    @IBAction func skipButtonPressed(_ sender: Any) {
-        skipAudio()
+    @IBAction func prehrajMeditaciPressed(_ sender: Any) {
+        let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
+        self.navigationController?.pushViewController(playerVC, animated: true)
     }
     
-    
-    @IBAction func playButtonPressed(_ sender: Any) {
-        
-        if player == nil || player?.isPlaying == false {
-            playSound(file: "overwerk", ext: "mp3", time: 0.0)
-        }else{
-            player?.stop()
-        }
-        
-    }
+
     
     var nadpis: String?
     var popisek: String?
     var image: String?
+    var mluveneSlovo: String?
+    var podkladovaHudba: String?
     
-    var player: AVAudioPlayer?
+
     //přehrává audio
     
     override func viewDidLoad() {
@@ -56,15 +49,40 @@ class DetailMeditaceVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func playSound(file:String, ext:String, time: Double) -> Void {
-        //přehrává zvuky
-        let url = Bundle.main.url(forResource: file, withExtension: ext)!
+
+}
+/*
+    func playHudba() -> Void {
+    //přehrává hudbu
+        
+        let url = Bundle.main.url(forResource: podkladovaHudba, withExtension: "mp3")!
         do {
-            player = try AVAudioPlayer(contentsOf: url)
-            guard let player = player else { return }
+            playerHudba = try AVAudioPlayer(contentsOf: url)
+            guard let playerHudba = playerHudba else { return }
+            playerHudba.numberOfLoops = -1
+            //nekonečně přehrávání
+            playerHudba.prepareToPlay()
+            playerHudba.play()
+    } catch let error {
+    print(error.localizedDescription)
+    }
+    }
+    
+    
+    
+    func playSlovo(time: TimeInterval) -> Void {
+        //přehrává zvuky
+        if playerSlovo != nil{
+            playerSlovo?.pause()
+        }
+        
+        let url = Bundle.main.url(forResource: mluveneSlovo, withExtension: "mp3")!
+        do {
+            playerSlovo = try AVAudioPlayer(contentsOf: url)
+            guard let player = playerSlovo else { return }
            
             player.prepareToPlay()
+            player.currentTime = time
             player.play()
             
         } catch let error {
@@ -72,11 +90,20 @@ class DetailMeditaceVC: UIViewController {
         }
     }
     
-    func skipAudio(){
-        let pozice = player?.currentTime
-        print(pozice)
-        player?.stop()
-        playSound(file: "overwerk", ext: "mp3", time: pozice! + 15.0)
+    func skipSlovo(oKolik: Double){
+        if playerSlovo != nil{
+            var pozice = (playerSlovo?.currentTime)! + oKolik
+            if pozice < 0{
+                pozice = 0
+            }
+            
+            if pozice < (playerSlovo?.duration)!{
+                print(pozice)
+                playerSlovo?.currentTime = pozice
+            }else{
+                playerSlovo?.stop()
+            }
+        }
     }
     
 
@@ -91,3 +118,4 @@ class DetailMeditaceVC: UIViewController {
     */
 
 }
+*/

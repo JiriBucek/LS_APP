@@ -14,8 +14,8 @@ class MeditaceClass: NSObject {
     var popisek: String?
     var obrazekName: String?
     var obsah: String?
-    var audioSoubor: String?
-
+    var audioSlovo: String?
+    var audioHudba: String?
     
 }
 

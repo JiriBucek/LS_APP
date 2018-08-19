@@ -38,6 +38,8 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
             meditaceObjekt.nadpis = item["nadpis"]!
             meditaceObjekt.popisek = item["popisek"]!
             meditaceObjekt.obrazekName = item["obrazekName"]
+            meditaceObjekt.audioSlovo = item["audio_slovo"]
+            meditaceObjekt.audioHudba = item["audio_hudba"]
             
             meditaceArray?.append(meditaceObjekt)
         }
@@ -64,6 +66,8 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         detailMeditaceVC.nadpis = self.meditaceArray?[indexPath.item].nadpis
         detailMeditaceVC.image = self.meditaceArray?[indexPath.item].obrazekName
+        detailMeditaceVC.mluveneSlovo = self.meditaceArray?[indexPath.item].audioSlovo
+        detailMeditaceVC.podkladovaHudba = self.meditaceArray?[indexPath.item].audioHudba
         
         self.navigationController?.pushViewController(detailMeditaceVC, animated: true)
     }
@@ -88,9 +92,9 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     */
     var meditaceData = [
         
-        ["nadpis":"Meditace osobní prostor", "popisek":"Meditace v bílém prostoru, v osobním prostoru a všude možně", "obrazekName": "meditace_default.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audiosoubor":"meditace_1.mp3"],
+        ["nadpis":"Meditace osobní prostor", "popisek":"Meditace v bílém prostoru, v osobním prostoru a všude možně", "obrazekName": "meditace_default.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"],
         
-        ["nadpis":"Meditace prostor 2", "popisek":"Meditace v bílém prostoru, v osobním prostoru a všude možně", "obrazekName": "Ra.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audiosoubor":"meditace_1.mp3"]
+        ["nadpis":"Meditace prostor 2", "popisek":"Meditace v bílém prostoru, v osobním prostoru a všude možně", "obrazekName": "Ra.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"]
         
     ]
 

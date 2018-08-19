@@ -16,6 +16,9 @@
 		892B333121275B1800BAF2F9 /* overwerk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 892B333021275B1800BAF2F9 /* overwerk.mp3 */; };
 		892B333421275D1A00BAF2F9 /* Ra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 892B333321275D1A00BAF2F9 /* Ra.jpg */; };
 		892B333621275E8C00BAF2F9 /* DetailMeditaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */; };
+		8964D8E521293FE200D59220 /* 1_slovo_niterne_poznani.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */; };
+		8964D8E621293FE200D59220 /* 1_hudba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8E421293FE200D59220 /* 1_hudba.mp3 */; };
+		8964D8E821294ACE00D59220 /* MeditacePlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */; };
 		89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059B21078BAE006EBD5F /* AppDelegate.swift */; };
 		89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059D21078BAE006EBD5F /* HomeVC.swift */; };
 		89C105A121078BAE006EBD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C1059F21078BAE006EBD5F /* Main.storyboard */; };
@@ -58,6 +61,9 @@
 		892B333021275B1800BAF2F9 /* overwerk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = overwerk.mp3; sourceTree = "<group>"; };
 		892B333321275D1A00BAF2F9 /* Ra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ra.jpg; sourceTree = "<group>"; };
 		892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMeditaceVC.swift; sourceTree = "<group>"; };
+		8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_slovo_niterne_poznani.mp3; sourceTree = "<group>"; };
+		8964D8E421293FE200D59220 /* 1_hudba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_hudba.mp3; sourceTree = "<group>"; };
+		8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditacePlayerVC.swift; sourceTree = "<group>"; };
 		89C1059821078BAE006EBD5F /* LS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C1059B21078BAE006EBD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C1059D21078BAE006EBD5F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -123,10 +129,11 @@
 			children = (
 				892B332F21275AD900BAF2F9 /* Images */,
 				892B333221275B2000BAF2F9 /* Sounds */,
-				892B3324212710AB00BAF2F9 /* MeditaceVC.swift */,
 				892B33292127496000BAF2F9 /* MeditaceCell.swift */,
-				892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */,
 				892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */,
+				892B3324212710AB00BAF2F9 /* MeditaceVC.swift */,
+				892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */,
+				8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */,
 			);
 			path = MeditaceGroup;
 			sourceTree = "<group>";
@@ -144,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				892B333021275B1800BAF2F9 /* overwerk.mp3 */,
+				8964D8E421293FE200D59220 /* 1_hudba.mp3 */,
+				8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -331,7 +340,9 @@
 				89C105A321078BB2006EBD5F /* Assets.xcassets in Resources */,
 				892B333421275D1A00BAF2F9 /* Ra.jpg in Resources */,
 				892B332021244FD300BAF2F9 /* LoadingCell.xib in Resources */,
+				8964D8E621293FE200D59220 /* 1_hudba.mp3 in Resources */,
 				89C105A121078BAE006EBD5F /* Main.storyboard in Resources */,
+				8964D8E521293FE200D59220 /* 1_slovo_niterne_poznani.mp3 in Resources */,
 				892B333121275B1800BAF2F9 /* overwerk.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +420,7 @@
 				892B333621275E8C00BAF2F9 /* DetailMeditaceVC.swift in Sources */,
 				89C105CA210792D0006EBD5F /* ArticleListVC.swift in Sources */,
 				89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */,
+				8964D8E821294ACE00D59220 /* MeditacePlayerVC.swift in Sources */,
 				892B33222124500900BAF2F9 /* LoadingCell.swift in Sources */,
 				89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */,
 				892B332C21274BFA00BAF2F9 /* MeditaceClass.swift in Sources */,

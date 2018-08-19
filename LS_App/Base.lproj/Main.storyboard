@@ -367,14 +367,6 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmQ-uP-ozI">
-                                <rect key="frame" x="164" y="421" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="playButtonPressed:" destination="kow-Hp-nJg" eventType="touchUpInside" id="eUl-T1-c8E"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uw-5i-Xaz">
                                 <rect key="frame" x="82" y="299" width="214" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -382,12 +374,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-Wc-4Wi">
-                                <rect key="frame" x="162" y="488" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbB-uS-oXf">
+                                <rect key="frame" x="118" y="575" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Skip 15"/>
+                                <state key="normal" title="PŘEHRÁT MEDITACI"/>
                                 <connections>
-                                    <action selector="skipButtonPressed:" destination="kow-Hp-nJg" eventType="touchUpInside" id="oeb-jt-yQ4"/>
+                                    <action selector="prehrajMeditaciPressed:" destination="kow-Hp-nJg" eventType="touchUpInside" id="pub-oJ-ct6"/>
+                                    <segue destination="FO9-6C-WA2" kind="show" id="Dbr-jN-yY6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -396,19 +389,73 @@
                     </view>
                     <connections>
                         <outlet property="nadpisMeditaceLabel" destination="3uw-5i-Xaz" id="RDB-rd-hNi"/>
-                        <outlet property="playButton" destination="bmQ-uP-ozI" id="TcA-ay-OPb"/>
                         <outlet property="velkyImageMeditace" destination="WC5-Vl-5yV" id="Ric-Wv-t5F"/>
+                        <segue destination="FO9-6C-WA2" kind="show" id="kfS-pC-OOo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rvj-a7-qf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1501.5999999999999" y="865.81709145427294"/>
         </scene>
+        <!--Meditace PlayerVC-->
+        <scene sceneID="7a6-cq-qaW">
+            <objects>
+                <viewController storyboardIdentifier="player" id="FO9-6C-WA2" customClass="MeditacePlayerVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ey8-vV-AjK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-0C-MFn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="444"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play/Pause"/>
+                                <connections>
+                                    <action selector="playBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="Kpi-w7-end"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-hj-WGg">
+                                <rect key="frame" x="164" y="532" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Hudba"/>
+                                <connections>
+                                    <action selector="hudbaBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="EXo-bY-QHx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-fk-xQ9">
+                                <rect key="frame" x="36" y="532" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Vzad"/>
+                                <connections>
+                                    <action selector="vzadBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="qCW-w1-p5O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81f-wV-C2Y">
+                                <rect key="frame" x="301" y="532" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Vpřed"/>
+                                <connections>
+                                    <action selector="vpredBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="eZK-LM-8mc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="UZm-yV-Dmo"/>
+                    </view>
+                    <connections>
+                        <outlet property="vpredBtnPressed" destination="81f-wV-C2Y" id="BIJ-uj-oKR"/>
+                        <outlet property="vzadBtnPressed" destination="W7l-fk-xQ9" id="9ag-ab-zS3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J2a-5D-03p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2285.5999999999999" y="865.81709145427294"/>
+        </scene>
     </scenes>
     <resources>
         <image name="LS_logo_male" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="kfS-pC-OOo"/>
         <segue reference="CNt-Z1-iuX"/>
         <segue reference="oul-g1-d8K"/>
     </inferredMetricsTieBreakers>
