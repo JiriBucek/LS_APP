@@ -446,8 +446,12 @@
                                     <action selector="vpredBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="eZK-LM-8mc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:38 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
-                                <rect key="frame" x="0.0" y="485" width="375" height="54"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4gi-O9-6pO">
+                                <rect key="frame" x="0.0" y="483" width="378" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
+                                <rect key="frame" x="0.0" y="485" width="375" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
@@ -460,6 +464,7 @@
                     <connections>
                         <outlet property="hudbaBtn" destination="gu1-hj-WGg" id="bh7-Qw-RQo"/>
                         <outlet property="playBtn" destination="Xwe-0C-MFn" id="cur-r1-tCb"/>
+                        <outlet property="progressBar" destination="4gi-O9-6pO" id="PIO-6b-2Sx"/>
                         <outlet property="progressLabel" destination="iTh-YA-SNk" id="zYP-NX-hYq"/>
                     </connections>
                 </viewController>
