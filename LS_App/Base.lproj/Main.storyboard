@@ -71,7 +71,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="189" id="KEA-6b-rOq" customClass="ArticleCell" customModule="LS_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="189" id="KEA-6b-rOq" customClass="ArticleCell" customModule="LS_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KEA-6b-rOq" id="8EN-Qe-d6K">
@@ -283,7 +283,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meditaceCell" rowHeight="189" id="c17-Wo-abW" customClass="MeditaceCell" customModule="LS_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meditaceCell" rowHeight="189" id="c17-Wo-abW" customClass="MeditaceCell" customModule="LS_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c17-Wo-abW" id="ATU-dm-yQw">
@@ -375,7 +375,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbB-uS-oXf">
-                                <rect key="frame" x="118" y="575" width="138" height="30"/>
+                                <rect key="frame" x="118" y="434" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="PŘEHRÁT MEDITACI"/>
                                 <connections>
@@ -404,67 +404,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kTf-S1-pTO">
-                                <rect key="frame" x="-3" y="-15" width="379" height="682"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kTf-S1-pTO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GA4-X6-P6O">
-                                <rect key="frame" x="0.0" y="547" width="375" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-hj-WGg">
-                                <rect key="frame" x="137" y="547" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Hudba" image="sound.png"/>
-                                <connections>
-                                    <action selector="hudbaBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="EXo-bY-QHx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-fk-xQ9">
-                                <rect key="frame" x="16" y="547" width="113" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Vzad" image="left.png"/>
-                                <connections>
-                                    <action selector="vzadBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="qCW-w1-p5O"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81f-wV-C2Y">
-                                <rect key="frame" x="245" y="547" width="114" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Vpřed" image="right.png"/>
-                                <connections>
-                                    <action selector="vpredBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="eZK-LM-8mc"/>
-                                </connections>
-                            </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4gi-O9-6pO">
-                                <rect key="frame" x="-2" y="452" width="378" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4gi-O9-6pO">
+                                <rect key="frame" x="0.0" y="473" width="375" height="2"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
-                                <rect key="frame" x="0.0" y="462" width="375" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
+                                <rect key="frame" x="0.0" y="475" width="375" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="013-pg-57d"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.0052339062094688416" green="0.47176623344421387" blue="0.98470085859298706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mcr-lI-hBZ">
-                                <rect key="frame" x="-3" y="533" width="378" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mcr-lI-hBZ">
+                                <rect key="frame" x="0.0" y="545" width="375" height="2"/>
                             </progressView>
-                            <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-0C-MFn">
-                                <rect key="frame" x="0.0" y="80" width="378" height="354"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="100"/>
-                                <state key="normal" image="play_big_narrow.png">
-                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="playBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="Kpi-w7-end"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sf2-e9-7dW">
+                                <rect key="frame" x="0.0" y="547" width="375" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-fk-xQ9">
+                                        <rect key="frame" x="0.0" y="10" width="114" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="114" id="8wa-bn-GMf"/>
+                                            <constraint firstAttribute="height" constant="100" id="mW3-LU-6NW"/>
+                                        </constraints>
+                                        <state key="normal" title="Vzad" image="left.png"/>
+                                        <connections>
+                                            <action selector="vzadBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="qCW-w1-p5O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-hj-WGg">
+                                        <rect key="frame" x="137.5" y="10" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="oI9-tL-eny"/>
+                                            <constraint firstAttribute="width" constant="100" id="sDs-pB-HeA"/>
+                                        </constraints>
+                                        <state key="normal" title="Hudba" image="sound.png"/>
+                                        <connections>
+                                            <action selector="hudbaBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="EXo-bY-QHx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81f-wV-C2Y">
+                                        <rect key="frame" x="261" y="10" width="114" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="114" id="3Le-Zb-kBJ"/>
+                                            <constraint firstAttribute="height" constant="100" id="d3Y-ph-7p6"/>
+                                        </constraints>
+                                        <state key="normal" title="Vpřed" image="right.png"/>
+                                        <connections>
+                                            <action selector="vpredBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="eZK-LM-8mc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="T4u-H6-uuk"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3f-5O-REg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="409"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-0C-MFn">
+                                        <rect key="frame" x="0.0" y="29" width="375" height="350.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Xwe-0C-MFn" secondAttribute="height" multiplier="15:14" id="KyW-fd-Wbm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="100"/>
+                                        <state key="normal" image="play.png">
+                                            <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="Kpi-w7-end"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Xwe-0C-MFn" firstAttribute="leading" secondItem="q3f-5O-REg" secondAttribute="leading" id="AFQ-gI-GRA"/>
+                                    <constraint firstItem="Xwe-0C-MFn" firstAttribute="centerX" secondItem="q3f-5O-REg" secondAttribute="centerX" id="EFi-5W-oh9"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xwe-0C-MFn" secondAttribute="trailing" id="c8E-NG-N5U"/>
+                                    <constraint firstItem="Xwe-0C-MFn" firstAttribute="centerY" secondItem="q3f-5O-REg" secondAttribute="centerY" id="m32-ud-qgm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sf2-e9-7dW" firstAttribute="leading" secondItem="UZm-yV-Dmo" secondAttribute="leading" id="1n5-9f-Faf"/>
+                            <constraint firstItem="sf2-e9-7dW" firstAttribute="top" secondItem="mcr-lI-hBZ" secondAttribute="bottom" id="3my-Vk-NQ6"/>
+                            <constraint firstItem="kTf-S1-pTO" firstAttribute="top" secondItem="ey8-vV-AjK" secondAttribute="top" id="6pE-q2-tkU"/>
+                            <constraint firstItem="q3f-5O-REg" firstAttribute="trailing" secondItem="UZm-yV-Dmo" secondAttribute="trailing" id="HDp-Pq-AYy"/>
+                            <constraint firstAttribute="trailing" secondItem="kTf-S1-pTO" secondAttribute="trailing" id="LlP-S4-M9q"/>
+                            <constraint firstItem="mcr-lI-hBZ" firstAttribute="top" secondItem="iTh-YA-SNk" secondAttribute="bottom" id="Mxi-ED-Wtp"/>
+                            <constraint firstItem="kTf-S1-pTO" firstAttribute="bottom" secondItem="UZm-yV-Dmo" secondAttribute="bottom" id="OGY-fv-DJ3"/>
+                            <constraint firstItem="4gi-O9-6pO" firstAttribute="leading" secondItem="ey8-vV-AjK" secondAttribute="leading" id="TFC-61-Ahy"/>
+                            <constraint firstItem="UZm-yV-Dmo" firstAttribute="bottom" secondItem="sf2-e9-7dW" secondAttribute="bottom" id="VAI-hU-rG2"/>
+                            <constraint firstAttribute="trailing" secondItem="4gi-O9-6pO" secondAttribute="trailing" id="VXN-K8-VlQ"/>
+                            <constraint firstItem="UZm-yV-Dmo" firstAttribute="trailing" secondItem="sf2-e9-7dW" secondAttribute="trailing" id="Vvd-u9-IcL"/>
+                            <constraint firstItem="iTh-YA-SNk" firstAttribute="top" secondItem="4gi-O9-6pO" secondAttribute="bottom" id="doP-9d-cWC"/>
+                            <constraint firstItem="mcr-lI-hBZ" firstAttribute="leading" secondItem="ey8-vV-AjK" secondAttribute="leading" id="ebc-nL-6Jg"/>
+                            <constraint firstItem="iTh-YA-SNk" firstAttribute="leading" secondItem="UZm-yV-Dmo" secondAttribute="leading" id="f9j-sv-9LE"/>
+                            <constraint firstItem="kTf-S1-pTO" firstAttribute="leading" secondItem="ey8-vV-AjK" secondAttribute="leading" id="fHe-Bs-X8M"/>
+                            <constraint firstItem="q3f-5O-REg" firstAttribute="leading" secondItem="UZm-yV-Dmo" secondAttribute="leading" id="gdF-pw-WoV"/>
+                            <constraint firstAttribute="trailing" secondItem="mcr-lI-hBZ" secondAttribute="trailing" id="hMi-sG-E4j"/>
+                            <constraint firstItem="sf2-e9-7dW" firstAttribute="trailing" secondItem="UZm-yV-Dmo" secondAttribute="trailing" id="kwP-FK-aZh"/>
+                            <constraint firstItem="q3f-5O-REg" firstAttribute="top" secondItem="UZm-yV-Dmo" secondAttribute="top" id="lfa-Rv-OjC"/>
+                            <constraint firstItem="4gi-O9-6pO" firstAttribute="top" secondItem="q3f-5O-REg" secondAttribute="bottom" id="ney-H1-tS8"/>
+                            <constraint firstItem="iTh-YA-SNk" firstAttribute="trailing" secondItem="UZm-yV-Dmo" secondAttribute="trailing" id="oRr-4l-cKY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UZm-yV-Dmo"/>
                     </view>
                     <connections>
@@ -482,7 +530,7 @@
     <resources>
         <image name="LS_logo_male" width="100" height="100"/>
         <image name="left.png" width="444" height="348"/>
-        <image name="play_big_narrow.png" width="475" height="451"/>
+        <image name="play.png" width="475" height="451"/>
         <image name="quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg" width="1440" height="2960"/>
         <image name="right.png" width="444" height="348"/>
         <image name="sound.png" width="375" height="360"/>
