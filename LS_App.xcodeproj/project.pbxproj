@@ -16,6 +16,11 @@
 		892B333121275B1800BAF2F9 /* overwerk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 892B333021275B1800BAF2F9 /* overwerk.mp3 */; };
 		892B333421275D1A00BAF2F9 /* Ra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 892B333321275D1A00BAF2F9 /* Ra.jpg */; };
 		892B333621275E8C00BAF2F9 /* DetailMeditaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */; };
+		8932987C212A9F8100BBBB79 /* big_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 8932987A212A9F8000BBBB79 /* big_pause.png */; };
+		8932987D212A9F8100BBBB79 /* big_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 8932987B212A9F8100BBBB79 /* big_play.png */; };
+		89329880212AA18100BBBB79 /* play_big_narrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8932987E212AA18100BBBB79 /* play_big_narrow.png */; };
+		89329881212AA18100BBBB79 /* pause_big_narrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8932987F212AA18100BBBB79 /* pause_big_narrow.png */; };
+		89329883212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89329882212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg */; };
 		8964D8E521293FE200D59220 /* 1_slovo_niterne_poznani.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */; };
 		8964D8E621293FE200D59220 /* 1_hudba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8E421293FE200D59220 /* 1_hudba.mp3 */; };
 		8964D8E821294ACE00D59220 /* MeditacePlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */; };
@@ -67,6 +72,11 @@
 		892B333021275B1800BAF2F9 /* overwerk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = overwerk.mp3; sourceTree = "<group>"; };
 		892B333321275D1A00BAF2F9 /* Ra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ra.jpg; sourceTree = "<group>"; };
 		892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMeditaceVC.swift; sourceTree = "<group>"; };
+		8932987A212A9F8000BBBB79 /* big_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = big_pause.png; sourceTree = "<group>"; };
+		8932987B212A9F8100BBBB79 /* big_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = big_play.png; sourceTree = "<group>"; };
+		8932987E212AA18100BBBB79 /* play_big_narrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_big_narrow.png; sourceTree = "<group>"; };
+		8932987F212AA18100BBBB79 /* pause_big_narrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_big_narrow.png; sourceTree = "<group>"; };
+		89329882212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg"; sourceTree = "<group>"; };
 		8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_slovo_niterne_poznani.mp3; sourceTree = "<group>"; };
 		8964D8E421293FE200D59220 /* 1_hudba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_hudba.mp3; sourceTree = "<group>"; };
 		8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditacePlayerVC.swift; sourceTree = "<group>"; };
@@ -175,7 +185,12 @@
 			children = (
 				8964D8ED21295DBA00D59220 /* left.png */,
 				8964D8EA21295DB900D59220 /* nosound.png */,
+				8932987F212AA18100BBBB79 /* pause_big_narrow.png */,
+				89329882212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg */,
+				8932987E212AA18100BBBB79 /* play_big_narrow.png */,
 				8964D8EE21295DBA00D59220 /* pause.png */,
+				8932987A212A9F8000BBBB79 /* big_pause.png */,
+				8932987B212A9F8100BBBB79 /* big_play.png */,
 				8964D8EC21295DBA00D59220 /* play.png */,
 				8964D8EB21295DB900D59220 /* right.png */,
 				8964D8EF21295DBA00D59220 /* sound.png */,
@@ -368,14 +383,19 @@
 				8964D8F521295DBA00D59220 /* sound.png in Resources */,
 				892B333421275D1A00BAF2F9 /* Ra.jpg in Resources */,
 				8964D8F221295DBA00D59220 /* play.png in Resources */,
+				89329881212AA18100BBBB79 /* pause_big_narrow.png in Resources */,
 				8964D8F321295DBA00D59220 /* left.png in Resources */,
 				8964D8F021295DBA00D59220 /* nosound.png in Resources */,
 				892B332021244FD300BAF2F9 /* LoadingCell.xib in Resources */,
 				8964D8E621293FE200D59220 /* 1_hudba.mp3 in Resources */,
 				8964D8F421295DBA00D59220 /* pause.png in Resources */,
+				8932987D212A9F8100BBBB79 /* big_play.png in Resources */,
+				89329880212AA18100BBBB79 /* play_big_narrow.png in Resources */,
 				89C105A121078BAE006EBD5F /* Main.storyboard in Resources */,
 				8964D8E521293FE200D59220 /* 1_slovo_niterne_poznani.mp3 in Resources */,
+				89329883212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg in Resources */,
 				892B333121275B1800BAF2F9 /* overwerk.mp3 in Resources */,
+				8932987C212A9F8100BBBB79 /* big_pause.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
