@@ -92,7 +92,14 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 self.getObrazekURL(mediaId: String(article.mediaId!)){malyObrazekUrl, velkyObrazekUrl in
                     //nacita URL adresu thumbnail obrazku a velkeho obrazku
                     //jede asynchronne a data v table view se reloadnou teprve, az je nacteno vse
-                    article.downloadedImageResource = ImageResource(downloadURL: URL(string: malyObrazekUrl)!, cacheKey: malyObrazekUrl)
+                    
+                    if let encodedUrl = malyObrazekUrl.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),let url = URL(string: encodedUrl){
+                        //dekodovani Stringu s URL kvuli diakritice
+                        article.downloadedImageResource = ImageResource(downloadURL: url, cacheKey: encodedUrl)
+                    }else{
+                        print("Nepodařilo se dekodovat URL")
+                    }
+                    
                     
                     article.velkyObrazekURL = velkyObrazekUrl
                     
