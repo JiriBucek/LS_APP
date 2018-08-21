@@ -377,27 +377,27 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meditace_default.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="WC5-Vl-5yV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                                                        <rect key="frame" x="5" y="5" width="365" height="248"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="WC5-Vl-5yV" secondAttribute="height" multiplier="25:17" id="IcA-2k-ZJV"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbB-uS-oXf">
-                                                        <rect key="frame" x="0.0" y="427.5" width="375" height="155.5"/>
+                                                        <rect key="frame" x="0.0" y="437.5" width="375" height="145.5"/>
                                                         <state key="normal" title="PŘEHRÁT MEDITACI"/>
                                                         <connections>
                                                             <action selector="prehrajMeditaciPressed:" destination="kow-Hp-nJg" eventType="touchUpInside" id="pub-oJ-ct6"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="uiW-p1-XdI">
-                                                        <rect key="frame" x="0.0" y="338" width="375" height="81.5"/>
+                                                        <rect key="frame" x="15" y="336" width="345" height="81.5"/>
                                                         <string key="text">Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek </string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="3uw-5i-Xaz">
-                                                        <rect key="frame" x="0.0" y="270" width="375" height="53"/>
+                                                        <rect key="frame" x="0.0" y="268" width="375" height="53"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -406,18 +406,18 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="ZbB-uS-oXf" secondAttribute="trailing" id="0v2-b2-PT1"/>
-                                                    <constraint firstItem="WC5-Vl-5yV" firstAttribute="top" secondItem="Dkh-f9-pYz" secondAttribute="top" id="7Wq-N1-ZFZ"/>
+                                                    <constraint firstItem="WC5-Vl-5yV" firstAttribute="top" secondItem="Dkh-f9-pYz" secondAttribute="top" constant="5" id="7Wq-N1-ZFZ"/>
                                                     <constraint firstItem="ZbB-uS-oXf" firstAttribute="leading" secondItem="Dkh-f9-pYz" secondAttribute="leading" id="DxG-EW-NPL"/>
                                                     <constraint firstAttribute="bottom" secondItem="ZbB-uS-oXf" secondAttribute="bottom" constant="20" id="HTy-3u-AdX"/>
                                                     <constraint firstItem="3uw-5i-Xaz" firstAttribute="leading" secondItem="Dkh-f9-pYz" secondAttribute="leading" id="KQp-vB-mqL"/>
-                                                    <constraint firstAttribute="trailing" secondItem="WC5-Vl-5yV" secondAttribute="trailing" id="Oba-rT-4EP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WC5-Vl-5yV" secondAttribute="trailing" constant="5" id="Oba-rT-4EP"/>
                                                     <constraint firstAttribute="trailing" secondItem="3uw-5i-Xaz" secondAttribute="trailing" id="XU3-XW-OAx"/>
                                                     <constraint firstItem="uiW-p1-XdI" firstAttribute="top" secondItem="3uw-5i-Xaz" secondAttribute="bottom" constant="15" id="ZIQ-bH-oUm"/>
                                                     <constraint firstItem="3uw-5i-Xaz" firstAttribute="top" secondItem="WC5-Vl-5yV" secondAttribute="bottom" constant="15" id="by3-yR-DBP"/>
-                                                    <constraint firstAttribute="trailing" secondItem="uiW-p1-XdI" secondAttribute="trailing" id="ggM-zy-ljO"/>
-                                                    <constraint firstItem="ZbB-uS-oXf" firstAttribute="top" secondItem="uiW-p1-XdI" secondAttribute="bottom" constant="8" id="l6L-JM-uNZ"/>
-                                                    <constraint firstItem="WC5-Vl-5yV" firstAttribute="leading" secondItem="Dkh-f9-pYz" secondAttribute="leading" id="v1H-Ws-0v5"/>
-                                                    <constraint firstItem="uiW-p1-XdI" firstAttribute="leading" secondItem="Dkh-f9-pYz" secondAttribute="leading" id="zD0-eL-tfM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="uiW-p1-XdI" secondAttribute="trailing" constant="15" id="ggM-zy-ljO"/>
+                                                    <constraint firstItem="ZbB-uS-oXf" firstAttribute="top" secondItem="uiW-p1-XdI" secondAttribute="bottom" constant="20" id="l6L-JM-uNZ"/>
+                                                    <constraint firstItem="WC5-Vl-5yV" firstAttribute="leading" secondItem="Dkh-f9-pYz" secondAttribute="leading" constant="5" id="v1H-Ws-0v5"/>
+                                                    <constraint firstItem="uiW-p1-XdI" firstAttribute="leading" secondItem="Dkh-f9-pYz" secondAttribute="leading" constant="15" id="zD0-eL-tfM"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -452,6 +452,7 @@
                     </view>
                     <connections>
                         <outlet property="nadpisMeditaceLabel" destination="3uw-5i-Xaz" id="RDB-rd-hNi"/>
+                        <outlet property="obsahMeditaceLabel" destination="uiW-p1-XdI" id="Gdi-EU-orm"/>
                         <outlet property="velkyImageMeditace" destination="WC5-Vl-5yV" id="Ric-Wv-t5F"/>
                         <segue destination="FO9-6C-WA2" kind="show" id="nzk-pQ-fVJ"/>
                     </connections>

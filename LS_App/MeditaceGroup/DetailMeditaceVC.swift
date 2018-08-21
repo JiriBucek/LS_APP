@@ -15,6 +15,7 @@ class DetailMeditaceVC: UIViewController {
     
     @IBOutlet weak var nadpisMeditaceLabel: UILabel!
     
+    @IBOutlet weak var obsahMeditaceLabel: UILabel!
     
     @IBAction func prehrajMeditaciPressed(_ sender: Any) {
         let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
@@ -27,7 +28,7 @@ class DetailMeditaceVC: UIViewController {
 
     
     var nadpis: String?
-    var popisek: String?
+    var obsah: String?
     var image: String?
     var mluveneSlovo: String?
     var podkladovaHudba: String?
@@ -38,12 +39,18 @@ class DetailMeditaceVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if nadpisMeditaceLabel != nil{
+        if nadpis != nil{
             nadpisMeditaceLabel.text = nadpis
         }
         
-        if velkyImageMeditace != nil{
+        if image != nil{
             velkyImageMeditace.image = UIImage(imageLiteralResourceName: image!)
+            velkyImageMeditace.layer.cornerRadius = 15
+            velkyImageMeditace.clipsToBounds = true
+        }
+        
+        if obsah != nil{
+            obsahMeditaceLabel.text = obsah            
         }
         // Do any additional setup after loading the view.
         

@@ -37,6 +37,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
             
             meditaceObjekt.nadpis = item["nadpis"]!
             meditaceObjekt.popisek = item["popisek"]!
+            meditaceObjekt.obsah = item["obsah"]
             meditaceObjekt.obrazekName = item["obrazekName"]
             meditaceObjekt.audioSlovo = item["audio_slovo"]
             meditaceObjekt.audioHudba = item["audio_hudba"]
@@ -57,6 +58,9 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         cell.obrazekMalyMeditace.image = UIImage(imageLiteralResourceName: jmenoObrazku!)
         
+        cell.obrazekMalyMeditace.layer.cornerRadius = 5
+        cell.obrazekMalyMeditace.clipsToBounds = true
+        
         return cell
     }
     
@@ -65,6 +69,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         let detailMeditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceDetail") as! DetailMeditaceVC
         
         detailMeditaceVC.nadpis = self.meditaceArray?[indexPath.item].nadpis
+        detailMeditaceVC.obsah =  self.meditaceArray?[indexPath.item].obsah
         detailMeditaceVC.image = self.meditaceArray?[indexPath.item].obrazekName
         detailMeditaceVC.mluveneSlovo = self.meditaceArray?[indexPath.item].audioSlovo
         detailMeditaceVC.podkladovaHudba = self.meditaceArray?[indexPath.item].audioHudba
@@ -92,9 +97,9 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     */
     var meditaceData = [
         
-        ["nadpis":"Meditace osobní prostor", "popisek":"Meditace v bílém prostoru, v osobním prostoru a všude možně", "obrazekName": "meditace_default.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"],
+        ["nadpis" : "Meditace osobní prostor", "popisek" : "Poznej své niterné sféry, projdi dále a převezmi sílu pro tvoření Tvého světa. Teri pomůžeš ještě s popisem? Spustí se hudba, za chvíli mluvené slovo. Mluvené slovo lze pauzovat, přičemž hudba stále běží v pozadí.", "obrazekName": "1_meditace.jpg", "obsah" : "Poznej své niterné sféry, projdi dále a převezmi sílu pro tvoření Tvého světa. Teri pomůžeš ještě s popisem? Spustí se hudba, za chvíli mluvené slovo. Mluvené slovo lze pauzovat, přičemž hudba stále běží v pozadí.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"],
         
-        ["nadpis":"Meditace prostor 2", "popisek":"Meditace v bílém prostoru, v osobním prostoru a všude možně", "obrazekName": "Ra.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"]
+        ["nadpis":"Pozorování jedné myšlenky", "popisek":"Pozorování jedné myšlenky pro získání pevné vůle a koncentrace", "obrazekName": "2_meditace.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"]
         
     ]
 
