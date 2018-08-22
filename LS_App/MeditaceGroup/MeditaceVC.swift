@@ -73,6 +73,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         detailMeditaceVC.image = self.meditaceArray?[indexPath.item].obrazekName
         detailMeditaceVC.mluveneSlovo = self.meditaceArray?[indexPath.item].audioSlovo
         detailMeditaceVC.podkladovaHudba = self.meditaceArray?[indexPath.item].audioHudba
+        detailMeditaceVC.title = self.meditaceArray?[indexPath.item].nadpis
         
         self.navigationController?.pushViewController(detailMeditaceVC, animated: true)
     }
