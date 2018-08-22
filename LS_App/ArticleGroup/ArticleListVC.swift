@@ -22,11 +22,11 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     var articlesArray: [ArticleClass]? = []
     
+    @IBOutlet weak var loadingView: UIImageView!
     var loadingMore = false
     //Stahuju zrovna další články
 
 
-    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var loadingLabel: UILabel!
     var activityIndicatorView: NVActivityIndicatorView? = nil
     //indikátor načítání prvtních článků
