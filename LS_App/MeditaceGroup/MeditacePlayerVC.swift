@@ -78,18 +78,20 @@ class MeditacePlayerVC: UIViewController {
     var playerSlovo: AVAudioPlayer?
     var playerHudba: AVAudioPlayer?
     
-    var delkaNahravky: Int?
-    var momentalniPozice: Int?
+    var delkaNahravky: Int = 0
+    var momentalniPozice: Int = 0
     
     var timer: Timer?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        playSlovo(time: 0)
+        playerSlovo?.pause()
         
         
         if playerSlovo != nil{
-            progressLabel.text = "\(sekundyParser(seconds: momentalniPozice!)) : \(sekundyParser(seconds: delkaNahravky!))"
+            progressLabel.text = "\(sekundyParser(seconds: momentalniPozice)) : \(sekundyParser(seconds: delkaNahravky))"
         }
         // Do any additional setup after loading the view.
     }
@@ -143,12 +145,12 @@ class MeditacePlayerVC: UIViewController {
             delkaNahravky = Int((playerSlovo?.duration)!)
             momentalniPozice = Int((playerSlovo?.currentTime)!)
         
-            let progres = Float(momentalniPozice!)/Float(delkaNahravky!)
+        let progres = Float(momentalniPozice)/Float(delkaNahravky)
         
             progressBar.progress = progres
             progressBar2.progress = progres
         
-        progressLabel.text = "\(sekundyParser(seconds: momentalniPozice!)) / \(sekundyParser(seconds: delkaNahravky!))"
+        progressLabel.text = "\(sekundyParser(seconds: momentalniPozice)) / \(sekundyParser(seconds: delkaNahravky))"
         
     }
     
