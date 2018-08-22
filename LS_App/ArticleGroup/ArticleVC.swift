@@ -32,7 +32,11 @@ class ArticleVC: UIViewController {
         }
         
         if velkyObrazekUrl != nil{
-            velkyObrazekOutlet.kf.setImage(with: URL(string: velkyObrazekUrl!))
+            
+            if let encodedUrl = velkyObrazekUrl?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),let url = URL(string: encodedUrl){
+                
+                velkyObrazekOutlet.kf.setImage(with: url)
+            }
         }else{
             velkyObrazekOutlet.image = #imageLiteral(resourceName: "LS_logo_male")
         }

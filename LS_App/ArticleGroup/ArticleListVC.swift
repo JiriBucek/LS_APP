@@ -225,14 +225,14 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
 
         let bodX = UIScreen.main.bounds.width
         let bodY = UIScreen.main.bounds.height
-        let frame = CGRect(x: bodX/2 - 30  , y: bodY/2 - 30 , width: 60  , height: 60)
+        let frame = CGRect(x: bodX/2 - 25  , y: bodY/2 - 25 , width: 50  , height: 50)
         activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .lineScale, color: .black)
         self.view.addSubview(activityIndicatorView!)
         
         activityIndicatorView?.startAnimating()
         loadingLabel.isHidden = false
         loadingLabel.center.x = bodX/2
-        loadingLabel.center.y = bodY/2 + 60
+        loadingLabel.center.y = bodY/2 + 50
         loadingLabel.text = infoText
     }
     
