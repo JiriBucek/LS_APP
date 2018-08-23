@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumblr_oiwytz4dh41tf8vylo1_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="dHW-IV-PyW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumblr_oiwytz4dh41tf8vylo1_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="dHW-IV-PyW">
                                 <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_male" translatesAutoresizingMaskIntoConstraints="NO" id="6YJ-Si-Kto">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="6YJ-Si-Kto">
                                 <rect key="frame" x="112" y="331" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="nwM-8l-xm0"/>
@@ -55,7 +55,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LS_logo_male" width="100" height="100"/>
+        <image name="LS_logo_pruhledne" width="341" height="341"/>
         <image name="tumblr_oiwytz4dh41tf8vylo1_1280.png" width="1280" height="1280"/>
     </resources>
 </document>
