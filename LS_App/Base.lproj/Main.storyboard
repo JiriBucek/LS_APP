@@ -68,8 +68,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87s-VF-NEv">
                                         <rect key="frame" x="86" y="65" width="148" height="64"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="38"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="ČLÁNKY">
                                             <color key="titleColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="UM7-im-dRJ" kind="push" id="npX-ja-BbG"/>
@@ -78,14 +80,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExX-ig-ipn">
                                         <rect key="frame" x="67.5" y="192.5" width="185" height="63"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="37"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="MEDITACE">
                                             <color key="titleColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="QQN-uS-WsP" kind="show" id="ATV-wx-9MO"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_male" translatesAutoresizingMaskIntoConstraints="NO" id="cpi-PU-h4x">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="cpi-PU-h4x">
                                         <rect key="frame" x="100" y="319.5" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="EJN-kI-jaG"/>
@@ -667,7 +671,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LS_logo_male" width="100" height="100"/>
+        <image name="LS_logo_pruhledne" width="341" height="341"/>
         <image name="left.png" width="444" height="348"/>
         <image name="meditace_default.jpg" width="520" height="347"/>
         <image name="play.png" width="475" height="451"/>
