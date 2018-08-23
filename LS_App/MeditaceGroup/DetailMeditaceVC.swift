@@ -21,7 +21,6 @@ class DetailMeditaceVC: UIViewController {
         let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
         playerVC.mluveneSlovo = mluveneSlovo
         playerVC.podkladovaHudba = podkladovaHudba
-        print(playerVC.mluveneSlovo)
         self.navigationController?.pushViewController(playerVC, animated: true)
     }
     
