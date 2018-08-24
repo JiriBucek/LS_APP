@@ -2,10 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "LS_logo_pruhledne-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "LS_logo_pruhledne-1.png",
       "scale" : "2x"
     },
     {
