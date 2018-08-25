@@ -11,9 +11,7 @@ import AVFoundation
 
 class MeditacePlayerVC: UIViewController {
     
-    @IBOutlet weak var progressBar: UIProgressView!
     
-    @IBOutlet weak var progressBar2: UIProgressView!
     //dvojka je spodní
     @IBOutlet weak var slider: UISlider!
     
@@ -157,8 +155,6 @@ class MeditacePlayerVC: UIViewController {
         
         let progres = Float(momentalniPozice)/Float(delkaNahravky)
         
-            progressBar.progress = progres
-            progressBar2.progress = progres
         slider.value = progres
         
         progressLabel.text = "\(sekundyParser(seconds: momentalniPozice)) / \(sekundyParser(seconds: delkaNahravky))"
