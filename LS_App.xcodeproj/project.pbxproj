@@ -21,7 +21,6 @@
 		895023AC212CD1C3007BD6D0 /* 2_hudba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895023AB212CD1C3007BD6D0 /* 2_hudba.mp3 */; };
 		895023AE212CD1F8007BD6D0 /* 2_slovo_pozorovani_jedne_myslenky.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895023AD212CD1F8007BD6D0 /* 2_slovo_pozorovani_jedne_myslenky.mp3 */; };
 		895023B2212CD612007BD6D0 /* tumblr_oiwytz4dh41tf8vylo1_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = 895023B1212CD611007BD6D0 /* tumblr_oiwytz4dh41tf8vylo1_1280.png */; };
-		895023B421315770007BD6D0 /* sliderIkonka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895023B321315770007BD6D0 /* sliderIkonka.swift */; };
 		895023B721316200007BD6D0 /* 15_forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 895023B5213161FF007BD6D0 /* 15_forward.png */; };
 		895023B821316200007BD6D0 /* 15_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 895023B621316200007BD6D0 /* 15_back.png */; };
 		8964D8E521293FE200D59220 /* 1_slovo_niterne_poznani.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */; };
@@ -78,7 +77,6 @@
 		895023AB212CD1C3007BD6D0 /* 2_hudba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2_hudba.mp3; sourceTree = "<group>"; };
 		895023AD212CD1F8007BD6D0 /* 2_slovo_pozorovani_jedne_myslenky.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2_slovo_pozorovani_jedne_myslenky.mp3; sourceTree = "<group>"; };
 		895023B1212CD611007BD6D0 /* tumblr_oiwytz4dh41tf8vylo1_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tumblr_oiwytz4dh41tf8vylo1_1280.png; sourceTree = "<group>"; };
-		895023B321315770007BD6D0 /* sliderIkonka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sliderIkonka.swift; sourceTree = "<group>"; };
 		895023B5213161FF007BD6D0 /* 15_forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15_forward.png; sourceTree = "<group>"; };
 		895023B621316200007BD6D0 /* 15_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15_back.png; sourceTree = "<group>"; };
 		8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_slovo_niterne_poznani.mp3; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				892B332F21275AD900BAF2F9 /* Images */,
 				892B333221275B2000BAF2F9 /* Sounds */,
 				892B33292127496000BAF2F9 /* MeditaceCell.swift */,
-				895023B321315770007BD6D0 /* sliderIkonka.swift */,
 				892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */,
 				892B3324212710AB00BAF2F9 /* MeditaceVC.swift */,
 				892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */,
@@ -473,7 +470,6 @@
 				89C105CC210793BF006EBD5F /* ArticleCell.swift in Sources */,
 				89ED1BE52114C766001CC7F6 /* ArticleVC.swift in Sources */,
 				892B333621275E8C00BAF2F9 /* DetailMeditaceVC.swift in Sources */,
-				895023B421315770007BD6D0 /* sliderIkonka.swift in Sources */,
 				89C105CA210792D0006EBD5F /* ArticleListVC.swift in Sources */,
 				89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */,
 				8964D8E821294ACE00D59220 /* MeditacePlayerVC.swift in Sources */,

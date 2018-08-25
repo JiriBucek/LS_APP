@@ -15,6 +15,8 @@ class MeditacePlayerVC: UIViewController {
     //dvojka je spodní
     @IBOutlet weak var slider: UISlider!
     
+    var pocitadlo = 0
+    
     
     @IBAction func sliderMoved(_ sender: Any) {
         let sliderValue = slider.value
@@ -93,6 +95,8 @@ class MeditacePlayerVC: UIViewController {
     
     
     override func viewDidLoad() {
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         super.viewDidLoad()
         playSlovo(time: 0)
         playerSlovo?.pause()
@@ -139,7 +143,7 @@ class MeditacePlayerVC: UIViewController {
             player.prepareToPlay()
 
             
-            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
             
             player.currentTime = time
             player.play()
@@ -150,14 +154,19 @@ class MeditacePlayerVC: UIViewController {
     }
     
     @objc func timerFunc(){
-            delkaNahravky = Int((playerSlovo?.duration)!)
-            momentalniPozice = Int((playerSlovo?.currentTime)!)
+        delkaNahravky = Int((playerSlovo?.duration)!)
+        momentalniPozice = Int((playerSlovo?.currentTime)!)
+        
+        pocitadlo += 1
+        print(pocitadlo)
         
         let progres = Float(momentalniPozice)/Float(delkaNahravky)
         
         slider.value = progres
         
         progressLabel.text = "\(sekundyParser(seconds: momentalniPozice)) / \(sekundyParser(seconds: delkaNahravky))"
+        
+        
         
     }
     
