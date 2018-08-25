@@ -15,6 +15,16 @@ class MeditacePlayerVC: UIViewController {
     
     @IBOutlet weak var progressBar2: UIProgressView!
     //dvojka je spodní
+    @IBOutlet weak var slider: UISlider!
+    
+    
+    @IBAction func sliderMoved(_ sender: Any) {
+        let sliderValue = slider.value
+        let posunNaCas = sliderValue * Float(delkaNahravky)
+        print(posunNaCas)
+        
+        playerSlovo?.currentTime = Double(posunNaCas)
+    }
     
     @IBOutlet weak var playBtn: UIButton!
     
@@ -149,6 +159,7 @@ class MeditacePlayerVC: UIViewController {
         
             progressBar.progress = progres
             progressBar2.progress = progres
+        slider.value = progres
         
         progressLabel.text = "\(sekundyParser(seconds: momentalniPozice)) / \(sekundyParser(seconds: delkaNahravky))"
         

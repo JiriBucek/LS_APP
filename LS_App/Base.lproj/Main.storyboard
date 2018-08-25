@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="59a-r2-Fxi">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
             <objects>
                 <viewController id="ywl-Rp-nNp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mG8-7g-bqt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zde bude možnost vytvořit do budoucna menu s různými nastaveními, kontakty apod." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WX1-JN-8dS">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -48,17 +48,17 @@
             <objects>
                 <viewController title="HomeVC" id="2QJ-pL-QNR" customClass="HomeVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q0d-Mj-sos">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumblr_oiwytz4dh41tf8vylo1_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="vsp-bp-rJp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bh1-9m-Arh">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VkZ-9K-T6m">
-                                        <rect key="frame" x="159.5" y="0.0" width="1" height="1"/>
+                                        <rect key="frame" x="187" y="0.0" width="1" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="X8r-9O-xWt"/>
@@ -66,7 +66,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87s-VF-NEv">
-                                        <rect key="frame" x="86" y="65" width="148" height="64"/>
+                                        <rect key="frame" x="113.5" y="89.5" width="148" height="64"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="38"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="ČLÁNKY">
@@ -78,7 +78,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExX-ig-ipn">
-                                        <rect key="frame" x="67.5" y="192.5" width="185" height="63"/>
+                                        <rect key="frame" x="95" y="242" width="185" height="63"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="37"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="MEDITACE">
@@ -90,14 +90,14 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="cpi-PU-h4x">
-                                        <rect key="frame" x="100" y="319.5" width="120" height="120"/>
+                                        <rect key="frame" x="127.5" y="393.5" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="EJN-kI-jaG"/>
                                             <constraint firstAttribute="height" constant="120" id="gcJ-pw-FtH"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZY6-4i-lzh">
-                                        <rect key="frame" x="159.5" y="503" width="1" height="1"/>
+                                        <rect key="frame" x="187" y="602" width="1" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="YPq-Qh-Lvm"/>
@@ -142,18 +142,18 @@
             <objects>
                 <viewController title="Články" id="UM7-im-dRJ" customClass="ArticleListVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H25-99-xYX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="articles" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-1b-qXy">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="189" id="KEA-6b-rOq" customClass="ArticleCell" customModule="LS_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="189"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="189" id="KEA-6b-rOq" customClass="ArticleCell" customModule="LS_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KEA-6b-rOq" id="8EN-Qe-d6K">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="188.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="188.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ku2-tl-Juv">
@@ -164,13 +164,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="XHP-aU-ZeR">
-                                                    <rect key="frame" x="123" y="44.5" width="174" height="50"/>
+                                                    <rect key="frame" x="123" y="44.5" width="229" height="50"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="V11-po-AOG">
-                                                    <rect key="frame" x="123" y="94.5" width="174" height="50"/>
+                                                    <rect key="frame" x="123" y="94.5" width="229" height="50"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -203,7 +203,7 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumblr_oiwytz4dh41tf8vylo1_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="oud-Pz-Dun">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBx-BU-aOn">
                                 <rect key="frame" x="0.0" y="321" width="375" height="24"/>
@@ -243,24 +243,24 @@
             <objects>
                 <viewController storyboardIdentifier="web" id="dUd-Nj-rz9" customClass="ArticleVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jfj-OQ-5zq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNM-f3-qk9">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nM2-Hg-GfG">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B6H-ay-Xn0">
-                                                <rect key="frame" x="5" y="5" width="310" height="177"/>
+                                                <rect key="frame" x="5" y="5" width="365" height="208.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="B6H-ay-Xn0" secondAttribute="height" multiplier="375:214" id="OtH-gs-Jo0"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="dYG-pp-YGY"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="gJU-Zd-ZBF">
-                                                <rect key="frame" x="5" y="187" width="310" height="90.5"/>
+                                                <rect key="frame" x="5" y="218.5" width="365" height="90.5"/>
                                                 <rect key="contentStretch" x="0.90000000000000002" y="0.0" width="1" height="1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="nTd-Pb-9KY"/>
@@ -271,7 +271,7 @@
                                                 <size key="shadowOffset" width="1" height="-1"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" pagingEnabled="YES" maximumZoomScale="3" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5S-NP-pz1">
-                                                <rect key="frame" x="5" y="282.5" width="310" height="216.5"/>
+                                                <rect key="frame" x="5" y="314" width="365" height="284"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
                                                     <fragment>
@@ -335,7 +335,7 @@
             <objects>
                 <navigationController id="59a-r2-Fxi" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UgS-JD-bGQ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vt1-0S-FFM">
@@ -354,18 +354,18 @@
             <objects>
                 <viewController title="Meditace" id="QQN-uS-WsP" customClass="MeditaceVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YE1-QZ-TnW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5gq-Rz-C7E">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meditaceCell" rowHeight="189" id="c17-Wo-abW" customClass="MeditaceCell" customModule="LS_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="189"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meditaceCell" rowHeight="189" id="c17-Wo-abW" customClass="MeditaceCell" customModule="LS_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c17-Wo-abW" id="ATU-dm-yQw">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="188.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="188.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yTA-Ze-A0W">
@@ -376,13 +376,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tady je nadpis" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6P6-Ge-8Pb">
-                                                    <rect key="frame" x="123" y="44.5" width="174" height="50"/>
+                                                    <rect key="frame" x="123" y="44.5" width="229" height="50"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Tady je popisek Tady je popisek Tady je popisek " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="udk-Sc-UQg">
-                                                    <rect key="frame" x="123" y="94.5" width="174" height="50"/>
+                                                    <rect key="frame" x="123" y="94.5" width="229" height="50"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -438,26 +438,26 @@
             <objects>
                 <viewController storyboardIdentifier="meditaceDetail" id="kow-Hp-nJg" customClass="DetailMeditaceVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Vt-9X-U34">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uth-kn-AlZ">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amK-mQ-Kf5">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkh-f9-pYz">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meditace_default.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="WC5-Vl-5yV">
-                                                        <rect key="frame" x="5" y="5" width="310" height="210.5"/>
+                                                        <rect key="frame" x="5" y="5" width="365" height="248"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="WC5-Vl-5yV" secondAttribute="height" multiplier="25:17" id="IcA-2k-ZJV"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbB-uS-oXf">
-                                                        <rect key="frame" x="0.0" y="431" width="320" height="43"/>
+                                                        <rect key="frame" x="0.0" y="466.5" width="375" height="106.5"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                                         <state key="normal" title="PŘEHRÁT MEDITACI">
                                                             <color key="titleColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -467,14 +467,14 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="uiW-p1-XdI">
-                                                        <rect key="frame" x="15" y="306" width="290" height="95"/>
+                                                        <rect key="frame" x="15" y="343.5" width="345" height="93"/>
                                                         <string key="text">Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek Popisek </string>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="3uw-5i-Xaz">
-                                                        <rect key="frame" x="0.0" y="230.5" width="320" height="60.5"/>
+                                                        <rect key="frame" x="0.0" y="268" width="375" height="60.5"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -543,17 +543,17 @@
             <objects>
                 <viewController storyboardIdentifier="player" id="FO9-6C-WA2" customClass="MeditacePlayerVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ey8-vV-AjK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumblr_oiwytz4dh41tf8vylo1_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="kTf-S1-pTO">
-                                <rect key="frame" x="0.0" y="0.0" width="1280" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4gi-O9-6pO">
-                                <rect key="frame" x="0.0" y="374" width="1280" height="2"/>
+                                <rect key="frame" x="0.0" y="473" width="375" height="2"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
-                                <rect key="frame" x="0.0" y="376" width="1280" height="70"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0:00 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
+                                <rect key="frame" x="16" y="423" width="375" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="013-pg-57d"/>
                                 </constraints>
@@ -562,10 +562,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mcr-lI-hBZ">
-                                <rect key="frame" x="0.0" y="446" width="1280" height="2"/>
+                                <rect key="frame" x="0.0" y="545" width="375" height="2"/>
                             </progressView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sf2-e9-7dW">
-                                <rect key="frame" x="0.0" y="448" width="1280" height="120"/>
+                                <rect key="frame" x="0.0" y="547" width="375" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-fk-xQ9">
                                         <rect key="frame" x="0.0" y="10" width="114" height="100"/>
@@ -579,7 +579,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-hj-WGg">
-                                        <rect key="frame" x="400.5" y="10" width="100" height="100"/>
+                                        <rect key="frame" x="137.5" y="10" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="oI9-tL-eny"/>
                                             <constraint firstAttribute="width" constant="100" id="sDs-pB-HeA"/>
@@ -590,7 +590,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81f-wV-C2Y">
-                                        <rect key="frame" x="787" y="10" width="493" height="100"/>
+                                        <rect key="frame" x="261" y="10" width="114" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="114" id="3Le-Zb-kBJ"/>
                                             <constraint firstAttribute="height" constant="100" id="d3Y-ph-7p6"/>
@@ -606,10 +606,10 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3f-5O-REg">
-                                <rect key="frame" x="0.0" y="64" width="1280" height="310"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="409"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-0C-MFn">
-                                        <rect key="frame" x="0.0" y="-443" width="1280" height="1195"/>
+                                        <rect key="frame" x="0.0" y="29" width="375" height="350"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Xwe-0C-MFn" secondAttribute="height" multiplier="15:14" id="KyW-fd-Wbm"/>
                                         </constraints>
@@ -630,6 +630,13 @@
                                     <constraint firstItem="Xwe-0C-MFn" firstAttribute="centerY" secondItem="q3f-5O-REg" secondAttribute="centerY" id="m32-ud-qgm"/>
                                 </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="apV-oB-pds">
+                                <rect key="frame" x="38" y="493" width="299" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderMoved:" destination="FO9-6C-WA2" eventType="valueChanged" id="9Di-eG-tt0"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -663,15 +670,16 @@
                         <outlet property="progressBar" destination="4gi-O9-6pO" id="PIO-6b-2Sx"/>
                         <outlet property="progressBar2" destination="mcr-lI-hBZ" id="BTB-0e-dyl"/>
                         <outlet property="progressLabel" destination="iTh-YA-SNk" id="zYP-NX-hYq"/>
+                        <outlet property="slider" destination="apV-oB-pds" id="l5I-vn-m5G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2a-5D-03p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2285.5999999999999" y="865.81709145427294"/>
+            <point key="canvasLocation" x="2284" y="864.91754122938539"/>
         </scene>
     </scenes>
     <resources>
-        <image name="LS_logo_pruhledne" width="341" height="341"/>
+        <image name="LS_logo_pruhledne" width="512" height="512"/>
         <image name="left.png" width="444" height="348"/>
         <image name="meditace_default.jpg" width="520" height="347"/>
         <image name="play.png" width="475" height="451"/>
