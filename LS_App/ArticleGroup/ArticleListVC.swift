@@ -70,6 +70,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 if let nadpis = json["title"]["rendered"].string{
                     article.nadpis = nadpis.htmlAttributed()?.string
+                    print(nadpis)
                 }
                 
                 if let obsah = json["content"]["rendered"].string{
@@ -89,7 +90,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 }
                 
 
-                self.getObrazekURL(mediaId: String(article.mediaId!)){malyObrazekUrl, velkyObrazekUrl in
+               self.getObrazekURL(mediaId: String(article.mediaId!)){malyObrazekUrl, velkyObrazekUrl in
                     //nacita URL adresu thumbnail obrazku a velkeho obrazku
                     //jede asynchronne a data v table view se reloadnou teprve, az je nacteno vse
                     
