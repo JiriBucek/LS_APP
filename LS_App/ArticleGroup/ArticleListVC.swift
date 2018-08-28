@@ -18,7 +18,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     @IBOutlet weak var articlesTableView: UITableView!
     
-    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=8&offset=0"
+    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=8&offset=0&_embed=true"
     
     var articlesArray: [ArticleClass]? = []
     
@@ -63,14 +63,13 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
             if let value = response.result.value as? [Dictionary<String, Any>]{
             
             for item in value{
+
                 let article = ArticleClass()
                 
                 let json = JSON(item)
                 
-                
                 if let nadpis = json["title"]["rendered"].string{
                     article.nadpis = nadpis.htmlAttributed()?.string
-                    print(nadpis)
                 }
                 
                 if let obsah = json["content"]["rendered"].string{
@@ -89,8 +88,18 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                     article.mediaId = String(mediaId)
                 }
                 
+                if let malyObrazekUrl = json["_embedded"]["wp:featuredmedia"][0]["media_details"]["sizes"]["thumbnail"]["source_url"].string{
+                   article.obrazekURL = malyObrazekUrl
+               }
+                
+                //["wp:featuredmedia"]["media_details"]["sizes"]["thumbnail"]["source_url"]
+                
+                if let velkyObrazekURL = json["_embedded"]["wp:featuredmedia"][0]["source_url"].string{
+                    print("velky: " + velkyObrazekURL)
+                    article.velkyObrazekURL = velkyObrazekURL
+                }
 
-               self.getObrazekURL(mediaId: String(article.mediaId!)){malyObrazekUrl, velkyObrazekUrl in
+               /*self.getObrazekURL(mediaId: String(article.mediaId!)){malyObrazekUrl, velkyObrazekUrl in
                     //nacita URL adresu thumbnail obrazku a velkeho obrazku
                     //jede asynchronne a data v table view se reloadnou teprve, az je nacteno vse
                     
@@ -110,13 +119,16 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                         self.loadingMore = false
                     }
                 }
-                
+                */
                 
                 
                 self.articlesArray?.append(article)
+                
                 }
-                
-                
+                print("ted")
+                self.articlesTableView.reloadData()
+                self.hideInfo()
+                self.loadingMore = false
             }
             //self.articlesTableView.reloadData()
         }
@@ -139,12 +151,23 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         cell.obrazekView.layer.cornerRadius = 5
         cell.obrazekView.clipsToBounds = true
         //oblé rohy
+            
+        if self.articlesArray?[indexPath.item].obrazekURL != nil{
+            if let encodedUrl = self.articlesArray?[indexPath.item].obrazekURL?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),let url = URL(string: encodedUrl){
+            //let url = URL(string: (self.articlesArray?[indexPath.item].obrazekURL)!)
+            cell.obrazekView.kf.setImage(with: url)
+            }
+        }else{
+            cell.obrazekView.image = #imageLiteral(resourceName: "LS_logo_male")
+            }
         
-        let resource = self.articlesArray?[indexPath.item].downloadedImageResource
+       /* let resource = ImageResource(downloadURL: URL(string: (self.articlesArray?[indexPath.item].obrazekURL)!)!)
+            
         cell.obrazekView.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "LS_logo_male")){ (image, error, cacheType, imageUrl) in
             cell.setNeedsLayout()
         }
-        
+        */
+            
         return cell
             
         }else{
@@ -190,7 +213,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
             // we are at last cell load more content
             // we need to bring more records as there are some pending records available
         if let offset = articlesArray?.count{
-        loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=5&offset=\(offset)")
+        loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=5&offset=\(offset)&_embed=true")
         //self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
         }
         }
