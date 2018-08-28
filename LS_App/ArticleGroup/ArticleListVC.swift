@@ -80,22 +80,16 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                     article.popisek = popisek.htmlAttributed()?.string
                 }
                 
-               if let linkClanku = json["link"].string{
+               /*if let linkClanku = json["link"].string{
                     article.linkClanku = linkClanku
-                }
-                
-                if let mediaId = json["featured_media"].int{
-                    article.mediaId = String(mediaId)
-                }
+                }*/
+
                 
                 if let malyObrazekUrl = json["_embedded"]["wp:featuredmedia"][0]["media_details"]["sizes"]["thumbnail"]["source_url"].string{
                    article.obrazekURL = malyObrazekUrl
                }
                 
-                //["wp:featuredmedia"]["media_details"]["sizes"]["thumbnail"]["source_url"]
-                
                 if let velkyObrazekURL = json["_embedded"]["wp:featuredmedia"][0]["source_url"].string{
-                    print("velky: " + velkyObrazekURL)
                     article.velkyObrazekURL = velkyObrazekURL
                 }
 
@@ -120,8 +114,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                     }
                 }
                 */
-                
-                
                 self.articlesArray?.append(article)
                 
                 }
@@ -130,7 +122,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 self.hideInfo()
                 self.loadingMore = false
             }
-            //self.articlesTableView.reloadData()
         }
     }
     
@@ -153,20 +144,14 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         //oblé rohy
             
         if self.articlesArray?[indexPath.item].obrazekURL != nil{
+            
             if let encodedUrl = self.articlesArray?[indexPath.item].obrazekURL?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),let url = URL(string: encodedUrl){
-            //let url = URL(string: (self.articlesArray?[indexPath.item].obrazekURL)!)
-            cell.obrazekView.kf.setImage(with: url)
+                
+                cell.obrazekView.kf.setImage(with: url)
             }
         }else{
             cell.obrazekView.image = #imageLiteral(resourceName: "LS_logo_male")
             }
-        
-       /* let resource = ImageResource(downloadURL: URL(string: (self.articlesArray?[indexPath.item].obrazekURL)!)!)
-            
-        cell.obrazekView.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "LS_logo_male")){ (image, error, cacheType, imageUrl) in
-            cell.setNeedsLayout()
-        }
-        */
             
         return cell
             
@@ -185,6 +170,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         return 2
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0{
@@ -196,6 +182,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         }
         return 0
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
@@ -213,7 +200,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
             // we are at last cell load more content
             // we need to bring more records as there are some pending records available
         if let offset = articlesArray?.count{
-        loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=5&offset=\(offset)&_embed=true")
+        loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=10&offset=\(offset)&_embed=true")
         //self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
         }
         }
@@ -221,7 +208,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     
 
-    func getObrazekURL(mediaId: String, completion: @escaping ((String, String) -> ())){
+    /*func getObrazekURL(mediaId: String, completion: @escaping ((String, String) -> ())){
         //propoji se k dalši APIně, stáhne si JSONa a vyzobe z něj URL na obrázky. Nakonec toto URL předá closure completion jako její parametr. Protože stahování URL probíhá asynchronně, nelze normálně returnovat, ale na konci prostě řeknu: proveď tento kód s tímto parametrem. Při voláni funkce pak vytvořím samotnou closure. 
         
         let mediaUrl = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/media/" + mediaId
@@ -241,7 +228,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 }
             }
         }
-    }
+    }*/
     
     func displayInfo(infoText: String){
         //Zobrazí loading animaci a label

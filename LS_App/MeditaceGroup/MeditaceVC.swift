@@ -36,7 +36,6 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
             let meditaceObjekt = MeditaceClass()
             
             meditaceObjekt.nadpis = item["nadpis"]!
-            meditaceObjekt.popisek = item["popisek"]!
             meditaceObjekt.obsah = item["obsah"]
             meditaceObjekt.obrazekName = item["obrazekName"]
             meditaceObjekt.audioSlovo = item["audio_slovo"]
@@ -53,7 +52,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         let cell = meditaceTableView.dequeueReusableCell(withIdentifier: "meditaceCell", for: indexPath) as! MeditaceCell
         
         cell.nadpisCellMeditace.text = self.meditaceArray?[indexPath.item].nadpis
-        cell.popisekCellMeditace.text = self.meditaceArray?[indexPath.item].popisek
+        cell.popisekCellMeditace.text = self.meditaceArray?[indexPath.item].obsah
         let jmenoObrazku = self.meditaceArray?[indexPath.item].obrazekName
         
         cell.obrazekMalyMeditace.image = UIImage(imageLiteralResourceName: jmenoObrazku!)
@@ -98,9 +97,9 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     */
     var meditaceData = [
         
-        ["nadpis" : "Meditace osobní prostor", "popisek" : "Poznej své niterné sféry, projdi dále a převezmi sílu pro tvoření Tvého světa. Teri pomůžeš ještě s popisem? Spustí se hudba, za chvíli mluvené slovo. Mluvené slovo lze pauzovat, přičemž hudba stále běží v pozadí.", "obrazekName": "1_meditace.jpg", "obsah" : "Poznej své niterné sféry, projdi dále a převezmi sílu pro tvoření Tvého světa. Teri pomůžeš ještě s popisem? Spustí se hudba, za chvíli mluvené slovo. Mluvené slovo lze pauzovat, přičemž hudba stále běží v pozadí.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"],
+        ["nadpis" : "1. osobní prostor", "obrazekName": "1_meditace.jpg", "obsah" : "Jdi hlouběji a hlouběji do sebe, poznej své niterné sféry, projdi dále a převezmi sílu pro tvoření Tvého světa. Uchovej si svůj vlastní osobní prostor a kráčej tak životem sebe-vědomě a sebe-jistě. Ty jsi tvůrcem svého života.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"],
         
-        ["nadpis":"Pozorování jedné myšlenky", "popisek":"Pozorování jedné myšlenky pro získání pevné vůle a koncentrace", "obrazekName": "2_meditace.jpg", "obsah":"Zde bude vypsán obsah popisu meditace. Jelikož ještě žádnej nemám, tak sem píšu tento nesmysl, aby tu alespoň něco bylo a já viděl, jak to bude nakonec vypadat. Potřebuju ještě alespoň pár vět, aby to napodobilo vzdáleně realitu. Raz dva raz dva. Už to skoro bude. Takhle by to mohlo stačit.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"]
+        ["nadpis":"2. Síla koncentrace", "obrazekName": "2_meditace.jpg", "obsah":"V dnešním světě dosahuje lepších úspěchů ten, kdo se dokáže pevněji a vytrvaleji soustředit na svůj cíl. Na tu jednu nehmatatelnou myšlenku, kterou chce tvořit. V této nahrávce budeme zesilovat svou schopnost silné koncentrace, to se zákonitě bude odrážet v efektivitě práce a úspěšnějším životě.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"]
         
     ]
 

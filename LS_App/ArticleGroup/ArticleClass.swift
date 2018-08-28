@@ -15,9 +15,6 @@ class ArticleClass: NSObject {
     var popisek: String?
     var obsah: NSAttributedString?
     var linkClanku: String?
-    var mediaId: String?
-    var mediaURL: String?
-    var downloadedImageResource: ImageResource?
     var obrazekURL: String?
     var velkyObrazekURL: String?
 }
