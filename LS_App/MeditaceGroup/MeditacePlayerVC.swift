@@ -97,6 +97,9 @@ class MeditacePlayerVC: UIViewController {
     override func viewDidLoad() {
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        UIApplication.shared.isIdleTimerDisabled = true
+        //obrazovka se nevypne
+        
         super.viewDidLoad()
         playSlovo(time: 0)
         playerSlovo?.pause()
@@ -109,7 +112,9 @@ class MeditacePlayerVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        //po ukončení vypnu timer a obrazovka se zase vypíná
         timer?.invalidate()
+        UIApplication.shared.isIdleTimerDisabled = false
     }
 
     func playHudba() -> Void {
