@@ -51,6 +51,15 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+    }
+    
+    
     func loadArticles(APIurl: String){
         //pripoji se k API, vyzobe si z JSONa, co potrebuje a vytvori objekty pro Articl esarray
         

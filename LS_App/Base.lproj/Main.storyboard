@@ -51,7 +51,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumblr_oiwytz4dh41tf8vylo1_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="vsp-bp-rJp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uvod.png" translatesAutoresizingMaskIntoConstraints="NO" id="vsp-bp-rJp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bh1-9m-Arh">
@@ -202,7 +202,7 @@
                                     <outlet property="delegate" destination="UM7-im-dRJ" id="LuP-dW-3xx"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumblr_oiwytz4dh41tf8vylo1_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="oud-Pz-Dun">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uvod.png" translatesAutoresizingMaskIntoConstraints="NO" id="oud-Pz-Dun">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBx-BU-aOn">
@@ -226,7 +226,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nO6-rU-epd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="b6L-rG-ElP"/>
+                    <navigationItem key="navigationItem" id="b6L-rG-ElP">
+                        <barButtonItem key="backBarButtonItem" title="Zpět" id="nb5-3L-RPP"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="articlesTableView" destination="OhX-1b-qXy" id="z0v-3b-m66"/>
                         <outlet property="loadingLabel" destination="dBx-BU-aOn" id="9oO-FF-FfE"/>
@@ -546,7 +548,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumblr_oiwytz4dh41tf8vylo1_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="kTf-S1-pTO">
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uvod.png" translatesAutoresizingMaskIntoConstraints="NO" id="kTf-S1-pTO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sf2-e9-7dW">
@@ -693,7 +695,7 @@
         <image name="meditace_default.jpg" width="520" height="347"/>
         <image name="play.png" width="475" height="451"/>
         <image name="sound.png" width="375" height="360"/>
-        <image name="tumblr_oiwytz4dh41tf8vylo1_1280.png" width="1280" height="1280"/>
+        <image name="uvod.png" width="1280" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CNt-Z1-iuX"/>

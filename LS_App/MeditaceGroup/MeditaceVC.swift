@@ -29,6 +29,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     }
     
     
+    
     func loadMeditationData(){
         
         for item in meditaceData{
