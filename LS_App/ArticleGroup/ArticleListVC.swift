@@ -12,13 +12,14 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 import NVActivityIndicatorView
+import Atributika
 
 class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
     //VC, který zobrazuje seznam článků
     
     @IBOutlet weak var articlesTableView: UITableView!
     
-    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=8&offset=0&_embed=true"
+    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_embed=true"
     
     var articlesArray: [ArticleClass]? = []
     
@@ -66,27 +67,42 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         loadingMore = true
         articlesTableView.reloadSections(IndexSet(integer: 1), with: .none)
         //reloadne spinner section
-        
+            let asyncObsah = DispatchQueue.main
+            print("NOVÝ REQUEST")
             Alamofire.request(APIurl).responseJSON{response in
-            
+            print("MÁM DATA")
+                
             if let value = response.result.value as? [Dictionary<String, Any>]{
-            
+            var poradi = 1
+                
             for item in value{
-
+                
                 let article = ArticleClass()
                 
                 let json = JSON(item)
                 
                 if let nadpis = json["title"]["rendered"].string{
-                    article.nadpis = nadpis.htmlAttributed()?.string
+                    //article.nadpis = nadpis.htmlAttributed()?.string
+                    article.nadpis = nadpis.htmlAttributed(family: "Avenir", size: 15, color: .black)?.string
+                    print("1 " + nadpis)
                 }
-                
+    
+                asyncObsah.async {
                 if let obsah = json["content"]["rendered"].string{
-                    article.obsah = obsah.htmlAttributed()
+                    article.obsah = obsah
+                    
+                    //article.obsah = obsah.htmlAttributed(family: "Avenir", size: 15, color: .black)
+                    print("2." + "\(poradi)")
+                    poradi += 1
                 }
+ 
                 
+                }
+ 
                 if let popisek = json["excerpt"]["rendered"].string{
-                    article.popisek = popisek.htmlAttributed()?.string
+                    //article.popisek = popisek.htmlAttributed()?.string
+                    article.popisek = popisek.htmlAttributed(family: "Avenir", size: 15, color: .black)?.string
+                    print(3)
                 }
                 
                /*if let linkClanku = json["link"].string{
@@ -96,10 +112,12 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 if let malyObrazekUrl = json["_embedded"]["wp:featuredmedia"][0]["media_details"]["sizes"]["thumbnail"]["source_url"].string{
                    article.obrazekURL = malyObrazekUrl
+                    print(4)
                }
                 
                 if let velkyObrazekURL = json["_embedded"]["wp:featuredmedia"][0]["source_url"].string{
                     article.velkyObrazekURL = velkyObrazekURL
+                    print(5)
                 }
 
                /*self.getObrazekURL(mediaId: String(article.mediaId!)){malyObrazekUrl, velkyObrazekUrl in
@@ -125,11 +143,19 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 */
                 self.articlesArray?.append(article)
                 
+                print(6)
+                //let index = IndexPath.init(row: (self.articlesArray?.count)! - 1, section: 0)
+                //self.articlesTableView.reloadRows(at: [index], with: .fade)
+  
+
                 }
-                print("ted")
+                
                 self.articlesTableView.reloadData()
                 self.hideInfo()
                 self.loadingMore = false
+
+                print("konec")
+
             }
         }
     }
@@ -147,7 +173,12 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         cell.nadpisLabel.text = self.articlesArray?[indexPath.item].nadpis
         cell.popisekLabel.text = self.articlesArray?[indexPath.item].popisek
+            
+        cell.obrazekView.layer.cornerRadius = 5
+        cell.obrazekView.clipsToBounds = true
         
+        //let backgroundTasks = DispatchQueue.main
+            
         cell.obrazekView.layer.cornerRadius = 5
         cell.obrazekView.clipsToBounds = true
         //oblé rohy
@@ -156,11 +187,13 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
             
             if let encodedUrl = self.articlesArray?[indexPath.item].obrazekURL?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),let url = URL(string: encodedUrl){
                 
-                cell.obrazekView.kf.setImage(with: url)
+                let resource = ImageResource(downloadURL: url)
+                cell.obrazekView.kf.setImage(with: resource)
             }
         }else{
             cell.obrazekView.image = #imageLiteral(resourceName: "LS_logo_male")
             }
+    
             
         return cell
             
@@ -196,10 +229,10 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         let clanekVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "web") as! ArticleVC
-        clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah
+        clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah?.htmlAttributed(family: "Avenir", size: 15, color: .black)
         clanekVC.velkyObrazekUrl = self.articlesArray?[indexPath.item].velkyObrazekURL
         clanekVC.nadpisClanku = self.articlesArray?[indexPath.item].nadpis
-        
+        loadingMore = false
        // self.present(clanekVC, animated: true, completion: nil)
         self.navigationController?.pushViewController(clanekVC, animated: true)
     }
@@ -209,7 +242,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
             // we are at last cell load more content
             // we need to bring more records as there are some pending records available
         if let offset = articlesArray?.count{
-        loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=10&offset=\(offset)&_embed=true")
+        loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=\(offset)&_embed=true")
         //self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
         }
         }
@@ -276,7 +309,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
 }
 
 
-
+/*
 extension String {
     //Dokáže přetvořit text s html tagy na normální text
     func htmlAttributed() -> NSAttributedString? {
@@ -288,6 +321,91 @@ extension String {
                 return nil
             }
 
+            return try NSAttributedString(data: data,
+                                          options: [.documentType: NSAttributedString.DocumentType.html,
+                                                    .characterEncoding: String.Encoding.utf8.rawValue],
+                                          documentAttributes: nil)
+        } catch {
+            print("html error: ", error)
+            return nil
+        }
+    }
+    
+}
+*/
+
+
+extension String {
+    var html2Attributed: NSAttributedString? {
+        do {
+            guard let data = data(using: String.Encoding.utf8) else {
+                return nil
+            }
+            return try NSAttributedString(data: data,
+                                          options: [.documentType: NSAttributedString.DocumentType.html,
+                                                    .characterEncoding: String.Encoding.utf8.rawValue],
+                                          documentAttributes: nil)
+        } catch {
+            print("error: ", error)
+            return nil
+        }
+    }
+    
+    var htmlAttributed: (NSAttributedString?, NSDictionary?) {
+        do {
+            guard let data = data(using: String.Encoding.utf8) else {
+                return (nil, nil)
+            }
+            
+            var dict:NSDictionary?
+            dict = NSMutableDictionary()
+            
+            return try (NSAttributedString(data: data,
+                                           options: [.documentType: NSAttributedString.DocumentType.html,
+                                                     .characterEncoding: String.Encoding.utf8.rawValue],
+                                           documentAttributes: &dict), dict)
+        } catch {
+            print("error: ", error)
+            return (nil, nil)
+        }
+    }
+    
+    func htmlAttributed(using font: UIFont, color: UIColor) -> NSAttributedString? {
+        do {
+            let htmlCSSString = "<style>" +
+                "html *" +
+                "{" +
+                "font-size: \(font.pointSize)pt !important;" +
+                "font-family: \(font.familyName), Helvetica !important;" +
+            "}</style> \(self)"
+            
+            guard let data = htmlCSSString.data(using: String.Encoding.utf8) else {
+                return nil
+            }
+            
+            return try NSAttributedString(data: data,
+                                          options: [.documentType: NSAttributedString.DocumentType.html,
+                                                    .characterEncoding: String.Encoding.utf8.rawValue],
+                                          documentAttributes: nil)
+        } catch {
+            print("error: ", error)
+            return nil
+        }
+    }
+    
+    func htmlAttributed(family: String?, size: CGFloat, color: UIColor) -> NSAttributedString? {
+        do {
+            let htmlCSSString = "<style>" +
+                "html *" +
+                "{" +
+                "font-size: \(size)pt !important;" +
+                "font-family: \(family ?? "Helvetica"), Helvetica !important;" +
+            "}</style> \(self)"
+            
+            guard let data = htmlCSSString.data(using: String.Encoding.utf8) else {
+                return nil
+            }
+            
             return try NSAttributedString(data: data,
                                           options: [.documentType: NSAttributedString.DocumentType.html,
                                                     .characterEncoding: String.Encoding.utf8.rawValue],

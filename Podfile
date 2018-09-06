@@ -8,4 +8,5 @@ target 'LS_App' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Kingfisher', '~> 4.0'
   pod 'NVActivityIndicatorView'
+  pod 'Atributika'
 end
