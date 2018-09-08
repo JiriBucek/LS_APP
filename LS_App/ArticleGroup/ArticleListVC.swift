@@ -19,6 +19,10 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     @IBOutlet weak var articlesTableView: UITableView!
     
+    var cellSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    
+    
     let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_embed=true"
     
     var articlesArray: [ArticleClass]? = []
@@ -229,20 +233,34 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         let clanekVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "web") as! ArticleVC
+        let cell = tableView.cellForRow(at: indexPath)
+    
+        
+        cellSpinner.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        self.view.backgroundColor = .white
+        self.view.alpha = 0.8
+        cellSpinner.hidesWhenStopped = true
+        cellSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(cellSpinner)
+        cellSpinner.startAnimating()
+        
         clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah?.htmlAttributed(family: "Avenir", size: 15, color: .black)
         clanekVC.velkyObrazekUrl = self.articlesArray?[indexPath.item].velkyObrazekURL
         clanekVC.nadpisClanku = self.articlesArray?[indexPath.item].nadpis
         loadingMore = false
        // self.present(clanekVC, animated: true, completion: nil)
         self.navigationController?.pushViewController(clanekVC, animated: true)
+        cellSpinner.stopAnimating()
+        self.view.alpha = 1
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == articlesArray!.count - 1 && loadingMore == false {
+            print("POSLEDNI")
             // we are at last cell load more content
             // we need to bring more records as there are some pending records available
         if let offset = articlesArray?.count{
-        loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=\(offset)&_embed=true")
+            loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=10&offset=\(offset)&_embed=true")
         //self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
         }
         }
