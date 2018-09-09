@@ -205,13 +205,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uvod.png" translatesAutoresizingMaskIntoConstraints="NO" id="oud-Pz-Dun">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBx-BU-aOn">
-                                <rect key="frame" x="0.0" y="321" width="375" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <color key="textColor" red="0.011923936195671558" green="0.47466540336608887" blue="0.98470920324325562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -231,7 +224,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="articlesTableView" destination="OhX-1b-qXy" id="z0v-3b-m66"/>
-                        <outlet property="loadingLabel" destination="dBx-BU-aOn" id="9oO-FF-FfE"/>
                         <outlet property="loadingView" destination="oud-Pz-Dun" id="L9u-jb-7oF"/>
                         <segue destination="dUd-Nj-rz9" kind="show" id="J10-yD-Fml"/>
                     </connections>

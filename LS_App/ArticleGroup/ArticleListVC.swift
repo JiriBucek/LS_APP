@@ -12,14 +12,14 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 import NVActivityIndicatorView
-import Atributika
+import SKActivityIndicatorView
 
 class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
     //VC, který zobrazuje seznam článků
     
     @IBOutlet weak var articlesTableView: UITableView!
     
-    var cellSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
+
     
     
     
@@ -40,8 +40,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        displayInfo(infoText: "Načítám články...")
+        //displayInfo(infoText: "Načítám články...")
         //Loading bar
+        SKActivityIndicator.show("Načítám články")
         
         let loadingNib = UINib(nibName: "LoadingCell", bundle: nil)
         articlesTableView.register(loadingNib, forCellReuseIdentifier: "loadingCell")
@@ -155,7 +156,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 }
                 
                 self.articlesTableView.reloadData()
-                self.hideInfo()
+                //self.hideInfo()
+                SKActivityIndicator.dismiss()
+                self.loadingView.isHidden = true
                 self.loadingMore = false
 
                 print("konec")
@@ -236,13 +239,16 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         let cell = tableView.cellForRow(at: indexPath)
     
         
-        cellSpinner.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
-        self.view.backgroundColor = .white
-        self.view.alpha = 0.8
-        cellSpinner.hidesWhenStopped = true
-        cellSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(cellSpinner)
-        cellSpinner.startAnimating()
+        
+        UIView.animate(withDuration: 1, delay: 0.5, options: [.curveEaseOut], animations: {
+
+            self.view.backgroundColor = .white
+            self.view.alpha = 0.6
+            SKActivityIndicator.show()
+
+        }, completion: nil)
+        
+
         
         clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah?.htmlAttributed(family: "Avenir", size: 15, color: .black)
         clanekVC.velkyObrazekUrl = self.articlesArray?[indexPath.item].velkyObrazekURL
@@ -250,8 +256,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         loadingMore = false
        // self.present(clanekVC, animated: true, completion: nil)
         self.navigationController?.pushViewController(clanekVC, animated: true)
-        cellSpinner.stopAnimating()
         self.view.alpha = 1
+        SKActivityIndicator.dismiss()
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -312,6 +318,49 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         loadingView.isHidden = true
         loadingLabel.isHidden = true
     }
+    
+    
+    func showActivityIndicatory(uiView: UIView) {
+        var container: UIView = UIView()
+        container.frame = uiView.frame
+        container.center = uiView.center
+        container.backgroundColor = .white
+        container.alpha = 0.3
+        
+        var loadingView: UIView = UIView()
+        loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        loadingView.center = uiView.center
+        loadingView.backgroundColor = .black
+        loadingView.alpha = 0.9
+        loadingView.clipsToBounds = true
+        loadingView.layer.cornerRadius = 10
+        
+        container.addSubview(loadingView)
+        uiView.addSubview(container)
+        
+        var cellSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
+        cellSpinner.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        cellSpinner.hidesWhenStopped = true
+        cellSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        view.addSubview(cellSpinner)
+        cellSpinner.startAnimating()
+        
+        
+        /*
+        var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
+        actInd.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        actInd.activityIndicatorViewStyle =
+            UIActivityIndicatorViewStyle.whiteLarge
+        actInd.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        loadingView.addSubview(actInd)
+        container.addSubview(loadingView)
+        uiView.addSubview(container)
+        actInd.hidesWhenStopped = true
+        actInd.startAnimating()
+        */
+    }
+    
+    
     
     
     /*
