@@ -18,9 +18,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     @IBOutlet weak var articlesTableView: UITableView!
     
-    var lastCellOpened = false
-    //pokud rozkliknu poslední článek a vrátím se na listVC, chci nový request
-
     let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_embed=true"
     
     var articlesArray: [ArticleClass]? = []
@@ -40,10 +37,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         loadArticles(APIurl: APIadresa)
         
-        if lastCellOpened == true{
-            loadMoreArticles()
-            lastCellOpened = false
-        }
+
         
     }
 
@@ -59,12 +53,18 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     override func viewDidAppear(_ animated: Bool) {
         
-        print(articlesTableView.indexPathsForVisibleRows?.last)
+        let penultimateCell = [0, (articlesArray?.count)! - 2] as IndexPath
+        //vrátí index předposlední zobrazené buňky
+        print(penultimateCell)
         
-        if lastCellOpened == true{
+        
+        if (articlesTableView.indexPathsForVisibleRows?.contains(penultimateCell))!{
             loadMoreArticles()
-            lastCellOpened = false
+            //pokud se vrátím na seznam článků a jsem na jeho konci (je zobrazena předposlední buňka), tak vytvořím nový request
+            print("vidím a načítám")
         }
+        
+
     }
     
     
@@ -196,9 +196,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         let clanekVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "web") as! ArticleVC
         
-        if indexPath.row == articlesArray!.count - 1{
-            lastCellOpened = true
-        }
+
     
         UIView.animate(withDuration: 1, delay: 0.5, options: [.curveEaseOut], animations: {
             //postupně vykreslí tmavší pozadí pro loading
