@@ -14,34 +14,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MenuVC-->
         <scene sceneID="jlM-Lc-ZQx">
             <objects>
-                <viewController id="ywl-Rp-nNp" sceneMemberID="viewController">
+                <viewController id="ywl-Rp-nNp" customClass="MenuVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mG8-7g-bqt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zde bude možnost vytvořit do budoucna menu s různými nastaveními, kontakty apod." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WX1-JN-8dS">
+                            <wkWebView clipsSubviews="YES" contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" allowsLinkPreview="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BA-Bd-TqC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <dataDetectorTypes key="dataDetectorTypes"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="YES" minimumFontSize="15"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RB2-qJ-kb5" firstAttribute="trailing" secondItem="WX1-JN-8dS" secondAttribute="trailing" id="Fbh-kG-Fpd"/>
-                            <constraint firstItem="RB2-qJ-kb5" firstAttribute="bottom" secondItem="WX1-JN-8dS" secondAttribute="bottom" id="e7p-Qu-FqQ"/>
-                            <constraint firstItem="WX1-JN-8dS" firstAttribute="leading" secondItem="RB2-qJ-kb5" secondAttribute="leading" id="lPS-8J-dta"/>
-                            <constraint firstItem="WX1-JN-8dS" firstAttribute="top" secondItem="RB2-qJ-kb5" secondAttribute="top" id="uC1-oo-er1"/>
+                            <constraint firstItem="7BA-Bd-TqC" firstAttribute="leading" secondItem="RB2-qJ-kb5" secondAttribute="leading" id="7vo-Aa-cwr"/>
+                            <constraint firstItem="7BA-Bd-TqC" firstAttribute="bottom" secondItem="RB2-qJ-kb5" secondAttribute="bottom" id="dTX-dD-scC"/>
+                            <constraint firstItem="7BA-Bd-TqC" firstAttribute="top" secondItem="RB2-qJ-kb5" secondAttribute="top" id="fbL-0T-ceu"/>
+                            <constraint firstItem="7BA-Bd-TqC" firstAttribute="trailing" secondItem="RB2-qJ-kb5" secondAttribute="trailing" id="soi-QV-Vct"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RB2-qJ-kb5"/>
                     </view>
+                    <connections>
+                        <outlet property="webViewOutlet" destination="7BA-Bd-TqC" id="0sc-x8-b4S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1IC-ov-heR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-95" y="-680"/>
+            <point key="canvasLocation" x="-95.200000000000003" y="-680.5097451274363"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="PG7-9N-4rc">

@@ -49,6 +49,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     override func viewWillDisappear(_ animated: Bool) {
         //vyčistí requesty
         cleanRequests()
+        SKActivityIndicator.dismiss()
     }
     
     override func viewDidAppear(_ animated: Bool) {
