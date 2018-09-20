@@ -20,6 +20,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_embed=true"
     
+    
+    
     var articlesArray: [ArticleClass]? = []
     
     @IBOutlet weak var loadingView: UIImageView!
@@ -110,6 +112,10 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 if let velkyObrazekURL = json["_embedded"]["wp:featuredmedia"][0]["source_url"].string{
                     article.velkyObrazekURL = velkyObrazekURL
+                }
+                
+                if let linkClanku = json["link"].string{
+                    article.linkClanku = linkClanku
                 }
 
                 self.articlesArray?.append(article)
@@ -207,6 +213,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
 
         }, completion: nil)
         
+        let odkazClanku = self.articlesArray?[indexPath.item].linkClanku
+        
+        self.articlesArray?[indexPath.item].obsah = (self.articlesArray?[indexPath.item].obsah)! + "<em>Některé funkce, jako např. formuláře pro odesílání přihlášek na workshopy, se nemusí v této aplikaci zobrazovat správně. Pokud Vám něco nefunguje jak má, navštivte prosím <a href=\"\(odkazClanku ?? "https://laskyplnysvet.cz/stesti/ty-a-laskyplny-svet/")\">webovou verzi tohoto článku</a></em></p>\n"
         
         clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah?.htmlAttributed(family: "Avenir", size: 15, color: .black)
         clanekVC.velkyObrazekUrl = self.articlesArray?[indexPath.item].velkyObrazekURL
@@ -248,8 +257,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     }
 }
 
-
-    
+let linkNaWebovouVerzi = """
+<em>Některé funkce, jako např. formuláře pro odesílání přihlášek na workshopy, se nemusí v této aplikaci zobrazovat správně. Pokud Vám něco nefunguje jak má, navštivte prosím <a href=\"https://laskyplnysvet.cz/stesti/ty-a-laskyplny-svet/\">webovou verzi tohoto článku</a></em></p>\n
+"""
 
 
 extension String {
