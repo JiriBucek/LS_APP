@@ -62,6 +62,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         
         if (articlesTableView.indexPathsForVisibleRows?.contains(penultimateCell))!{
+            print("a co tady?")
             loadMoreArticles()
             //pokud se vrátím na seznam článků a jsem na jeho konci (je zobrazena předposlední buňka), tak vytvořím nový request
             print("vidím a načítám")
@@ -75,7 +76,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         //pripoji se k API, vyzobe si z JSONa, co potrebuje a vytvori objekty pro Articl esarray
         
         loadingMore = true
-        articlesTableView.reloadSections(IndexSet(integer: 1), with: .none)
+        
+        //articlesTableView.reloadSections(IndexSet(integer: 1), with: .none)
+        
         //reloadne spinner section
             print("NOVÝ REQUEST")
             Alamofire.request(APIurl).responseJSON{response in
@@ -258,7 +261,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
 }
 
 let linkNaWebovouVerzi = """
-<em>Některé funkce, jako např. formuláře pro odesílání přihlášek na workshopy, se nemusí v této aplikaci zobrazovat správně. Pokud Vám něco nefunguje jak má, navštivte prosím <a href=\"https://laskyplnysvet.cz/stesti/ty-a-laskyplny-svet/\">webovou verzi tohoto článku</a></em></p>\n
+<em>Některé funkce, jako např. formuláře pro odesílání přihlášek na workshopy, se nemusí v této aplikaci zobrazovat správně. Pokud Vám něco nefunguje, jak má, navštivte prosím <a href=\"https://laskyplnysvet.cz/stesti/ty-a-laskyplny-svet/\">webovou verzi tohoto článku</a></em></p>\n
 """
 
 

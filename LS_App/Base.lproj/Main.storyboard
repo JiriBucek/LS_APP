@@ -72,24 +72,22 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87s-VF-NEv">
-                                        <rect key="frame" x="113.5" y="89.5" width="148" height="64"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="38"/>
+                                        <rect key="frame" x="129.5" y="89.5" width="116" height="64"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="38"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="ČLÁNKY">
+                                        <state key="normal" title="Články">
                                             <color key="titleColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="UM7-im-dRJ" kind="push" id="npX-ja-BbG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExX-ig-ipn">
-                                        <rect key="frame" x="95" y="242" width="185" height="63"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="37"/>
+                                        <rect key="frame" x="109" y="242" width="157" height="63"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="37"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="MEDITACE">
+                                        <state key="normal" title="Meditace">
                                             <color key="titleColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="QQN-uS-WsP" kind="show" id="ATV-wx-9MO"/>
