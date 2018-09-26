@@ -31,6 +31,7 @@
 		8964D8F121295DBA00D59220 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8EB21295DB900D59220 /* right.png */; };
 		8964D8F321295DBA00D59220 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8ED21295DBA00D59220 /* left.png */; };
 		8964D8F521295DBA00D59220 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8EF21295DBA00D59220 /* sound.png */; };
+		899163F3215C457C00A850EC /* LS_App in Resources */ = {isa = PBXBuildFile; fileRef = 899163F2215C457C00A850EC /* LS_App */; };
 		89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059B21078BAE006EBD5F /* AppDelegate.swift */; };
 		89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059D21078BAE006EBD5F /* HomeVC.swift */; };
 		89C105A121078BAE006EBD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C1059F21078BAE006EBD5F /* Main.storyboard */; };
@@ -88,6 +89,7 @@
 		8964D8EB21295DB900D59220 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		8964D8ED21295DBA00D59220 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		8964D8EF21295DBA00D59220 /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
+		899163F2215C457C00A850EC /* LS_App */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LS_App; sourceTree = "<group>"; };
 		89C1059821078BAE006EBD5F /* LS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C1059B21078BAE006EBD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C1059D21078BAE006EBD5F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		89C1059A21078BAE006EBD5F /* LS_App */ = {
 			isa = PBXGroup;
 			children = (
+				899163F2215C457C00A850EC /* LS_App */,
 				89C1059B21078BAE006EBD5F /* AppDelegate.swift */,
 				89C1059D21078BAE006EBD5F /* HomeVC.swift */,
 				892B332321270A9000BAF2F9 /* ArticleGroup */,
@@ -393,6 +396,7 @@
 				8964D8E621293FE200D59220 /* 1_hudba.mp3 in Resources */,
 				895023B821316200007BD6D0 /* 15_back.png in Resources */,
 				89C105A121078BAE006EBD5F /* Main.storyboard in Resources */,
+				899163F3215C457C00A850EC /* LS_App in Resources */,
 				8964D8E521293FE200D59220 /* 1_slovo_niterne_poznani.mp3 in Resources */,
 				895023AC212CD1C3007BD6D0 /* 2_hudba.mp3 in Resources */,
 				89329883212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg in Resources */,
