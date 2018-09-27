@@ -18,9 +18,13 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     @IBOutlet weak var articlesTableView: UITableView!
     
-    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_embed=true"
+    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_fields=link,title,excerpt,featured_media"
+
     
     
+    // "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_embed=true&_fields=id,excerpt,link,title"
+    
+    //https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&context=embed&_embed=true
     
     var articlesArray: [ArticleClass]? = []
     
@@ -98,24 +102,46 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                     article.nadpis = nadpis.htmlAttributed(family: "Avenir", size: 15, color: .black)?.string
                 }
     
-                if let obsah = json["content"]["rendered"].string{
+                /*if let obsah = json["content"]["rendered"].string{
                     //obsah se ulozi jako string. Na attributed string se parsuje az pri rozkliknuti clanku.
                     article.obsah = obsah
                 
-                }
+                }*/
  
                 if let popisek = json["excerpt"]["rendered"].string{
                     article.popisek = popisek.htmlAttributed(family: "Avenir", size: 15, color: .black)?.string
                 }
-
                 
+                if let mediaId = json["featured_media"].int{
+                    article.mediaId = "\(mediaId)"
+                }
+                
+                
+                let mediaURL = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/media/\(article.mediaId!)?_fields=media_details"
+                
+                Alamofire.request(mediaURL).responseJSON{response in
+                    
+                    if let mediaResponse = response.result.value{
+                    let mediaJson = JSON(mediaResponse)
+                        
+                    if let obrazekUrl = mediaJson["media_details"]["sizes"]["thumbnail"]["source_url"].string{
+                        article.obrazekURL = obrazekUrl
+                        let rowNumber = self.articlesArray?.index(of: article) as! Int
+                        let rowIndexPath = IndexPath(row: rowNumber, section: 0)
+                        self.articlesTableView.reloadRows(at: [rowIndexPath], with: .none)
+                    }
+                    }
+                }
+                
+                /*
                 if let malyObrazekUrl = json["_embedded"]["wp:featuredmedia"][0]["media_details"]["sizes"]["thumbnail"]["source_url"].string{
                    article.obrazekURL = malyObrazekUrl
+                    print(malyObrazekUrl)
                 }
                 
                 if let velkyObrazekURL = json["_embedded"]["wp:featuredmedia"][0]["source_url"].string{
                     article.velkyObrazekURL = velkyObrazekURL
-                }
+                }*/
                 
                 if let linkClanku = json["link"].string{
                     article.linkClanku = linkClanku
@@ -218,10 +244,10 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         let odkazClanku = self.articlesArray?[indexPath.item].linkClanku
         
-        self.articlesArray?[indexPath.item].obsah = (self.articlesArray?[indexPath.item].obsah)! + "<em>Některé funkce, jako např. formuláře pro odesílání přihlášek na workshopy, se nemusí v této aplikaci zobrazovat správně. Pokud Vám něco nefunguje jak má, navštivte prosím <a href=\"\(odkazClanku ?? "https://laskyplnysvet.cz/stesti/ty-a-laskyplny-svet/")\">webovou verzi tohoto článku</a></em></p>\n"
+        //self.articlesArray?[indexPath.item].obsah = (self.articlesArray?[indexPath.item].obsah)! + "<em>Některé funkce, jako např. formuláře pro odesílání přihlášek na workshopy, se nemusí v této aplikaci zobrazovat správně. Pokud Vám něco nefunguje jak má, navštivte prosím <a href=\"\(odkazClanku ?? "https://laskyplnysvet.cz/stesti/ty-a-laskyplny-svet/")\">webovou verzi tohoto článku</a></em></p>\n"
         
-        clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah?.htmlAttributed(family: "Avenir", size: 15, color: .black)
-        clanekVC.velkyObrazekUrl = self.articlesArray?[indexPath.item].velkyObrazekURL
+        //clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah?.htmlAttributed(family: "Avenir", size: 15, color: .black)
+        //clanekVC.velkyObrazekUrl = self.articlesArray?[indexPath.item].velkyObrazekURL
         clanekVC.nadpisClanku = self.articlesArray?[indexPath.item].nadpis
 
         self.navigationController?.pushViewController(clanekVC, animated: true)
@@ -254,7 +280,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     func loadMoreArticles(){
         if loadingMore == false{
             if let offset = articlesArray?.count{
-            loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=10&offset=\(offset)&_embed=true")
+            loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=10&offset=\(offset)&_fields=link,title,excerpt,featured_media")
             }
         }
     }
