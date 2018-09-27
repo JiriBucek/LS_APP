@@ -32,6 +32,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     var loadingMore = false
     //Stahuju zrovna další články
     
+    var cellHeights: [IndexPath : CGFloat] = [:]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         articlesTableView.register(loadingNib, forCellReuseIdentifier: "loadingCell")
         
         loadArticles(APIurl: APIadresa)
+
         
 
         
@@ -125,10 +128,13 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                     let mediaJson = JSON(mediaResponse)
                         
                     if let obrazekUrl = mediaJson["media_details"]["sizes"]["thumbnail"]["source_url"].string{
+                        self.articlesTableView.beginUpdates()
                         article.obrazekURL = obrazekUrl
                         let rowNumber = self.articlesArray?.index(of: article) as! Int
                         let rowIndexPath = IndexPath(row: rowNumber, section: 0)
                         self.articlesTableView.reloadRows(at: [rowIndexPath], with: .none)
+                        self.articlesTableView.endUpdates()
+
                     }
                     }
                 }
@@ -259,6 +265,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
+        cellHeights[indexPath] = cell.frame.size.height
+        
         if indexPath.row == articlesArray!.count - 1 && loadingMore == false {
             print("POSLEDNI")
                 // we are at last cell load more content
@@ -266,6 +274,10 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
             
             loadMoreArticles()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeights[indexPath] ?? 70.0
     }
 
     func cleanRequests(){
