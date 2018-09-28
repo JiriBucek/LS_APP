@@ -136,31 +136,65 @@
                         <viewLayoutGuide key="safeArea" id="nO6-rU-epd"/>
                     </view>
                     <navigationItem key="navigationItem" id="b6L-rG-ElP">
-                        <barButtonItem key="backBarButtonItem" title="Zpět" id="nb5-3L-RPP"/>
+                        <barButtonItem key="backBarButtonItem" title="Zpět na seznam článků" id="nb5-3L-RPP"/>
                     </navigationItem>
                     <connections>
                         <outlet property="articlesTableView" destination="OhX-1b-qXy" id="z0v-3b-m66"/>
                         <outlet property="loadingView" destination="oud-Pz-Dun" id="L9u-jb-7oF"/>
-                        <segue destination="dUd-Nj-rz9" kind="show" id="J10-yD-Fml"/>
+                        <segue destination="lo7-3R-Nno" kind="show" id="TnX-ry-noT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHT-Pk-1FF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2631.1999999999998" y="-51.724137931034484"/>
         </scene>
+        <!--Article WebVC-->
+        <scene sceneID="wHC-oe-oOU">
+            <objects>
+                <viewController storyboardIdentifier="web" id="lo7-3R-Nno" customClass="articleWebVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v0m-cg-aSP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cvf-Pn-N5T">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="YES"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AVw-ms-r0t" firstAttribute="bottom" secondItem="Cvf-Pn-N5T" secondAttribute="bottom" id="C60-q1-hs0"/>
+                            <constraint firstItem="Cvf-Pn-N5T" firstAttribute="top" secondItem="AVw-ms-r0t" secondAttribute="top" id="ibw-jM-s1a"/>
+                            <constraint firstItem="AVw-ms-r0t" firstAttribute="trailing" secondItem="Cvf-Pn-N5T" secondAttribute="trailing" id="sFS-Qi-MDJ"/>
+                            <constraint firstItem="Cvf-Pn-N5T" firstAttribute="leading" secondItem="AVw-ms-r0t" secondAttribute="leading" id="zDQ-Zv-w5e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AVw-ms-r0t"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Cvf-Pn-N5T" id="tEe-Ai-sUS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="61c-YI-JRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3552.8000000000002" y="-45.42728635682159"/>
+        </scene>
         <!--ArticleVC-->
         <scene sceneID="PbL-3M-rAA">
             <objects>
-                <viewController storyboardIdentifier="web" id="dUd-Nj-rz9" customClass="ArticleVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dUd-Nj-rz9" customClass="ArticleVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jfj-OQ-5zq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNM-f3-qk9">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nM2-Hg-GfG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B6H-ay-Xn0">
                                                 <rect key="frame" x="5" y="5" width="365" height="208.5"/>
@@ -181,7 +215,7 @@
                                                 <size key="shadowOffset" width="1" height="-1"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" pagingEnabled="YES" maximumZoomScale="3" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5S-NP-pz1">
-                                                <rect key="frame" x="5" y="314" width="365" height="235"/>
+                                                <rect key="frame" x="5" y="314" width="365" height="328"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
                                                     <fragment>
@@ -238,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3B-l4-5Bd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3636" y="-51.724137931034484"/>
+            <point key="canvasLocation" x="3422" y="-761"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TOe-cc-KsK">

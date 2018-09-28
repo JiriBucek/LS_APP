@@ -33,6 +33,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     //Stahuju zrovna další články
     
     var cellHeights: [IndexPath : CGFloat] = [:]
+    //je potřeba tohle nastavit, aby se tableview scrollovalo smooth. Jinak přeskakuje
     
     
     override func viewDidLoad() {
@@ -57,7 +58,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     override func viewWillDisappear(_ animated: Bool) {
         //vyčistí requesty
-        cleanRequests()
+        //cleanRequests()
         SKActivityIndicator.dismiss()
     }
     
@@ -236,7 +237,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        let clanekVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "web") as! ArticleVC
+        let clanekVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "web") as! articleWebVC
         
 
     
@@ -248,13 +249,13 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
 
         }, completion: nil)
         
-        let odkazClanku = self.articlesArray?[indexPath.item].linkClanku
+        clanekVC.linkClanku = (self.articlesArray?[indexPath.item].linkClanku)!
         
         //self.articlesArray?[indexPath.item].obsah = (self.articlesArray?[indexPath.item].obsah)! + "<em>Některé funkce, jako např. formuláře pro odesílání přihlášek na workshopy, se nemusí v této aplikaci zobrazovat správně. Pokud Vám něco nefunguje jak má, navštivte prosím <a href=\"\(odkazClanku ?? "https://laskyplnysvet.cz/stesti/ty-a-laskyplny-svet/")\">webovou verzi tohoto článku</a></em></p>\n"
         
         //clanekVC.obsahClanku = self.articlesArray?[indexPath.item].obsah?.htmlAttributed(family: "Avenir", size: 15, color: .black)
         //clanekVC.velkyObrazekUrl = self.articlesArray?[indexPath.item].velkyObrazekURL
-        clanekVC.nadpisClanku = self.articlesArray?[indexPath.item].nadpis
+        //clanekVC.nadpisClanku = self.articlesArray?[indexPath.item].nadpis
 
         self.navigationController?.pushViewController(clanekVC, animated: true)
         self.view.alpha = 1

@@ -35,6 +35,7 @@
 		899163FE215C46B600A850EC /* GOTHIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163FA215C46B100A850EC /* GOTHIC.TTF */; };
 		899163FF215C46B600A850EC /* GOTHICI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163FB215C46B300A850EC /* GOTHICI.TTF */; };
 		89916400215C46B600A850EC /* GOTHICB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163FC215C46B400A850EC /* GOTHICB.TTF */; };
+		89916402215E1BB200A850EC /* articleWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89916401215E1BB200A850EC /* articleWebVC.swift */; };
 		89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059B21078BAE006EBD5F /* AppDelegate.swift */; };
 		89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059D21078BAE006EBD5F /* HomeVC.swift */; };
 		89C105A121078BAE006EBD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C1059F21078BAE006EBD5F /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		899163FA215C46B100A850EC /* GOTHIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHIC.TTF; sourceTree = "<group>"; };
 		899163FB215C46B300A850EC /* GOTHICI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHICI.TTF; sourceTree = "<group>"; };
 		899163FC215C46B400A850EC /* GOTHICB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHICB.TTF; sourceTree = "<group>"; };
+		89916401215E1BB200A850EC /* articleWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = articleWebVC.swift; sourceTree = "<group>"; };
 		89C1059821078BAE006EBD5F /* LS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C1059B21078BAE006EBD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C1059D21078BAE006EBD5F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				892B331F21244FD300BAF2F9 /* LoadingCell.xib */,
 				892B33212124500800BAF2F9 /* LoadingCell.swift */,
 				89ED1BE42114C766001CC7F6 /* ArticleVC.swift */,
+				89916401215E1BB200A850EC /* articleWebVC.swift */,
 			);
 			path = ArticleGroup;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				892B33222124500900BAF2F9 /* LoadingCell.swift in Sources */,
 				89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */,
 				892B332C21274BFA00BAF2F9 /* MeditaceClass.swift in Sources */,
+				89916402215E1BB200A850EC /* articleWebVC.swift in Sources */,
 				89C105CE210795E3006EBD5F /* ArticleClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
