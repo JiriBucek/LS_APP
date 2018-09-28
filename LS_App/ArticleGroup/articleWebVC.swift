@@ -18,13 +18,17 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
 
     @IBOutlet weak var webView: WKWebView!
     
-
+    @IBOutlet weak var progressView: UIProgressView!
+    
     override func viewDidAppear(_ animated: Bool) {
         
             //postupně vykreslí tmavší pozadí pro loading
             self.view.backgroundColor = .white
             self.view.alpha = 0.8
             SKActivityIndicator.show("Načítám článek")
+        
+            webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+            //předává informaci progress view o tom, kolik je načteno stránky,
                     
         
     }
@@ -32,16 +36,29 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
     
     func webView(_ webView: WKWebView,
                  didFinish navigation: WKNavigation!) {
-        UIView.animate(withDuration: 0.1, delay: 0.5, options: [.curveEaseOut], animations: {
-            //postupně vykreslí tmavší pozadí pro loading
-            self.view.backgroundColor = .white
-            self.view.alpha = 1
-            SKActivityIndicator.dismiss()
+        
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            progressView.progress = Float(webView.estimatedProgress)
             
-        }, completion: nil)
-        
-        
-        
+            if progressView.progress > 0.6{
+                
+                UIView.animate(withDuration: 0.1, delay: 0.5, options: [.curveEaseOut], animations: {
+                    //postupně vykreslí tmavší pozadí pro loading
+                    self.view.backgroundColor = .white
+                    self.view.alpha = 1
+                    SKActivityIndicator.dismiss()
+                    
+                }, completion: nil)
+                
+            }
+            
+            if progressView.progress == 1{
+                progressView.progress = 0
+            }
+        }
     }
     
 
@@ -79,8 +96,7 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
         webView.navigationDelegate = self
         webView.allowsBackForwardNavigationGestures = true
         webView.allowsLinkPreview = true
-        
-        
+    
         
         webView.scrollView.contentInset = UIEdgeInsetsMake(-310, 0, 0, 0)
         
