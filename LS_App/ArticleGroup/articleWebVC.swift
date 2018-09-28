@@ -40,12 +40,25 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
             
         }, completion: nil)
         
+        
+        
     }
     
 
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         if navigationAction.targetFrame == nil {
+            //uajišťuje otvírání odkazů v rámci WKwebView, bez ní nefungují
+            
             webView.load(navigationAction.request)
+            
+            let odkaz = navigationAction.request.url?.absoluteString
+            //pokud je nový odkaz na serveru laskyplnysvet, tak se posune zobrazeni a tim se schova menu
+            if odkaz?.range(of: "laskyplnysvet") == nil{
+                webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            }else{
+                webView.scrollView.contentInset = UIEdgeInsetsMake(-310, 0, 0, 0)
+            }
+            
         }
         return nil
     }
