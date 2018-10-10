@@ -45,10 +45,11 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         articlesTableView.register(loadingNib, forCellReuseIdentifier: "loadingCell")
         
         loadArticles(APIurl: APIadresa)
-
         
-
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,7 +67,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         let penultimateCell = [0, (articlesArray?.count)! - 2] as IndexPath
         //vrátí index předposlední zobrazené buňky
-        print(penultimateCell)
         
         
         if (articlesTableView.indexPathsForVisibleRows?.contains(penultimateCell))!{

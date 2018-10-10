@@ -20,17 +20,23 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
     
     @IBOutlet weak var progressView: UIProgressView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        webView.scrollView.contentInset = UIEdgeInsetsMake(-310, 0, 0, 0)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         
             //postupně vykreslí tmavší pozadí pro loading
+        
+        if webView.isLoading{
+            
             self.view.backgroundColor = .white
             self.view.alpha = 0.8
             SKActivityIndicator.show("Načítám článek")
-        
+        }
             webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
             //předává informaci progress view o tom, kolik je načteno stránky,
-                    
-        
     }
     
     
@@ -55,7 +61,12 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
                 
             }
             
+            if progressView.progress != 1{
+                progressView.isHidden = false
+            }
+            
             if progressView.progress == 1{
+                progressView.isHidden = true
                 progressView.progress = 0
             }
         }
@@ -64,7 +75,7 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
 
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         if navigationAction.targetFrame == nil {
-            //uajišťuje otvírání odkazů v rámci WKwebView, bez ní nefungují
+            //zajišťuje otvírání odkazů v rámci WKwebView, bez ní nefungují
             
             webView.load(navigationAction.request)
             
