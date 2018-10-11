@@ -244,7 +244,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         let clanekVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "web") as! articleWebVC
         
 
-    
+        /*
         UIView.animate(withDuration: 1, delay: 0.5, options: [.curveEaseOut], animations: {
             //postupně vykreslí tmavší pozadí pro loading
             self.view.backgroundColor = .white
@@ -252,6 +252,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
             SKActivityIndicator.show()
 
         }, completion: nil)
+ 
+         */
+        
         
         clanekVC.linkClanku = (self.articlesArray?[indexPath.item].linkClanku)!
         

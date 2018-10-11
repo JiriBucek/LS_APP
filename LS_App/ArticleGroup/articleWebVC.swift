@@ -18,11 +18,16 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
 
     @IBOutlet weak var webView: WKWebView!
     
+    @IBOutlet weak var pozadiView: UIImageView!
     @IBOutlet weak var progressView: UIProgressView!
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         webView.scrollView.contentInset = UIEdgeInsetsMake(-310, 0, 0, 0)
+        
+        self.webView!.isOpaque = false
+        self.webView!.backgroundColor = UIColor.clear
+        self.webView!.scrollView.backgroundColor = UIColor.clear
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,8 +36,11 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
         
         if webView.isLoading{
             
-            self.view.backgroundColor = .white
-            self.view.alpha = 0.8
+            //self.view.backgroundColor = .white
+            //self.view.alpha = 0.8
+            pozadiView.isHidden = false
+            pozadiView.alpha = 1
+            pozadiView.image = #imageLiteral(resourceName: "uvod.png")
             SKActivityIndicator.show("Načítám článek")
         }
             webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
@@ -53,9 +61,10 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
                 
                 UIView.animate(withDuration: 0.1, delay: 0.5, options: [.curveEaseOut], animations: {
                     //postupně vykreslí tmavší pozadí pro loading
-                    self.view.backgroundColor = .white
-                    self.view.alpha = 1
+                    //self.view.backgroundColor = .white
+                    //self.view.alpha = 1
                     SKActivityIndicator.dismiss()
+                    self.pozadiView.isHidden = true
                     
                 }, completion: nil)
                 

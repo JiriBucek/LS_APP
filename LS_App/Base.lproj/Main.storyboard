@@ -159,7 +159,7 @@
                         <subviews>
                             <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cvf-Pn-N5T">
                                 <rect key="frame" x="0.0" y="22" width="375" height="596"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="YES"/>
@@ -168,20 +168,28 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YOe-rD-xSd">
                                 <rect key="frame" x="0.0" y="20" width="375" height="2"/>
                             </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OE6-ll-CU0">
+                                <rect key="frame" x="0.0" y="23" width="375" height="595"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="OE6-ll-CU0" firstAttribute="leading" secondItem="AVw-ms-r0t" secondAttribute="leading" id="89w-Vw-TVo"/>
                             <constraint firstItem="YOe-rD-xSd" firstAttribute="top" secondItem="AVw-ms-r0t" secondAttribute="top" id="AVU-WF-vRi"/>
                             <constraint firstItem="AVw-ms-r0t" firstAttribute="bottom" secondItem="Cvf-Pn-N5T" secondAttribute="bottom" id="C60-q1-hs0"/>
                             <constraint firstItem="YOe-rD-xSd" firstAttribute="leading" secondItem="v0m-cg-aSP" secondAttribute="leading" id="Dwr-9B-J4a"/>
                             <constraint firstAttribute="trailing" secondItem="YOe-rD-xSd" secondAttribute="trailing" id="PLG-8y-54N"/>
                             <constraint firstItem="Cvf-Pn-N5T" firstAttribute="top" secondItem="YOe-rD-xSd" secondAttribute="bottom" id="XRa-QF-lhh"/>
+                            <constraint firstItem="OE6-ll-CU0" firstAttribute="bottom" secondItem="AVw-ms-r0t" secondAttribute="bottom" id="dS4-P4-mey"/>
+                            <constraint firstItem="OE6-ll-CU0" firstAttribute="trailing" secondItem="AVw-ms-r0t" secondAttribute="trailing" id="hKv-5e-s97"/>
+                            <constraint firstItem="OE6-ll-CU0" firstAttribute="top" secondItem="YOe-rD-xSd" secondAttribute="top" constant="3" id="r4l-Q2-18h"/>
                             <constraint firstItem="AVw-ms-r0t" firstAttribute="trailing" secondItem="Cvf-Pn-N5T" secondAttribute="trailing" id="sFS-Qi-MDJ"/>
                             <constraint firstItem="Cvf-Pn-N5T" firstAttribute="leading" secondItem="AVw-ms-r0t" secondAttribute="leading" id="zDQ-Zv-w5e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AVw-ms-r0t"/>
                     </view>
                     <connections>
+                        <outlet property="pozadiView" destination="OE6-ll-CU0" id="PlD-7K-UwP"/>
                         <outlet property="progressView" destination="YOe-rD-xSd" id="Z6i-aP-PgG"/>
                         <outlet property="webView" destination="Cvf-Pn-N5T" id="tEe-Ai-sUS"/>
                     </connections>
