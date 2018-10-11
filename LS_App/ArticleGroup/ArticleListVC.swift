@@ -39,6 +39,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let spinnerFont = UIFont(name: "Century Gothic", size: 15)
+        SKActivityIndicator.spinnerStyle(.spinningFadeCircle)
+        SKActivityIndicator.statusLabelFont(spinnerFont!)
         SKActivityIndicator.show("Načítám články")
         
         let loadingNib = UINib(nibName: "LoadingCell", bundle: nil)
@@ -191,14 +194,15 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
             
             if self.articlesArray?[indexPath.item].obrazekURL != nil{
                 //obrázek k článku
-
+                cell.obrazekView.alpha = 1
                 if let encodedUrl = self.articlesArray?[indexPath.item].obrazekURL?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),let url = URL(string: encodedUrl){
                     
                     let resource = ImageResource(downloadURL: url)
                     cell.obrazekView.kf.setImage(with: resource)
                 }
             }else{
-                cell.obrazekView.image = #imageLiteral(resourceName: "LS_logo_male")
+                cell.obrazekView.image = #imageLiteral(resourceName: "LS_logo_pruhledne_grey")
+                cell.obrazekView.alpha = 0.3
                 }
         
             
