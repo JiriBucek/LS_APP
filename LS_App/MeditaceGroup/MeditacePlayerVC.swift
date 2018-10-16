@@ -18,6 +18,10 @@ class MeditacePlayerVC: UIViewController {
     var pocitadlo = 0
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     @IBAction func sliderMoved(_ sender: Any) {
         let sliderValue = slider.value
         let posunNaCas = sliderValue * Float(delkaNahravky)

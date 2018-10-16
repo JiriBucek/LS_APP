@@ -15,8 +15,10 @@
 		892B332C21274BFA00BAF2F9 /* MeditaceClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */; };
 		892B333621275E8C00BAF2F9 /* DetailMeditaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */; };
 		89329883212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89329882212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg */; };
-		895023A7212AF6C7007BD6D0 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 895023A5212AF6C7007BD6D0 /* pause.png */; };
-		895023A8212AF6C7007BD6D0 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 895023A6212AF6C7007BD6D0 /* play.png */; };
+		8939176C2176900F00B01B1C /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 8939176B2176900F00B01B1C /* pause.png */; };
+		8939176E2176901E00B01B1C /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 8939176D2176901D00B01B1C /* play.png */; };
+		893917702176924700B01B1C /* nosound.png in Resources */ = {isa = PBXBuildFile; fileRef = 8939176F2176924600B01B1C /* nosound.png */; };
+		893917722176942500B01B1C /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 893917712176942500B01B1C /* sound.png */; };
 		895023AC212CD1C3007BD6D0 /* 2_hudba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895023AB212CD1C3007BD6D0 /* 2_hudba.mp3 */; };
 		895023AE212CD1F8007BD6D0 /* 2_slovo_pozorovani_jedne_myslenky.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895023AD212CD1F8007BD6D0 /* 2_slovo_pozorovani_jedne_myslenky.mp3 */; };
 		895023B2212CD612007BD6D0 /* uvod.png in Resources */ = {isa = PBXBuildFile; fileRef = 895023B1212CD611007BD6D0 /* uvod.png */; };
@@ -27,16 +29,13 @@
 		8964D8E521293FE200D59220 /* 1_slovo_niterne_poznani.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */; };
 		8964D8E621293FE200D59220 /* 1_hudba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8E421293FE200D59220 /* 1_hudba.mp3 */; };
 		8964D8E821294ACE00D59220 /* MeditacePlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */; };
-		8964D8F021295DBA00D59220 /* nosound.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8EA21295DB900D59220 /* nosound.png */; };
 		8964D8F121295DBA00D59220 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8EB21295DB900D59220 /* right.png */; };
 		8964D8F321295DBA00D59220 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8ED21295DBA00D59220 /* left.png */; };
-		8964D8F521295DBA00D59220 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8EF21295DBA00D59220 /* sound.png */; };
 		899163FD215C46B600A850EC /* GOTHICBI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163F9215C46B000A850EC /* GOTHICBI.TTF */; };
 		899163FE215C46B600A850EC /* GOTHIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163FA215C46B100A850EC /* GOTHIC.TTF */; };
 		899163FF215C46B600A850EC /* GOTHICI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163FB215C46B300A850EC /* GOTHICI.TTF */; };
 		89916400215C46B600A850EC /* GOTHICB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163FC215C46B400A850EC /* GOTHICB.TTF */; };
 		89916402215E1BB200A850EC /* articleWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89916401215E1BB200A850EC /* articleWebVC.swift */; };
-		899164082161412B00A850EC /* big_play_uzke.png in Resources */ = {isa = PBXBuildFile; fileRef = 899164072161412A00A850EC /* big_play_uzke.png */; };
 		89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059B21078BAE006EBD5F /* AppDelegate.swift */; };
 		89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059D21078BAE006EBD5F /* HomeVC.swift */; };
 		89C105A121078BAE006EBD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C1059F21078BAE006EBD5F /* Main.storyboard */; };
@@ -78,8 +77,10 @@
 		892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditaceClass.swift; sourceTree = "<group>"; };
 		892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMeditaceVC.swift; sourceTree = "<group>"; };
 		89329882212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg"; sourceTree = "<group>"; };
-		895023A5212AF6C7007BD6D0 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
-		895023A6212AF6C7007BD6D0 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		8939176B2176900F00B01B1C /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		8939176D2176901D00B01B1C /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		8939176F2176924600B01B1C /* nosound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nosound.png; sourceTree = "<group>"; };
+		893917712176942500B01B1C /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
 		895023AB212CD1C3007BD6D0 /* 2_hudba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2_hudba.mp3; sourceTree = "<group>"; };
 		895023AD212CD1F8007BD6D0 /* 2_slovo_pozorovani_jedne_myslenky.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2_slovo_pozorovani_jedne_myslenky.mp3; sourceTree = "<group>"; };
 		895023B1212CD611007BD6D0 /* uvod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uvod.png; sourceTree = "<group>"; };
@@ -90,16 +91,13 @@
 		8964D8E321293FE100D59220 /* 1_slovo_niterne_poznani.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_slovo_niterne_poznani.mp3; sourceTree = "<group>"; };
 		8964D8E421293FE200D59220 /* 1_hudba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_hudba.mp3; sourceTree = "<group>"; };
 		8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditacePlayerVC.swift; sourceTree = "<group>"; };
-		8964D8EA21295DB900D59220 /* nosound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nosound.png; sourceTree = "<group>"; };
 		8964D8EB21295DB900D59220 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		8964D8ED21295DBA00D59220 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
-		8964D8EF21295DBA00D59220 /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
 		899163F9215C46B000A850EC /* GOTHICBI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHICBI.TTF; sourceTree = "<group>"; };
 		899163FA215C46B100A850EC /* GOTHIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHIC.TTF; sourceTree = "<group>"; };
 		899163FB215C46B300A850EC /* GOTHICI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHICI.TTF; sourceTree = "<group>"; };
 		899163FC215C46B400A850EC /* GOTHICB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHICB.TTF; sourceTree = "<group>"; };
 		89916401215E1BB200A850EC /* articleWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = articleWebVC.swift; sourceTree = "<group>"; };
-		899164072161412A00A850EC /* big_play_uzke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_play_uzke.png; path = ../../../../../IkonkyPlayer_LS/big_play_uzke.png; sourceTree = "<group>"; };
 		89C1059821078BAE006EBD5F /* LS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C1059B21078BAE006EBD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C1059D21078BAE006EBD5F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -200,16 +198,15 @@
 		8964D8E921295D9A00D59220 /* IkonkyPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				8939176B2176900F00B01B1C /* pause.png */,
+				8939176D2176901D00B01B1C /* play.png */,
 				8964D8ED21295DBA00D59220 /* left.png */,
-				899164072161412A00A850EC /* big_play_uzke.png */,
-				895023A5212AF6C7007BD6D0 /* pause.png */,
-				895023A6212AF6C7007BD6D0 /* play.png */,
+				8939176F2176924600B01B1C /* nosound.png */,
+				893917712176942500B01B1C /* sound.png */,
 				895023B621316200007BD6D0 /* 15_back.png */,
 				895023B5213161FF007BD6D0 /* 15_forward.png */,
-				8964D8EA21295DB900D59220 /* nosound.png */,
 				89329882212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg */,
 				8964D8EB21295DB900D59220 /* right.png */,
-				8964D8EF21295DBA00D59220 /* sound.png */,
 			);
 			path = IkonkyPlayer;
 			sourceTree = "<group>";
@@ -406,17 +403,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C105A621078BB2006EBD5F /* LaunchScreen.storyboard in Resources */,
-				895023A8212AF6C7007BD6D0 /* play.png in Resources */,
-				895023A7212AF6C7007BD6D0 /* pause.png in Resources */,
 				8964D8F121295DBA00D59220 /* right.png in Resources */,
 				89C105A321078BB2006EBD5F /* Assets.xcassets in Resources */,
-				8964D8F521295DBA00D59220 /* sound.png in Resources */,
 				8964D8F321295DBA00D59220 /* left.png in Resources */,
+				893917702176924700B01B1C /* nosound.png in Resources */,
 				899163FD215C46B600A850EC /* GOTHICBI.TTF in Resources */,
 				895023AE212CD1F8007BD6D0 /* 2_slovo_pozorovani_jedne_myslenky.mp3 in Resources */,
+				8939176C2176900F00B01B1C /* pause.png in Resources */,
 				895023BC2134D21D007BD6D0 /* 1_meditace.jpg in Resources */,
 				899163FE215C46B600A850EC /* GOTHIC.TTF in Resources */,
-				8964D8F021295DBA00D59220 /* nosound.png in Resources */,
+				893917722176942500B01B1C /* sound.png in Resources */,
 				892B332021244FD300BAF2F9 /* LoadingCell.xib in Resources */,
 				8964D8E621293FE200D59220 /* 1_hudba.mp3 in Resources */,
 				895023B821316200007BD6D0 /* 15_back.png in Resources */,
@@ -426,7 +422,7 @@
 				899163FF215C46B600A850EC /* GOTHICI.TTF in Resources */,
 				89329883212AAF4E00BBBB79 /* quotes-wallpaper-s8-white-grey-minimal-abstract-wallpaper-galaxy-clean-beauty-of-quotes-wallpaper-s8.jpg in Resources */,
 				895023B721316200007BD6D0 /* 15_forward.png in Resources */,
-				899164082161412B00A850EC /* big_play_uzke.png in Resources */,
+				8939176E2176901E00B01B1C /* play.png in Resources */,
 				895023BE2134D290007BD6D0 /* 2_meditace.jpg in Resources */,
 				895023B2212CD612007BD6D0 /* uvod.png in Resources */,
 				89916400215C46B600A850EC /* GOTHICB.TTF in Resources */,

@@ -507,7 +507,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sf2-e9-7dW">
-                                <rect key="frame" x="0.0" y="518" width="375" height="100"/>
+                                <rect key="frame" x="20" y="518" width="335" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OfM-QK-s8X">
                                         <rect key="frame" x="0.0" y="49.5" width="1" height="1"/>
@@ -518,10 +518,10 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-fk-xQ9">
-                                        <rect key="frame" x="47" y="20" width="60" height="60"/>
+                                        <rect key="frame" x="47" y="30" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="8wa-bn-GMf"/>
-                                            <constraint firstAttribute="height" constant="60" id="mW3-LU-6NW"/>
+                                            <constraint firstAttribute="width" constant="40" id="8wa-bn-GMf"/>
+                                            <constraint firstAttribute="height" constant="40" id="mW3-LU-6NW"/>
                                         </constraints>
                                         <state key="normal" title="Vzad" image="15_back.png"/>
                                         <connections>
@@ -529,7 +529,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-hj-WGg">
-                                        <rect key="frame" x="152.5" y="15" width="70" height="70"/>
+                                        <rect key="frame" x="132.5" y="15" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="oI9-tL-eny"/>
                                             <constraint firstAttribute="width" constant="70" id="sDs-pB-HeA"/>
@@ -540,10 +540,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81f-wV-C2Y">
-                                        <rect key="frame" x="268.5" y="20" width="60" height="60"/>
+                                        <rect key="frame" x="248.5" y="30" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="3Le-Zb-kBJ"/>
-                                            <constraint firstAttribute="height" constant="60" id="d3Y-ph-7p6"/>
+                                            <constraint firstAttribute="width" constant="40" id="3Le-Zb-kBJ"/>
+                                            <constraint firstAttribute="height" constant="40" id="d3Y-ph-7p6"/>
                                         </constraints>
                                         <state key="normal" title="Vpřed" image="15_forward.png"/>
                                         <connections>
@@ -551,7 +551,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lxv-N2-pIu">
-                                        <rect key="frame" x="374" y="49.5" width="1" height="1"/>
+                                        <rect key="frame" x="334" y="49.5" width="1" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="Iv6-7t-9W2"/>
@@ -566,13 +566,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3f-5O-REg">
                                 <rect key="frame" x="0.0" y="64" width="375" height="369"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-0C-MFn">
-                                        <rect key="frame" x="0.0" y="9" width="375" height="350"/>
+                                    <button opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-0C-MFn">
+                                        <rect key="frame" x="0.0" y="-3.5" width="375" height="375"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Xwe-0C-MFn" secondAttribute="height" multiplier="15:14" id="KyW-fd-Wbm"/>
+                                            <constraint firstAttribute="width" secondItem="Xwe-0C-MFn" secondAttribute="height" multiplier="15:15" id="KyW-fd-Wbm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="100"/>
-                                        <state key="normal" image="big_play_uzke.png">
+                                        <inset key="contentEdgeInsets" minX="30" minY="30" maxX="30" maxY="30"/>
+                                        <state key="normal" image="play.png">
                                             <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -589,11 +590,11 @@
                                 </constraints>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="apV-oB-pds">
-                                <rect key="frame" x="42" y="486" width="289" height="31"/>
+                                <rect key="frame" x="64" y="488" width="248" height="31"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="minimumTrackTintColor" red="0.088678114119999998" green="0.49555915589999999" blue="0.98482519390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="maximumTrackTintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="thumbTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" red="0.70189279317855835" green="0.70200991630554199" blue="0.70186787843704224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="ikonka_player"/>
                                 </userDefinedRuntimeAttributes>
@@ -601,28 +602,27 @@
                                     <action selector="sliderMoved:" destination="FO9-6C-WA2" eventType="valueChanged" id="9Di-eG-tt0"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0:00 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
-                                <rect key="frame" x="8" y="441" width="375" height="55"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
+                                <rect key="frame" x="0.0" y="433" width="375" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="013-pg-57d"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.70189279317855835" green="0.70200991630554199" blue="0.70186787843704224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="apV-oB-pds" firstAttribute="top" secondItem="iTh-YA-SNk" secondAttribute="bottom" id="0Jo-Uk-ERG"/>
-                            <constraint firstItem="sf2-e9-7dW" firstAttribute="leading" secondItem="UZm-yV-Dmo" secondAttribute="leading" id="1n5-9f-Faf"/>
-                            <constraint firstItem="apV-oB-pds" firstAttribute="trailing" secondItem="UZm-yV-Dmo" secondAttribute="trailing" id="A44-V3-iTz"/>
+                            <constraint firstItem="sf2-e9-7dW" firstAttribute="leading" secondItem="UZm-yV-Dmo" secondAttribute="leading" constant="20" id="1n5-9f-Faf"/>
+                            <constraint firstItem="apV-oB-pds" firstAttribute="trailing" secondItem="UZm-yV-Dmo" secondAttribute="trailing" constant="-20" id="A44-V3-iTz"/>
                             <constraint firstItem="q3f-5O-REg" firstAttribute="trailing" secondItem="UZm-yV-Dmo" secondAttribute="trailing" id="HDp-Pq-AYy"/>
-                            <constraint firstItem="apV-oB-pds" firstAttribute="leading" secondItem="UZm-yV-Dmo" secondAttribute="leading" id="P4E-7X-knP"/>
+                            <constraint firstItem="apV-oB-pds" firstAttribute="leading" secondItem="UZm-yV-Dmo" secondAttribute="leading" constant="20" id="P4E-7X-knP"/>
                             <constraint firstItem="UZm-yV-Dmo" firstAttribute="bottom" secondItem="sf2-e9-7dW" secondAttribute="bottom" id="VAI-hU-rG2"/>
-                            <constraint firstItem="UZm-yV-Dmo" firstAttribute="trailing" secondItem="sf2-e9-7dW" secondAttribute="trailing" id="Vvd-u9-IcL"/>
+                            <constraint firstItem="UZm-yV-Dmo" firstAttribute="trailing" secondItem="sf2-e9-7dW" secondAttribute="trailing" constant="20" id="Vvd-u9-IcL"/>
                             <constraint firstItem="iTh-YA-SNk" firstAttribute="leading" secondItem="UZm-yV-Dmo" secondAttribute="leading" id="f9j-sv-9LE"/>
                             <constraint firstItem="q3f-5O-REg" firstAttribute="leading" secondItem="UZm-yV-Dmo" secondAttribute="leading" id="gdF-pw-WoV"/>
-                            <constraint firstItem="sf2-e9-7dW" firstAttribute="trailing" secondItem="UZm-yV-Dmo" secondAttribute="trailing" id="kwP-FK-aZh"/>
                             <constraint firstItem="q3f-5O-REg" firstAttribute="top" secondItem="UZm-yV-Dmo" secondAttribute="top" id="lfa-Rv-OjC"/>
                             <constraint firstItem="iTh-YA-SNk" firstAttribute="trailing" secondItem="UZm-yV-Dmo" secondAttribute="trailing" id="oRr-4l-cKY"/>
                             <constraint firstItem="iTh-YA-SNk" firstAttribute="top" secondItem="q3f-5O-REg" secondAttribute="bottom" id="umq-cI-ktV"/>
@@ -683,12 +683,12 @@
     <resources>
         <image name="15_back.png" width="474" height="474"/>
         <image name="15_forward.png" width="474" height="474"/>
-        <image name="big_play_uzke.png" width="475" height="451"/>
         <image name="icons8-flower-25" width="25" height="25"/>
         <image name="icons8-meditation-25" width="25" height="25"/>
         <image name="ikonka_player" width="30" height="30"/>
         <image name="meditace_default.jpg" width="520" height="347"/>
-        <image name="sound.png" width="375" height="360"/>
+        <image name="play.png" width="2478" height="2478"/>
+        <image name="sound.png" width="522" height="522"/>
         <image name="uvod.png" width="1280" height="1280"/>
     </resources>
 </document>
