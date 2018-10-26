@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uvod.png" translatesAutoresizingMaskIntoConstraints="NO" id="dHW-IV-PyW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uvod" translatesAutoresizingMaskIntoConstraints="NO" id="dHW-IV-PyW">
                                 <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="6YJ-Si-Kto">
@@ -56,6 +56,6 @@
     </scenes>
     <resources>
         <image name="LS_logo_pruhledne" width="341" height="341"/>
-        <image name="uvod.png" width="1280" height="1280"/>
+        <image name="uvod" width="1920" height="1080"/>
     </resources>
 </document>

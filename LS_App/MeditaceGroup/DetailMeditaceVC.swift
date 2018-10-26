@@ -24,6 +24,10 @@ class DetailMeditaceVC: UIViewController {
         self.navigationController?.pushViewController(playerVC, animated: true)
     }
     
+    @IBOutlet weak var prehrajMeditaciButton: UIButton!
+    
+    
+    
 
     
     var nadpis: String?
@@ -37,6 +41,9 @@ class DetailMeditaceVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        prehrajMeditaciButton.layer.cornerRadius = 20
+        prehrajMeditaciButton.clipsToBounds = true
 
         if nadpis != nil{
             nadpisMeditaceLabel.text = nadpis

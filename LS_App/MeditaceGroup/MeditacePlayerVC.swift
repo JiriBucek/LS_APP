@@ -13,7 +13,7 @@ class MeditacePlayerVC: UIViewController {
     
     
     //dvojka je spodní
-    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var slider: mujSlider!
     
     var pocitadlo = 0
     
@@ -86,6 +86,8 @@ class MeditacePlayerVC: UIViewController {
     }
     
     
+    
+    
     var mluveneSlovo: String?
     var podkladovaHudba: String?
     
@@ -98,6 +100,8 @@ class MeditacePlayerVC: UIViewController {
     var timer: Timer?
     
     
+    
+    
     override func viewDidLoad() {
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -105,6 +109,7 @@ class MeditacePlayerVC: UIViewController {
         //obrazovka se nevypne
         
         super.viewDidLoad()
+        
         playSlovo(time: 0)
         playerSlovo?.pause()
         
@@ -117,8 +122,16 @@ class MeditacePlayerVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         //po ukončení vypnu timer a obrazovka se zase vypíná
-        timer?.invalidate()
-        UIApplication.shared.isIdleTimerDisabled = false
+        
+        if self.isMovingFromParentViewController{
+            //zmacknul jsem back button?
+            playerSlovo?.stop()
+            playerHudba?.stop()
+            timer?.invalidate()
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
+        
+        
     }
 
     func playHudba() -> Void {
