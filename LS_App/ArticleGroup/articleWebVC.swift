@@ -40,7 +40,7 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
             //self.view.alpha = 0.8
             pozadiView.isHidden = false
             pozadiView.alpha = 1
-            pozadiView.image = #imageLiteral(resourceName: "uvod.png")
+            //pozadiView.image = #imageLiteral(resourceName: "uvod.png")
             SKActivityIndicator.show("Načítám článek")
         }
             webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)

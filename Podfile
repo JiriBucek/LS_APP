@@ -8,6 +8,5 @@ target 'LS_App' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Kingfisher', '~> 4.0'
   pod 'SKActivityIndicatorView', '~> 0.1.0'
-  pod 'RGProgressHUD', :git => 'https://github.com/riteshhgupta/RGProgressHUD.git'
 end
 

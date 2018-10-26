@@ -42,7 +42,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         let spinnerFont = UIFont(name: "Century Gothic", size: 15)
         SKActivityIndicator.spinnerStyle(.spinningFadeCircle)
         SKActivityIndicator.statusLabelFont(spinnerFont!)
-        //SKActivityIndicator.show("Načítám články")
+        SKActivityIndicator.show("Načítám články")
         
         
         let loadingNib = UINib(nibName: "LoadingCell", bundle: nil)
