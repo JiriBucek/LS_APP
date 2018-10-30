@@ -29,6 +29,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     var articlesArray: [ArticleClass]? = []
     
     @IBOutlet weak var loadingView: UIImageView!
+    
+    @IBOutlet weak var overallLoadnigView: UIView!
+    
     var loadingMore = false
     //Stahuju zrovna další články
     
@@ -53,7 +56,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
+        //self.navigationController?.isNavigationBarHidden = true
+        //self.navigationItem.title = "Láskyplný svět"
     }
 
     override func didReceiveMemoryWarning() {
@@ -167,6 +171,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 //shodi Nacitam clanky
                 
                 self.loadingView.isHidden = true
+                self.overallLoadnigView.isHidden = true
             }
         }
     }
