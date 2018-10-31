@@ -12,6 +12,8 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 import SKActivityIndicatorView
+import NVActivityIndicatorView
+
 
 class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
     //VC, který zobrazuje seznam článků
@@ -32,6 +34,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     @IBOutlet weak var overallLoadnigView: UIView!
     
+    @IBOutlet weak var spinnerSK: NVActivityIndicatorView!
+    
+    
     var loadingMore = false
     //Stahuju zrovna další články
     
@@ -45,7 +50,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         let spinnerFont = UIFont(name: "Century Gothic", size: 15)
         SKActivityIndicator.spinnerStyle(.spinningFadeCircle)
         SKActivityIndicator.statusLabelFont(spinnerFont!)
-        SKActivityIndicator.show("Načítám články")
+        //SKActivityIndicator.show("Načítám články")
+        spinnerSK.startAnimating()
+        print(spinnerSK.isAnimating)
         
         
         let loadingNib = UINib(nibName: "LoadingCell", bundle: nil)

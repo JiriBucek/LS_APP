@@ -130,18 +130,31 @@
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="i6a-CN-ETT">
-                                        <rect key="frame" x="137.5" y="227" width="100" height="100"/>
+                                        <rect key="frame" x="137.5" y="177" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="X8j-pQ-3gp"/>
                                             <constraint firstAttribute="width" constant="100" id="b3L-8a-Fhb"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tvoř svůj svět" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRw-Tj-aMT">
-                                        <rect key="frame" x="118" y="347" width="139" height="32"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
+                                        <rect key="frame" x="124.5" y="297" width="127" height="29"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBO-P0-GVg" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                        <rect key="frame" x="162" y="346" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="LiF-xw-x8U"/>
+                                            <constraint firstAttribute="height" constant="50" id="fkx-js-AJN"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballSpinFadeLoader"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -151,7 +164,9 @@
                                     <constraint firstItem="yRw-Tj-aMT" firstAttribute="top" secondItem="i6a-CN-ETT" secondAttribute="bottom" constant="20" id="TFy-AN-bB8"/>
                                     <constraint firstItem="yRw-Tj-aMT" firstAttribute="centerX" secondItem="JAL-8X-vqz" secondAttribute="centerX" id="bdu-hU-sqT"/>
                                     <constraint firstItem="oud-Pz-Dun" firstAttribute="top" secondItem="JAL-8X-vqz" secondAttribute="top" id="clg-P0-gRz"/>
-                                    <constraint firstItem="i6a-CN-ETT" firstAttribute="centerY" secondItem="JAL-8X-vqz" secondAttribute="centerY" id="sjD-Zj-mcj"/>
+                                    <constraint firstItem="nBO-P0-GVg" firstAttribute="centerX" secondItem="JAL-8X-vqz" secondAttribute="centerX" id="iy2-fv-4gg"/>
+                                    <constraint firstItem="i6a-CN-ETT" firstAttribute="baseline" secondItem="JAL-8X-vqz" secondAttribute="centerY" id="sjD-Zj-mcj"/>
+                                    <constraint firstItem="nBO-P0-GVg" firstAttribute="top" secondItem="yRw-Tj-aMT" secondAttribute="bottom" constant="20" id="tYr-IA-D2A"/>
                                     <constraint firstItem="i6a-CN-ETT" firstAttribute="centerX" secondItem="JAL-8X-vqz" secondAttribute="centerXWithinMargins" id="zYg-sj-gxS"/>
                                 </constraints>
                             </view>
@@ -176,6 +191,7 @@
                         <outlet property="articlesTableView" destination="OhX-1b-qXy" id="z0v-3b-m66"/>
                         <outlet property="loadingView" destination="oud-Pz-Dun" id="L9u-jb-7oF"/>
                         <outlet property="overallLoadnigView" destination="JAL-8X-vqz" id="CLY-U1-LiU"/>
+                        <outlet property="spinnerSK" destination="nBO-P0-GVg" id="KsA-th-c3b"/>
                         <segue destination="lo7-3R-Nno" kind="show" id="TnX-ry-noT"/>
                     </connections>
                 </viewController>
@@ -417,7 +433,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mBc-4J-g1q"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Láskyplný svět" id="0y5-2G-MOr"/>
+                    <navigationItem key="navigationItem" title="Láskyplný svět" id="0y5-2G-MOr">
+                        <barButtonItem key="backBarButtonItem" title="Zpět" id="JFi-fD-2LH"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="meditaceTableView" destination="5gq-Rz-C7E" id="9vI-X4-Jk9"/>
                         <segue destination="kow-Hp-nJg" kind="show" id="ORq-lq-0Ue"/>
