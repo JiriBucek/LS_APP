@@ -435,6 +435,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Láskyplný svět" id="0y5-2G-MOr">
                         <barButtonItem key="backBarButtonItem" title="Zpět" id="JFi-fD-2LH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="W7O-Aa-R78">
+                            <connections>
+                                <action selector="refreshBtn:" destination="QQN-uS-WsP" id="Lru-uR-sQa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="meditaceTableView" destination="5gq-Rz-C7E" id="9vI-X4-Jk9"/>

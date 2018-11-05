@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import SwiftyUserDefaults
+
 
 class DetailMeditaceVC: UIViewController {
 
@@ -27,14 +29,13 @@ class DetailMeditaceVC: UIViewController {
     @IBOutlet weak var prehrajMeditaciButton: UIButton!
     
     
-    
-
-    
     var nadpis: String?
     var obsah: String?
     var image: String?
     var mluveneSlovo: String?
     var podkladovaHudba: String?
+    var id: String?
+    
     
 
     //přehrává audio
@@ -45,6 +46,12 @@ class DetailMeditaceVC: UIViewController {
         prehrajMeditaciButton.layer.cornerRadius = 20
         prehrajMeditaciButton.clipsToBounds = true
 
+        if Defaults.bool(forKey: id!){
+            prehrajMeditaciButton.setTitle("Přehraj meditaci", for: .normal)
+        }else{
+            prehrajMeditaciButton.setTitle("Kup meditaci", for: .normal)
+        }
+        
         if nadpis != nil{
             nadpisMeditaceLabel.text = nadpis
         }

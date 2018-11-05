@@ -14,19 +14,40 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
 
     var meditaceArray:[MeditaceClass]? = []
     
+    @IBAction func refreshBtn(_ sender: Any) {
+        Defaults.removeAll()
+        meditaceTableView.reloadData()
+        
+    }
+    
+    
     @IBOutlet weak var meditaceTableView: UITableView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         loadMeditationData()
+        print("Not first launch: ", Defaults[.notFirstLaunch])
 
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
        // self.navigationController?.isNavigationBarHidden = true
+        
+        if !Defaults[.notFirstLaunch]!{
+            // co se stane při prvním spuštění
+            Defaults[.notFirstLaunch] = true
+            Defaults[.meditace1] = true
+            Defaults[.meditace2] = false
+            Defaults[.meditace3] = true
+            Defaults[.meditace4] = false
+            Defaults[.meditace5] = true
+        }
+        
+        
     }
+    
     
     
 
@@ -43,12 +64,12 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
             
             let meditaceObjekt = MeditaceClass()
             
-            meditaceObjekt.id = item["id"] as? Int
-            meditaceObjekt.nadpis = item["nadpis"]! as? String
-            meditaceObjekt.obsah = item["obsah"] as? String
-            meditaceObjekt.obrazekName = item["obrazekName"] as? String
-            meditaceObjekt.audioSlovo = item["audio_slovo"] as? String
-            meditaceObjekt.audioHudba = item["audio_hudba"] as? String
+            meditaceObjekt.id = item["id"]
+            meditaceObjekt.nadpis = item["nadpis"]
+            meditaceObjekt.obsah = item["obsah"]
+            meditaceObjekt.obrazekName = item["obrazekName"]
+            meditaceObjekt.audioSlovo = item["audio_slovo"]
+            meditaceObjekt.audioHudba = item["audio_hudba"]
             
             meditaceArray?.append(meditaceObjekt)
         }
@@ -63,8 +84,15 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         cell.nadpisCellMeditace.text = self.meditaceArray?[indexPath.item].nadpis
         cell.popisekCellMeditace.text = self.meditaceArray?[indexPath.item].obsah
         let jmenoObrazku = self.meditaceArray?[indexPath.item].obrazekName
+        let meditaceId = self.meditaceArray?[indexPath.item].id
         
-        cell.obrazekMalyMeditace.image = UIImage(imageLiteralResourceName: jmenoObrazku!)
+        print(Defaults.bool(forKey: meditaceId!))
+        
+        if (Defaults.bool(forKey: meditaceId!) == true){
+            cell.obrazekMalyMeditace.image = UIImage(imageLiteralResourceName: jmenoObrazku!)
+        }else{
+            cell.obrazekMalyMeditace.image = #imageLiteral(resourceName: "locked.png")
+        }
         
         cell.obrazekMalyMeditace.layer.cornerRadius = 5
         cell.obrazekMalyMeditace.clipsToBounds = true
@@ -82,6 +110,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         detailMeditaceVC.mluveneSlovo = self.meditaceArray?[indexPath.item].audioSlovo
         detailMeditaceVC.podkladovaHudba = self.meditaceArray?[indexPath.item].audioHudba
         detailMeditaceVC.title = self.meditaceArray?[indexPath.item].nadpis
+        detailMeditaceVC.id = self.meditaceArray?[indexPath.item].id
         
         self.navigationController?.pushViewController(detailMeditaceVC, animated: true)
     }
@@ -106,15 +135,15 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     */
     var meditaceData = [
         
-        ["id" : 1, "nadpis" : "1. osobní prostor", "obrazekName": "1_meditace.jpg", "obsah" : "Jdi hlouběji a hlouběji do sebe, poznej své niterné sféry, projdi dále a převezmi sílu pro tvoření Tvého světa. Uchovej si svůj vlastní osobní prostor a kráčej tak životem sebe-vědomě a sebe-jistě. Ty jsi tvůrcem svého života.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"],
+        ["id" : "meditace1", "nadpis" : "1. osobní prostor", "obrazekName": "1_meditace.jpg", "obsah" : "Jdi hlouběji a hlouběji do sebe, poznej své niterné sféry, projdi dále a převezmi sílu pro tvoření Tvého světa. Uchovej si svůj vlastní osobní prostor a kráčej tak životem sebe-vědomě a sebe-jistě. Ty jsi tvůrcem svého života.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"],
         
-        ["id" : 2, "nadpis":"2. Síla koncentrace", "obrazekName": "2_meditace.jpg", "obsah":"V dnešním světě dosahuje lepších úspěchů ten, kdo se dokáže pevněji a vytrvaleji soustředit na svůj cíl. Na tu jednu nehmatatelnou myšlenku, kterou chce tvořit. V této nahrávce budeme zesilovat svou schopnost silné koncentrace, to se zákonitě bude odrážet v efektivitě práce a úspěšnějším životě.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"],
+        ["id" : "meditace2", "nadpis":"2. Síla koncentrace", "obrazekName": "2_meditace.jpg", "obsah":"V dnešním světě dosahuje lepších úspěchů ten, kdo se dokáže pevněji a vytrvaleji soustředit na svůj cíl. Na tu jednu nehmatatelnou myšlenku, kterou chce tvořit. V této nahrávce budeme zesilovat svou schopnost silné koncentrace, to se zákonitě bude odrážet v efektivitě práce a úspěšnějším životě.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"],
         
-        ["id" : 3, "nadpis":"3. Rozloučení s depresí", "obrazekName": "locked.png", "obsah":"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut tempus purus at lorem. Integer tempor. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Integer lacinia. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Praesent vitae arcu tempor neque lacinia pretium. Integer tempor.", "audio_slovo":"3_rozlouceni_s_depresi", "audio_hudba":"3_hudba"],
+        ["id" : "meditace3", "nadpis":"3. Rozloučení s depresí", "obrazekName": "3_meditace.jpg", "obsah":"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut tempus purus at lorem. Integer tempor. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Integer lacinia. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Praesent vitae arcu tempor neque lacinia pretium. Integer tempor.", "audio_slovo":"3_rozlouceni_s_depresi", "audio_hudba":"3_hudba"],
         
-         ["id" : 4, "nadpis":"4. Meditace dobré ráno", "obrazekName": "locked.png", "obsah":"Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Fusce aliquam vestibulum ipsum. Curabitur sagittis hendrerit ante. Fusce nibh. Integer lacinia. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. In rutrum. Fusce aliquam vestibulum ipsum. Pellentesque sapien. Sed ac dolor sit amet purus malesuada congue. In convallis. Morbi scelerisque luctus velit. Pellentesque sapien.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"],
+         ["id" : "meditace4", "nadpis":"4. Meditace dobré ráno", "obrazekName": "4_meditace.jpg", "obsah":"Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Fusce aliquam vestibulum ipsum. Curabitur sagittis hendrerit ante. Fusce nibh. Integer lacinia. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. In rutrum. Fusce aliquam vestibulum ipsum. Pellentesque sapien. Sed ac dolor sit amet purus malesuada congue. In convallis. Morbi scelerisque luctus velit. Pellentesque sapien.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"],
      
-         ["id" : 5, "nadpis":"5. Pátá meditace", "obrazekName": "locked.png", "obsah":"Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Fusce aliquam vestibulum ipsum. Curabitur sagittis hendrerit ante. Fusce nibh. Integer lacinia. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. In rutrum. Fusce aliquam vestibulum ipsum. Pellentesque sapien. Sed ac dolor sit amet purus malesuada congue. In convallis. Morbi scelerisque luctus velit. Pellentesque sapien.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"]
+         ["id" : "meditace5", "nadpis":"5. Pátá meditace", "obrazekName": "5_meditace.jpeg", "obsah":"Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Fusce aliquam vestibulum ipsum. Curabitur sagittis hendrerit ante. Fusce nibh. Integer lacinia. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. In rutrum. Fusce aliquam vestibulum ipsum. Pellentesque sapien. Sed ac dolor sit amet purus malesuada congue. In convallis. Morbi scelerisque luctus velit. Pellentesque sapien.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"]
         
     ]
 
@@ -125,6 +154,8 @@ extension DefaultsKeys {
     // NSUserDefaults keys pro SwiftyUserDefaults
     // https://cocoapods.org/pods/SwiftyUserDefaults
     
+    static let notFirstLaunch = DefaultsKey<Bool?>("notFirstLaunch")
+
     static let meditace1 = DefaultsKey<Bool?>("meditace1")
     static let meditace2 = DefaultsKey<Bool?>("meditace2")
     static let meditace3 = DefaultsKey<Bool?>("meditace3")

@@ -10,7 +10,7 @@ import UIKit
 
 class MeditaceClass: NSObject {
     
-    var id: Int?
+    var id: String?
     var nadpis: String?
     var obrazekName: String?
     var obsah: String?
