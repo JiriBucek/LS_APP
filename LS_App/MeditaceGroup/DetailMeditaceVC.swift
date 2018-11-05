@@ -24,6 +24,10 @@ class DetailMeditaceVC: UIViewController {
         playerVC.mluveneSlovo = mluveneSlovo
         playerVC.podkladovaHudba = podkladovaHudba
         self.navigationController?.pushViewController(playerVC, animated: true)
+        
+        
+        //tohle pak vymaz
+        Defaults.set(true, forKey: id!)
     }
     
     @IBOutlet weak var prehrajMeditaciButton: UIButton!
