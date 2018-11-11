@@ -186,6 +186,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Láskyplný svět" id="b6L-rG-ElP">
                         <barButtonItem key="backBarButtonItem" title="Zpět na seznam článků" id="nb5-3L-RPP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="vRE-2M-9FK">
+                            <connections>
+                                <action selector="refreshBtn:" destination="UM7-im-dRJ" id="Nok-Y2-3ie"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="articlesTableView" destination="OhX-1b-qXy" id="z0v-3b-m66"/>

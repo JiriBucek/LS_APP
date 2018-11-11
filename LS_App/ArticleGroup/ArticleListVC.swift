@@ -23,6 +23,10 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_fields=link,title,excerpt,featured_media"
 
     
+    @IBAction func refreshBtn(_ sender: Any) {
+        overallLoadnigView.isHidden = false
+        loadArticles(APIurl: APIadresa)
+    }
     
     // "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_embed=true&_fields=id,excerpt,link,title"
     
@@ -52,7 +56,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         SKActivityIndicator.statusLabelFont(spinnerFont!)
         //SKActivityIndicator.show("Načítám články")
         spinnerSK.startAnimating()
-        print(spinnerSK.isAnimating)
         
         
         let loadingNib = UINib(nibName: "LoadingCell", bundle: nil)
@@ -179,6 +182,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 self.loadingView.isHidden = true
                 self.overallLoadnigView.isHidden = true
+                self.articlesTableView.reloadData()
+                let topIndex = IndexPath(row: 0, section: 0)
+                self.articlesTableView.scrollToRow(at: topIndex, at: .top, animated: true)
             }
         }
     }
