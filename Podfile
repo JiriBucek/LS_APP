@@ -10,5 +10,6 @@ target 'LS_App' do
   pod 'SKActivityIndicatorView', '~> 0.1.0'
   pod 'NVActivityIndicatorView'
   pod 'SwiftyUserDefaults', '4.0.0-alpha.1'
+  pod 'SwiftKeychainWrapper'
 end
 

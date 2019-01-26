@@ -24,6 +24,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
 
     
     @IBAction func refreshBtn(_ sender: Any) {
+        //articlesArray = []
+        articlesTableView.reloadData()
+        doNotMoveTableView = false
         overallLoadnigView.isHidden = false
         loadArticles(APIurl: APIadresa)
     }
@@ -43,6 +46,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     var loadingMore = false
     //Stahuju zrovna další články
+    
+    
+    var doNotMoveTableView = true
     
     var cellHeights: [IndexPath : CGFloat] = [:]
     //je potřeba tohle nastavit, aby se tableview scrollovalo smooth. Jinak přeskakuje
@@ -183,8 +189,12 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 self.loadingView.isHidden = true
                 self.overallLoadnigView.isHidden = true
                 self.articlesTableView.reloadData()
-                let topIndex = IndexPath(row: 0, section: 0)
-                self.articlesTableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                
+                if !self.doNotMoveTableView{
+                    let topIndex = IndexPath(row: 0, section: 0)
+                    self.articlesTableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                    self.doNotMoveTableView = true
+                }
             }
         }
     }
@@ -319,6 +329,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     func loadMoreArticles(){
         if loadingMore == false{
             if let offset = articlesArray?.count{
+            doNotMoveTableView = true
             loadArticles(APIurl: "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=10&offset=\(offset)&_fields=link,title,excerpt,featured_media")
             }
         }
