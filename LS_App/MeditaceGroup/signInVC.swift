@@ -20,7 +20,7 @@ class SignInViewController: UIViewController {
     }
     @IBAction func APIBtn(_ sender: Any) {
         
-        apiRequest(koncovka: "meditations")
+        print(apiRequest(typRequestu: "meditations", meditaceId: 10))
     }
     
     @IBAction func signInButtonTapped(_ sender: Any) {
@@ -77,6 +77,12 @@ class SignInViewController: UIViewController {
         }
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 401{
+                    self.displayMessage(userMessage: "Chybné přihlašovací údaje")
+                }
+            }
             
             self.removeActivityIndicator(activityIndicator: myActivityIndicator)
             
@@ -138,41 +144,57 @@ class SignInViewController: UIViewController {
 }
 
 
-func apiRequest(koncovka: String) -> String?{
+func apiRequest(typRequestu: String, meditaceId: Int = 99) -> String?{
     
+    var requestMethod = HTTPMethod.get
+    var parameters: Parameters?
     var returnJson: String?
     var baseUrl = "https://www.ay.energy/api/media/"
-    baseUrl.append(koncovka)
-    let url = URL(string: baseUrl)
-    print("Url: ", url!)
-    
     let token = KeychainWrapper.standard.string(forKey: "accessToken") as! String
-    print("Token ve funkci apiRequest: ", token)
     
     let headers: HTTPHeaders = [
         "Authorization": "Bearer \(String(describing: token))",
         "Accept": "application/json"
     ]
     
-    Alamofire.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).validate().validate(contentType: ["application/json; charset=utf-8"])
+    switch typRequestu{
+        case "meditations":
+            parameters = nil
+            baseUrl.append("meditations")
+        
+        case "audio":
+            parameters = ["Id" : meditaceId]
+            requestMethod = .post
+            baseUrl.append("audio")
+        
+        default:
+            print("Chyba v zadání typu requestu")
+    }
+    
+    let url = URL(string: baseUrl)
+    //print("Token ve funkci apiRequest: ", token)
+
+    
+    Alamofire.request(url!, method: requestMethod, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().validate(contentType: ["application/json; charset=utf-8"])
                 .responseJSON() { response in
                     switch response.result {
                         case .success:
-                            print("Success")
+                            print("Successful request.")
                         case .failure( _):
-                            print("Failure")
+                            print("Failured request.")
                         }
                 }
                 .response { response in
-                    print("Request: \(String(describing: response.request))")
-                    print("Response: \(String(describing: response.response))")
-                    print("Error: \(String(describing: response.error))")
+                    //print("Request: \(String(describing: response.request))")
+                    //print("Response: \(String(describing: response.response))")
+                    //print("Error: \(String(describing: response.error))")
                     
                     if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                        print("Data: \(utf8Text)")
+                        //print("Data: \(utf8Text)")
                         returnJson = utf8Text
                     }
                 }
     return returnJson
 }
+
 
