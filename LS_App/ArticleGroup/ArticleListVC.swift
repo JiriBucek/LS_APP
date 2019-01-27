@@ -11,7 +11,6 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import Kingfisher
-import SKActivityIndicatorView
 import NVActivityIndicatorView
 
 
@@ -58,8 +57,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         super.viewDidLoad()
         
         let spinnerFont = UIFont(name: "Century Gothic", size: 15)
-        SKActivityIndicator.spinnerStyle(.spinningFadeCircle)
-        SKActivityIndicator.statusLabelFont(spinnerFont!)
+
         //SKActivityIndicator.show("Načítám články")
         spinnerSK.startAnimating()
         
@@ -84,7 +82,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     override func viewWillDisappear(_ animated: Bool) {
         //vyčistí requesty
         //cleanRequests()
-        SKActivityIndicator.dismiss()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -183,7 +180,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 }
 
                 self.articlesTableView.reloadData()
-                SKActivityIndicator.dismiss()
                 //shodi Nacitam clanky
                 
                 self.loadingView.isHidden = true
@@ -295,7 +291,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
 
         self.navigationController?.pushViewController(clanekVC, animated: true)
         self.view.alpha = 1
-        SKActivityIndicator.dismiss()
         tableView.reloadData()
     }
     

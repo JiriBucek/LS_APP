@@ -386,13 +386,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tady je nadpis" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6P6-Ge-8Pb">
-                                                    <rect key="frame" x="128" y="44.5" width="219" height="50"/>
+                                                    <rect key="frame" x="128" y="44.5" width="258" height="50"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Tady je popisek Tady je popisek Tady je popisek " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="udk-Sc-UQg">
-                                                    <rect key="frame" x="128" y="94.5" width="219" height="50"/>
+                                                    <rect key="frame" x="128" y="94.5" width="258" height="50"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                                     <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -424,11 +424,33 @@
                                     <outlet property="delegate" destination="QQN-uS-WsP" id="Wpk-Ke-2NB"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDr-Sn-t0d">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiD-d5-jkI" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="182" y="425.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Idt-jf-686"/>
+                                    <constraint firstAttribute="width" constant="50" id="KmI-r5-cxi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5gq-Rz-C7E" firstAttribute="bottom" secondItem="mBc-4J-g1q" secondAttribute="bottom" id="5cB-9L-7rF"/>
+                            <constraint firstItem="dDr-Sn-t0d" firstAttribute="trailing" secondItem="mBc-4J-g1q" secondAttribute="trailing" id="DrX-sf-bOA"/>
+                            <constraint firstItem="XiD-d5-jkI" firstAttribute="centerX" secondItem="YE1-QZ-TnW" secondAttribute="centerX" id="MX1-NC-UG7"/>
+                            <constraint firstItem="dDr-Sn-t0d" firstAttribute="top" secondItem="mBc-4J-g1q" secondAttribute="top" id="RAH-Pt-hNN"/>
+                            <constraint firstItem="XiD-d5-jkI" firstAttribute="centerY" secondItem="mBc-4J-g1q" secondAttribute="centerY" id="czC-hd-IkV"/>
                             <constraint firstItem="5gq-Rz-C7E" firstAttribute="top" secondItem="mBc-4J-g1q" secondAttribute="top" id="iN4-pB-pVD"/>
+                            <constraint firstItem="dDr-Sn-t0d" firstAttribute="leading" secondItem="mBc-4J-g1q" secondAttribute="leading" id="mpe-zE-BG6"/>
+                            <constraint firstItem="dDr-Sn-t0d" firstAttribute="bottom" secondItem="mBc-4J-g1q" secondAttribute="bottom" id="tzo-M4-czJ"/>
                             <constraint firstItem="5gq-Rz-C7E" firstAttribute="trailing" secondItem="mBc-4J-g1q" secondAttribute="trailing" id="yG2-pT-ffk"/>
                             <constraint firstItem="5gq-Rz-C7E" firstAttribute="leading" secondItem="mBc-4J-g1q" secondAttribute="leading" id="zG4-hc-SKB"/>
                         </constraints>
@@ -449,12 +471,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="meditaceTableView" destination="5gq-Rz-C7E" id="9vI-X4-Jk9"/>
+                        <outlet property="overallLoadingView" destination="dDr-Sn-t0d" id="kcA-AQ-cc5"/>
+                        <outlet property="spinnerView" destination="XiD-d5-jkI" id="3jg-9b-4AE"/>
                         <segue destination="kow-Hp-nJg" kind="show" id="ORq-lq-0Ue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qN-oH-Aau" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639.2" y="865.81709145427294"/>
+            <point key="canvasLocation" x="1639.1304347826087" y="865.17857142857144"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="xN8-b6-Sf0">

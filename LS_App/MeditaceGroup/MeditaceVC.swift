@@ -9,9 +9,20 @@
 import UIKit
 import Foundation
 import SwiftyUserDefaults
+import NVActivityIndicatorView
+import SwiftKeychainWrapper
+import Alamofire
+import SwiftyJSON
+
+
 
 class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    
+    @IBOutlet weak var overallLoadingView: UIView!
+    
+    @IBOutlet weak var spinnerView: NVActivityIndicatorView!
+    
     var meditaceArray:[MeditaceClass]? = []
     
     @IBAction func refreshBtn(_ sender: Any) {
@@ -26,7 +37,10 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        loadMeditationData()
+        
+        spinnerView.startAnimating()
+        checkForToken()
+        
         print("Not first launch: ", Defaults[.notFirstLaunch])
 
         // Do any additional setup after loading the view.
@@ -58,23 +72,28 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     
     
     
-    func loadMeditationData(){
+    func loadMeditationData(jsonData: JSON){
         
-        for item in meditaceData{
+            for item in jsonData["body"]{
+                
+                let meditaceObjekt = MeditaceClass()
+                
+                meditaceObjekt.id = item.1["id"].int
+                meditaceObjekt.nadpis = item.1["title"].string
+                meditaceObjekt.obsah = item.1["description"].string
+                meditaceObjekt.obrazekUrl = item.1["imageUrl"].string
+                meditaceObjekt.cena = item.1["price."].int
+                meditaceObjekt.velikost = item.1["size"].int64
+                meditaceObjekt.dostupnost = item.1["isAvailable"].bool
+                
+                meditaceArray?.append(meditaceObjekt)
+ 
+            }
             
-            let meditaceObjekt = MeditaceClass()
-            
-            meditaceObjekt.id = item["id"]
-            meditaceObjekt.nadpis = item["nadpis"]
-            meditaceObjekt.obsah = item["obsah"]
-            meditaceObjekt.obrazekName = item["obrazekName"]
-            meditaceObjekt.audioSlovo = item["audio_slovo"]
-            meditaceObjekt.audioHudba = item["audio_hudba"]
-            
-            meditaceArray?.append(meditaceObjekt)
-        }
+            meditaceTableView.reloadData()
+            overallLoadingView.isHidden = true
+            spinnerView.stopAnimating()
         
-        meditaceTableView.reloadData()
     }
     
     
@@ -83,17 +102,17 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         cell.nadpisCellMeditace.text = self.meditaceArray?[indexPath.item].nadpis
         cell.popisekCellMeditace.text = self.meditaceArray?[indexPath.item].obsah
-        let jmenoObrazku = self.meditaceArray?[indexPath.item].obrazekName
+        //let jmenoObrazku = self.meditaceArray?[indexPath.item].obrazekName
         let meditaceId = self.meditaceArray?[indexPath.item].id
         
-        print(Defaults.bool(forKey: meditaceId!))
-        
+        //print(Defaults.bool(forKey: meditaceId!))
+        /*
         if (Defaults.bool(forKey: meditaceId!) == true){
-            cell.obrazekMalyMeditace.image = UIImage(imageLiteralResourceName: jmenoObrazku!)
+        cell.obrazekMalyMeditace.image = UIImage(imageLiteralResourceName: jmenoObrazku!)
         }else{
             cell.obrazekMalyMeditace.image = #imageLiteral(resourceName: "locked.png")
         }
-        
+        */
         cell.obrazekMalyMeditace.layer.cornerRadius = 5
         cell.obrazekMalyMeditace.clipsToBounds = true
         
@@ -106,11 +125,11 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         detailMeditaceVC.nadpis = self.meditaceArray?[indexPath.item].nadpis
         detailMeditaceVC.obsah =  self.meditaceArray?[indexPath.item].obsah
-        detailMeditaceVC.image = self.meditaceArray?[indexPath.item].obrazekName
+        //detailMeditaceVC.image = self.meditaceArray?[indexPath.item].obrazekName
         detailMeditaceVC.mluveneSlovo = self.meditaceArray?[indexPath.item].audioSlovo
         detailMeditaceVC.podkladovaHudba = self.meditaceArray?[indexPath.item].audioHudba
         detailMeditaceVC.title = self.meditaceArray?[indexPath.item].nadpis
-        detailMeditaceVC.id = self.meditaceArray?[indexPath.item].id
+        //detailMeditaceVC.id = self.meditaceArray?[indexPath.item].id
         
         self.navigationController?.pushViewController(detailMeditaceVC, animated: true)
     }
@@ -133,6 +152,36 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func checkForToken(){
+        //je už uložený token v klíčence a je platný?        
+        if let token = KeychainWrapper.standard.string(forKey: "accessToken"){
+            //stáhnu data meditací
+            print(token)
+            let url = URL(string: "https://www.ay.energy/api/media/meditations")
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer \(String(describing: token))",
+                "Accept": "application/json"
+            ]
+            
+            Alamofire.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+                .response() { response in
+                    
+                    do{
+                        let json = try JSON(data: response.data!, options: .mutableContainers)
+                        self.loadMeditationData(jsonData: json)
+                    }catch{
+                        print("Failed request. Načítám přihlašovací screen.")
+                        //načti přihlašovací obrazovku
+                        let signInVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signInVc") as! SignInViewController
+                        self.navigationController?.present(signInVC, animated: true, completion: nil)
+                    }
+                }
+    }
+    }
+    
+    
+    
     var meditaceData = [
         
         ["id" : "meditace1", "nadpis" : "1. osobní prostor", "obrazekName": "1_meditace.jpg", "obsah" : "Jdi hlouběji a hlouběji do sebe, poznej své niterné sféry, projdi dále a převezmi sílu pro tvoření Tvého světa. Uchovej si svůj vlastní osobní prostor a kráčej tak životem sebe-vědomě a sebe-jistě. Ty jsi tvůrcem svého života.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"],
