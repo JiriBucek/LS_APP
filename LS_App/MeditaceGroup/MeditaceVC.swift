@@ -13,6 +13,7 @@ import NVActivityIndicatorView
 import SwiftKeychainWrapper
 import Alamofire
 import SwiftyJSON
+import Kingfisher
 
 
 
@@ -82,6 +83,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
                 meditaceObjekt.nadpis = item.1["title"].string
                 meditaceObjekt.obsah = item.1["description"].string
                 meditaceObjekt.obrazekUrl = item.1["imageUrl"].string
+                print(meditaceObjekt.obrazekUrl)
                 meditaceObjekt.cena = item.1["price."].int
                 meditaceObjekt.velikost = item.1["size"].int64
                 meditaceObjekt.dostupnost = item.1["isAvailable"].bool
@@ -105,6 +107,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         //let jmenoObrazku = self.meditaceArray?[indexPath.item].obrazekName
         let meditaceId = self.meditaceArray?[indexPath.item].id
         
+        
         //print(Defaults.bool(forKey: meditaceId!))
         /*
         if (Defaults.bool(forKey: meditaceId!) == true){
@@ -115,6 +118,18 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         */
         cell.obrazekMalyMeditace.layer.cornerRadius = 5
         cell.obrazekMalyMeditace.clipsToBounds = true
+        if let obrazekURL = URL(string: (self.meditaceArray?[indexPath.item].obrazekUrl)!){
+            let resource = ImageResource(downloadURL: obrazekURL)
+            cell.obrazekMalyMeditace.kf.setImage(with: resource)
+            
+            if !(self.meditaceArray?[indexPath.item].dostupnost)!{
+                cell.vrchniObrazek.image = #imageLiteral(resourceName: "locked.png")
+                cell.obrazekMalyMeditace.alpha = 0.4
+            }else{
+                cell.vrchniObrazek.image = nil
+                cell.obrazekMalyMeditace.alpha = 1
+            }
+        }
         
         return cell
     }
@@ -213,3 +228,4 @@ extension DefaultsKeys {
     
     
 }
+

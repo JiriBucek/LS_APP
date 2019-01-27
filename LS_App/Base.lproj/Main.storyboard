@@ -385,6 +385,9 @@
                                                         <constraint firstAttribute="height" constant="100" id="KNK-WP-xim"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XFd-Op-ls1">
+                                                    <rect key="frame" x="28" y="52.5" width="92" height="84"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tady je nadpis" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6P6-Ge-8Pb">
                                                     <rect key="frame" x="128" y="44.5" width="258" height="50"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
@@ -400,22 +403,27 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="udk-Sc-UQg" firstAttribute="height" secondItem="yTA-Ze-A0W" secondAttribute="height" multiplier="0.5" id="0kE-4F-mmd"/>
+                                                <constraint firstItem="yTA-Ze-A0W" firstAttribute="bottomMargin" secondItem="XFd-Op-ls1" secondAttribute="bottom" id="4Sc-IA-2J4"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="udk-Sc-UQg" secondAttribute="trailing" constant="8" id="6At-kG-wop"/>
                                                 <constraint firstItem="6P6-Ge-8Pb" firstAttribute="leading" secondItem="yTA-Ze-A0W" secondAttribute="trailing" constant="8" id="6le-xG-Gbh"/>
+                                                <constraint firstItem="XFd-Op-ls1" firstAttribute="top" secondItem="yTA-Ze-A0W" secondAttribute="topMargin" id="Ftu-84-Udp"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6P6-Ge-8Pb" secondAttribute="trailing" constant="8" id="Hb3-2u-aRn"/>
                                                 <constraint firstItem="udk-Sc-UQg" firstAttribute="bottom" secondItem="yTA-Ze-A0W" secondAttribute="bottom" id="Jme-AG-k95"/>
                                                 <constraint firstItem="udk-Sc-UQg" firstAttribute="leading" secondItem="yTA-Ze-A0W" secondAttribute="trailing" constant="8" id="MEb-In-Zje"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="udk-Sc-UQg" secondAttribute="bottom" constant="8" id="PaQ-O5-fud"/>
+                                                <constraint firstItem="XFd-Op-ls1" firstAttribute="leading" secondItem="yTA-Ze-A0W" secondAttribute="leadingMargin" id="bKT-WP-Bua"/>
                                                 <constraint firstItem="6P6-Ge-8Pb" firstAttribute="height" secondItem="yTA-Ze-A0W" secondAttribute="height" multiplier="0.5" id="d4d-He-V17"/>
                                                 <constraint firstItem="yTA-Ze-A0W" firstAttribute="centerY" secondItem="ATU-dm-yQw" secondAttribute="centerY" id="nnV-vn-xPL"/>
                                                 <constraint firstItem="yTA-Ze-A0W" firstAttribute="leading" secondItem="ATU-dm-yQw" secondAttribute="leadingMargin" id="rv7-5F-WWb"/>
                                                 <constraint firstItem="6P6-Ge-8Pb" firstAttribute="top" secondItem="yTA-Ze-A0W" secondAttribute="top" id="twv-u5-Awh"/>
+                                                <constraint firstItem="XFd-Op-ls1" firstAttribute="trailing" secondItem="yTA-Ze-A0W" secondAttribute="trailing" id="u0d-LS-79y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nadpisCellMeditace" destination="6P6-Ge-8Pb" id="5ed-Mw-t6I"/>
                                             <outlet property="obrazekMalyMeditace" destination="yTA-Ze-A0W" id="G2Y-mg-Lx9"/>
                                             <outlet property="popisekCellMeditace" destination="udk-Sc-UQg" id="fTu-ak-qxf"/>
+                                            <outlet property="vrchniObrazek" destination="XFd-Op-ls1" id="g41-CN-kCh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -458,7 +466,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Láskyplný svět" id="0y5-2G-MOr">
                         <barButtonItem key="backBarButtonItem" title="Zpět" id="JFi-fD-2LH"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="ivT-4Z-hU2">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="ivT-4Z-hU2">
+                            <color key="tintColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="i8u-wf-Ir0" kind="show" id="UNJ-zj-zRe"/>
                             </connections>

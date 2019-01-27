@@ -17,6 +17,10 @@ class MeditaceCell: UITableViewCell {
     
     @IBOutlet weak var popisekCellMeditace: UILabel!
     
+    @IBOutlet weak var vrchniObrazek: UIImageView!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
