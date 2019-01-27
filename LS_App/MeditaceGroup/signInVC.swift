@@ -1,5 +1,7 @@
 import UIKit
 import SwiftKeychainWrapper
+import Alamofire
+import SwiftyJSON
 
 class SignInViewController: UIViewController {
     
@@ -16,14 +18,20 @@ class SignInViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func APIBtn(_ sender: Any) {
+        
+        apiRequest(koncovka: "meditations")
+    }
     
     @IBAction func signInButtonTapped(_ sender: Any) {
         print("Sign in button tapped")
         
         // Read values from text fields
-        let userName = userNameTextField.text
-        let userPassword = userPasswordTextField.text
+        var userName = userNameTextField.text
+        var userPassword = userPasswordTextField.text
         
+        userName = "bucek.jiri@email.cz"
+        userPassword = "nt@8908KJ@we"
         // Check if required fields are not empty
         if (userName?.isEmpty)! || (userPassword?.isEmpty)!
         {
@@ -80,56 +88,19 @@ class SignInViewController: UIViewController {
             }
             
             //Let's convert response sent from a server side code to a NSDictionary object:
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                
-                if let parseJSON = json {
-                    
-                    if parseJSON["errorMessageKey"] != nil
-                    {
-                        self.displayMessage(userMessage: parseJSON["errorMessage"] as! String)
-                        return
-                    }
-                    // Now we can access value of First Name by its key
-                    print("Muj json: ", json)
-                    //print("Access token: \(String(describing: accessToken!))")
-                    
-                    let accessToken = json
-                    
-                    let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
-                    
-                    print("The access token save result: \(saveAccessToken)")
-                    
-                    if accessToken == nil
-                    {
-                        // Display an Alert dialog with a friendly error message
-                        self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
-                        return
-                    }
-                    
-                    
-                } else {
-                    //Display an Alert dialog with a friendly error message
-                    self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
+            
+            if data != nil{
+                let downloadedJSON = JSON(data!)
+                if let token = downloadedJSON["body"]["token"].string{
+                    print("Token: ", token)
+                    let saveAccessToken: Bool = KeychainWrapper.standard.set(token, forKey: "accessToken")
+                    print("Token uložen do klíčenky: ", saveAccessToken)
                 }
-                
-            } catch {
-                
-                self.removeActivityIndicator(activityIndicator: myActivityIndicator)
-                
-                // Display an Alert dialog with a friendly error message
-                self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
-                print(error)
+            }else{
+                print("Request nevrátil žádná data.")
             }
-            
-            
-            
-            
         }
         task.resume()
-        
-        
-        
     }
 
 
@@ -164,5 +135,44 @@ class SignInViewController: UIViewController {
     }
     
     
+}
+
+
+func apiRequest(koncovka: String) -> String?{
+    
+    var returnJson: String?
+    var baseUrl = "https://www.ay.energy/api/media/"
+    baseUrl.append(koncovka)
+    let url = URL(string: baseUrl)
+    print("Url: ", url!)
+    
+    let token = KeychainWrapper.standard.string(forKey: "accessToken") as! String
+    print("Token ve funkci apiRequest: ", token)
+    
+    let headers: HTTPHeaders = [
+        "Authorization": "Bearer \(String(describing: token))",
+        "Accept": "application/json"
+    ]
+    
+    Alamofire.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).validate().validate(contentType: ["application/json; charset=utf-8"])
+                .responseJSON() { response in
+                    switch response.result {
+                        case .success:
+                            print("Success")
+                        case .failure( _):
+                            print("Failure")
+                        }
+                }
+                .response { response in
+                    print("Request: \(String(describing: response.request))")
+                    print("Response: \(String(describing: response.response))")
+                    print("Error: \(String(describing: response.error))")
+                    
+                    if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                        print("Data: \(utf8Text)")
+                        returnJson = utf8Text
+                    }
+                }
+    return returnJson
 }
 

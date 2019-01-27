@@ -479,6 +479,14 @@
                                     <action selector="signInButtonTapped:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="QHb-zb-Duh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAd-tY-Mdk">
+                                <rect key="frame" x="192" y="556" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="API"/>
+                                <connections>
+                                    <action selector="APIBtn:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="tOF-AI-m0A"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bat-Ja-Vwg">
                                 <rect key="frame" x="120" y="195" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
