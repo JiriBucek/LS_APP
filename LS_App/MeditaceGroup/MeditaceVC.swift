@@ -24,6 +24,10 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     
     @IBOutlet weak var spinnerView: NVActivityIndicatorView!
     
+    var userName: String?
+    var userPassWord: String?
+    var token = ""
+    
     var meditaceArray:[MeditaceClass]? = []
     
     @IBAction func refreshBtn(_ sender: Any) {
@@ -39,8 +43,16 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         super.viewDidLoad()
         
+        
         spinnerView.startAnimating()
-        checkForToken()
+        
+        if checkKlicenka(){
+            print("V klíčence jsou login údaje.")
+            performDoubleRequest()
+        }else{
+            loadSignInVC()
+            print("V klíčence nejsou login údaje, načítám přihlaěovací obrazovku.")
+        }
         
         print("Not first launch: ", Defaults[.notFirstLaunch])
 
@@ -83,7 +95,6 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
                 meditaceObjekt.nadpis = item.1["title"].string
                 meditaceObjekt.obsah = item.1["description"].string
                 meditaceObjekt.obrazekUrl = item.1["imageUrl"].string
-                print(meditaceObjekt.obrazekUrl)
                 meditaceObjekt.cena = item.1["price."].int
                 meditaceObjekt.velikost = item.1["size"].int64
                 meditaceObjekt.dostupnost = item.1["isAvailable"].bool
@@ -140,11 +151,9 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         detailMeditaceVC.nadpis = self.meditaceArray?[indexPath.item].nadpis
         detailMeditaceVC.obsah =  self.meditaceArray?[indexPath.item].obsah
-        //detailMeditaceVC.image = self.meditaceArray?[indexPath.item].obrazekName
-        detailMeditaceVC.mluveneSlovo = self.meditaceArray?[indexPath.item].audioSlovo
-        detailMeditaceVC.podkladovaHudba = self.meditaceArray?[indexPath.item].audioHudba
-        detailMeditaceVC.title = self.meditaceArray?[indexPath.item].nadpis
-        //detailMeditaceVC.id = self.meditaceArray?[indexPath.item].id
+        detailMeditaceVC.obrazekUrl = self.meditaceArray?[indexPath.item].obrazekUrl
+        detailMeditaceVC.id = self.meditaceArray?[indexPath.item].id
+        detailMeditaceVC.dostupnost = self.meditaceArray?[indexPath.item].dostupnost
         
         self.navigationController?.pushViewController(detailMeditaceVC, animated: true)
     }
@@ -167,51 +176,98 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         // Pass the selected object to the new view controller.
     }
     */
+    func checkKlicenka() -> Bool{
+        //jsou k dispozici prihlasovaci udaje?
+        
+        userName = KeychainWrapper.standard.string(forKey: "userName")
+        userPassWord = KeychainWrapper.standard.string(forKey: "passWord")
+            
+            if userName != nil || userPassWord != nil{
+                return true
+            }else{
+                return false
+            }
+    }
     
-    func checkForToken(){
-        //je už uložený token v klíčence a je platný?        
-        if let token = KeychainWrapper.standard.string(forKey: "accessToken"){
+    
+    
+    
+    func performDoubleRequest(){
+        // nejdříve zjistí token na základě přihlašovacích údajů a následně stáhne seznam meditací
+        print("tady tady")
+        //TOKEN REQUEST
+        userName = KeychainWrapper.standard.string(forKey: "userName")
+        userPassWord = KeychainWrapper.standard.string(forKey: "passWord")
+        
+        
+        let url = URL(string: "https://www.ay.energy/api/media/login")
+        let parameters: Parameters = ["username" : userName!, "password" : userPassWord!]
+        
+        Alamofire.request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200..<300)
+            .responseData{ response in
+                
+                switch response.result{
+                case .success:
+                    
+                    let downloadedJSON = JSON(response.data!)
+                    print(downloadedJSON)
+                    self.token = downloadedJSON["body"]["token"].string as! String
+                    print("Token v meditaceVC: ", self.token)
+                    let saveAccessToken: Bool = KeychainWrapper.standard.set(self.token, forKey: "accessToken")
+                    print("Token uložen do klíčenky: ", saveAccessToken)
+                    self.meditationListRequest()
+                    
+                case .failure:
+                    print("Error při requestu o token.")
+                    print(response.result)
+                    print(response.response!)
+                }
+        }
+    }
+        
+    func meditationListRequest(){
+        
             //stáhnu data meditací
-            print(token)
-            let url = URL(string: "https://www.ay.energy/api/media/meditations")
+            let urlMeditace = URL(string: "https://www.ay.energy/api/media/meditations")
+            print("Token před requestem: ", token)
+        
             let headers: HTTPHeaders = [
                 "Authorization": "Bearer \(String(describing: token))",
                 "Accept": "application/json"
             ]
             
-            Alamofire.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
-                .response() { response in
+            Alamofire.request(urlMeditace!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300)
+                .responseData() { response in
                     
-                    do{
-                        let json = try JSON(data: response.data!, options: .mutableContainers)
-                        self.loadMeditationData(jsonData: json)
-                    }catch{
+                    switch response.result{
+                        
+                    case .success:
+                        do{
+                            let json = try JSON(data: response.data!, options: .mutableContainers)
+                            self.loadMeditationData(jsonData: json)
+                        }catch{
+                            print("Nepodařilo se převést data na json.")
+                            print("Data: ", response.data!)
+                            print("Status code: ", response.response?.statusCode)
+                        }
+                        
+                    case .failure:
                         print("Failed request. Načítám přihlašovací screen.")
+                        print("Status code: ", response.response?.statusCode)
+                        print("Response: ", response.response)
                         //načti přihlašovací obrazovku
-                        let signInVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signInVc") as! SignInViewController
-                        self.navigationController?.present(signInVC, animated: true, completion: nil)
+                        self.loadSignInVC()
                     }
+                    
                 }
     }
+    
+    func loadSignInVC(){
+        let signInVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signInVc") as! SignInViewController
+        self.navigationController?.present(signInVC, animated: true, completion: nil)
     }
-    
-    
-    
-    var meditaceData = [
-        
-        ["id" : "meditace1", "nadpis" : "1. osobní prostor", "obrazekName": "1_meditace.jpg", "obsah" : "Jdi hlouběji a hlouběji do sebe, poznej své niterné sféry, projdi dále a převezmi sílu pro tvoření Tvého světa. Uchovej si svůj vlastní osobní prostor a kráčej tak životem sebe-vědomě a sebe-jistě. Ty jsi tvůrcem svého života.", "audio_slovo":"1_slovo_niterne_poznani", "audio_hudba":"1_hudba"],
-        
-        ["id" : "meditace2", "nadpis":"2. Síla koncentrace", "obrazekName": "2_meditace.jpg", "obsah":"V dnešním světě dosahuje lepších úspěchů ten, kdo se dokáže pevněji a vytrvaleji soustředit na svůj cíl. Na tu jednu nehmatatelnou myšlenku, kterou chce tvořit. V této nahrávce budeme zesilovat svou schopnost silné koncentrace, to se zákonitě bude odrážet v efektivitě práce a úspěšnějším životě.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"],
-        
-        ["id" : "meditace3", "nadpis":"3. Rozloučení s depresí", "obrazekName": "3_meditace.jpg", "obsah":"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut tempus purus at lorem. Integer tempor. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Integer lacinia. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Praesent vitae arcu tempor neque lacinia pretium. Integer tempor.", "audio_slovo":"3_rozlouceni_s_depresi", "audio_hudba":"3_hudba"],
-        
-         ["id" : "meditace4", "nadpis":"4. Meditace dobré ráno", "obrazekName": "4_meditace.jpg", "obsah":"Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Fusce aliquam vestibulum ipsum. Curabitur sagittis hendrerit ante. Fusce nibh. Integer lacinia. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. In rutrum. Fusce aliquam vestibulum ipsum. Pellentesque sapien. Sed ac dolor sit amet purus malesuada congue. In convallis. Morbi scelerisque luctus velit. Pellentesque sapien.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"],
-     
-         ["id" : "meditace5", "nadpis":"5. Pátá meditace", "obrazekName": "5_meditace.jpeg", "obsah":"Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Fusce aliquam vestibulum ipsum. Curabitur sagittis hendrerit ante. Fusce nibh. Integer lacinia. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. In rutrum. Fusce aliquam vestibulum ipsum. Pellentesque sapien. Sed ac dolor sit amet purus malesuada congue. In convallis. Morbi scelerisque luctus velit. Pellentesque sapien.", "audio_slovo":"2_slovo_pozorovani_jedne_myslenky", "audio_hudba":"1_hudba"]
-        
-    ]
 
-    
+
 }
 
 extension DefaultsKeys {

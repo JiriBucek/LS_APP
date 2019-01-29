@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 import SwiftyUserDefaults
-
+import Kingfisher
 
 class DetailMeditaceVC: UIViewController {
 
@@ -21,13 +21,13 @@ class DetailMeditaceVC: UIViewController {
     
     @IBAction func prehrajMeditaciPressed(_ sender: Any) {
         let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
-        playerVC.mluveneSlovo = mluveneSlovo
-        playerVC.podkladovaHudba = podkladovaHudba
+        //playerVC.mluveneSlovo = mluveneSlovo
+        //playerVC.podkladovaHudba = podkladovaHudba
         self.navigationController?.pushViewController(playerVC, animated: true)
         
         
         //tohle pak vymaz
-        Defaults.set(true, forKey: id!)
+        //Defaults.set(true, forKey: id!)
     }
     
     @IBOutlet weak var prehrajMeditaciButton: UIButton!
@@ -35,10 +35,11 @@ class DetailMeditaceVC: UIViewController {
     
     var nadpis: String?
     var obsah: String?
-    var image: String?
-    var mluveneSlovo: String?
-    var podkladovaHudba: String?
-    var id: String?
+    var obrazekUrl: String?
+    var id: Int?
+    var dostupnost: Bool?
+    var cena: Int?
+    var velikost: Int64?
     
     
 
@@ -50,7 +51,7 @@ class DetailMeditaceVC: UIViewController {
         prehrajMeditaciButton.layer.cornerRadius = 20
         prehrajMeditaciButton.clipsToBounds = true
 
-        if Defaults.bool(forKey: id!){
+        if dostupnost!{
             prehrajMeditaciButton.setTitle("Přehraj meditaci", for: .normal)
         }else{
             prehrajMeditaciButton.setTitle("Kup meditaci", for: .normal)
@@ -60,10 +61,13 @@ class DetailMeditaceVC: UIViewController {
             nadpisMeditaceLabel.text = nadpis
         }
         
-        if image != nil{
-            velkyImageMeditace.image = UIImage(imageLiteralResourceName: image!)
-            velkyImageMeditace.layer.cornerRadius = 15
-            velkyImageMeditace.clipsToBounds = true
+        if obrazekUrl != nil{
+            if let url = URL(string: obrazekUrl!){
+                let resource = ImageResource(downloadURL: url)
+                velkyImageMeditace.kf.setImage(with: resource)
+                velkyImageMeditace.layer.cornerRadius = 15
+                velkyImageMeditace.clipsToBounds = true
+            }
         }
         
         if obsah != nil{
@@ -83,6 +87,7 @@ class DetailMeditaceVC: UIViewController {
     }
 
 }
+
 /*
     func playHudba() -> Void {
     //přehrává hudbu

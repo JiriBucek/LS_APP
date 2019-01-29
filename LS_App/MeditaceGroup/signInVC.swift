@@ -8,8 +8,14 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     
+    var userName: String?
+    var userPassword: String?
+    var myActivityIndicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+
         
         // Do any additional setup after loading the view.
     }
@@ -20,31 +26,24 @@ class SignInViewController: UIViewController {
     }
     @IBAction func APIBtn(_ sender: Any) {
         
-        print(apiRequest(typRequestu: "meditations", meditaceId: 10))
     }
     
     @IBAction func signInButtonTapped(_ sender: Any) {
         print("Sign in button tapped")
         
         // Read values from text fields
-        var userName = userNameTextField.text
-        var userPassword = userPasswordTextField.text
+        userName = userNameTextField.text
+        userPassword = userPasswordTextField.text
         
-        userName = "bucek.jiri@email.cz"
-        userPassword = "nt@8908KJ@we"
         // Check if required fields are not empty
         if (userName?.isEmpty)! || (userPassword?.isEmpty)!
         {
             // Display alert message here
             print("User name \(String(describing: userName)) or password \(String(describing: userPassword)) is empty")
-            displayMessage(userMessage: "One of the required fields is missing")
+            displayMessage(userMessage: "Doplň přihlašovací údaje prosím.")
             
-            return
         }
         
-        
-        //Create Activity Indicator
-        let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         
         // Position Activity Indicator in the center of the main view
         myActivityIndicator.center = view.center
@@ -57,66 +56,14 @@ class SignInViewController: UIViewController {
         
         view.addSubview(myActivityIndicator)
         
+        signInRequest()
         
-        //Send HTTP Request to perform Sign in
-        let myUrl = URL(string: "https://www.ay.energy/api/media/login/")
-        var request = URLRequest(url:myUrl!)
-        
-        request.httpMethod = "POST"// Compose a query string
-        request.addValue("application/json", forHTTPHeaderField: "content-type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let postString = ["username": userName!, "password": userPassword!] as [String: String]
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
-            displayMessage(userMessage: "Something went wrong...")
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                if httpResponse.statusCode == 401{
-                    self.displayMessage(userMessage: "Chybné přihlašovací údaje")
-                }
-            }
-            
-            self.removeActivityIndicator(activityIndicator: myActivityIndicator)
-            
-            if error != nil
-            {
-                self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
-                print("error=\(String(describing: error))")
-                return
-            }
-            
-            //Let's convert response sent from a server side code to a NSDictionary object:
-            
-            if data != nil{
-                let downloadedJSON = JSON(data!)
-                if let token = downloadedJSON["body"]["token"].string{
-                    print("Token: ", token)
-                    let saveAccessToken: Bool = KeychainWrapper.standard.set(token, forKey: "accessToken")
-                    print("Token uložen do klíčenky: ", saveAccessToken)
-                }
-            }else{
-                print("Request nevrátil žádná data.")
-            }
-        }
-        task.resume()
     }
-
-
-
-
     
     func displayMessage(userMessage:String) -> Void {
         DispatchQueue.main.async
             {
-                let alertController = UIAlertController(title: "Alert", message: userMessage, preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Chyba", message: userMessage, preferredStyle: .alert)
                 
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
                     // Code in this block will trigger when OK button tapped.
@@ -139,62 +86,83 @@ class SignInViewController: UIViewController {
                 activityIndicator.removeFromSuperview()
         }
     }
-    
-    
-}
 
 
-func apiRequest(typRequestu: String, meditaceId: Int = 99) -> String?{
+func signInRequest(){
+    print("Začínám request")
+    let myUrl = URL(string: "https://www.ay.energy/api/media/login/")
+    var request = URLRequest(url:myUrl!)
     
-    var requestMethod = HTTPMethod.get
-    var parameters: Parameters?
-    var returnJson: String?
-    var baseUrl = "https://www.ay.energy/api/media/"
-    let token = KeychainWrapper.standard.string(forKey: "accessToken") as! String
+    request.httpMethod = "POST"// Compose a query string
+    request.addValue("application/json", forHTTPHeaderField: "content-type")
+    request.addValue("application/json", forHTTPHeaderField: "Accept")
     
-    let headers: HTTPHeaders = [
-        "Authorization": "Bearer \(String(describing: token))",
-        "Accept": "application/json"
-    ]
     
-    switch typRequestu{
-        case "meditations":
-            parameters = nil
-            baseUrl.append("meditations")
+    var postString = [String:String]()
+    if userName != nil, userPassword != nil{
+        postString = ["username": userName!, "password": userPassword!] as [String: String]
+    }else{
+        print("Poststring: ", postString)
+    }
         
-        case "audio":
-            parameters = ["Id" : meditaceId]
-            requestMethod = .post
-            baseUrl.append("audio")
-        
-        default:
-            print("Chyba v zadání typu requestu")
+    do {
+        request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
+    } catch let error {
+        print(error.localizedDescription)
+        displayMessage(userMessage: "Něco se pokazilo.")
+        return
     }
     
-    let url = URL(string: baseUrl)
-    //print("Token ve funkci apiRequest: ", token)
-
-    
-    Alamofire.request(url!, method: requestMethod, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().validate(contentType: ["application/json; charset=utf-8"])
-                .responseJSON() { response in
-                    switch response.result {
-                        case .success:
-                            print("Successful request.")
-                        case .failure( _):
-                            print("Failured request.")
-                        }
-                }
-                .response { response in
-                    //print("Request: \(String(describing: response.request))")
-                    //print("Response: \(String(describing: response.response))")
-                    //print("Error: \(String(describing: response.error))")
-                    
-                    if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                        //print("Data: \(utf8Text)")
-                        returnJson = utf8Text
-                    }
-                }
-    return returnJson
+    let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+        
+        if let httpResponse = response as? HTTPURLResponse {
+            if httpResponse.statusCode == 401{
+                self.displayMessage(userMessage: "Chybné přihlašovací údaje")
+                print(response as Any)
+            }
+        }
+        
+        self.removeActivityIndicator(activityIndicator: self.myActivityIndicator)
+        
+        if error != nil
+        {
+            self.displayMessage(userMessage: "Nelze ověřit identitu uživatele. Prosím zkus později.")
+            print("error=\(String(describing: error))")
+            return
+        }
+        
+        //Let's convert response sent from a server side code to a NSDictionary object:
+        
+        if data != nil{
+            let downloadedJSON = JSON(data!)
+            print(downloadedJSON)
+            if let token = downloadedJSON["body"]["token"].string{
+                print("Token: ", token)
+                let saveAccessToken: Bool = KeychainWrapper.standard.set(token, forKey: "accessToken")
+                print("Token uložen do klíčenky: ", saveAccessToken)
+                
+                let saveUserName: Bool = KeychainWrapper.standard.set(self.userName!, forKey: "userName")
+                print("Email uložen do klíčenky: ", saveUserName)
+                
+                let savePassWord: Bool = KeychainWrapper.standard.set(self.userPassword!, forKey: "passWord")
+                print("Heslo uloženo do klíčenky: ", savePassWord)
+                
+                // Až získám token, přesměruji se na seznam meditací
+                
+                let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
+                self.navigationController?.present(meditaceVC, animated: true, completion: nil)
+                
+            }
+        }else{
+            print("Request nevrátil žádná data.")
+        }
+    }
+    task.resume()
 }
+    
+    
+    
+}
+
 
 
