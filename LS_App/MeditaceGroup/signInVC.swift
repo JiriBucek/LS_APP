@@ -148,10 +148,12 @@ func signInRequest(){
                 print("Heslo uloženo do klíčenky: ", savePassWord)
                 
                 // Až získám token, přesměruji se na seznam meditací
-                
-                let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
-                self.navigationController?.present(meditaceVC, animated: true, completion: nil)
-                
+                DispatchQueue.main.async{
+                //další VC můžu volat jen na hlavním threadu. Proto to musím. 
+                    
+                    let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
+                    self.navigationController?.pushViewController(meditaceVC, animated: true)
+                }
             }
         }else{
             print("Request nevrátil žádná data.")

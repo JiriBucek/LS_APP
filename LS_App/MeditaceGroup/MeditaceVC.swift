@@ -54,7 +54,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
             print("V klíčence nejsou login údaje, načítám přihlaěovací obrazovku.")
         }
         
-        print("Not first launch: ", Defaults[.notFirstLaunch])
+        print("Not first launch: ", Defaults[.notFirstLaunch]!)
 
         // Do any additional setup after loading the view.
     }
@@ -88,7 +88,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     func loadMeditationData(jsonData: JSON){
         
             for item in jsonData["body"]{
-                
+                print(item)
                 let meditaceObjekt = MeditaceClass()
                 
                 meditaceObjekt.id = item.1["id"].int
@@ -116,8 +116,6 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         cell.nadpisCellMeditace.text = self.meditaceArray?[indexPath.item].nadpis
         cell.popisekCellMeditace.text = self.meditaceArray?[indexPath.item].obsah
         //let jmenoObrazku = self.meditaceArray?[indexPath.item].obrazekName
-        let meditaceId = self.meditaceArray?[indexPath.item].id
-        
         
         //print(Defaults.bool(forKey: meditaceId!))
         /*
@@ -146,6 +144,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
         
         let detailMeditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceDetail") as! DetailMeditaceVC
         
@@ -194,10 +193,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     
     func performDoubleRequest(){
         // nejdříve zjistí token na základě přihlašovacích údajů a následně stáhne seznam meditací
-        print("tady tady")
         //TOKEN REQUEST
-        userName = KeychainWrapper.standard.string(forKey: "userName")
-        userPassWord = KeychainWrapper.standard.string(forKey: "passWord")
         
         
         let url = URL(string: "https://www.ay.energy/api/media/login")
@@ -210,9 +206,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
                 case .success:
                     
                     let downloadedJSON = JSON(response.data!)
-                    print(downloadedJSON)
                     self.token = downloadedJSON["body"]["token"].string as! String
-                    print("Token v meditaceVC: ", self.token)
                     let saveAccessToken: Bool = KeychainWrapper.standard.set(self.token, forKey: "accessToken")
                     print("Token uložen do klíčenky: ", saveAccessToken)
                     self.meditationListRequest()
@@ -229,7 +223,6 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
             //stáhnu data meditací
             let urlMeditace = URL(string: "https://www.ay.energy/api/media/meditations")
-            print("Token před requestem: ", token)
         
             let headers: HTTPHeaders = [
                 "Authorization": "Bearer \(String(describing: token))",
@@ -248,13 +241,13 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
                         }catch{
                             print("Nepodařilo se převést data na json.")
                             print("Data: ", response.data!)
-                            print("Status code: ", response.response?.statusCode)
+                            print("Status code: ", response.response?.statusCode as Any)
                         }
                         
                     case .failure:
                         print("Failed request. Načítám přihlašovací screen.")
-                        print("Status code: ", response.response?.statusCode)
-                        print("Response: ", response.response)
+                        print("Status code: ", response.response?.statusCode as Any)
+                        print("Response: ", response.response as Any)
                         //načti přihlašovací obrazovku
                         self.loadSignInVC()
                     }
