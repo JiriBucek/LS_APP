@@ -17,6 +17,9 @@ class MeditacePlayerVC: UIViewController {
     
     var pocitadlo = 0
     
+    var voiceUrl: String?
+    var musicUrl: String?
+    var isDownloadable: Bool?
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
@@ -91,8 +94,8 @@ class MeditacePlayerVC: UIViewController {
     var mluveneSlovo: String?
     var podkladovaHudba: String?
     
-    var playerSlovo: AVAudioPlayer?
-    var playerHudba: AVAudioPlayer?
+    var playerSlovo: AVPlayer?
+    var playerHudba: AVPlayer?
     
     var delkaNahravky: Int = 0
     var momentalniPozice: Int = 0
@@ -137,13 +140,16 @@ class MeditacePlayerVC: UIViewController {
     func playHudba() -> Void {
         //přehrává hudbu
         
-        let url = Bundle.main.url(forResource: podkladovaHudba, withExtension: "mp3")!
+        //let url = Bundle.main.url(forResource: podkladovaHudba, withExtension: "mp3")!
+        let url = URL(string: musicUrl!)
+        let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
+        
         do {
-            playerHudba = try AVAudioPlayer(contentsOf: url)
+            playerHudba = try AVPlayer(playerItem: playerItem)
             guard let playerHudba = playerHudba else { return }
-            playerHudba.numberOfLoops = -1
+            //playerHudba.numberOfLoops = -1
             //nekonečně přehrávání
-            playerHudba.prepareToPlay()
+            //playerHudba.prepareToPlay()
             playerHudba.play()
         } catch let error {
             print(error.localizedDescription)
@@ -157,9 +163,12 @@ class MeditacePlayerVC: UIViewController {
             playerSlovo?.pause()
         }
         
-        let url = Bundle.main.url(forResource: mluveneSlovo, withExtension: "mp3")!
+        //let url = Bundle.main.url(forResource: mluveneSlovo, withExtension: "mp3")!
+        let url = URL(string: voiceUrl!)
+        let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
+        
         do {
-            playerSlovo = try AVAudioPlayer(contentsOf: url)
+            playerSlovo = try AVPlayer(it)
             guard let player = playerSlovo else { return }
             
             player.prepareToPlay()

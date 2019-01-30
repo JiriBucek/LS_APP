@@ -88,7 +88,6 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     func loadMeditationData(jsonData: JSON){
         
             for item in jsonData["body"]{
-                print(item)
                 let meditaceObjekt = MeditaceClass()
                 
                 meditaceObjekt.id = item.1["id"].int

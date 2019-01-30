@@ -3,7 +3,12 @@
    version = "3.0">
    <TimelineItems>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "file:///Users/boocha/Documents/CODE/LS_APP/LS_App/LS_playground.playground#CharacterRangeLen=1003&amp;CharacterRangeLoc=0&amp;EndingColumnNumber=0&amp;EndingLineNumber=36&amp;StartingColumnNumber=0&amp;StartingLineNumber=0&amp;Timestamp=570375878.150861"
+         documentLocation = "file:///Users/boocha/Documents/CODE/LS_APP/LS_App/LS_playground.playground#CharacterRangeLen=322&amp;CharacterRangeLoc=0&amp;EndingColumnNumber=0&amp;EndingLineNumber=21&amp;StartingColumnNumber=0&amp;StartingLineNumber=0&amp;Timestamp=570581372.54931"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/boocha/Documents/CODE/LS_APP/LS_App/LS_playground.playground#CharacterRangeLen=6&amp;CharacterRangeLoc=286&amp;EndingColumnNumber=7&amp;EndingLineNumber=11&amp;StartingColumnNumber=1&amp;StartingLineNumber=11&amp;Timestamp=570581372.549648"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>

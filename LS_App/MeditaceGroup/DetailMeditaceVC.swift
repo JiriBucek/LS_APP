@@ -10,6 +10,9 @@ import UIKit
 import AVFoundation
 import SwiftyUserDefaults
 import Kingfisher
+import SwiftKeychainWrapper
+import Alamofire
+import SwiftyJSON
 
 class DetailMeditaceVC: UIViewController {
 
@@ -20,12 +23,8 @@ class DetailMeditaceVC: UIViewController {
     @IBOutlet weak var obsahMeditaceLabel: UILabel!
     
     @IBAction func prehrajMeditaciPressed(_ sender: Any) {
-        let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
-        //playerVC.mluveneSlovo = mluveneSlovo
-        //playerVC.podkladovaHudba = podkladovaHudba
-        self.navigationController?.pushViewController(playerVC, animated: true)
-        
-        
+
+        meditaceFilesRequest()
         //tohle pak vymaz
         //Defaults.set(true, forKey: id!)
     }
@@ -85,6 +84,42 @@ class DetailMeditaceVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func meditaceFilesRequest(){
+        let token = KeychainWrapper.standard.string(forKey: "accessToken")
+        print("Token před přehráváním: ", token)    
+        
+        let url = URL(string: "https://www.ay.energy/api/media/audio")
+        
+        let parameters: Parameters = ["id" : id!]
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(String(describing: token!))",
+            "Accept": "application/json"
+        ]
+        
+        print("Headers: ", headers)
+        
+        Alamofire.request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300)
+            .responseData{ response in
+                
+                
+                let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
+                
+                print(response.result)
+                print(response.response)
+                let json = JSON(response.data)
+                print("Body: ", json["body"])
+                
+                playerVC.musicUrl = json["body"]["musicUrl"].string
+                playerVC.voiceUrl = json["body"]["voiceUrl"].string
+                self.navigationController?.pushViewController(playerVC, animated: true)
+        }
+    }
+        
+        
+    
+    
 
 }
 
