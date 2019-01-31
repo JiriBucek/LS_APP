@@ -196,7 +196,6 @@ class MeditacePlayerVC: UIViewController {
         //posouvá mluvené slovo vpřed nebo vzad
         if playerSlovo != nil{
             var pozice = (playerSlovo?.currentItem?.currentTime().seconds)! + oKolik
-            print("Nová pozice: ", pozice)
             if pozice < 0{
                 pozice = 0
             }
