@@ -26,7 +26,12 @@ class DetailMeditaceVC: UIViewController {
 
         if NetworkReachabilityManager()!.isReachable{
             if dostupnost!{
+                let backItem = UIBarButtonItem()
+                backItem.title = "Zpět"
+                navigationItem.backBarButtonItem = backItem
+                
                 meditaceFilesRequest()
+               
             }else{
                 let url = URL(string: "http://www.laskyplnysvet.cz/audiomeditace")
                 
@@ -87,6 +92,8 @@ class DetailMeditaceVC: UIViewController {
         if obsah != nil{
             obsahMeditaceLabel.text = obsah            
         }
+        
+        
         // Do any additional setup after loading the view.
         
     }

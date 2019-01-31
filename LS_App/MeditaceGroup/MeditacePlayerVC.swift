@@ -112,6 +112,7 @@ class MeditacePlayerVC: UIViewController {
     
         super.viewDidLoad()
         
+        
         playSlovo(time: 0)
         playerSlovo?.pause()
         

@@ -9,6 +9,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var prihlasitBtn: UIButton!
     
+    @IBAction func registraceBtn(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "http://www.laskyplnysvet.cz/audiomeditace")!, options: [:], completionHandler: nil)
+    }
     
     var userName: String?
     var userPassword: String?

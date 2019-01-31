@@ -519,7 +519,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0UW-dI-Nh1">
-                                <rect key="frame" x="50" y="425" width="220" height="50"/>
+                                <rect key="frame" x="40" y="364" width="240" height="50"/>
                                 <color key="backgroundColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ydu-NS-4cY"/>
@@ -533,7 +533,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bat-Ja-Vwg">
-                                <rect key="frame" x="50" y="265" width="220" height="50"/>
+                                <rect key="frame" x="40" y="204" width="240" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Leo-J7-NdF"/>
                                 </constraints>
@@ -542,18 +542,20 @@
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="fVT-Aw-gmf">
-                                <rect key="frame" x="110" y="114" width="100" height="100"/>
+                                <rect key="frame" x="120" y="94" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="8gO-dP-0EX"/>
-                                    <constraint firstAttribute="height" constant="100" id="ntl-7h-06a"/>
+                                    <constraint firstAttribute="width" secondItem="fVT-Aw-gmf" secondAttribute="height" multiplier="1:1" id="LQ3-o6-vPF"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkD-ur-unh">
-                                <rect key="frame" x="104.5" y="505" width="111" height="30"/>
+                                <rect key="frame" x="104.5" y="444" width="111" height="30"/>
                                 <state key="normal" title="Zaregistrovat se"/>
+                                <connections>
+                                    <action selector="registraceBtn:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="VpX-Nb-HNJ"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="heslo" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vp6-nj-NY7">
-                                <rect key="frame" x="50" y="345" width="220" height="50"/>
+                                <rect key="frame" x="40" y="284" width="240" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aXH-to-B13"/>
                                 </constraints>
@@ -564,16 +566,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Bat-Ja-Vwg" firstAttribute="top" secondItem="fVT-Aw-gmf" secondAttribute="bottom" constant="51" id="5Wr-HX-4Jh"/>
-                            <constraint firstItem="cmj-dt-BV3" firstAttribute="trailing" secondItem="vp6-nj-NY7" secondAttribute="trailing" constant="50" id="Avf-mb-Bza"/>
-                            <constraint firstItem="0UW-dI-Nh1" firstAttribute="leading" secondItem="cmj-dt-BV3" secondAttribute="leading" constant="50" id="CWq-L4-bRn"/>
-                            <constraint firstItem="Bat-Ja-Vwg" firstAttribute="leading" secondItem="cmj-dt-BV3" secondAttribute="leading" constant="50" id="FmI-VT-pPB"/>
-                            <constraint firstItem="cmj-dt-BV3" firstAttribute="trailing" secondItem="Bat-Ja-Vwg" secondAttribute="trailing" constant="50" id="Kav-p3-Drm"/>
-                            <constraint firstItem="vp6-nj-NY7" firstAttribute="leading" secondItem="cmj-dt-BV3" secondAttribute="leading" constant="50" id="POc-dD-Kt1"/>
+                            <constraint firstItem="fVT-Aw-gmf" firstAttribute="width" secondItem="xiB-EW-X81" secondAttribute="width" multiplier="0.25" id="1Ah-ED-gEh"/>
+                            <constraint firstItem="Bat-Ja-Vwg" firstAttribute="top" secondItem="fVT-Aw-gmf" secondAttribute="bottom" constant="30" id="5Wr-HX-4Jh"/>
+                            <constraint firstItem="0UW-dI-Nh1" firstAttribute="centerX" secondItem="xiB-EW-X81" secondAttribute="centerX" id="8ik-Or-jmZ"/>
+                            <constraint firstItem="Bat-Ja-Vwg" firstAttribute="centerX" secondItem="xiB-EW-X81" secondAttribute="centerX" id="APd-Ip-tKV"/>
+                            <constraint firstItem="0UW-dI-Nh1" firstAttribute="width" secondItem="vp6-nj-NY7" secondAttribute="width" id="F1i-Qb-xmR"/>
+                            <constraint firstItem="vp6-nj-NY7" firstAttribute="width" secondItem="Bat-Ja-Vwg" secondAttribute="width" id="G1H-wK-ntl"/>
+                            <constraint firstItem="vp6-nj-NY7" firstAttribute="centerX" secondItem="xiB-EW-X81" secondAttribute="centerX" id="KQ9-3j-Lyr"/>
                             <constraint firstItem="0UW-dI-Nh1" firstAttribute="top" secondItem="vp6-nj-NY7" secondAttribute="bottom" constant="30" id="RNI-fx-qjJ"/>
                             <constraint firstItem="vp6-nj-NY7" firstAttribute="top" secondItem="Bat-Ja-Vwg" secondAttribute="bottom" constant="30" id="dA6-Wo-Q0J"/>
-                            <constraint firstItem="cmj-dt-BV3" firstAttribute="trailing" secondItem="0UW-dI-Nh1" secondAttribute="trailing" constant="50" id="gBT-vI-1bw"/>
-                            <constraint firstItem="fVT-Aw-gmf" firstAttribute="top" secondItem="cmj-dt-BV3" secondAttribute="top" constant="50" id="jxw-d0-Jsq"/>
+                            <constraint firstItem="Bat-Ja-Vwg" firstAttribute="width" secondItem="fVT-Aw-gmf" secondAttribute="width" multiplier="3" id="iIV-0f-U7o"/>
+                            <constraint firstItem="fVT-Aw-gmf" firstAttribute="top" secondItem="cmj-dt-BV3" secondAttribute="top" constant="30" id="jxw-d0-Jsq"/>
                             <constraint firstItem="KkD-ur-unh" firstAttribute="centerX" secondItem="xiB-EW-X81" secondAttribute="centerX" id="lMe-vd-fly"/>
                             <constraint firstItem="fVT-Aw-gmf" firstAttribute="centerX" secondItem="xiB-EW-X81" secondAttribute="centerX" id="vLp-bm-7vo"/>
                             <constraint firstItem="KkD-ur-unh" firstAttribute="top" secondItem="0UW-dI-Nh1" secondAttribute="bottom" constant="30" id="zC9-yh-Lxk"/>

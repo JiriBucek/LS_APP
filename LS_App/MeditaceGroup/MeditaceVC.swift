@@ -260,7 +260,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     
     func loadSignInVC(){
         let signInVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signInVc") as! SignInViewController
-        self.navigationController?.present(signInVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(signInVC, animated: true)
     }
     
     func displayMessage(userMessage:String) -> Void {
