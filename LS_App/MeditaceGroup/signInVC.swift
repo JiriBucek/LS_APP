@@ -18,8 +18,14 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         
-        userNameTextField.layer.cornerRadius = 25
-        userPasswordTextField.layer.cornerRadius = 25
+        userNameTextField.layer.cornerRadius = userNameTextField.frame.size.height/2
+        userNameTextField.clipsToBounds = true
+        userNameTextField.layer.borderWidth = 0.5
+        
+        userPasswordTextField.layer.cornerRadius = userPasswordTextField.frame.size.height/2
+        userPasswordTextField.clipsToBounds = true
+        userPasswordTextField.layer.borderWidth = 0.5
+        
         prihlasitBtn.layer.cornerRadius = 25
         prihlasitBtn.clipsToBounds = true
     }
@@ -120,7 +126,8 @@ func signInRequest(){
         if let httpResponse = response as? HTTPURLResponse {
             if httpResponse.statusCode == 401{
                 self.displayMessage(userMessage: "Chybné přihlašovací údaje")
-                print(response as Any)
+                self.removeActivityIndicator(activityIndicator: self.myActivityIndicator)
+                return
             }
         }
         
