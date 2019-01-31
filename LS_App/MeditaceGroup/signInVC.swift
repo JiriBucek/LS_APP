@@ -7,6 +7,8 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var prihlasitBtn: UIButton!
+    
     
     var userName: String?
     var userPassword: String?
@@ -15,18 +17,18 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-
         
-        // Do any additional setup after loading the view.
+        userNameTextField.layer.cornerRadius = 25
+        userPasswordTextField.layer.cornerRadius = 25
+        prihlasitBtn.layer.cornerRadius = 25
+        prihlasitBtn.clipsToBounds = true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func APIBtn(_ sender: Any) {
-        
-    }
+
     
     @IBAction func signInButtonTapped(_ sender: Any) {
         print("Sign in button tapped")

@@ -43,20 +43,24 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         super.viewDidLoad()
         
+        if NetworkReachabilityManager()!.isReachable{
         
-        spinnerView.startAnimating()
         
-        if checkKlicenka(){
-            print("V klíčence jsou login údaje.")
-            performDoubleRequest()
-        }else{
-            loadSignInVC()
-            print("V klíčence nejsou login údaje, načítám přihlaěovací obrazovku.")
-        }
-        
-        print("Not first launch: ", Defaults[.notFirstLaunch]!)
+            spinnerView.startAnimating()
+            
+            if checkKlicenka(){
+                print("V klíčence jsou login údaje.")
+                performDoubleRequest()
+            }else{
+                loadSignInVC()
+                print("V klíčence nejsou login údaje, načítám přihlaěovací obrazovku.")
+            }
+            
+            print("Not first launch: ", Defaults[.notFirstLaunch]!)
 
-        // Do any additional setup after loading the view.
+        }else{
+            displayMessage(userMessage: "K přehrávání meditací je zapotřebí připojení k internetu.")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -258,7 +262,25 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         let signInVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signInVc") as! SignInViewController
         self.navigationController?.present(signInVC, animated: true, completion: nil)
     }
-
+    
+    func displayMessage(userMessage:String) -> Void {
+        DispatchQueue.main.async
+            {
+                let alertController = UIAlertController(title: "Upozornění", message: userMessage, preferredStyle: .alert)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                    // Code in this block will trigger when OK button tapped.
+                    print("Ok button tapped")
+                    DispatchQueue.main.async
+                        {
+                            self.dismiss(animated: true, completion: nil)
+                    }
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion:nil)
+        }
+    }
+    
 
 }
 
