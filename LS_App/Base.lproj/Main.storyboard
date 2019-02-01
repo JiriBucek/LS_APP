@@ -487,15 +487,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Audiomeditace" id="0y5-2G-MOr">
                         <barButtonItem key="backBarButtonItem" title="Zpět" id="JFi-fD-2LH"/>
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="ivT-4Z-hU2">
-                            <color key="tintColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="rightBarButtonItem" image="about" id="YZX-1c-0i5">
                             <connections>
-                                <segue destination="i8u-wf-Ir0" kind="show" id="UNJ-zj-zRe"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="W7O-Aa-R78">
-                            <connections>
-                                <action selector="refreshBtn:" destination="QQN-uS-WsP" id="Lru-uR-sQa"/>
+                                <segue destination="nRH-Fm-8dG" kind="show" id="F2J-zZ-5uW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -504,6 +498,7 @@
                         <outlet property="overallLoadingView" destination="dDr-Sn-t0d" id="kcA-AQ-cc5"/>
                         <outlet property="spinnerView" destination="XiD-d5-jkI" id="3jg-9b-4AE"/>
                         <segue destination="kow-Hp-nJg" kind="show" id="ORq-lq-0Ue"/>
+                        <segue destination="i8u-wf-Ir0" kind="show" id="DOJ-VY-G54"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qN-oH-Aau" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -583,6 +578,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cmj-dt-BV3"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Přihlášení" id="47P-Td-06u">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="about" id="C72-j6-6av">
+                            <connections>
+                                <segue destination="nRH-Fm-8dG" kind="show" id="rXA-tk-Q0h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="prihlasitBtn" destination="0UW-dI-Nh1" id="yWd-eH-jxO"/>
                         <outlet property="userNameTextField" destination="Bat-Ja-Vwg" id="dZa-WQ-H8x"/>
@@ -591,7 +593,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMw-FB-sit" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636.2318840579712" y="1609.1517857142856"/>
+            <point key="canvasLocation" x="1151" y="1668"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="Wfz-74-KnZ">
+            <objects>
+                <viewController title="Info" id="nRH-Fm-8dG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7qw-vP-2aq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-IK-ieh">
+                                <rect key="frame" x="0.0" y="64" width="320" height="262"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Pro přihlášení je zapotřebí se registrovat na www.laskyplnysvet.cz/audimeditace. Na této stránce je také možnost meditace nakupovat. 
+
+Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a vaše zakoupené meditace budete mít k dispozici pro poslech i zde ve speciálním přehrávači.  </string>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-mQ-tdD">
+                                <rect key="frame" x="139" y="357" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CbY-IK-ieh" firstAttribute="leading" secondItem="JRU-eL-ojN" secondAttribute="leading" id="FfE-GI-JJW"/>
+                            <constraint firstItem="CbY-IK-ieh" firstAttribute="trailing" secondItem="JRU-eL-ojN" secondAttribute="trailing" id="dSq-MV-Xdc"/>
+                            <constraint firstItem="CbY-IK-ieh" firstAttribute="top" secondItem="JRU-eL-ojN" secondAttribute="top" id="gwx-7j-CSo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JRU-eL-ojN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fyO-Pp-Dxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2019.375" y="1650"/>
         </scene>
         <!--Detail MeditaceVC-->
         <scene sceneID="8gY-3G-NKw">
@@ -909,6 +950,7 @@
         <image name="15_back.png" width="474" height="474"/>
         <image name="15_forward.png" width="474" height="474"/>
         <image name="LS_logo_pruhledne" width="512" height="512"/>
+        <image name="about" width="30" height="30"/>
         <image name="icons8-flower-25" width="25" height="25"/>
         <image name="icons8-meditation-25" width="25" height="25"/>
         <image name="ikonka_player" width="30" height="30"/>
@@ -916,4 +958,7 @@
         <image name="play.png" width="2478" height="2478"/>
         <image name="sound.png" width="522" height="522"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rXA-tk-Q0h"/>
+    </inferredMetricsTieBreakers>
 </document>
