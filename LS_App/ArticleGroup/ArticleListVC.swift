@@ -24,6 +24,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     @IBAction func refreshBtn(_ sender: Any) {
         //articlesArray = []
+        spinnerSK.startAnimating()
         articlesTableView.reloadData()
         doNotMoveTableView = false
         overallLoadnigView.isHidden = false
@@ -57,21 +58,20 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         super.viewDidLoad()
         
         let spinnerFont = UIFont(name: "Century Gothic", size: 15)
-
-        //SKActivityIndicator.show("Načítám články")
-        spinnerSK.startAnimating()
-        
-        
         let loadingNib = UINib(nibName: "LoadingCell", bundle: nil)
         articlesTableView.register(loadingNib, forCellReuseIdentifier: "loadingCell")
         
-        loadArticles(APIurl: APIadresa)
+        if NetworkReachabilityManager()!.isReachable{
         
+            spinnerSK.startAnimating()
+            
+            loadArticles(APIurl: APIadresa)
+        }else{
+            displayMessage(userMessage: "K zobrazení článků je nutné připojení k internetu. Zapněte wifi nebo data a aplikaci restartujte.")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.navigationController?.isNavigationBarHidden = true
-        //self.navigationItem.title = "Láskyplný svět"
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,10 +91,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         
         
         if (articlesTableView.indexPathsForVisibleRows?.contains(penultimateCell))!{
-            print("a co tady?")
             loadMoreArticles()
             //pokud se vrátím na seznam článků a jsem na jeho konci (je zobrazena předposlední buňka), tak vytvořím nový request
-            print("vidím a načítám")
         }
         
 
@@ -329,6 +327,26 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
             }
         }
     }
+    
+    func displayMessage(userMessage:String) -> Void {
+        DispatchQueue.main.async
+            {
+                let alertController = UIAlertController(title: "Upozornění", message: userMessage, preferredStyle: .alert)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                    // Code in this block will trigger when OK button tapped.
+                    print("Ok button tapped")
+                    DispatchQueue.main.async
+                        {
+                            self.dismiss(animated: true, completion: nil)
+                    }
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion:nil)
+        }
+    }
+    
+    
 }
 
 let linkNaWebovouVerzi = """

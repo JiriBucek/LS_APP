@@ -47,7 +47,6 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         if NetworkReachabilityManager()!.isReachable{
         
-        
             spinnerView.startAnimating()
             
             if checkKlicenka(){
@@ -78,6 +77,11 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
             Defaults[.meditace5] = true
         }
         
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("tady")
         
     }
     
