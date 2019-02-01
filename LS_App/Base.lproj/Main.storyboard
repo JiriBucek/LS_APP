@@ -598,37 +598,79 @@
         <!--Info-->
         <scene sceneID="Wfz-74-KnZ">
             <objects>
-                <viewController title="Info" id="nRH-Fm-8dG" sceneMemberID="viewController">
+                <viewController title="Info" id="nRH-Fm-8dG" customClass="InfoVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7qw-vP-2aq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-IK-ieh">
-                                <rect key="frame" x="0.0" y="64" width="320" height="262"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-IK-ieh">
+                                <rect key="frame" x="0.0" y="64" width="320" height="224.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Pro přihlášení je zapotřebí se registrovat na www.laskyplnysvet.cz/audimeditace. Na této stránce je také možnost meditace nakupovat. 
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" link="YES" selected="YES"/>
+                                </accessibility>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Pro přihlášení je zapotřebí se nejprve registrovat na www.laskyplnysvet.cz/audiomeditace. Na této stránce je také možnost meditace nakupovat. 
 
-Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a vaše zakoupené meditace budete mít k dispozici pro poslech i zde ve speciálním přehrávači.  </string>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a zakoupené meditace budete mít k dispozici pro poslech i zde ve speciálním přehrávači.  </string>
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="17" name="CenturyGothic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-mQ-tdD">
-                                <rect key="frame" x="139" y="357" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jste přihlášen(a) jako:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-mQ-tdD">
+                                <rect key="frame" x="69.5" y="318.5" width="181.5" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nepřihlášen." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NV5-uE-j8f">
+                                <rect key="frame" x="109" y="354.5" width="102" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQO-cH-7My">
+                                <rect key="frame" x="64" y="390.5" width="192" height="40"/>
+                                <color key="backgroundColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wgf-H2-Nd1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <state key="normal" title="Odhlásit">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="odhlasitBtnPrsd:" destination="nRH-Fm-8dG" eventType="touchUpInside" id="sMX-eO-BYG"/>
+                                    <action selector="signInButtonTapped:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="fnQ-xU-33d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CbY-IK-ieh" firstAttribute="leading" secondItem="JRU-eL-ojN" secondAttribute="leading" id="FfE-GI-JJW"/>
+                            <constraint firstItem="QQX-mQ-tdD" firstAttribute="centerX" secondItem="7qw-vP-2aq" secondAttribute="centerX" id="GXC-c1-PQd"/>
+                            <constraint firstItem="cQO-cH-7My" firstAttribute="width" secondItem="7qw-vP-2aq" secondAttribute="width" multiplier="0.6" id="HxV-RD-YIJ"/>
+                            <constraint firstItem="cQO-cH-7My" firstAttribute="top" secondItem="NV5-uE-j8f" secondAttribute="bottom" constant="15" id="TUh-K2-Ltm"/>
                             <constraint firstItem="CbY-IK-ieh" firstAttribute="trailing" secondItem="JRU-eL-ojN" secondAttribute="trailing" id="dSq-MV-Xdc"/>
+                            <constraint firstItem="cQO-cH-7My" firstAttribute="centerX" secondItem="7qw-vP-2aq" secondAttribute="centerX" id="dnl-zr-Fbb"/>
                             <constraint firstItem="CbY-IK-ieh" firstAttribute="top" secondItem="JRU-eL-ojN" secondAttribute="top" id="gwx-7j-CSo"/>
+                            <constraint firstItem="QQX-mQ-tdD" firstAttribute="top" secondItem="CbY-IK-ieh" secondAttribute="bottom" constant="30" id="iEr-r0-1qE"/>
+                            <constraint firstItem="NV5-uE-j8f" firstAttribute="top" secondItem="QQX-mQ-tdD" secondAttribute="bottom" constant="15" id="mbc-aQ-HzI"/>
+                            <constraint firstItem="NV5-uE-j8f" firstAttribute="centerX" secondItem="7qw-vP-2aq" secondAttribute="centerX" id="nkY-vx-sF2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JRU-eL-ojN"/>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="NV5-uE-j8f" id="wqj-96-9FW"/>
+                        <outlet property="odhlasitBtn" destination="cQO-cH-7My" id="Fqe-IP-Be5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyO-Pp-Dxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -951,8 +993,8 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
         <image name="15_forward.png" width="474" height="474"/>
         <image name="LS_logo_pruhledne" width="512" height="512"/>
         <image name="about" width="30" height="30"/>
-        <image name="icons8-flower-25" width="25" height="25"/>
-        <image name="icons8-meditation-25" width="25" height="25"/>
+        <image name="icons8-flower-25" width="30" height="30"/>
+        <image name="icons8-meditation-25" width="50" height="50"/>
         <image name="ikonka_player" width="30" height="30"/>
         <image name="meditace_default.jpg" width="520" height="347"/>
         <image name="play.png" width="2478" height="2478"/>
