@@ -993,14 +993,14 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
         <image name="15_forward.png" width="474" height="474"/>
         <image name="LS_logo_pruhledne" width="512" height="512"/>
         <image name="about" width="30" height="30"/>
-        <image name="icons8-flower-25" width="30" height="30"/>
-        <image name="icons8-meditation-25" width="50" height="50"/>
+        <image name="icons8-flower-25" width="25" height="25"/>
+        <image name="icons8-meditation-25" width="25" height="25"/>
         <image name="ikonka_player" width="30" height="30"/>
         <image name="meditace_default.jpg" width="520" height="347"/>
         <image name="play.png" width="2478" height="2478"/>
         <image name="sound.png" width="522" height="522"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rXA-tk-Q0h"/>
+        <segue reference="F2J-zZ-5uW"/>
     </inferredMetricsTieBreakers>
 </document>

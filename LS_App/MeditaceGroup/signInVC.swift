@@ -3,7 +3,7 @@ import SwiftKeychainWrapper
 import Alamofire
 import SwiftyJSON
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
@@ -33,6 +33,11 @@ class SignInViewController: UIViewController {
         
         prihlasitBtn.layer.cornerRadius = 25
         prihlasitBtn.clipsToBounds = true
+        
+        //delegate proto, aby se schovala klávesnice po kliknutí na return nebo mimo klávesnici
+        self.userNameTextField.delegate = self
+        self.userPasswordTextField.delegate = self
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -156,6 +161,18 @@ func signInRequest(){
     }
     task.resume()
 }
+    //proto, aby se schovala klávesnice po kliknutí na return nebo mimo klávesnici
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        userPasswordTextField.resignFirstResponder()
+        userNameTextField.resignFirstResponder()
+        return true
+    }
+    
+    
 }
 
 

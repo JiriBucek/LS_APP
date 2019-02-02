@@ -15,11 +15,6 @@ class MeditacePlayerVC: UIViewController {
     //dvojka je spodní
     @IBOutlet weak var slider: mujSlider!
     
-    
-    var voiceUrl: String?
-    var musicUrl: String?
-    var isDownloadable: Bool?
-    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
@@ -44,9 +39,6 @@ class MeditacePlayerVC: UIViewController {
         if playerSlovo == nil{
             playSlovo(time: 0)
             playBtn.setImage(#imageLiteral(resourceName: "pause.png"), for: .normal)
-            //progressLabel.text = "\(secondsToMinutesSeconds(seconds: momentalniPozice!)) : \(secondsToMinutesSeconds(seconds: delkaNahravky!))"
-
-         
         }else if (playerSlovo?.isPlaying)!{
             playerSlovo?.pause()
             playBtn.setImage(#imageLiteral(resourceName: "play.png"), for: .normal)
@@ -54,11 +46,9 @@ class MeditacePlayerVC: UIViewController {
             playerSlovo?.play()
             playBtn.setImage(#imageLiteral(resourceName: "pause.png"), for: .normal)
         }
-        
         if playerHudba == nil{
             playHudba()
         }
-    
     }
     
     @IBAction func hudbaBtnPressed(_ sender: UIButton) {
@@ -77,55 +67,42 @@ class MeditacePlayerVC: UIViewController {
     
     @IBAction func vpredBtnPressed(_ sender: UIButton) {
         animateButton(sender: sender)
-
         skipSlovo(oKolik: 15)
     }
     
     @IBAction func vzadBtnPressed(_ sender: UIButton) {
         animateButton(sender: sender)
-
         skipSlovo(oKolik: -15)
     }
-    
-    
-    
-    
+    var voiceUrl: String?
+    var musicUrl: String?
+    var isDownloadable: Bool?
     var mluveneSlovo: String?
     var podkladovaHudba: String?
-    
     var playerSlovo: AVPlayer?
     var playerHudba: AVPlayer?
-    
     var delkaNahravky: Double = 0
     var momentalniPozice: Double = 0
-    
     var timer: Timer?
-    
-    
-    
     
     override func viewDidLoad() {
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         UIApplication.shared.isIdleTimerDisabled = true
         //obrazovka se nevypne
-    
-        super.viewDidLoad()
         
+        super.viewDidLoad()
         
         playSlovo(time: 0)
         playerSlovo?.pause()
         
-        
         if playerSlovo != nil{
             progressLabel.text = "\(sekundyParser(seconds: Int(momentalniPozice))) : \(sekundyParser(seconds: Int(delkaNahravky)))"
         }
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         //po ukončení vypnu timer a obrazovka se zase vypíná
-        
         if self.isMovingFromParentViewController{
             //zmacknul jsem back button?
             playerSlovo?.pause()
@@ -133,13 +110,10 @@ class MeditacePlayerVC: UIViewController {
             timer?.invalidate()
             UIApplication.shared.isIdleTimerDisabled = false
         }
-        
-        
     }
 
     func playHudba() -> Void {
         //přehrává hudbu
-        
         //let url = Bundle.main.url(forResource: podkladovaHudba, withExtension: "mp3")!
         let url = URL(string: musicUrl!)
         let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
@@ -149,28 +123,19 @@ class MeditacePlayerVC: UIViewController {
         //nekonečně přehrávání
         //playerHudba.prepareToPlay()
         playerHudba?.play()
-
     }
-
     
     func playSlovo(time: TimeInterval) -> Void {
         //přehrává zvuky
         if playerSlovo != nil{
             playerSlovo?.pause()
         }
-        
         //let url = Bundle.main.url(forResource: mluveneSlovo, withExtension: "mp3")!
         let url = URL(string: voiceUrl!)
         let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
-        
-   
             playerSlovo = AVPlayer(playerItem: playerItem)
-        
             //player.prepareToPlay()
-
-            
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
-            
             //playerSlovo!.setRate(1, time: CMTime(seconds: time, preferredTimescale: 1), atHostTime: CMTime(seconds: time, preferredTimescale: 1))
         playerSlovo!.play()
     }
@@ -182,15 +147,11 @@ class MeditacePlayerVC: UIViewController {
         if delkaNahravky.isNaN{
             delkaNahravky = 0
         }
-    
         let progres = Float(momentalniPozice)/Float(delkaNahravky)
         
         slider.value = progres
         
         progressLabel.text = "\(sekundyParser(seconds: Int(momentalniPozice))) / \(sekundyParser(seconds: Int(delkaNahravky)))"
-        
-        
-        
     }
     
     func skipSlovo(oKolik: Double){
@@ -233,14 +194,10 @@ class MeditacePlayerVC: UIViewController {
         
         return "\(minuty):\(sekundy)"
     }
-    
-
-
 }
 
-
 extension AVPlayer {
-    
+    //udává, zda player hraje či ne
     var isPlaying: Bool {
         if (self.rate != 0 && self.error == nil) {
             return true
@@ -248,5 +205,4 @@ extension AVPlayer {
             return false
         }
     }
-    
 }
