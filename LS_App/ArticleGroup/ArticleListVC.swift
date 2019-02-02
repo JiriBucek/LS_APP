@@ -67,7 +67,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
             
             loadArticles(APIurl: APIadresa)
         }else{
-            displayMessage(userMessage: "K zobrazení článků je nutné připojení k internetu. Zapněte wifi nebo data a aplikaci restartujte.")
+            displayMessage(userMessage: "K zobrazení článků je nutné připojení k internetu.")
         }
     }
     

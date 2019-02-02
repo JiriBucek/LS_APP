@@ -27,6 +27,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     var userName: String?
     var userPassWord: String?
     var token = ""
+    let internetManager = NetworkReachabilityManager()
     
     var meditaceArray:[MeditaceClass]? = []
     
@@ -45,7 +46,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         
-        if NetworkReachabilityManager()!.isReachable{
+        if internetManager!.isReachable{
         
             spinnerView.startAnimating()
             
@@ -61,6 +62,31 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
 
         }else{
             displayMessage(userMessage: "K přehrávání meditací je zapotřebí připojení k internetu.")
+            
+            //listener. Pokud nejdřív net není a pak ho zapnou, tak spustí načítání.
+            internetManager?.listener = { status in
+                
+                switch status{
+                case .notReachable:
+                    print("Není net")
+                    return
+                case .reachable(.ethernetOrWiFi), .reachable(.wwan):
+                    print("net funguje.")
+                    
+                    self.spinnerView.startAnimating()
+                    if self.checkKlicenka(){
+                        print("V klíčence jsou login údaje.")
+                        self.performDoubleRequest()
+                    }else{
+                        self.loadSignInVC()
+                        print("V klíčence nejsou login údaje, načítám přihlaěovací obrazovku.")
+                    }
+                case .unknown:
+                    print("Nevím, jestli net funguje.")
+                    return
+                }
+            }
+            internetManager?.startListening()
         }
     }
     

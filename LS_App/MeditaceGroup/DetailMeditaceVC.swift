@@ -24,7 +24,7 @@ class DetailMeditaceVC: UIViewController {
     
     @IBAction func prehrajMeditaciPressed(_ sender: Any) {
 
-        if NetworkReachabilityManager()!.isReachable{
+        if internetManager!.isReachable{
             if dostupnost!{
                 let backItem = UIBarButtonItem()
                 backItem.title = "Zpět"
@@ -52,6 +52,7 @@ class DetailMeditaceVC: UIViewController {
     @IBOutlet weak var prehrajMeditaciButton: UIButton!
     
     
+    let internetManager = NetworkReachabilityManager()
     var nadpis: String?
     var obsah: String?
     var obrazekUrl: String?

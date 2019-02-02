@@ -42,45 +42,31 @@ class SignInViewController: UIViewController {
 
     
     @IBAction func signInButtonTapped(_ sender: Any) {
-        print("Sign in button tapped")
         
-        // Read values from text fields
         userName = userNameTextField.text
         userPassword = userPasswordTextField.text
         
-        // Check if required fields are not empty
         if (userName?.isEmpty)! || (userPassword?.isEmpty)!
         {
-            // Display alert message here
-            print("User name \(String(describing: userName)) or password \(String(describing: userPassword)) is empty")
             displayMessage(userMessage: "Doplň přihlašovací údaje prosím.")
-            
         }
         
-        
-        // Position Activity Indicator in the center of the main view
         myActivityIndicator.center = view.center
-        
-        // If needed, you can prevent Acivity Indicator from hiding when stopAnimating() is called
         myActivityIndicator.hidesWhenStopped = false
-        
-        // Start Activity Indicator
         myActivityIndicator.startAnimating()
-        
         view.addSubview(myActivityIndicator)
         
         signInRequest()
-        
     }
     
     func displayMessage(userMessage:String) -> Void {
+        //funkce pro zobrazování upozornění
+        
         DispatchQueue.main.async
             {
-                let alertController = UIAlertController(title: "Chyba", message: userMessage, preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Upozornění", message: userMessage, preferredStyle: .alert)
                 
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                    // Code in this block will trigger when OK button tapped.
-                    print("Ok button tapped")
                     DispatchQueue.main.async
                         {
                             self.dismiss(animated: true, completion: nil)
@@ -102,27 +88,26 @@ class SignInViewController: UIViewController {
 
 
 func signInRequest(){
-    print("Začínám request")
+    //komplexní funkce pro přihlašování. V meditaceVC je jednodušší funkce přes Alamofire, která pouze zjistí token.
     let myUrl = URL(string: "https://www.ay.energy/api/media/login/")
     var request = URLRequest(url:myUrl!)
     
-    request.httpMethod = "POST"// Compose a query string
+    request.httpMethod = "POST"
     request.addValue("application/json", forHTTPHeaderField: "content-type")
     request.addValue("application/json", forHTTPHeaderField: "Accept")
-    
     
     var postString = [String:String]()
     if userName != nil, userPassword != nil{
         postString = ["username": userName!, "password": userPassword!] as [String: String]
     }else{
-        print("Poststring: ", postString)
+        print("Username nebo password jsou nil a poststring tím pádem neexistuje.")
     }
         
     do {
         request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
     } catch let error {
         print(error.localizedDescription)
-        displayMessage(userMessage: "Něco se pokazilo.")
+        displayMessage(userMessage: "Něco se pokazilo při vytváření sign in requestu.")
         return
     }
     
@@ -141,15 +126,12 @@ func signInRequest(){
         if error != nil
         {
             self.displayMessage(userMessage: "Nelze ověřit identitu uživatele. Prosím zkus později.")
-            print("error=\(String(describing: error))")
+            print("error při přihlašování=\(String(describing: error))")
             return
         }
         
-        //Let's convert response sent from a server side code to a NSDictionary object:
-        
         if data != nil{
             let downloadedJSON = JSON(data!)
-            print(downloadedJSON)
             if let token = downloadedJSON["body"]["token"].string{
                 print("Token: ", token)
                 let saveAccessToken: Bool = KeychainWrapper.standard.set(token, forKey: "accessToken")
@@ -163,8 +145,7 @@ func signInRequest(){
                 
                 // Až získám token, přesměruji se na seznam meditací
                 DispatchQueue.main.async{
-                //další VC můžu volat jen na hlavním threadu. Proto to musím. 
-                    
+                //další VC můžu volat jen na hlavním threadu. Proto to musím volat takto. VC pushuju, aby byl v hierarchii navigation controleru.
                     let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
                     self.navigationController?.pushViewController(meditaceVC, animated: true)
                 }
@@ -175,9 +156,6 @@ func signInRequest(){
     }
     task.resume()
 }
-    
-    
-    
 }
 
 
