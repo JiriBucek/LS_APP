@@ -29,12 +29,10 @@ class DetailMeditaceVC: UIViewController {
                 let backItem = UIBarButtonItem()
                 backItem.title = "Zpět"
                 navigationItem.backBarButtonItem = backItem
-                
                 meditaceFilesRequest()
                
             }else{
                 let url = URL(string: "http://www.laskyplnysvet.cz/audiomeditace")
-                
                 if UIApplication.shared.canOpenURL(url!) {
                     UIApplication.shared.open(url!, options: [:], completionHandler: nil)
                 }
@@ -42,15 +40,9 @@ class DetailMeditaceVC: UIViewController {
         }else{
             displayMessage(userMessage: "K přehrávání meditací je zapotřebí připojení k internetu.")
         }
-        
-        
-        
-        //tohle pak vymaz
-        //Defaults.set(true, forKey: id!)
     }
     
     @IBOutlet weak var prehrajMeditaciButton: UIButton!
-    
     
     let internetManager = NetworkReachabilityManager()
     var nadpis: String?
@@ -60,10 +52,6 @@ class DetailMeditaceVC: UIViewController {
     var dostupnost: Bool?
     var cena: Int?
     var velikost: Int64?
-    
-    
-
-    //přehrává audio
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,10 +81,6 @@ class DetailMeditaceVC: UIViewController {
         if obsah != nil{
             obsahMeditaceLabel.text = obsah            
         }
-        
-        
-        // Do any additional setup after loading the view.
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,10 +94,7 @@ class DetailMeditaceVC: UIViewController {
     
     func meditaceFilesRequest(){
         let token = KeychainWrapper.standard.string(forKey: "accessToken")
-        print("Token před přehráváním: ", token)    
-        
         let url = URL(string: "https://www.ay.energy/api/media/audio")
-        
         let parameters: Parameters = ["id" : id!]
         
         let headers: HTTPHeaders = [
@@ -121,17 +102,13 @@ class DetailMeditaceVC: UIViewController {
             "Accept": "application/json"
         ]
         
-        print("Headers: ", headers)
-        
         Alamofire.request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300)
             .responseData{ response in
                 
-                
                 let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
-                
                 print(response.result)
-                print(response.response)
-                let json = JSON(response.data)
+                print(response.response as Any)
+                let json = JSON(response.data as Any)
                 print("Body: ", json["body"])
                 
                 playerVC.musicUrl = json["body"]["musicUrl"].string
