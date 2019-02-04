@@ -603,24 +603,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-IK-ieh">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-IK-ieh">
                                 <rect key="frame" x="0.0" y="64" width="320" height="224.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" link="YES" selected="YES"/>
                                 </accessibility>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Pro přihlášení je zapotřebí se nejprve registrovat na www.laskyplnysvet.cz/audiomeditace. Na této stránce je také možnost meditace nakupovat. 
+                                <string key="text">Pro přihlášení je zapotřebí se nejprve registrovat na www.laskyplnysvet.cz/audiomeditace. Na této stránce je také možnost meditace nakupovat. 
 
 Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a zakoupené meditace budete mít k dispozici pro poslech i zde ve speciálním přehrávači.  </string>
-                                        <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" size="17" name="CenturyGothic"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
