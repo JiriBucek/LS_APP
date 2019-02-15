@@ -9,6 +9,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var prihlasitBtn: UIButton!
     
+    
+    @IBAction func bezregistraceBtn(_ sender: Any) {
+        let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
+        self.navigationController?.pushViewController(meditaceVC, animated: true)
+    }
+    
+    
     @IBAction func registraceBtn(_ sender: Any) {
         UIApplication.shared.open(URL(string: "http://www.laskyplnysvet.cz/audiomeditace")!, options: [:], completionHandler: nil)
     }

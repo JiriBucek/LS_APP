@@ -513,60 +513,105 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tei-lB-Rud">
-                                <rect key="frame" x="40" y="195" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="tei-lB-Rud">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0UW-dI-Nh1">
-                                        <rect key="frame" x="0.0" y="39" width="240" height="50"/>
-                                        <color key="backgroundColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCH-oc-91T">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="591.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0UW-dI-Nh1">
+                                                <rect key="frame" x="40" y="276" width="240" height="50"/>
+                                                <color key="backgroundColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Ydu-NS-4cY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="21"/>
+                                                <state key="normal" title="Přihlásit">
+                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signInButtonTapped:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="QHb-zb-Duh"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bat-Ja-Vwg">
+                                                <rect key="frame" x="40" y="136" width="240" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Leo-J7-NdF"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="fVT-Aw-gmf">
+                                                <rect key="frame" x="112" y="20" width="96" height="96"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="fVT-Aw-gmf" secondAttribute="height" multiplier="1:1" id="LQ3-o6-vPF"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkD-ur-unh">
+                                                <rect key="frame" x="104.5" y="346" width="111" height="30"/>
+                                                <state key="normal" title="Zaregistrovat se"/>
+                                                <connections>
+                                                    <action selector="registraceBtn:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="VpX-Nb-HNJ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hk-Kx-3ME">
+                                                <rect key="frame" x="70.5" y="396" width="179" height="30"/>
+                                                <state key="normal" title="Pokračovat bez registrace"/>
+                                                <connections>
+                                                    <action selector="bezRegistraceBtn:" destination="36L-UY-EFW" eventType="touchUpInside" id="e7S-p5-odb"/>
+                                                    <action selector="bezregistraceBtn:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="E5K-E2-S0W"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="heslo" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vp6-nj-NY7">
+                                                <rect key="frame" x="40" y="206" width="240" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="aXH-to-B13"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Ydu-NS-4cY"/>
+                                            <constraint firstItem="KkD-ur-unh" firstAttribute="centerX" secondItem="pCH-oc-91T" secondAttribute="centerX" id="4IO-f6-lPr"/>
+                                            <constraint firstItem="0UW-dI-Nh1" firstAttribute="centerX" secondItem="pCH-oc-91T" secondAttribute="centerX" id="CwB-Oe-ZZ5"/>
+                                            <constraint firstItem="vp6-nj-NY7" firstAttribute="top" secondItem="Bat-Ja-Vwg" secondAttribute="bottom" constant="20" id="DHX-lB-wac"/>
+                                            <constraint firstItem="vp6-nj-NY7" firstAttribute="centerX" secondItem="pCH-oc-91T" secondAttribute="centerX" id="Ehm-Gl-gkj"/>
+                                            <constraint firstItem="Bat-Ja-Vwg" firstAttribute="centerX" secondItem="pCH-oc-91T" secondAttribute="centerX" id="KFn-Ec-9Oe"/>
+                                            <constraint firstItem="KkD-ur-unh" firstAttribute="top" secondItem="0UW-dI-Nh1" secondAttribute="bottom" constant="20" id="RnS-kb-sfZ"/>
+                                            <constraint firstItem="Bat-Ja-Vwg" firstAttribute="width" secondItem="fVT-Aw-gmf" secondAttribute="width" multiplier="2.5" id="SP4-X4-gAl"/>
+                                            <constraint firstItem="vp6-nj-NY7" firstAttribute="width" secondItem="Bat-Ja-Vwg" secondAttribute="width" id="Ucc-2E-yZG"/>
+                                            <constraint firstItem="9hk-Kx-3ME" firstAttribute="top" secondItem="KkD-ur-unh" secondAttribute="bottom" constant="20" id="WcT-RD-04Z"/>
+                                            <constraint firstItem="fVT-Aw-gmf" firstAttribute="top" secondItem="pCH-oc-91T" secondAttribute="top" constant="20" id="aHN-Ev-3Zq"/>
+                                            <constraint firstItem="0UW-dI-Nh1" firstAttribute="width" secondItem="vp6-nj-NY7" secondAttribute="width" id="bxz-DB-S1C"/>
+                                            <constraint firstItem="Bat-Ja-Vwg" firstAttribute="top" secondItem="fVT-Aw-gmf" secondAttribute="bottom" constant="20" id="cam-mb-o1K"/>
+                                            <constraint firstItem="9hk-Kx-3ME" firstAttribute="centerX" secondItem="pCH-oc-91T" secondAttribute="centerX" id="drE-Hf-RQf"/>
+                                            <constraint firstItem="fVT-Aw-gmf" firstAttribute="centerX" secondItem="pCH-oc-91T" secondAttribute="centerX" id="ggX-xU-IR9"/>
+                                            <constraint firstItem="0UW-dI-Nh1" firstAttribute="top" secondItem="vp6-nj-NY7" secondAttribute="bottom" constant="20" id="oC5-gD-nWd"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="21"/>
-                                        <state key="normal" title="Přihlásit">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="signInButtonTapped:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="QHb-zb-Duh"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bat-Ja-Vwg">
-                                        <rect key="frame" x="0.0" y="39" width="240" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Leo-J7-NdF"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
-                                    </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="fVT-Aw-gmf">
-                                        <rect key="frame" x="80" y="24" width="80" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="fVT-Aw-gmf" secondAttribute="height" multiplier="1:1" id="LQ3-o6-vPF"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkD-ur-unh">
-                                        <rect key="frame" x="64" y="49" width="111" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Zaregistrovat se"/>
-                                        <connections>
-                                            <action selector="registraceBtn:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="VpX-Nb-HNJ"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="heslo" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vp6-nj-NY7">
-                                        <rect key="frame" x="0.0" y="39" width="240" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="aXH-to-B13"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                    </textField>
+                                    </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="pCH-oc-91T" firstAttribute="width" secondItem="tei-lB-Rud" secondAttribute="width" id="axd-MB-eIS"/>
+                                    <constraint firstAttribute="trailing" secondItem="pCH-oc-91T" secondAttribute="trailing" id="eH8-Ye-dSa"/>
+                                    <constraint firstAttribute="bottom" secondItem="pCH-oc-91T" secondAttribute="bottom" id="fH5-yz-YVC"/>
+                                    <constraint firstItem="fVT-Aw-gmf" firstAttribute="width" secondItem="tei-lB-Rud" secondAttribute="width" multiplier="0.3" id="fig-5k-fNf"/>
+                                    <constraint firstItem="pCH-oc-91T" firstAttribute="height" secondItem="tei-lB-Rud" secondAttribute="height" multiplier="1.3" priority="250" id="pGR-oS-MH9"/>
+                                    <constraint firstItem="pCH-oc-91T" firstAttribute="leading" secondItem="tei-lB-Rud" secondAttribute="leading" id="xNX-PM-3uP"/>
+                                    <constraint firstItem="pCH-oc-91T" firstAttribute="top" secondItem="tei-lB-Rud" secondAttribute="top" id="xVd-s4-J9g"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tei-lB-Rud" firstAttribute="leading" secondItem="cmj-dt-BV3" secondAttribute="leading" id="2mu-LE-oLF"/>
+                            <constraint firstItem="tei-lB-Rud" firstAttribute="top" secondItem="cmj-dt-BV3" secondAttribute="top" id="IcH-XA-Ynf"/>
+                            <constraint firstItem="tei-lB-Rud" firstAttribute="trailing" secondItem="cmj-dt-BV3" secondAttribute="trailing" id="S1K-xI-ack"/>
+                            <constraint firstItem="tei-lB-Rud" firstAttribute="bottom" secondItem="cmj-dt-BV3" secondAttribute="bottom" id="Y9n-Ta-wlg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cmj-dt-BV3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Přihlášení" id="47P-Td-06u">
@@ -583,8 +628,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMw-FB-sit" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="36L-UY-EFW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="1668"/>
+            <point key="canvasLocation" x="1149.375" y="1667.9577464788733"/>
         </scene>
         <!--Info-->
         <scene sceneID="Wfz-74-KnZ">
