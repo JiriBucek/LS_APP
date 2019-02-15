@@ -18,6 +18,8 @@ class InfoVC: UIViewController {
             print("jsem tu")
             KeychainWrapper.standard.removeObject(forKey: "userName")
             KeychainWrapper.standard.removeObject(forKey: "passWord")
+            let meditaceVC = MeditaceVC()
+            meditaceVC.setDefaultLogin()
         }
         
         let signInVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signInVc") as! SignInViewController
@@ -36,11 +38,19 @@ class InfoVC: UIViewController {
         odhlasitBtn.clipsToBounds = true
         odhlasitBtn.layer.cornerRadius = odhlasitBtn.frame.height/2
         
+        if signedIn{
+            odhlasitBtn.setTitle("Odhlásit", for: .normal)
+        }else{
+            odhlasitBtn.setTitle("Přihlásit", for: .normal)
+        }
         
         let email = KeychainWrapper.standard.string(forKey: "userName")
         
         if email != nil{
             emailLabel.text = email
+            if !signedIn{
+                emailLabel.text = "Nepřihlášen"
+            }
         }
 
         // Do any additional setup after loading the view.

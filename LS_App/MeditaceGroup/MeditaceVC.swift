@@ -44,7 +44,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         if internetManager!.isReachable{
         //pokud je net, tak načítám. Pokud není, spustím listener a ten načte data v momentě, kdy je net zase available.
             spinnerView.startAnimating()
-            checkKlicenka()
+            setDefaultLogin()
             performDoubleRequest()
             
         }else{
@@ -67,7 +67,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
                     print("net funguje.")
                     
                     self.spinnerView.startAnimating()
-                    self.checkKlicenka()
+                    self.setDefaultLogin()
                     self.performDoubleRequest()
                 case .unknown:
                     print("Nevím, jestli net funguje.")
@@ -114,7 +114,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         }
     }
     
-    func checkKlicenka(){
+    func setDefaultLogin(){
         //jsem prihlasen? nastavuje hodnotu var signedIn a zadava pri prvnim spusteni defaultni prihlasovaci udaje
         userName = KeychainWrapper.standard.string(forKey: "userName")
         userPassWord = KeychainWrapper.standard.string(forKey: "passWord")
