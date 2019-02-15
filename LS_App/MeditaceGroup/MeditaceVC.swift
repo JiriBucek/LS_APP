@@ -15,6 +15,8 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 
+public var signedIn = false
+
 class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var overallLoadingView: UIView!
@@ -22,6 +24,8 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     @IBOutlet weak var spinnerView: NVActivityIndicatorView!
     
     var meditaceArray:[MeditaceClass]? = []
+    
+    var savedJson: String?
     
     @IBOutlet weak var meditaceTableView: UITableView!
     
@@ -40,16 +44,17 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         if internetManager!.isReachable{
         //pokud je net, tak načítám. Pokud není, spustím listener a ten načte data v momentě, kdy je net zase available.
             spinnerView.startAnimating()
-            
-            if checkKlicenka(){
-                performDoubleRequest()
-            }else{
-                loadSignInVC()
-                print("V klíčence nejsou login údaje, načítám přihlaěovací obrazovku.")
-            }
+            checkKlicenka()
+            performDoubleRequest()
             
         }else{
-            displayMessage(userMessage: "K přehrávání meditací je zapotřebí připojení k internetu.")
+            displayMessage(userMessage: "Nejste připojen(a) k internetu. Lze přehrávat pouze stažené meditace.")
+            
+            savedJson = KeychainWrapper.standard.string(forKey: "json")
+            if savedJson == nil {
+                savedJson = prvotniJson
+            }
+            loadMeditationData(jsonData: JSON.parse(savedJson!))
             
             //listener. Pokud nejdřív net není a pak ho zapnou, tak spustí načítání.
             internetManager?.listener = { status in
@@ -62,13 +67,8 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
                     print("net funguje.")
                     
                     self.spinnerView.startAnimating()
-                    if self.checkKlicenka(){
-                        print("V klíčence jsou login údaje.")
-                        self.performDoubleRequest()
-                    }else{
-                        self.loadSignInVC()
-                        print("V klíčence nejsou login údaje, načítám přihlaěovací obrazovku.")
-                    }
+                    self.checkKlicenka()
+                    self.performDoubleRequest()
                 case .unknown:
                     print("Nevím, jestli net funguje.")
                     return
@@ -94,6 +94,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     
     func loadMeditationData(jsonData: JSON){
     //načte stáhnutá data do objektů meditace a vytvoří array, kterým naplní cells tableview
+        if (meditaceArray?.count)! == 0{
             for item in jsonData["body"]{
                 let meditaceObjekt = MeditaceClass()
                 
@@ -110,23 +111,36 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
             meditaceTableView.reloadData()
             overallLoadingView.isHidden = true
             spinnerView.stopAnimating()
+        }
     }
     
-    func checkKlicenka() -> Bool{
-        //jsou k dispozici prihlasovaci udaje?
+    func checkKlicenka(){
+        //jsem prihlasen? nastavuje hodnotu var signedIn a zadava pri prvnim spusteni defaultni prihlasovaci udaje
         userName = KeychainWrapper.standard.string(forKey: "userName")
         userPassWord = KeychainWrapper.standard.string(forKey: "passWord")
         
         if userName != nil || userPassWord != nil{
-            return true
+            if userName == "iphoneappka@seznam.cz"{
+                print("Neprihlasen. Mam defaultni login.")
+                signedIn = false
+            }else{
+                print("Prihlasen.")
+                signedIn = true
+            }
         }else{
-            return false
+            print("Nastavuji defaultni login údaje.")
+            KeychainWrapper.standard.set("iphoneappka@seznam.cz", forKey: "userName")
+            KeychainWrapper.standard.set("LaskyplnySvet1@", forKey: "passWord")
+            signedIn = false
         }
     }
     
     func performDoubleRequest(){
         // nejdříve zjistí token na základě přihlašovacích údajů a následně stáhne seznam meditací
         //TOKEN REQUEST
+        userName = KeychainWrapper.standard.string(forKey: "userName")
+        userPassWord = KeychainWrapper.standard.string(forKey: "passWord")
+        
         let url = URL(string: "https://www.ay.energy/api/media/login")
         let parameters: Parameters = ["username" : userName!, "password" : userPassWord!]
         
@@ -166,7 +180,10 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
                     case .success:
                         do{
                             let json = try JSON(data: response.data!, options: .mutableContainers)
+                            print(json)
+                            KeychainWrapper.standard.set(json.rawString()!, forKey: "json")
                             self.loadMeditationData(jsonData: json)
+                            
                         }catch{
                             print("Nepodařilo se převést data na json.")
                             print("Data: ", response.data!)
@@ -216,7 +233,9 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         cell.obrazekMalyMeditace.clipsToBounds = true
         if let obrazekURL = URL(string: (self.meditaceArray?[indexPath.item].obrazekUrl)!){
             let resource = ImageResource(downloadURL: obrazekURL)
-            cell.obrazekMalyMeditace.kf.setImage(with: resource)
+            let placeHolderImage = UIImage(named: "\(self.meditaceArray![indexPath.item].id!).jpg")
+            
+            cell.obrazekMalyMeditace.kf.setImage(with: resource, placeholder: placeHolderImage)
             
             //zámek přes zamknuté meditace
             if !(self.meditaceArray?[indexPath.item].dostupnost)!{
@@ -250,6 +269,8 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    let prvotniJson = "{\n  \"error\" : null,\n  \"body\" : [\n    {\n      \"title\" : \"Pozorování vlastní müsli\",\n      \"price\" : 0,\n      \"size\" : 0,\n      \"id\" : 10,\n      \"isAvailable\" : true,\n      \"description\" : \"Nemusíme přijmout za své všechny myšlenky, které nám vstoupí do hlavy. Odosobníme se od myšlenek a naučíme se být jejich nezávislý pozorovatel. Žádná myšlenka nás nesmí ovládnout. V praxi pak dokážete odsunout nechtěné myšlenky, ať už ty negativní, nebo i pozitivní, na něž v danou chvíli nemáte v životě místo (když se chceme soustředit pouze na jednu konkrétní činnost).\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/pozorovani_myslenek.jpg\"\n    },\n    {\n      \"title\" : \"Komunikace s miminkem\",\n      \"price\" : 380,\n      \"size\" : 0,\n      \"id\" : 1,\n      \"isAvailable\" : false,\n      \"description\" : \"Jeden z nejsilnějších zážitků pro maminky během těhotenství. Naučte se komunikovat se svým miminkem ještě předtím, než je budete držet v náručí.\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/miminko.jpg\"\n    },\n    {\n      \"title\" : \"Nejlepší den\",\n      \"price\" : 130,\n      \"size\" : 0,\n      \"id\" : 2,\n      \"isAvailable\" : false,\n      \"description\" : \"Meditace určená k rannímu probuzení a namotivování pro nejlepší možné výsledky. Doporučujeme si tuto nahrávku nastavit jako budík, proto vám ji jako jedinou nahrávku zašleme po zakoupení také do e-mailové schránky. Skutečně neznáme lepší start dne, než se vědomě probudit, utřídit si myšlenky, podpořit naše nejlepší vlastnosti a nadšeně tvořit svůj nejlepší den.\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/nejlepsi_den.jpg\"\n    },\n    {\n      \"title\" : \"Léčivá meditace\",\n      \"price\" : 300,\n      \"size\" : 0,\n      \"id\" : 3,\n      \"isAvailable\" : false,\n      \"description\" : \"Ať už se jedná o rýmu, nebo vážně dlouhodobé obtíže, většina našich nemocí má původ v neovládnutých myšlenkách. Podpořit léčbu skrze uklidnění mysli a naučit se sebeléčení je tedy logický krok, proto pro vás máme nádherný příběh. Nechte se jím vtáhnout a urychlete své uzdravení.\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/leciva_meditace.jpg\"\n    },\n    {\n      \"title\" : \"Meditace klidu\",\n      \"price\" : 90,\n      \"size\" : 0,\n      \"id\" : 4,\n      \"isAvailable\" : false,\n      \"description\" : \"Po náročném dni je důležité se uvolnit a pročistit mysl, jen tak můžeme skutečně v noci regenerovat po všech stránkách. V této meditaci se vše potřebné naučíme a již nikdy nebudeme usínat s hlavou plnou starostí.\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/meditace_klidu.jpg\"\n    },\n    {\n      \"title\" : \"Nacítění astrálního těla\",\n      \"price\" : 480,\n      \"size\" : 0,\n      \"id\" : 5,\n      \"isAvailable\" : false,\n      \"description\" : \"Seznámíme se s prvotním reálným procítěním astrálního těla. Již to nebude pouze teorie, ale jdeme do praxe. Nebudeme astrálně cestovat, “pouze” se naučíme cítit naše astrální tělo – tedy první krok k úspěšnému astrálnímu cestování.\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/naciteni_astralniho_tela.jpg\"\n    },\n    {\n      \"title\" : \"Napojení na univerzální sílu\",\n      \"price\" : 360,\n      \"size\" : 0,\n      \"id\" : 6,\n      \"isAvailable\" : false,\n      \"description\" : \"Naučíme se čerpat čistou univerzální energii, kterou si poté transformujeme do námi zvolené vlastnosti. Bude to klid mysli, láska, odhodlání či pevnost? To je již na vás. P.S.: zároveň podpoříme intuici. ;)\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/univerzalni_sila.jpg\"\n    },\n    {\n      \"title\" : \"Niterná síla\",\n      \"price\" : 220,\n      \"size\" : 0,\n      \"id\" : 7,\n      \"isAvailable\" : false,\n      \"description\" : \"Poznat sami sebe více do hloubky a z různých úhlů pohledu. Výlet do nitra nás samotných pro získání sebevědomí a jistoty.\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/niterna_sila.jpg\"\n    },\n    {\n      \"title\" : \"Ochranná bytost\",\n      \"price\" : 180,\n      \"size\" : 0,\n      \"id\" : 8,\n      \"isAvailable\" : false,\n      \"description\" : \"Setkání s ochrannou bytostí bývá vždy příjemný zážitek. Někomu se ihned zjeví její tvar, na někoho ze začátku pouze promlouvá, avšak všichni cítíme ten nekonečný láskyplný klid, který nás zalévá, a tím otevírá naše nejniternější vedení. Vždy nás nasměruje na správnou cestu životem.\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/ochranna_bytost.jpg\"\n    },\n    {\n      \"title\" : \"Ovládnutí jedné myšlenky\",\n      \"price\" : 90,\n      \"size\" : 0,\n      \"id\" : 9,\n      \"isAvailable\" : false,\n      \"description\" : \"Díky dovednosti jasné koncentrace dokážeme žít všichni kvalitnější život a intenzivněji jej prožívat. Zaměříme se pouze na jednu námi zvolenou myšlenku a vše ostatní pro nás přestává být důležité. Jdeme si za svým cílem, šetříme čas, jsme efektivnější.\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/jedna_myslenka.jpg\"\n    },\n    {\n      \"title\" : \"Rozlučme se s depresí\",\n      \"price\" : 240,\n      \"size\" : 0,\n      \"id\" : 11,\n      \"isAvailable\" : false,\n      \"description\" : \"Tato velmi silná emoce dokáže obrovské věci - zcela ovládne naši mysl, nutí nás ležet v posteli, brečet, litovat se. Nevidíme východisko ze své situace. Nyní je čas převzít svou veškerou sílu zpět a opět žít šťastný život.\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/deprese.jpg\"\n    },\n    {\n      \"title\" : \"Do vyšších sfér a zpět\",\n      \"price\" : 720,\n      \"size\" : 0,\n      \"id\" : 12,\n      \"isAvailable\" : false,\n      \"description\" : \"Jedinečná meditace pro poznání vyšších sfér, postupně se zbavíte veškerých myšlenek, problémů, ega, sami sebe… . Cestou zpět vše opět naberete a budete si o to více užívat hmotný svět. Tato meditace je určena pro ty zkušenější z vás, kteří již ovládají svou mysl.\",\n      \"imageUrl\" : \"https:\\/\\/www.ay.energy\\/laskyplnysvet\\/media\\/images\\/meditations\\/vyssi_sfery.jpg\"\n    }\n  ]\n}"
 }
 
 extension DefaultsKeys {

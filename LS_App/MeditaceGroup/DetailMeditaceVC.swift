@@ -72,7 +72,8 @@ class DetailMeditaceVC: UIViewController {
         if obrazekUrl != nil{
             if let url = URL(string: obrazekUrl!){
                 let resource = ImageResource(downloadURL: url)
-                velkyImageMeditace.kf.setImage(with: resource)
+                let defaultImage = UIImage(named: "\(id!).jpg")
+                velkyImageMeditace.kf.setImage(with: resource, placeholder: defaultImage)
                 velkyImageMeditace.layer.cornerRadius = 15
                 velkyImageMeditace.clipsToBounds = true
             }
