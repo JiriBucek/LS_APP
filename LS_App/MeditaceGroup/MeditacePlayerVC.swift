@@ -140,10 +140,6 @@ class MeditacePlayerVC: UIViewController {
             self.playerHudba?.play()
         }
         
-        
-        //playerHudba.numberOfLoops = -1
-        //nekonečně přehrávání
-        //playerHudba.prepareToPlay()
         playerHudba?.play()
     }
     

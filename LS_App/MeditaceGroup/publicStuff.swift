@@ -41,3 +41,27 @@ public func checkSoundFiles(id: Int) -> Bool{
         return false
     }
 }
+
+
+public func deleteSoundFiles(id: Int) -> Bool{
+    let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+    let url = NSURL(fileURLWithPath: path)
+    if let pathComponent = url.appendingPathComponent("\(id)_slovo.mp3"), let pathComponent2 = url.appendingPathComponent("\(id)_hudba.mp3") {
+        let filePath = pathComponent.path
+        let filePath2 = pathComponent2.path
+        let fileManager = FileManager.default
+        
+        do{
+            try fileManager.removeItem(atPath: filePath)
+            try fileManager.removeItem(atPath: filePath2)
+            return true
+        }catch{
+            print(error)
+            return false
+        }
+
+    }else{
+        print("Nemám URL při mazání filu")
+        return false
+    }
+}

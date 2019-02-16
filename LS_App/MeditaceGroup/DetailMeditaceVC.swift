@@ -44,7 +44,7 @@ class DetailMeditaceVC: UIViewController {
                 newVC.downloaded = self.downloaded ?? false
                 self.navigationController?.pushViewController(newVC, animated: true)
             }else{
-                displayMessage(userMessage: "K přehrávání meditací je zapotřebí připojení k internetu.")
+                displayMessage(userMessage: "K přehrávání meditací online je zapotřebí připojení k internetu. Pokud chcete přehrávat offline, stáhněte si meditaci pomocí tlačítka \"Stáhnout meditaci\" na této obrazovce.", loadMeditationVC: false)
         }
         }
     }
@@ -54,10 +54,21 @@ class DetailMeditaceVC: UIViewController {
     
     @IBAction func stahnoutMeditaciPrssd(_ sender: Any) {
         
-        meditaceFilesRequest(vcName: "downloadVC")
-        print("stahnout btn pressed")
+        if let downloadedUnwrapped = downloaded{
+            if downloadedUnwrapped{
+                if deleteSoundFiles(id: id!){
+                    self.downloaded = false
+                    displayMessage(userMessage: "Soubory meditace byly úspěšně smazány.", loadMeditationVC: true)
+                    self.viewDidLoad()
+                }else{
+                    displayMessage(userMessage: "Nepodařilo se smazat soubory meditace.", loadMeditationVC: false)
+                }
+            }else{
+            meditaceFilesRequest(vcName: "downloadVC")
+            print("stahnout btn pressed")
+            }
+        }
     }
-    
     
     @IBOutlet weak var stahnoutMeditaciBtn: UIButton!
     
@@ -81,6 +92,7 @@ class DetailMeditaceVC: UIViewController {
                 
             }else{
                 stahnoutMeditaciBtn.setTitle("Stáhnout meditaci", for: .normal)
+                stahnoutMeditaciBtn.setTitleColor(.blue, for: .normal)
             }
         }
         
@@ -134,7 +146,6 @@ class DetailMeditaceVC: UIViewController {
         Alamofire.request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300)
             .responseData{ response in
                 let json = JSON(response.data as Any)
-
                 
                 if vcName == "player"{
                     let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vcName) as! MeditacePlayerVC
@@ -155,17 +166,21 @@ class DetailMeditaceVC: UIViewController {
                 }
     }
         
-        func displayMessage(userMessage:String) -> Void {
+    func displayMessage(userMessage:String, loadMeditationVC: Bool) -> Void {
             DispatchQueue.main.async
                 {
                     let alertController = UIAlertController(title: nil, message: userMessage, preferredStyle: .alert)
                     
                     let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
                         // Code in this block will trigger when OK button tapped.
-                        print("Ok button tapped")
-                        DispatchQueue.main.async
-                            {
+                        
+                        DispatchQueue.main.async{
+                            if loadMeditationVC{
+                                let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
+                                self.navigationController?.pushViewController(meditaceVC, animated: true)
+                            }else{
                                 self.dismiss(animated: true, completion: nil)
+                            }
                         }
                     }
                     alertController.addAction(OKAction)
