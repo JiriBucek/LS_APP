@@ -84,6 +84,8 @@ class MeditacePlayerVC: UIViewController {
     var delkaNahravky: Double = 0
     var momentalniPozice: Double = 0
     var timer: Timer?
+    var downloaded: Bool = false
+    var id: Int?
     
     override func viewDidLoad() {
         
@@ -115,10 +117,30 @@ class MeditacePlayerVC: UIViewController {
     func playHudba() -> Void {
         //přehrává hudbu
         //let url = Bundle.main.url(forResource: podkladovaHudba, withExtension: "mp3")!
-        let url = URL(string: musicUrl!)
+        var url: URL?
+        
+        if let musicUrlUnwrpd = musicUrl{
+            url = URL(string: musicUrlUnwrpd)
+        }
+        
+        if downloaded{
+            //pokud mám soubor offline, tak přehrávám offline
+            url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+            url = url?.appendingPathComponent("\(id!)_hudba.mp3")
+            print("URL hudba: ", url as Any)
+        }
+        
         let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
         
         playerHudba = AVPlayer(playerItem: playerItem)
+        
+        //zajišťuje repeat play hudby
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerHudba?.currentItem, queue: nil) { (_) in
+            self.playerHudba?.seek(to: kCMTimeZero)
+            self.playerHudba?.play()
+        }
+        
+        
         //playerHudba.numberOfLoops = -1
         //nekonečně přehrávání
         //playerHudba.prepareToPlay()
@@ -127,11 +149,23 @@ class MeditacePlayerVC: UIViewController {
     
     func playSlovo(time: TimeInterval) -> Void {
         //přehrává zvuky
+        var url: URL?
+        
         if playerSlovo != nil{
             playerSlovo?.pause()
         }
         //let url = Bundle.main.url(forResource: mluveneSlovo, withExtension: "mp3")!
-        let url = URL(string: voiceUrl!)
+        if let voiceUrlUnwrpd = voiceUrl{
+            url = URL(string: voiceUrlUnwrpd)
+        }
+        
+        if downloaded{
+            //pokud mám soubor offline, tak přehrávám offline
+            url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+            url = url?.appendingPathComponent("\(id!)_slovo.mp3")
+            print("URL slovo: ", url as Any)
+        }
+        
         let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
             playerSlovo = AVPlayer(playerItem: playerItem)
             //player.prepareToPlay()

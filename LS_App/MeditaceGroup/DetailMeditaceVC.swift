@@ -24,12 +24,11 @@ class DetailMeditaceVC: UIViewController {
     
     @IBAction func prehrajMeditaciPressed(_ sender: Any) {
 
-        if internetManager!.isReachable{
+        if checkInternet(){
             if dostupnost!{
                 let backItem = UIBarButtonItem()
                 backItem.title = "Zpět"
                 navigationItem.backBarButtonItem = backItem
-                print("prehrat btn pressed")
                 meditaceFilesRequest(vcName: "player")
                
             }else{
@@ -39,7 +38,14 @@ class DetailMeditaceVC: UIViewController {
                 }
             }
         }else{
-            displayMessage(userMessage: "K přehrávání meditací je zapotřebí připojení k internetu.")
+            if downloaded!{
+                let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
+                newVC.id = self.id!
+                newVC.downloaded = self.downloaded ?? false
+                self.navigationController?.pushViewController(newVC, animated: true)
+            }else{
+                displayMessage(userMessage: "K přehrávání meditací je zapotřebí připojení k internetu.")
+        }
         }
     }
     
@@ -55,9 +61,6 @@ class DetailMeditaceVC: UIViewController {
     
     @IBOutlet weak var stahnoutMeditaciBtn: UIButton!
     
-    
-    
-    let internetManager = NetworkReachabilityManager()
     var nadpis: String?
     var obsah: String?
     var obrazekUrl: String?
@@ -73,7 +76,9 @@ class DetailMeditaceVC: UIViewController {
         
         if let downloadedUnwrapped = downloaded{
             if downloadedUnwrapped{
-                stahnoutMeditaciBtn.setTitle("Vymazat stáhnutou mediteci", for: .normal)
+                stahnoutMeditaciBtn.setTitle("Smazat stáhnutou meditaci.", for: .normal)
+                stahnoutMeditaciBtn.setTitleColor(.red, for: .normal)
+                
             }else{
                 stahnoutMeditaciBtn.setTitle("Stáhnout meditaci", for: .normal)
             }
@@ -135,6 +140,8 @@ class DetailMeditaceVC: UIViewController {
                     let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vcName) as! MeditacePlayerVC
                     newVC.musicUrl = json["body"]["musicUrl"].string
                     newVC.voiceUrl = json["body"]["voiceUrl"].string
+                    newVC.id = self.id!
+                    newVC.downloaded = self.downloaded ?? false
                     self.navigationController?.pushViewController(newVC, animated: true)
 
                 }else if vcName == "downloadVC"{
