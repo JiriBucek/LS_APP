@@ -38,10 +38,6 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         super.viewDidLoad()
         
-        checkSoundFiles(id: 10)
-        checkSoundFiles(id: 5)
-        checkSoundFiles(id: 2)
-        
         self.navigationItem.setHidesBackButton(true, animated: true)
         //schová zpět button. Objevuje se, pokud je tento VC pushnut ze SignInVC, což nechci
         
@@ -98,11 +94,15 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     
     func loadMeditationData(jsonData: JSON){
     //načte stáhnutá data do objektů meditace a vytvoří array, kterým naplní cells tableview
-        if (meditaceArray?.count)! == 0{
+            meditaceArray = []
+        
             for item in jsonData["body"]{
                 let meditaceObjekt = MeditaceClass()
                 
                 meditaceObjekt.id = item.1["id"].int
+                if let id = meditaceObjekt.id{
+                    meditaceObjekt.downloaded = checkSoundFiles(id: id)
+                }
                 meditaceObjekt.nadpis = item.1["title"].string
                 meditaceObjekt.obsah = item.1["description"].string
                 meditaceObjekt.obrazekUrl = item.1["imageUrl"].string
@@ -115,7 +115,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
             meditaceTableView.reloadData()
             overallLoadingView.isHidden = true
             spinnerView.stopAnimating()
-        }
+        
     }
     
     func setDefaultLogin(){
@@ -260,7 +260,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         detailMeditaceVC.obrazekUrl = self.meditaceArray?[indexPath.item].obrazekUrl
         detailMeditaceVC.id = self.meditaceArray?[indexPath.item].id
         detailMeditaceVC.dostupnost = self.meditaceArray?[indexPath.item].dostupnost
-        
+        detailMeditaceVC.downloaded = self.meditaceArray?[indexPath.item].downloaded
         self.navigationController?.pushViewController(detailMeditaceVC, animated: true)
     }
     

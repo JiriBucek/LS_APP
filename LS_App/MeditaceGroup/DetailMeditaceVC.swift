@@ -47,6 +47,7 @@ class DetailMeditaceVC: UIViewController {
     
     
     @IBAction func stahnoutMeditaciPrssd(_ sender: Any) {
+        
         meditaceFilesRequest(vcName: "downloadVC")
         print("stahnout btn pressed")
     }
@@ -64,9 +65,19 @@ class DetailMeditaceVC: UIViewController {
     var dostupnost: Bool?
     var cena: Int?
     var velikost: Int64?
+    var downloaded: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        if let downloadedUnwrapped = downloaded{
+            if downloadedUnwrapped{
+                stahnoutMeditaciBtn.setTitle("Vymazat stáhnutou mediteci", for: .normal)
+            }else{
+                stahnoutMeditaciBtn.setTitle("Stáhnout meditaci", for: .normal)
+            }
+        }
         
         prehrajMeditaciButton.layer.cornerRadius = 20
         prehrajMeditaciButton.clipsToBounds = true
