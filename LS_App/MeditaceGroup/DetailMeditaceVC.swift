@@ -29,7 +29,8 @@ class DetailMeditaceVC: UIViewController {
                 let backItem = UIBarButtonItem()
                 backItem.title = "Zpět"
                 navigationItem.backBarButtonItem = backItem
-                meditaceFilesRequest()
+                print("prehrat btn pressed")
+                meditaceFilesRequest(vcName: "player")
                
             }else{
                 let url = URL(string: "http://www.laskyplnysvet.cz/audiomeditace")
@@ -43,6 +44,17 @@ class DetailMeditaceVC: UIViewController {
     }
     
     @IBOutlet weak var prehrajMeditaciButton: UIButton!
+    
+    
+    @IBAction func stahnoutMeditaciPrssd(_ sender: Any) {
+        meditaceFilesRequest(vcName: "downloadVC")
+        print("stahnout btn pressed")
+    }
+    
+    
+    @IBOutlet weak var stahnoutMeditaciBtn: UIButton!
+    
+    
     
     let internetManager = NetworkReachabilityManager()
     var nadpis: String?
@@ -93,7 +105,7 @@ class DetailMeditaceVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func meditaceFilesRequest(){
+    func meditaceFilesRequest(vcName: String){
         let token = KeychainWrapper.standard.string(forKey: "accessToken")
         let url = URL(string: "https://www.ay.energy/api/media/audio")
         let parameters: Parameters = ["id" : id!]
@@ -105,17 +117,24 @@ class DetailMeditaceVC: UIViewController {
         
         Alamofire.request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300)
             .responseData{ response in
-                
-                let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
-                print(response.result)
-                print(response.response as Any)
                 let json = JSON(response.data as Any)
-                print("Body: ", json["body"])
+
                 
-                playerVC.musicUrl = json["body"]["musicUrl"].string
-                playerVC.voiceUrl = json["body"]["voiceUrl"].string
-                self.navigationController?.pushViewController(playerVC, animated: true)
-        }
+                if vcName == "player"{
+                    let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vcName) as! MeditacePlayerVC
+                    newVC.musicUrl = json["body"]["musicUrl"].string
+                    newVC.voiceUrl = json["body"]["voiceUrl"].string
+                    self.navigationController?.pushViewController(newVC, animated: true)
+
+                }else if vcName == "downloadVC"{
+                    let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vcName) as! DownloadVC
+                    newVC.musicUrl = json["body"]["musicUrl"].string
+                    newVC.voiceUrl = json["body"]["voiceUrl"].string
+                    newVC.id = self.id
+                    self.navigationController?.pushViewController(newVC, animated: true)
+                }
+                print(response.result)
+                }
     }
         
         func displayMessage(userMessage:String) -> Void {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		891D85532146A147006A40F6 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891D85522146A147006A40F6 /* MenuVC.swift */; };
+		8922761C2216EE0F004B6F70 /* DownloadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922761B2216EE0F004B6F70 /* DownloadVC.swift */; };
 		892B332021244FD300BAF2F9 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892B331F21244FD300BAF2F9 /* LoadingCell.xib */; };
 		892B33222124500900BAF2F9 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B33212124500800BAF2F9 /* LoadingCell.swift */; };
 		892B3325212710AB00BAF2F9 /* MeditaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B3324212710AB00BAF2F9 /* MeditaceVC.swift */; };
@@ -81,6 +82,7 @@
 /* Begin PBXFileReference section */
 		4F5C6FB3141DBBD8FAB7FD1E /* Pods_LS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891D85522146A147006A40F6 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		8922761B2216EE0F004B6F70 /* DownloadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVC.swift; sourceTree = "<group>"; };
 		892B331F21244FD300BAF2F9 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		892B33212124500800BAF2F9 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		892B3324212710AB00BAF2F9 /* MeditaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditaceVC.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				892B332F21275AD900BAF2F9 /* Images */,
 				892B333221275B2000BAF2F9 /* Sounds */,
 				892B33292127496000BAF2F9 /* MeditaceCell.swift */,
+				8922761B2216EE0F004B6F70 /* DownloadVC.swift */,
 				8988CBC021FD22BD00B9D50B /* signInVC.swift */,
 				892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */,
 				892B3324212710AB00BAF2F9 /* MeditaceVC.swift */,
@@ -568,6 +571,7 @@
 				89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */,
 				892B332C21274BFA00BAF2F9 /* MeditaceClass.swift in Sources */,
 				89916402215E1BB200A850EC /* articleWebVC.swift in Sources */,
+				8922761C2216EE0F004B6F70 /* DownloadVC.swift in Sources */,
 				89C105CE210795E3006EBD5F /* ArticleClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
