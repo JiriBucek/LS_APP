@@ -5,24 +5,17 @@ import Alamofire
 import AVFoundation
 
 
-let mujArray = [ "https://www.ay.energy//laskyplnysvet//media//images//meditations//pozorovani_myslenek.jpg", "https://www.ay.energy///laskyplnysvet///media///images///meditations///jedna_myslenka.jpg"]
-
-
-func downloadFile(urlArray:[String])->Void{
-    var urlArray = urlArray
-    if let s3Url = urlArray.popLast(){
-        let s3UrlUrl = URL(string: s3Url)
-        Alamofire.request(s3UrlUrl!, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
-            .downloadProgress { progress in
-                print(progress.fractionCompleted)
-            }
-            .response { response in
-                downloadFile(urlArray: mujArray)
-        }
-    }
+let fileManager = FileManager.default
+let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+do {
+    let urls = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+    print(urls)
+    // process files
+} catch {
+    print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
 }
 
-downloadFile(urlArray: mujArray)
+
 
 
 

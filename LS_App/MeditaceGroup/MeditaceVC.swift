@@ -38,6 +38,10 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         super.viewDidLoad()
         
+        checkSoundFiles(id: 10)
+        checkSoundFiles(id: 5)
+        checkSoundFiles(id: 2)
+        
         self.navigationItem.setHidesBackButton(true, animated: true)
         //schová zpět button. Objevuje se, pokud je tento VC pushnut ze SignInVC, což nechci
         
@@ -157,8 +161,6 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
                     
                 case .failure:
                     print("Error při requestu o token.")
-                    print(response.result)
-                    print(response.response!)
                 }
         }
     }

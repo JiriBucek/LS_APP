@@ -28,6 +28,7 @@
 		8964D8F321295DBA00D59220 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8964D8ED21295DBA00D59220 /* left.png */; };
 		897A626221FE2C0E0064A241 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 897A626121FE2C0E0064A241 /* locked.png */; };
 		897A626421FE2DFE0064A241 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 897A626321FE2DFA0064A241 /* images.png */; };
+		897FA7D82217D6CE007F43A5 /* publicStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897FA7D72217D6CE007F43A5 /* publicStuff.swift */; };
 		8988CBC121FD22BD00B9D50B /* signInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8988CBC021FD22BD00B9D50B /* signInVC.swift */; };
 		899163FD215C46B600A850EC /* GOTHICBI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163F9215C46B000A850EC /* GOTHICBI.TTF */; };
 		899163FE215C46B600A850EC /* GOTHIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163FA215C46B100A850EC /* GOTHIC.TTF */; };
@@ -102,6 +103,7 @@
 		8964D8ED21295DBA00D59220 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		897A626121FE2C0E0064A241 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
 		897A626321FE2DFA0064A241 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
+		897FA7D72217D6CE007F43A5 /* publicStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publicStuff.swift; sourceTree = "<group>"; };
 		8988CBBF21F8BEDD00B9D50B /* LS_playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = LS_playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8988CBC021FD22BD00B9D50B /* signInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInVC.swift; sourceTree = "<group>"; };
 		899163F9215C46B000A850EC /* GOTHICBI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHICBI.TTF; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				892B332F21275AD900BAF2F9 /* Images */,
 				892B333221275B2000BAF2F9 /* Sounds */,
 				892B33292127496000BAF2F9 /* MeditaceCell.swift */,
+				897FA7D72217D6CE007F43A5 /* publicStuff.swift */,
 				8922761B2216EE0F004B6F70 /* DownloadVC.swift */,
 				8988CBC021FD22BD00B9D50B /* signInVC.swift */,
 				892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */,
@@ -560,6 +563,7 @@
 				89C105CC210793BF006EBD5F /* ArticleCell.swift in Sources */,
 				89ED1BE52114C766001CC7F6 /* ArticleVC.swift in Sources */,
 				892B333621275E8C00BAF2F9 /* DetailMeditaceVC.swift in Sources */,
+				897FA7D82217D6CE007F43A5 /* publicStuff.swift in Sources */,
 				89C105CA210792D0006EBD5F /* ArticleListVC.swift in Sources */,
 				891D85532146A147006A40F6 /* MenuVC.swift in Sources */,
 				89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */,
