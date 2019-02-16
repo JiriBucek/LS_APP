@@ -31,10 +31,9 @@ public func checkSoundFiles(id: Int) -> Bool{
         let filePath2 = pathComponent2.path
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: filePath), fileManager.fileExists(atPath: filePath2) {
-            print("Mám sound file pro meditaci ID: ", id)
+            print("Mám sound files pro meditaci ID: ", id)
             return true
         } else {
-            print("Nemám sound file pro meditaci ID: ", id)
             return false
         }
     }else{

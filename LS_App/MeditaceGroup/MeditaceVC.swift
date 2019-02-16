@@ -54,7 +54,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
             if savedJson == nil {
                 savedJson = prvotniJson
             }
-            loadMeditationData(jsonData: JSON.parse(savedJson!))
+            loadMeditationData(jsonData: JSON.init(parseJSON: savedJson!))
             
             //listener. Pokud nejdřív net není a pak ho zapnou, tak spustí načítání.
             internetManager?.listener = { status in
@@ -245,6 +245,11 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
                 cell.obrazekMalyMeditace.alpha = 0.4
             }else{
                 cell.vrchniObrazek.image = nil
+                
+                if (self.meditaceArray?[indexPath.item].downloaded)!{
+                    cell.vrchniObrazek.image = #imageLiteral(resourceName: "downloaded")
+                }
+                
                 cell.obrazekMalyMeditace.alpha = 1
             }
         }

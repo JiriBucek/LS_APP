@@ -19,7 +19,7 @@ class MeditaceClass: NSObject {
     var dostupnost: Bool?
     var audioSlovo: String?
     var audioHudba: String?
-    var downloaded: Bool?
+    var downloaded: Bool = false
 }
 
 

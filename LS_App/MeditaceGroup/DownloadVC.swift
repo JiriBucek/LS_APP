@@ -21,8 +21,13 @@ class DownloadVC: UIViewController {
     @IBOutlet weak var slovoProgressView: UIProgressView!
     
     @IBAction func prerusitBtnPressed(_ sender: Any) {
+        
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
     }
-    
     var voiceUrl: String?
     var musicUrl: String?
     var id: Int?
@@ -55,6 +60,7 @@ class DownloadVC: UIViewController {
         if let musicURLunwrapped = musicUrl{
         
             Alamofire.download(musicURLunwrapped, to: hudbaDestination)
+                //stahování hudby, po dokončení se stahuje slovo
                 .downloadProgress{progress in
                     print("Progress: ", progress.fractionCompleted)
                     let progressInt = Int((progress.fractionCompleted * 1000).rounded() / 10)
@@ -64,11 +70,19 @@ class DownloadVC: UIViewController {
                 
                 .response{ response in
                     Alamofire.download(self.voiceUrl!, to: slovoDestination)
+                        //stahování slova
                         .downloadProgress{progress in
                             let progressInt = Int((progress.fractionCompleted * 1000).rounded() / 10)
                             self.slovoLabel.text = "Mluvené slovo: \(progressInt) %"
                             self.slovoProgressView.progress = Float(progress.fractionCompleted)
                     }
+                        .response{response in
+                            //po dokončení stahování slova se načte seznam meditací
+                            let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
+                            self.navigationController?.pushViewController(meditaceVC, animated: true)
+                            
+                        }
+                    
                 }
         }
     }
