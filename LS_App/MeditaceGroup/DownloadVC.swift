@@ -62,7 +62,9 @@ class DownloadVC: UIViewController {
             Alamofire.download(musicURLunwrapped, to: hudbaDestination)
                 //stahování hudby, po dokončení se stahuje slovo
                 .downloadProgress{progress in
-                    print("Progress: ", progress.fractionCompleted)
+                    print("Progress celkový: ", progress.totalUnitCount)
+                    print("Progress so far: ", progress.completedUnitCount)
+                    
                     let progressInt = Int((progress.fractionCompleted * 1000).rounded() / 10)
                     self.hudbaLabel.text = "Hudba: \(progressInt) %"
                     self.hudbaProgressView.progress = Float(progress.fractionCompleted)

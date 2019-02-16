@@ -349,7 +349,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Kgt-Fl-3gS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.6407851577" green="0.82124739889999998" blue="0.93667936330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.83796181815514603" green="0.93641851000575427" blue="0.93930440989847719" alpha="0.28975813356164382" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="zY1-ow-r0F" kind="relationship" relationship="viewControllers" id="ZLX-J0-HqW"/>
