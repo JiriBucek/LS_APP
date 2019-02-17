@@ -491,10 +491,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Audiomeditace" id="0y5-2G-MOr">
                         <barButtonItem key="backBarButtonItem" title="Zpět" id="JFi-fD-2LH"/>
-                        <barButtonItem key="rightBarButtonItem" image="about" id="YZX-1c-0i5">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="account" id="YZX-1c-0i5">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="nRH-Fm-8dG" kind="show" id="F2J-zZ-5uW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tn6-FZ-BXx">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="refreshBtnPressed:" destination="QQN-uS-WsP" id="POz-ph-310"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -503,7 +509,7 @@
                         <outlet property="overallLoadingView" destination="dDr-Sn-t0d" id="kcA-AQ-cc5"/>
                         <outlet property="spinnerView" destination="XiD-d5-jkI" id="3jg-9b-4AE"/>
                         <segue destination="kow-Hp-nJg" kind="show" id="ORq-lq-0Ue"/>
-                        <segue destination="i8u-wf-Ir0" kind="show" id="DOJ-VY-G54"/>
+                        <segue destination="i8u-wf-Ir0" kind="show" id="wW8-De-ZPo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qN-oH-Aau" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -624,7 +630,7 @@
                         <viewLayoutGuide key="safeArea" id="cmj-dt-BV3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Přihlášení" id="47P-Td-06u">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="about" id="C72-j6-6av">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="account" id="C72-j6-6av">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="nRH-Fm-8dG" kind="show" id="rXA-tk-Q0h"/>
@@ -1144,7 +1150,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
         <image name="15_back.png" width="474" height="474"/>
         <image name="15_forward.png" width="474" height="474"/>
         <image name="LS_logo_pruhledne" width="341" height="341"/>
-        <image name="about" width="30" height="30"/>
+        <image name="account" width="33" height="33"/>
         <image name="icons8-flower-25" width="25" height="25"/>
         <image name="icons8-meditation-25" width="25" height="25"/>
         <image name="ikonka_player" width="30" height="30"/>
@@ -1153,6 +1159,6 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
         <image name="sound.png" width="522" height="522"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F2J-zZ-5uW"/>
+        <segue reference="rXA-tk-Q0h"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -25,6 +25,11 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
     
     var meditaceArray:[MeditaceClass]? = []
     
+    @IBAction func refreshBtnPressed(_ sender: Any) {
+        overallLoadingView.isHidden = false
+        spinnerView.startAnimating()
+        self.viewDidLoad()
+    }
     var savedJson: String?
     
     @IBOutlet weak var meditaceTableView: UITableView!

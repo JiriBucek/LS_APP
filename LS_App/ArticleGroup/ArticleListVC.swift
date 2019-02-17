@@ -23,7 +23,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
 
     
     @IBAction func refreshBtn(_ sender: Any) {
-        //articlesArray = []
+        articlesArray?.removeAll()
+        
         spinnerSK.startAnimating()
         articlesTableView.reloadData()
         doNotMoveTableView = false
@@ -147,15 +148,15 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 Alamofire.request(mediaURL).responseJSON{response in
                     
                     if let mediaResponse = response.result.value{
-                    let mediaJson = JSON(mediaResponse)
+                        let mediaJson = JSON(mediaResponse)
                         
-                    if let obrazekUrl = mediaJson["media_details"]["sizes"]["thumbnail"]["source_url"].string{
-                        self.articlesTableView.beginUpdates()
-                        article.obrazekURL = obrazekUrl
-                        let rowNumber = self.articlesArray?.index(of: article) as! Int
-                        let rowIndexPath = IndexPath(row: rowNumber, section: 0)
-                        self.articlesTableView.reloadRows(at: [rowIndexPath], with: .none)
-                        self.articlesTableView.endUpdates()
+                        if let obrazekUrl = mediaJson["media_details"]["sizes"]["thumbnail"]["source_url"].string{
+                            self.articlesTableView.beginUpdates()
+                            article.obrazekURL = obrazekUrl
+                            let rowNumber = self.articlesArray?.index(of: article) ?? 0
+                            let rowIndexPath = IndexPath(row: rowNumber, section: 0)
+                            self.articlesTableView.reloadRows(at: [rowIndexPath], with: .none)
+                            self.articlesTableView.endUpdates()
 
                     }
                     }
