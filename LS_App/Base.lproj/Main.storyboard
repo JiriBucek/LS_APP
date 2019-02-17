@@ -491,7 +491,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Audiomeditace" id="0y5-2G-MOr">
                         <barButtonItem key="backBarButtonItem" title="Zpět" id="JFi-fD-2LH"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="account" id="YZX-1c-0i5">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="account" width="17" id="YZX-1c-0i5">
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="nRH-Fm-8dG" kind="show" id="F2J-zZ-5uW"/>
@@ -1159,6 +1160,6 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
         <image name="sound.png" width="522" height="522"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rXA-tk-Q0h"/>
+        <segue reference="F2J-zZ-5uW"/>
     </inferredMetricsTieBreakers>
 </document>

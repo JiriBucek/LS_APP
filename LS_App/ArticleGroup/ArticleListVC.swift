@@ -26,7 +26,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
         articlesArray?.removeAll()
         
         spinnerSK.startAnimating()
-        articlesTableView.reloadData()
         doNotMoveTableView = false
         overallLoadnigView.isHidden = false
         loadArticles(APIurl: APIadresa)
@@ -145,22 +144,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 let mediaURL = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/media/\(article.mediaId!)?_fields=media_details"
                 
-                Alamofire.request(mediaURL).responseJSON{response in
-                    
-                    if let mediaResponse = response.result.value{
-                        let mediaJson = JSON(mediaResponse)
-                        
-                        if let obrazekUrl = mediaJson["media_details"]["sizes"]["thumbnail"]["source_url"].string{
-                            self.articlesTableView.beginUpdates()
-                            article.obrazekURL = obrazekUrl
-                            let rowNumber = self.articlesArray?.index(of: article) ?? 0
-                            let rowIndexPath = IndexPath(row: rowNumber, section: 0)
-                            self.articlesTableView.reloadRows(at: [rowIndexPath], with: .none)
-                            self.articlesTableView.endUpdates()
 
-                    }
-                    }
-                }
                 
                 /*
                 if let malyObrazekUrl = json["_embedded"]["wp:featuredmedia"][0]["media_details"]["sizes"]["thumbnail"]["source_url"].string{
@@ -178,6 +162,24 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
 
                 self.articlesArray?.append(article)
 
+                Alamofire.request(mediaURL).responseJSON{response in
+                    
+                    if let mediaResponse = response.result.value{
+                        let mediaJson = JSON(mediaResponse)
+                        
+                        if let obrazekUrl = mediaJson["media_details"]["sizes"]["thumbnail"]["source_url"].string{
+                            self.articlesTableView.beginUpdates()
+                            article.obrazekURL = obrazekUrl
+                            print(self.articlesArray?.index(of: article))
+                            let rowNumber = self.articlesArray?.index(of: article) as! Int
+                            let rowIndexPath = IndexPath(row: rowNumber, section: 0)
+                            self.articlesTableView.reloadRows(at: [rowIndexPath], with: .none)
+                            self.articlesTableView.endUpdates()
+                            
+                        }
+                    }
+                }
+                
                 }
 
                 self.articlesTableView.reloadData()
