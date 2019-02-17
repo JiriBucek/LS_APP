@@ -38,6 +38,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.setHidesBackButton(true, animated: true)
         //schová zpět button. Objevuje se, pokud je tento VC pushnut ze SignInVC, což nechci
         

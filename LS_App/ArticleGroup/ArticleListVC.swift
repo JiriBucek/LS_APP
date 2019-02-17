@@ -57,6 +57,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+
         let spinnerFont = UIFont(name: "Century Gothic", size: 15)
         let loadingNib = UINib(nibName: "LoadingCell", bundle: nil)
         articlesTableView.register(loadingNib, forCellReuseIdentifier: "loadingCell")
