@@ -45,7 +45,7 @@ class DetailMeditaceVC: UIViewController {
                 self.navigationController?.pushViewController(newVC, animated: true)
             }else{
                 displayMessage(userMessage: "K přehrávání meditací online je zapotřebí připojení k internetu. Pokud chcete přehrávat offline, stáhněte si meditaci pomocí tlačítka \"Stáhnout meditaci\" na této obrazovce.", loadMeditationVC: false)
-        }
+            }
         }
     }
     
@@ -55,17 +55,12 @@ class DetailMeditaceVC: UIViewController {
     @IBAction func stahnoutMeditaciPrssd(_ sender: Any) {
         
         if let downloadedUnwrapped = downloaded{
+            
             if downloadedUnwrapped{
-                if deleteSoundFiles(id: id!){
-                    self.downloaded = false
-                    displayMessage(userMessage: "Soubory meditace byly úspěšně smazány.", loadMeditationVC: true)
-                    self.viewDidLoad()
-                }else{
-                    displayMessage(userMessage: "Nepodařilo se smazat soubory meditace.", loadMeditationVC: false)
-                }
+                askForPermissionToDelete(userMessage: "Přejete si smazat stažené soubory této meditace?")
             }else{
-            meditaceFilesRequest(vcName: "downloadVC")
-            print("stahnout btn pressed")
+                meditaceFilesRequest(vcName: "downloadVC")
+                print("stahnout btn pressed")
             }
         }
     }
@@ -88,11 +83,11 @@ class DetailMeditaceVC: UIViewController {
         if let downloadedUnwrapped = downloaded{
             if downloadedUnwrapped{
                 stahnoutMeditaciBtn.setTitle("Smazat stáhnutou meditaci.", for: .normal)
-                stahnoutMeditaciBtn.setTitleColor(.red, for: .normal)
+                stahnoutMeditaciBtn.setTitleColor(mojeCervena, for: .normal)
                 
             }else{
                 stahnoutMeditaciBtn.setTitle("Stáhnout meditaci", for: .normal)
-                stahnoutMeditaciBtn.setTitleColor(.blue, for: .normal)
+                stahnoutMeditaciBtn.setTitleColor(mojeModra, for: .normal)
             }
         }
         
@@ -191,7 +186,37 @@ class DetailMeditaceVC: UIViewController {
             }
         }
         
-    
+    func askForPermissionToDelete(userMessage:String) -> Void {
+        //tento alert se ptá, zda opravdu vymazat meditace
+        
+        DispatchQueue.main.async
+            {
+                let alertController = UIAlertController(title: nil, message: userMessage, preferredStyle: .alert)
+                
+                let yesAction = UIAlertAction(title: "Ano", style: .default) { (action:UIAlertAction!) in
+                    // Code in this block will trigger when OK button tapped.
+                    
+                    DispatchQueue.main.async{
+                        self.dismiss(animated: true, completion: nil)
+                        
+                        if deleteSoundFiles(id: self.id!){
+                            self.downloaded = false
+                            self.displayMessage(userMessage: "Soubory meditace byly úspěšně smazány.", loadMeditationVC: true)
+                            self.viewDidLoad()
+                        }else{
+                            self.displayMessage(userMessage: "Nepodařilo se smazat soubory meditace.", loadMeditationVC: false)
+                        }
+                    }
+                }
+                
+                let noAction = UIAlertAction(title: "Ne", style: .default, handler: { (action: UIAlertAction!) in
+                    self.dismiss(animated: true, completion: nil)
+                })
+                alertController.addAction(yesAction)
+                alertController.addAction(noAction)
+                self.present(alertController, animated: true, completion:nil)
+        }
+    }
     
 
 }

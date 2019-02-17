@@ -990,7 +990,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-bo-I4G">
                                         <rect key="frame" x="66.333333333333357" y="230.66666666666666" width="198.66666666666663" height="39.999999999999972"/>
-                                        <color key="backgroundColor" red="0.7655861692116751" green="0.32045433538040557" blue="0.29644865604961029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.7655861692116751" green="0.32662865438499206" blue="0.29328078661140405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="jmE-92-oFS"/>
                                         </constraints>

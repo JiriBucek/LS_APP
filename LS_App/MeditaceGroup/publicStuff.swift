@@ -11,6 +11,10 @@ import UIKit
 import Alamofire
 
 
+public let mojeModra = UIColor(displayP3Red: 40/255, green: 100/255, blue: 150/255, alpha: 1)
+public let mojeCervena = UIColor(displayP3Red: 195/255, green: 83/255, blue: 75/255, alpha: 1)
+
+
 public func checkInternet() -> Bool{
     let internetManager = NetworkReachabilityManager()
 
