@@ -976,7 +976,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emc-Bu-Me7">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emc-Bu-Me7">
                                 <rect key="frame" x="41.333333333333343" y="221" width="331.33333333333326" height="294"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-bo-I4G">
@@ -989,7 +989,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                             <action selector="prerusitBtnPressed:" destination="udV-ZN-jQr" eventType="touchUpInside" id="oLf-2U-aKs"/>
                                         </connections>
                                     </button>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wUr-HP-Thf">
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wUr-HP-Thf">
                                         <rect key="frame" x="66.333333333333357" y="199" width="198.66666666666663" height="2"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hudba: 0 MB / 0MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-Uz-1Ke">
@@ -998,7 +998,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xw1-ee-914">
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xw1-ee-914">
                                         <rect key="frame" x="66.333333333333357" y="126" width="198.66666666666663" height="2"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Probíhá stahování" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKz-k0-8pd">
@@ -1007,7 +1007,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mluvené slovo: 0 MB / 0 MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5j-8B-MJu">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mluvené slovo: 0 MB / ? MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5j-8B-MJu">
                                         <rect key="frame" x="54.333333333333343" y="158" width="223.00000000000003" height="21"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1034,7 +1034,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="0.74026113013698636" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="emc-Bu-Me7" firstAttribute="centerY" secondItem="V5a-h9-Zec" secondAttribute="centerY" id="hSP-f8-Ejr"/>
                             <constraint firstItem="emc-Bu-Me7" firstAttribute="width" secondItem="V5a-h9-Zec" secondAttribute="width" multiplier="0.8" id="j1r-9a-kEF"/>
@@ -1043,6 +1043,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                         <viewLayoutGuide key="safeArea" id="GZm-A8-QVH"/>
                     </view>
                     <connections>
+                        <outlet property="greyDownloadView" destination="emc-Bu-Me7" id="0BK-XR-1l1"/>
                         <outlet property="hudbaLabel" destination="iwC-Uz-1Ke" id="zAW-eg-sLS"/>
                         <outlet property="hudbaProgressView" destination="xw1-ee-914" id="Wkh-7y-c10"/>
                         <outlet property="slovoLabel" destination="v5j-8B-MJu" id="gK9-pd-G7M"/>

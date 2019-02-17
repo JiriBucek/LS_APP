@@ -160,7 +160,10 @@ class DetailMeditaceVC: UIViewController {
                     newVC.musicUrl = json["body"]["musicUrl"].string
                     newVC.voiceUrl = json["body"]["voiceUrl"].string
                     newVC.id = self.id
-                    self.navigationController?.pushViewController(newVC, animated: true)
+                    //newVC.view.isOpaque = false
+                    newVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                    
+                    self.navigationController?.present(newVC, animated: true)
                 }
                 print(response.result)
                 }

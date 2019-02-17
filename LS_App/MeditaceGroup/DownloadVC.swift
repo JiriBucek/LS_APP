@@ -20,22 +20,29 @@ class DownloadVC: UIViewController {
     
     @IBOutlet weak var slovoProgressView: UIProgressView!
     
+    @IBOutlet weak var greyDownloadView: UIView!
+    
+    
     @IBAction func prerusitBtnPressed(_ sender: Any) {
-        
         Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
             sessionDataTask.forEach { $0.cancel() }
             uploadData.forEach { $0.cancel() }
             downloadData.forEach { $0.cancel() }
         }
+        stahovatSlovo = false
+        self.dismiss(animated: true, completion: nil)
     }
     var voiceUrl: String?
     var musicUrl: String?
     var id: Int?
-    
+    var stahovatSlovo = true
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        greyDownloadView.layer.cornerRadius = 15
+        greyDownloadView.clipsToBounds = true
         
         
         if !checkInternet(){
@@ -62,31 +69,37 @@ class DownloadVC: UIViewController {
             Alamofire.download(musicURLunwrapped, to: hudbaDestination)
                 //stahování hudby, po dokončení se stahuje slovo
                 .downloadProgress{progress in
-                    print("Progress celkový: ", Double(progress.totalUnitCount/100000)/10)
-                    print("Progress so far: ", Double(progress.completedUnitCount/100000)/10)
+ 
+                    let stazeno = Double(progress.completedUnitCount/100000)/10
+                    let celkovaVelikost = Double(progress.totalUnitCount/100000)/10
                     
-                    let progressInt = Int((progress.fractionCompleted * 1000).rounded() / 10)
-                    self.hudbaLabel.text = "Hudba: \(progressInt) %"
+                    self.hudbaLabel.text = "Hudba: \(stazeno) MB / \(celkovaVelikost) MB"
                     self.hudbaProgressView.progress = Float(progress.fractionCompleted)
                 }
                 
                 .response{ response in
-                    
+                    if self.stahovatSlovo{
+                    //pokud přeruším stahování u prvního souboru, nechci, aby se začal stahovat tento
+                        
+                        Alamofire.download(self.voiceUrl!, to: slovoDestination)
+                            //stahování slova
+                            .downloadProgress{progress in
+                                let stazeno = Double(progress.completedUnitCount/100000)/10
+                                let celkovaVelikost = Double(progress.totalUnitCount/100000)/10
+                                print("Stazeno slovo: ", stazeno)
+                                
+                                self.slovoLabel.text = "Mluvené slovo: \(stazeno) MB / \(celkovaVelikost) MB"
+                                self.slovoProgressView.progress = Float(progress.fractionCompleted)
+                            }
+                            .response{response in
+                                //po dokončení stahování slova se načte seznam meditací
+                                let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
+                                self.navigationController?.present(meditaceVC, animated: true)
+                                
+                        }
+                    }
                 }
             
-            Alamofire.download(self.voiceUrl!, to: slovoDestination)
-                //stahování slova
-                .downloadProgress{progress in
-                    let progressInt = Int((progress.fractionCompleted * 1000).rounded() / 10)
-                    self.slovoLabel.text = "Mluvené slovo: \(progressInt) %"
-                    self.slovoProgressView.progress = Float(progress.fractionCompleted)
-                }
-                .response{response in
-                    //po dokončení stahování slova se načte seznam meditací
-                    let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
-                    self.navigationController?.pushViewController(meditaceVC, animated: true)
-                    
-            }
         }
     }
     
