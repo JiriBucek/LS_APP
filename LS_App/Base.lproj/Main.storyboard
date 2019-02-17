@@ -986,38 +986,45 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emc-Bu-Me7">
-                                <rect key="frame" x="41.333333333333343" y="221" width="331.33333333333326" height="294"/>
+                                <rect key="frame" x="41.333333333333343" y="217.66666666666666" width="331.33333333333326" height="300.66666666666674"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-bo-I4G">
-                                        <rect key="frame" x="103.33333333333331" y="231" width="125" height="33"/>
+                                        <rect key="frame" x="66.333333333333357" y="230.66666666666666" width="198.66666666666663" height="39.999999999999972"/>
+                                        <color key="backgroundColor" red="0.7655861692116751" green="0.32045433538040557" blue="0.29644865604961029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="jmE-92-oFS"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                         <state key="normal" title="Zrušit stahování">
-                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="prerusitBtnPressed:" destination="udV-ZN-jQr" eventType="touchUpInside" id="oLf-2U-aKs"/>
                                         </connections>
                                     </button>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wUr-HP-Thf">
-                                        <rect key="frame" x="66.333333333333357" y="199" width="198.66666666666663" height="2"/>
+                                        <rect key="frame" x="66.333333333333357" y="198.66666666666666" width="198.66666666666663" height="2"/>
+                                        <color key="tintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hudba: 0 MB / 0MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-Uz-1Ke">
-                                        <rect key="frame" x="86.999999999999986" y="85" width="157.66666666666663" height="21"/>
+                                        <rect key="frame" x="86.999999999999986" y="84.666666666666657" width="157.66666666666663" height="21"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xw1-ee-914">
-                                        <rect key="frame" x="66.333333333333357" y="126" width="198.66666666666663" height="2"/>
+                                        <rect key="frame" x="66.333333333333357" y="125.66666666666666" width="198.66666666666663" height="2"/>
+                                        <color key="tintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Probíhá stahování" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKz-k0-8pd">
-                                        <rect key="frame" x="79.000000000000014" y="30" width="173.33333333333337" height="25"/>
+                                        <rect key="frame" x="79.000000000000014" y="30" width="173.33333333333337" height="24.666666666666671"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mluvené slovo: 0 MB / ? MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5j-8B-MJu">
-                                        <rect key="frame" x="54.333333333333343" y="158" width="223.00000000000003" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mluvené slovo: 0 MB / ? MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5j-8B-MJu">
+                                        <rect key="frame" x="25" y="157.66666666666666" width="281.33333333333331" height="21"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1026,6 +1033,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="HCr-bo-I4G" firstAttribute="top" secondItem="wUr-HP-Thf" secondAttribute="bottom" constant="30" id="1QC-Af-B6F"/>
+                                    <constraint firstItem="v5j-8B-MJu" firstAttribute="width" secondItem="emc-Bu-Me7" secondAttribute="width" multiplier="0.85" id="3UI-mN-zHW"/>
                                     <constraint firstItem="wUr-HP-Thf" firstAttribute="width" secondItem="xw1-ee-914" secondAttribute="width" id="3vz-nA-IwA"/>
                                     <constraint firstItem="HCr-bo-I4G" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="AqQ-mO-xGk"/>
                                     <constraint firstItem="wUr-HP-Thf" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="BY0-vI-Jau"/>
@@ -1038,6 +1046,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                     <constraint firstItem="xw1-ee-914" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="d8W-NS-7fa"/>
                                     <constraint firstItem="iwC-Uz-1Ke" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="m4f-b6-lBP"/>
                                     <constraint firstItem="wUr-HP-Thf" firstAttribute="top" secondItem="v5j-8B-MJu" secondAttribute="bottom" constant="20" id="mtp-hk-P0P"/>
+                                    <constraint firstItem="HCr-bo-I4G" firstAttribute="width" secondItem="wUr-HP-Thf" secondAttribute="width" id="pO2-HG-un1"/>
                                     <constraint firstItem="UKz-k0-8pd" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="scA-1X-ReM"/>
                                     <constraint firstAttribute="bottom" secondItem="HCr-bo-I4G" secondAttribute="bottom" constant="30" id="vlt-6O-1PB"/>
                                 </constraints>
@@ -1057,11 +1066,12 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                         <outlet property="hudbaProgressView" destination="xw1-ee-914" id="Wkh-7y-c10"/>
                         <outlet property="slovoLabel" destination="v5j-8B-MJu" id="gK9-pd-G7M"/>
                         <outlet property="slovoProgressView" destination="wUr-HP-Thf" id="bAN-Wb-FWb"/>
+                        <outlet property="zrusitBtn" destination="HCr-bo-I4G" id="ogp-Uh-ssN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03b-tq-GGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3276.811594202899" y="1579.8913043478262"/>
+            <point key="canvasLocation" x="2728" y="1649"/>
         </scene>
         <!--Láskyplný svět-->
         <scene sceneID="Zd6-cc-TOg">

@@ -22,6 +22,7 @@ class DownloadVC: UIViewController {
     
     @IBOutlet weak var greyDownloadView: UIView!
     
+    @IBOutlet weak var zrusitBtn: UIButton!
     
     @IBAction func prerusitBtnPressed(_ sender: Any) {
         Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
@@ -43,7 +44,8 @@ class DownloadVC: UIViewController {
         
         greyDownloadView.layer.cornerRadius = 15
         greyDownloadView.clipsToBounds = true
-        
+        zrusitBtn.layer.cornerRadius = zrusitBtn.frame.height/2
+        zrusitBtn.clipsToBounds = true
         
         if !checkInternet(){
             displayMessage(userMessage: "Pro stahování meditací je zapotřebí připojení k internetu.")
@@ -80,7 +82,7 @@ class DownloadVC: UIViewController {
                 .response{ response in
                     if self.stahovatSlovo{
                     //pokud přeruším stahování u prvního souboru, nechci, aby se začal stahovat tento
-                        
+            
                         Alamofire.download(self.voiceUrl!, to: slovoDestination)
                             //stahování slova
                             .downloadProgress{progress in
@@ -93,8 +95,11 @@ class DownloadVC: UIViewController {
                             }
                             .response{response in
                                 //po dokončení stahování slova se načte seznam meditací
+                                self.dismiss(animated: true, completion: nil)
+        
+                                let rootVC = self.presentingViewController as! UINavigationController!
                                 let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
-                                self.navigationController?.present(meditaceVC, animated: true)
+                                rootVC?.pushViewController(meditaceVC, animated: true)
                                 
                         }
                     }
