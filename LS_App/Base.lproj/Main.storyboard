@@ -58,7 +58,7 @@
             <objects>
                 <viewController title="Články" id="UM7-im-dRJ" customClass="ArticleListVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H25-99-xYX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="articles" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-1b-qXy">
@@ -119,7 +119,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAL-8X-vqz">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oud-Pz-Dun">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
@@ -206,11 +206,11 @@
             <objects>
                 <viewController storyboardIdentifier="web" id="lo7-3R-Nno" customClass="articleWebVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v0m-cg-aSP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cvf-Pn-N5T">
-                                <rect key="frame" x="0.0" y="66" width="414" height="621"/>
+                                <rect key="frame" x="0.0" y="2" width="414" height="621"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -218,10 +218,10 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YOe-rD-xSd">
-                                <rect key="frame" x="0.0" y="64" width="414" height="2"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="2"/>
                             </progressView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OE6-ll-CU0">
-                                <rect key="frame" x="0.0" y="67" width="414" height="620"/>
+                                <rect key="frame" x="0.0" y="3" width="414" height="620"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>
@@ -1081,7 +1081,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                         <color key="badgeColor" red="0.6407851577" green="0.82124739889999998" blue="0.93667936330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cmN-Ec-VVM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="cmN-Ec-VVM">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.6407851577" green="0.82124739889999998" blue="0.93667936330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
