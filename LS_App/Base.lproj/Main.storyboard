@@ -976,46 +976,66 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emc-Bu-Me7">
-                                <rect key="frame" x="41.333333333333343" y="184" width="331.33333333333326" height="368"/>
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emc-Bu-Me7">
+                                <rect key="frame" x="41.333333333333343" y="221" width="331.33333333333326" height="294"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xw1-ee-914">
-                                        <rect key="frame" x="90" y="68" width="150" height="2"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </progressView>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wUr-HP-Thf">
-                                        <rect key="frame" x="90" y="160" width="150" height="2"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </progressView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-bo-I4G">
-                                        <rect key="frame" x="138" y="193" width="54" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Přerušit"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-bo-I4G">
+                                        <rect key="frame" x="103.33333333333331" y="231" width="125" height="33"/>
+                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                        <state key="normal" title="Zrušit stahování">
+                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="prerusitBtnPressed:" destination="udV-ZN-jQr" eventType="touchUpInside" id="oLf-2U-aKs"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mluvené slovo: 0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5j-8B-MJu">
-                                        <rect key="frame" x="59" y="109" width="213" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wUr-HP-Thf">
+                                        <rect key="frame" x="66.333333333333357" y="199" width="198.66666666666663" height="2"/>
+                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hudba: 0 MB / 0MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-Uz-1Ke">
+                                        <rect key="frame" x="86.999999999999986" y="85" width="157.66666666666663" height="21"/>
+                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xw1-ee-914">
+                                        <rect key="frame" x="66.333333333333357" y="126" width="198.66666666666663" height="2"/>
+                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Probíhá stahování" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKz-k0-8pd">
+                                        <rect key="frame" x="79.000000000000014" y="30" width="173.33333333333337" height="25"/>
+                                        <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mluvené slovo: 0 MB / 0 MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5j-8B-MJu">
+                                        <rect key="frame" x="54.333333333333343" y="158" width="223.00000000000003" height="21"/>
+                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="HCr-bo-I4G" firstAttribute="top" secondItem="wUr-HP-Thf" secondAttribute="bottom" constant="30" id="1QC-Af-B6F"/>
+                                    <constraint firstItem="wUr-HP-Thf" firstAttribute="width" secondItem="xw1-ee-914" secondAttribute="width" id="3vz-nA-IwA"/>
+                                    <constraint firstItem="HCr-bo-I4G" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="AqQ-mO-xGk"/>
+                                    <constraint firstItem="wUr-HP-Thf" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="BY0-vI-Jau"/>
+                                    <constraint firstItem="v5j-8B-MJu" firstAttribute="top" secondItem="xw1-ee-914" secondAttribute="bottom" constant="30" id="DVt-jV-Ddq"/>
+                                    <constraint firstItem="v5j-8B-MJu" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="Iea-UZ-Psg"/>
+                                    <constraint firstItem="iwC-Uz-1Ke" firstAttribute="top" secondItem="UKz-k0-8pd" secondAttribute="bottom" constant="30" id="TMp-Jl-Kxi"/>
+                                    <constraint firstItem="UKz-k0-8pd" firstAttribute="top" secondItem="emc-Bu-Me7" secondAttribute="top" constant="30" id="XPD-TN-WzG"/>
+                                    <constraint firstItem="xw1-ee-914" firstAttribute="width" secondItem="emc-Bu-Me7" secondAttribute="width" multiplier="0.6" id="Xip-sl-Rzo"/>
+                                    <constraint firstItem="xw1-ee-914" firstAttribute="top" secondItem="iwC-Uz-1Ke" secondAttribute="bottom" constant="20" id="b1U-ZX-KOV"/>
+                                    <constraint firstItem="xw1-ee-914" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="d8W-NS-7fa"/>
+                                    <constraint firstItem="iwC-Uz-1Ke" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="m4f-b6-lBP"/>
+                                    <constraint firstItem="wUr-HP-Thf" firstAttribute="top" secondItem="v5j-8B-MJu" secondAttribute="bottom" constant="20" id="mtp-hk-P0P"/>
+                                    <constraint firstItem="UKz-k0-8pd" firstAttribute="centerX" secondItem="emc-Bu-Me7" secondAttribute="centerX" id="scA-1X-ReM"/>
+                                    <constraint firstAttribute="bottom" secondItem="HCr-bo-I4G" secondAttribute="bottom" constant="30" id="vlt-6O-1PB"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hudba: 0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-Uz-1Ke">
-                                <rect key="frame" x="131" y="200" width="151" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="emc-Bu-Me7" firstAttribute="height" secondItem="V5a-h9-Zec" secondAttribute="height" multiplier="0.5" id="Nnf-9K-uco"/>
                             <constraint firstItem="emc-Bu-Me7" firstAttribute="centerY" secondItem="V5a-h9-Zec" secondAttribute="centerY" id="hSP-f8-Ejr"/>
                             <constraint firstItem="emc-Bu-Me7" firstAttribute="width" secondItem="V5a-h9-Zec" secondAttribute="width" multiplier="0.8" id="j1r-9a-kEF"/>
                             <constraint firstItem="emc-Bu-Me7" firstAttribute="centerX" secondItem="V5a-h9-Zec" secondAttribute="centerX" id="oA1-zi-Avy"/>

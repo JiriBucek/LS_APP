@@ -62,8 +62,8 @@ class DownloadVC: UIViewController {
             Alamofire.download(musicURLunwrapped, to: hudbaDestination)
                 //stahování hudby, po dokončení se stahuje slovo
                 .downloadProgress{progress in
-                    print("Progress celkový: ", progress.totalUnitCount)
-                    print("Progress so far: ", progress.completedUnitCount)
+                    print("Progress celkový: ", Double(progress.totalUnitCount/100000)/10)
+                    print("Progress so far: ", Double(progress.completedUnitCount/100000)/10)
                     
                     let progressInt = Int((progress.fractionCompleted * 1000).rounded() / 10)
                     self.hudbaLabel.text = "Hudba: \(progressInt) %"
@@ -71,21 +71,22 @@ class DownloadVC: UIViewController {
                 }
                 
                 .response{ response in
-                    Alamofire.download(self.voiceUrl!, to: slovoDestination)
-                        //stahování slova
-                        .downloadProgress{progress in
-                            let progressInt = Int((progress.fractionCompleted * 1000).rounded() / 10)
-                            self.slovoLabel.text = "Mluvené slovo: \(progressInt) %"
-                            self.slovoProgressView.progress = Float(progress.fractionCompleted)
-                    }
-                        .response{response in
-                            //po dokončení stahování slova se načte seznam meditací
-                            let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
-                            self.navigationController?.pushViewController(meditaceVC, animated: true)
-                            
-                        }
                     
                 }
+            
+            Alamofire.download(self.voiceUrl!, to: slovoDestination)
+                //stahování slova
+                .downloadProgress{progress in
+                    let progressInt = Int((progress.fractionCompleted * 1000).rounded() / 10)
+                    self.slovoLabel.text = "Mluvené slovo: \(progressInt) %"
+                    self.slovoProgressView.progress = Float(progress.fractionCompleted)
+                }
+                .response{response in
+                    //po dokončení stahování slova se načte seznam meditací
+                    let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
+                    self.navigationController?.pushViewController(meditaceVC, animated: true)
+                    
+            }
         }
     }
     
