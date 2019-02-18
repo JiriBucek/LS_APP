@@ -204,9 +204,9 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //povinná funkce protokolu UITAbleViewDataSource. Využívá identifieru, který jsem nastavil ve vlastnostech buňky
-        if indexPath.section == 0{
+        if indexPath.section == 0, (self.articlesArray?.indices.contains(indexPath.item))!{
         //sekce tableview s články
-            
+                  
             let cell = articlesTableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
         
             cell.nadpisLabel.text = self.articlesArray?[indexPath.item].nadpis
@@ -353,9 +353,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
 }
 
-let linkNaWebovouVerzi = """
-<em>Některé funkce, jako např. formuláře pro odesílání přihlášek na workshopy, se nemusí v této aplikaci zobrazovat správně. Pokud Vám něco nefunguje, jak má, navštivte prosím <a href=\"https://laskyplnysvet.cz/stesti/ty-a-laskyplny-svet/\">webovou verzi tohoto článku</a></em></p>\n
-"""
 
 
 extension String {
