@@ -219,11 +219,51 @@
                             </wkWebView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YOe-rD-xSd">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="2"/>
+                                <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OE6-ll-CU0">
                                 <rect key="frame" x="0.0" y="3" width="414" height="620"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8O-E1-8T7">
+                                <rect key="frame" x="137" y="221.66666666666669" width="140" height="180"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZ6-cq-c8C" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                        <rect key="frame" x="50" y="40" width="40" height="40"/>
+                                        <color key="backgroundColor" red="0.6407851577" green="0.82124739889999998" blue="0.93667936330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Bf7-dw-ehH"/>
+                                            <constraint firstAttribute="width" constant="40" id="mmZ-tr-D0P"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Načítám..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cv4-8I-eeZ">
+                                        <rect key="frame" x="26.999999999999993" y="119" width="86.333333333333314" height="21"/>
+                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                        <color key="textColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.75339790239726023" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Cv4-8I-eeZ" secondAttribute="bottom" constant="40" id="MnD-Zk-WsO"/>
+                                    <constraint firstItem="Cv4-8I-eeZ" firstAttribute="centerX" secondItem="C8O-E1-8T7" secondAttribute="centerX" id="RNi-zy-W9z"/>
+                                    <constraint firstItem="cZ6-cq-c8C" firstAttribute="top" secondItem="C8O-E1-8T7" secondAttribute="top" constant="40" id="WSs-Tl-HHA"/>
+                                    <constraint firstAttribute="width" constant="140" id="e4F-lk-DCA"/>
+                                    <constraint firstItem="cZ6-cq-c8C" firstAttribute="centerX" secondItem="C8O-E1-8T7" secondAttribute="centerX" id="ioS-4e-cT0"/>
+                                    <constraint firstAttribute="height" constant="180" id="urs-y9-Mm1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.corneRradius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -233,8 +273,10 @@
                             <constraint firstItem="AVw-ms-r0t" firstAttribute="bottom" secondItem="Cvf-Pn-N5T" secondAttribute="bottom" id="C60-q1-hs0"/>
                             <constraint firstItem="YOe-rD-xSd" firstAttribute="leading" secondItem="v0m-cg-aSP" secondAttribute="leading" id="Dwr-9B-J4a"/>
                             <constraint firstAttribute="trailing" secondItem="YOe-rD-xSd" secondAttribute="trailing" id="PLG-8y-54N"/>
+                            <constraint firstItem="C8O-E1-8T7" firstAttribute="centerY" secondItem="v0m-cg-aSP" secondAttribute="centerY" id="Scp-U9-coa"/>
                             <constraint firstItem="Cvf-Pn-N5T" firstAttribute="top" secondItem="YOe-rD-xSd" secondAttribute="bottom" id="XRa-QF-lhh"/>
                             <constraint firstItem="OE6-ll-CU0" firstAttribute="bottom" secondItem="AVw-ms-r0t" secondAttribute="bottom" id="dS4-P4-mey"/>
+                            <constraint firstItem="C8O-E1-8T7" firstAttribute="centerX" secondItem="v0m-cg-aSP" secondAttribute="centerX" id="dis-zU-pFm"/>
                             <constraint firstItem="OE6-ll-CU0" firstAttribute="trailing" secondItem="AVw-ms-r0t" secondAttribute="trailing" id="hKv-5e-s97"/>
                             <constraint firstItem="OE6-ll-CU0" firstAttribute="top" secondItem="YOe-rD-xSd" secondAttribute="top" constant="3" id="r4l-Q2-18h"/>
                             <constraint firstItem="AVw-ms-r0t" firstAttribute="trailing" secondItem="Cvf-Pn-N5T" secondAttribute="trailing" id="sFS-Qi-MDJ"/>
@@ -243,14 +285,16 @@
                         <viewLayoutGuide key="safeArea" id="AVw-ms-r0t"/>
                     </view>
                     <connections>
+                        <outlet property="loadingClanekView" destination="C8O-E1-8T7" id="686-Yf-uJ1"/>
                         <outlet property="pozadiView" destination="OE6-ll-CU0" id="PlD-7K-UwP"/>
                         <outlet property="progressView" destination="YOe-rD-xSd" id="Z6i-aP-PgG"/>
+                        <outlet property="spinnerView" destination="cZ6-cq-c8C" id="RHS-Gc-XR4"/>
                         <outlet property="webView" destination="Cvf-Pn-N5T" id="tEe-Ai-sUS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61c-YI-JRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3552.8000000000002" y="-45.42728635682159"/>
+            <point key="canvasLocation" x="3552.1739130434785" y="-45.652173913043484"/>
         </scene>
         <!--ArticleVC-->
         <scene sceneID="PbL-3M-rAA">

@@ -9,15 +9,18 @@
 import UIKit
 import WebKit
 import SKActivityIndicatorView
+import NVActivityIndicatorView
 
 
 class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
 
     var linkClanku = "www.laskyplnysvet.cz"
     
-
+    @IBOutlet weak var spinnerView: NVActivityIndicatorView!
+    
     @IBOutlet weak var webView: WKWebView!
     
+    @IBOutlet weak var loadingClanekView: UIView!
     @IBOutlet weak var pozadiView: UIImageView!
     @IBOutlet weak var progressView: UIProgressView!
     
@@ -28,6 +31,14 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
         self.webView!.isOpaque = false
         self.webView!.backgroundColor = UIColor.clear
         self.webView!.scrollView.backgroundColor = UIColor.clear
+        
+        
+        spinnerView.startAnimating()
+        loadingClanekView.isHidden = false
+        loadingClanekView.layer.cornerRadius = 15
+        loadingClanekView.clipsToBounds = true
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,8 +51,10 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
             //self.view.alpha = 0.8
             pozadiView.isHidden = false
             pozadiView.alpha = 1
+    
+            
             //pozadiView.image = #imageLiteral(resourceName: "uvod.png")
-            SKActivityIndicator.show("Načítám článek")
+            //SKActivityIndicator.show("Načítám článek")
         }
             webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
             //předává informaci progress view o tom, kolik je načteno stránky,
@@ -63,7 +76,9 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
                     //postupně vykreslí tmavší pozadí pro loading
                     //self.view.backgroundColor = .white
                     //self.view.alpha = 1
-                    SKActivityIndicator.dismiss()
+                    //SKActivityIndicator.dismiss()
+                    self.spinnerView.stopAnimating()
+                    self.loadingClanekView.isHidden = true
                     self.pozadiView.isHidden = true
                     
                 }, completion: nil)
@@ -134,7 +149,9 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        SKActivityIndicator.dismiss()
+        //SKActivityIndicator.dismiss()
+        spinnerView.stopAnimating()
+        loadingClanekView.isHidden = true
     }
     
 
