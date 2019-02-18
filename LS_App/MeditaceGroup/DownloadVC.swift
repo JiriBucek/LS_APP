@@ -84,7 +84,6 @@ class DownloadVC: UIViewController {
                             .downloadProgress{progress in
                                 let stazeno = Double(progress.completedUnitCount/100000)/10
                                 let celkovaVelikost = Double(progress.totalUnitCount/100000)/10
-                                print("Stazeno slovo: ", stazeno)
                                 
                                 self.slovoLabel.text = "Mluvené slovo: \(stazeno) MB / \(celkovaVelikost) MB"
                                 self.slovoProgressView.progress = Float(progress.fractionCompleted)

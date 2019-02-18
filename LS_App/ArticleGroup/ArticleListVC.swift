@@ -170,7 +170,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                         if let obrazekUrl = mediaJson["media_details"]["sizes"]["thumbnail"]["source_url"].string{
                             self.articlesTableView.beginUpdates()
                             article.obrazekURL = obrazekUrl
-                            print(self.articlesArray?.index(of: article))
                             let rowNumber = self.articlesArray?.index(of: article) as! Int
                             let rowIndexPath = IndexPath(row: rowNumber, section: 0)
                             self.articlesTableView.reloadRows(at: [rowIndexPath], with: .none)

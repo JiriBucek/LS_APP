@@ -18,33 +18,47 @@ class DetailMeditaceVC: UIViewController {
 
     @IBOutlet weak var velkyImageMeditace: UIImageView!
     
+    @IBOutlet weak var downloadedImage: UIImageView!
+    
     @IBOutlet weak var nadpisMeditaceLabel: UILabel!
     
     @IBOutlet weak var obsahMeditaceLabel: UILabel!
     
     @IBAction func prehrajMeditaciPressed(_ sender: Any) {
-
-        if checkInternet(){
-            if dostupnost!{
-                let backItem = UIBarButtonItem()
-                backItem.title = "Zpět"
-                navigationItem.backBarButtonItem = backItem
-                meditaceFilesRequest(vcName: "player")
-               
+        
+        if let dostupnost = dostupnost, let downloaded = downloaded{
+            print("Dostupne: \(dostupnost), downloaded: \(downloaded), signed in: \(signedIn), net: \(checkInternet())")
+            if checkInternet(){
+                if dostupnost{
+                    let backItem = UIBarButtonItem()
+                    backItem.title = "Zpět"
+                    navigationItem.backBarButtonItem = backItem
+                    meditaceFilesRequest(vcName: "player")
+                   
+                }else{
+                    if signedIn{
+                        let url = URL(string: "http://www.laskyplnysvet.cz/audiomeditace")
+                            if UIApplication.shared.canOpenURL(url!) {
+                                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                            }
+                        }else{
+                            print("SignInVC")
+                            loadSignInVC()
+                        }
+                    }
+                
             }else{
-                let url = URL(string: "http://www.laskyplnysvet.cz/audiomeditace")
-                if UIApplication.shared.canOpenURL(url!) {
-                    UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                if downloaded, dostupnost{
+                    let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
+                    newVC.id = self.id!
+                    newVC.downloaded = self.downloaded ?? false
+                    self.navigationController?.pushViewController(newVC, animated: true)
+                }else if dostupnost{
+                    displayMessage(userMessage: "K přehrávání meditací online je zapotřebí připojení k internetu. Pokud chcete přehrávat offline, stáhněte si meditaci pomocí tlačítka \"Stáhnout meditaci\" na této obrazovce.", loadMeditationVC: false)
+                }else{
+                    print("SignInVC")
+                    loadSignInVC()
                 }
-            }
-        }else{
-            if downloaded!{
-                let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
-                newVC.id = self.id!
-                newVC.downloaded = self.downloaded ?? false
-                self.navigationController?.pushViewController(newVC, animated: true)
-            }else{
-                displayMessage(userMessage: "K přehrávání meditací online je zapotřebí připojení k internetu. Pokud chcete přehrávat offline, stáhněte si meditaci pomocí tlačítka \"Stáhnout meditaci\" na této obrazovce.", loadMeditationVC: false)
             }
         }
     }
@@ -54,13 +68,15 @@ class DetailMeditaceVC: UIViewController {
     
     @IBAction func stahnoutMeditaciPrssd(_ sender: Any) {
         
-        if let downloadedUnwrapped = downloaded{
+        if let downloaded = downloaded, let dostupnost = dostupnost{
             
-            if downloadedUnwrapped{
+            if downloaded{
                 askForPermissionToDelete(userMessage: "Přejete si smazat stažené soubory této meditace?")
-            }else{
+            }else if dostupnost{
                 meditaceFilesRequest(vcName: "downloadVC")
                 print("stahnout btn pressed")
+            }else{
+                displayMessage(userMessage: "Tuto meditaci musíte nejdříve zakoupit na webu Láskyplného Světa.", loadMeditationVC: false)
             }
         }
     }
@@ -80,25 +96,36 @@ class DetailMeditaceVC: UIViewController {
         super.viewDidLoad()
         
         
-        if let downloadedUnwrapped = downloaded{
-            if downloadedUnwrapped{
-                stahnoutMeditaciBtn.setTitle("Smazat stáhnutou meditaci.", for: .normal)
-                stahnoutMeditaciBtn.setTitleColor(mojeCervena, for: .normal)
-                
+        
+        if let downloaded = downloaded, let dostupnost = dostupnost{
+            
+            if downloaded, dostupnost{
+                downloadedImage.image = #imageLiteral(resourceName: "downloaded")
+            }
+            
+        //nastavení buttonu podle toho, zda je meditace stahnuta, dostupna a zda je uzivatel prihlasen
+            if dostupnost{
+                if downloaded{
+                    prehrajMeditaciButton.setTitle("Přehraj offline", for: .normal)
+                    stahnoutMeditaciBtn.setTitle("Smazat stáhnutou meditaci.", for: .normal)
+                    stahnoutMeditaciBtn.setTitleColor(mojeCervena, for: .normal)
+                }else{
+                    prehrajMeditaciButton.setTitle("Přehraj online", for: .normal)
+                    stahnoutMeditaciBtn.setTitle("Stáhnout meditaci", for: .normal)
+                    stahnoutMeditaciBtn.setTitleColor(mojeModra, for: .normal)
+                }
             }else{
-                stahnoutMeditaciBtn.setTitle("Stáhnout meditaci", for: .normal)
-                stahnoutMeditaciBtn.setTitleColor(mojeModra, for: .normal)
+                if signedIn{
+                    prehrajMeditaciButton.setTitle("Kup meditaci", for: .normal)
+                }else{
+                    prehrajMeditaciButton.setTitle("Přihlásit", for: .normal)
+                }
             }
         }
         
         prehrajMeditaciButton.layer.cornerRadius = 20
         prehrajMeditaciButton.clipsToBounds = true
 
-        if dostupnost!{
-            prehrajMeditaciButton.setTitle("Přehraj meditaci", for: .normal)
-        }else{
-            prehrajMeditaciButton.setTitle("Kup meditaci", for: .normal)
-        }
         
         if nadpis != nil{
             nadpisMeditaceLabel.text = nadpis
@@ -185,6 +212,12 @@ class DetailMeditaceVC: UIViewController {
                     self.present(alertController, animated: true, completion:nil)
             }
         }
+    
+    func loadSignInVC(){
+        let signInVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signInVc") as! SignInViewController
+        self.navigationController?.pushViewController(signInVC, animated: true)
+    }
+    
         
     func askForPermissionToDelete(userMessage:String) -> Void {
         //tento alert se ptá, zda opravdu vymazat meditace

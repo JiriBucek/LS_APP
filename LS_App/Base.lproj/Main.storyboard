@@ -510,7 +510,6 @@
                         <outlet property="overallLoadingView" destination="dDr-Sn-t0d" id="kcA-AQ-cc5"/>
                         <outlet property="spinnerView" destination="XiD-d5-jkI" id="3jg-9b-4AE"/>
                         <segue destination="kow-Hp-nJg" kind="show" id="ORq-lq-0Ue"/>
-                        <segue destination="i8u-wf-Ir0" kind="show" id="wW8-De-ZPo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qN-oH-Aau" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -522,14 +521,14 @@
             <objects>
                 <viewController storyboardIdentifier="signInVc" title="Přihlášení" id="i8u-wf-Ir0" customClass="SignInViewController" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xiB-EW-X81">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="tei-lB-Rud">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCH-oc-91T">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="810"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="930.66666666666663"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0UW-dI-Nh1">
                                                 <rect key="frame" x="51.666666666666657" y="304.33333333333331" width="310.66666666666674" height="50"/>
@@ -561,7 +560,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkD-ur-unh">
-                                                <rect key="frame" x="151.66666666666666" y="374.33333333333331" width="110.99999999999997" height="30"/>
+                                                <rect key="frame" x="151.66666666666666" y="384.33333333333331" width="110.99999999999997" height="30"/>
                                                 <state key="normal" title="Zaregistrovat se">
                                                     <color key="titleColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -570,7 +569,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hk-Kx-3ME">
-                                                <rect key="frame" x="117.66666666666669" y="424.33333333333331" width="179" height="30"/>
+                                                <rect key="frame" x="117.66666666666669" y="434.33333333333331" width="179" height="30"/>
                                                 <state key="normal" title="Pokračovat bez registrace">
                                                     <color key="titleColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -580,7 +579,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="heslo" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vp6-nj-NY7">
-                                                <rect key="frame" x="51.666666666666657" y="234.33333333333331" width="310.66666666666674" height="50"/>
+                                                <rect key="frame" x="51.666666666666657" y="234.33333333333337" width="310.66666666666674" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="aXH-to-B13"/>
                                                 </constraints>
@@ -596,7 +595,7 @@
                                             <constraint firstItem="vp6-nj-NY7" firstAttribute="top" secondItem="Bat-Ja-Vwg" secondAttribute="bottom" constant="20" id="DHX-lB-wac"/>
                                             <constraint firstItem="vp6-nj-NY7" firstAttribute="centerX" secondItem="pCH-oc-91T" secondAttribute="centerX" id="Ehm-Gl-gkj"/>
                                             <constraint firstItem="Bat-Ja-Vwg" firstAttribute="centerX" secondItem="pCH-oc-91T" secondAttribute="centerX" id="KFn-Ec-9Oe"/>
-                                            <constraint firstItem="KkD-ur-unh" firstAttribute="top" secondItem="0UW-dI-Nh1" secondAttribute="bottom" constant="20" id="RnS-kb-sfZ"/>
+                                            <constraint firstItem="KkD-ur-unh" firstAttribute="top" secondItem="0UW-dI-Nh1" secondAttribute="bottom" constant="30" id="RnS-kb-sfZ"/>
                                             <constraint firstItem="Bat-Ja-Vwg" firstAttribute="width" secondItem="fVT-Aw-gmf" secondAttribute="width" multiplier="2.5" id="SP4-X4-gAl"/>
                                             <constraint firstItem="vp6-nj-NY7" firstAttribute="width" secondItem="Bat-Ja-Vwg" secondAttribute="width" id="Ucc-2E-yZG"/>
                                             <constraint firstItem="9hk-Kx-3ME" firstAttribute="top" secondItem="KkD-ur-unh" secondAttribute="bottom" constant="20" id="WcT-RD-04Z"/>
@@ -654,16 +653,17 @@
             <objects>
                 <viewController title="Info" id="nRH-Fm-8dG" customClass="InfoVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7qw-vP-2aq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-IK-ieh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="203.66666666666666"/>
+                                <rect key="frame" x="0.0" y="19.999999999999986" width="414" height="224.66666666666663"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" link="YES" selected="YES"/>
                                 </accessibility>
-                                <string key="text">Pro přihlášení je zapotřebí se nejprve registrovat na www.laskyplnysvet.cz/audiomeditace. Na této stránce je také možnost meditace nakupovat. 
+                                <string key="text">
+Pro přihlášení je zapotřebí se nejprve registrovat na www.laskyplnysvet.cz/audiomeditace. Na této stránce je také možnost meditace nakupovat. 
 
 Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a zakoupené meditace budete mít k dispozici pro poslech i zde ve speciálním přehrávači.  </string>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -672,19 +672,19 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jste přihlášen(a) jako:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-mQ-tdD">
-                                <rect key="frame" x="116.33333333333333" y="233.66666666666669" width="181.33333333333337" height="21"/>
+                                <rect key="frame" x="116.33333333333333" y="274.66666666666669" width="181.33333333333337" height="21"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nepřihlášen." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NV5-uE-j8f">
-                                <rect key="frame" x="156" y="269.66666666666669" width="102" height="21"/>
+                                <rect key="frame" x="156" y="315.66666666666669" width="102" height="21"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQO-cH-7My">
-                                <rect key="frame" x="82.666666666666671" y="305.66666666666669" width="248.66666666666663" height="40"/>
+                                <rect key="frame" x="82.666666666666671" y="356.66666666666669" width="248.66666666666663" height="40"/>
                                 <color key="backgroundColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="wgf-H2-Nd1"/>
@@ -704,12 +704,12 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                             <constraint firstItem="CbY-IK-ieh" firstAttribute="leading" secondItem="JRU-eL-ojN" secondAttribute="leading" id="FfE-GI-JJW"/>
                             <constraint firstItem="QQX-mQ-tdD" firstAttribute="centerX" secondItem="7qw-vP-2aq" secondAttribute="centerX" id="GXC-c1-PQd"/>
                             <constraint firstItem="cQO-cH-7My" firstAttribute="width" secondItem="7qw-vP-2aq" secondAttribute="width" multiplier="0.6" id="HxV-RD-YIJ"/>
-                            <constraint firstItem="cQO-cH-7My" firstAttribute="top" secondItem="NV5-uE-j8f" secondAttribute="bottom" constant="15" id="TUh-K2-Ltm"/>
+                            <constraint firstItem="cQO-cH-7My" firstAttribute="top" secondItem="NV5-uE-j8f" secondAttribute="bottom" constant="20" id="TUh-K2-Ltm"/>
                             <constraint firstItem="CbY-IK-ieh" firstAttribute="trailing" secondItem="JRU-eL-ojN" secondAttribute="trailing" id="dSq-MV-Xdc"/>
                             <constraint firstItem="cQO-cH-7My" firstAttribute="centerX" secondItem="7qw-vP-2aq" secondAttribute="centerX" id="dnl-zr-Fbb"/>
                             <constraint firstItem="CbY-IK-ieh" firstAttribute="top" secondItem="JRU-eL-ojN" secondAttribute="top" id="gwx-7j-CSo"/>
                             <constraint firstItem="QQX-mQ-tdD" firstAttribute="top" secondItem="CbY-IK-ieh" secondAttribute="bottom" constant="30" id="iEr-r0-1qE"/>
-                            <constraint firstItem="NV5-uE-j8f" firstAttribute="top" secondItem="QQX-mQ-tdD" secondAttribute="bottom" constant="15" id="mbc-aQ-HzI"/>
+                            <constraint firstItem="NV5-uE-j8f" firstAttribute="top" secondItem="QQX-mQ-tdD" secondAttribute="bottom" constant="20" id="mbc-aQ-HzI"/>
                             <constraint firstItem="NV5-uE-j8f" firstAttribute="centerX" secondItem="7qw-vP-2aq" secondAttribute="centerX" id="nkY-vx-sF2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JRU-eL-ojN"/>
@@ -779,10 +779,17 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                                             <action selector="stahnoutMeditaciPrssd:" destination="kow-Hp-nJg" eventType="touchUpInside" id="Ajs-ql-cL6"/>
                                                         </connections>
                                                     </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GNy-SY-wdx">
+                                                        <rect key="frame" x="171.66666666666663" y="37.333333333333329" width="242.33333333333337" height="242.33333333333337"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="GNy-SY-wdx" secondAttribute="height" multiplier="1:1" id="yAa-Vo-TQg"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="WC5-Vl-5yV" firstAttribute="top" secondItem="Dkh-f9-pYz" secondAttribute="top" constant="5" id="7Wq-N1-ZFZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="GNy-SY-wdx" secondAttribute="trailing" id="F6b-dk-nOh"/>
                                                     <constraint firstAttribute="bottom" secondItem="zAx-8f-IIv" secondAttribute="bottom" constant="40" id="IR4-hq-72j"/>
                                                     <constraint firstItem="3uw-5i-Xaz" firstAttribute="leading" secondItem="Dkh-f9-pYz" secondAttribute="leading" id="KQp-vB-mqL"/>
                                                     <constraint firstAttribute="trailing" secondItem="WC5-Vl-5yV" secondAttribute="trailing" constant="5" id="Oba-rT-4EP"/>
@@ -790,8 +797,10 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                                     <constraint firstAttribute="trailing" secondItem="3uw-5i-Xaz" secondAttribute="trailing" id="XU3-XW-OAx"/>
                                                     <constraint firstItem="uiW-p1-XdI" firstAttribute="top" secondItem="3uw-5i-Xaz" secondAttribute="bottom" constant="15" id="ZIQ-bH-oUm"/>
                                                     <constraint firstItem="3uw-5i-Xaz" firstAttribute="top" secondItem="WC5-Vl-5yV" secondAttribute="bottom" constant="15" id="by3-yR-DBP"/>
+                                                    <constraint firstItem="WC5-Vl-5yV" firstAttribute="bottom" secondItem="GNy-SY-wdx" secondAttribute="bottom" id="gAR-e8-F6R"/>
                                                     <constraint firstAttribute="trailing" secondItem="uiW-p1-XdI" secondAttribute="trailing" constant="15" id="ggM-zy-ljO"/>
                                                     <constraint firstItem="ZbB-uS-oXf" firstAttribute="top" secondItem="uiW-p1-XdI" secondAttribute="bottom" constant="30" id="l6L-JM-uNZ"/>
+                                                    <constraint firstItem="GNy-SY-wdx" firstAttribute="width" secondItem="WC5-Vl-5yV" secondAttribute="width" multiplier="0.6" id="lll-vN-wmi"/>
                                                     <constraint firstItem="ZbB-uS-oXf" firstAttribute="centerX" secondItem="Dkh-f9-pYz" secondAttribute="centerX" id="pAf-uR-I8O"/>
                                                     <constraint firstItem="WC5-Vl-5yV" firstAttribute="leading" secondItem="Dkh-f9-pYz" secondAttribute="leading" constant="5" id="v1H-Ws-0v5"/>
                                                     <constraint firstItem="zAx-8f-IIv" firstAttribute="top" secondItem="ZbB-uS-oXf" secondAttribute="bottom" constant="30" id="xxd-wZ-uji"/>
@@ -829,6 +838,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                         <viewLayoutGuide key="safeArea" id="4kI-wg-VoG"/>
                     </view>
                     <connections>
+                        <outlet property="downloadedImage" destination="GNy-SY-wdx" id="OdS-9t-SZX"/>
                         <outlet property="nadpisMeditaceLabel" destination="3uw-5i-Xaz" id="RDB-rd-hNi"/>
                         <outlet property="obsahMeditaceLabel" destination="uiW-p1-XdI" id="Gdi-EU-orm"/>
                         <outlet property="prehrajMeditaciButton" destination="ZbB-uS-oXf" id="qed-q1-isM"/>
@@ -1157,6 +1167,6 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
         <image name="sound.png" width="522" height="522"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F2J-zZ-5uW"/>
+        <segue reference="rXA-tk-Q0h"/>
     </inferredMetricsTieBreakers>
 </document>
