@@ -68,9 +68,13 @@ class DetailMeditaceVC: UIViewController {
     
     @IBAction func stahnoutMeditaciPrssd(_ sender: Any) {
         
+        
         if let downloaded = downloaded, let dostupnost = dostupnost{
             
             if downloaded{
+                if !signedIn, !dostupnost{
+                    displayMessage(userMessage: "Tuto meditaci musíte nejdříve zakoupit na webu Láskyplného Světa.", loadMeditationVC: false)
+                }
                 askForPermissionToDelete(userMessage: "Přejete si smazat stažené soubory této meditace?")
             }else if dostupnost{
                 meditaceFilesRequest(vcName: "downloadVC")
@@ -92,36 +96,12 @@ class DetailMeditaceVC: UIViewController {
     var velikost: Int64?
     var downloaded: Bool?
     
+    var labelAlreadyUpdated = false
+    //obsah label je upgradovan o text ve viewwillappear. Diky tomu neni upgradován vícekrát.
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        if let downloaded = downloaded, let dostupnost = dostupnost{
-            
-            if downloaded, dostupnost{
-                downloadedImage.image = #imageLiteral(resourceName: "downloaded")
-            }
-            
-        //nastavení buttonu podle toho, zda je meditace stahnuta, dostupna a zda je uzivatel prihlasen
-            if dostupnost{
-                if downloaded{
-                    prehrajMeditaciButton.setTitle("Přehraj offline", for: .normal)
-                    stahnoutMeditaciBtn.setTitle("Smazat stáhnutou meditaci.", for: .normal)
-                    stahnoutMeditaciBtn.setTitleColor(mojeCervena, for: .normal)
-                }else{
-                    prehrajMeditaciButton.setTitle("Přehraj online", for: .normal)
-                    stahnoutMeditaciBtn.setTitle("Stáhnout meditaci", for: .normal)
-                    stahnoutMeditaciBtn.setTitleColor(mojeModra, for: .normal)
-                }
-            }else{
-                if signedIn{
-                    prehrajMeditaciButton.setTitle("Kup meditaci", for: .normal)
-                }else{
-                    prehrajMeditaciButton.setTitle("Přihlásit", for: .normal)
-                }
-            }
-        }
         
         prehrajMeditaciButton.layer.cornerRadius = 20
         prehrajMeditaciButton.clipsToBounds = true
@@ -148,6 +128,53 @@ class DetailMeditaceVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        
+        if let downloaded = downloaded, let dostupnost = dostupnost{
+            
+            if downloaded, dostupnost{
+                downloadedImage.image = #imageLiteral(resourceName: "downloaded")
+            }
+            
+            //nastavení buttonu podle toho, zda je meditace stahnuta, dostupna a zda je uzivatel prihlasen
+            if dostupnost{
+                
+                if downloaded{
+                    prehrajMeditaciButton.setTitle("Přehraj offline", for: .normal)
+                    stahnoutMeditaciBtn.setTitle("Smazat stáhnutou meditaci.", for: .normal)
+                    stahnoutMeditaciBtn.setTitleColor(mojeCervena, for: .normal)
+                    if !labelAlreadyUpdated{
+                        obsahMeditaceLabel.text = "\(String(describing: obsahMeditaceLabel.text!)) \n \nAudiosoubory této meditace máte staženy v telefonu. Meditaci můžete přehrávat offline."
+                        labelAlreadyUpdated = true
+                    }
+                    
+                }else{
+                    prehrajMeditaciButton.setTitle("Přehraj online", for: .normal)
+                    stahnoutMeditaciBtn.setTitle("Stáhnout meditaci", for: .normal)
+                    stahnoutMeditaciBtn.setTitleColor(mojeModra, for: .normal)
+                    if !labelAlreadyUpdated{
+                        obsahMeditaceLabel.text = "\(String(describing: obsahMeditaceLabel.text!)) \n \nTuto meditaci můžete přehrát online (streamovat) nebo si ji můžete stáhnout do telefonu a poslouchat offline."
+                        labelAlreadyUpdated = true
+                    }
+                }
+            }else{
+                if signedIn{
+                    prehrajMeditaciButton.setTitle("Kup meditaci", for: .normal)
+                    if !labelAlreadyUpdated{
+                        obsahMeditaceLabel.text = "\(String(describing: obsahMeditaceLabel.text!)) \n \nMeditaci lze zakoupit na webu Láskyplného Světa. Po přihlášení zde v aplikaci pomocí Vašeho emailu a hesla bude možné meditaci zde přehrát. ."
+                        labelAlreadyUpdated = true
+                    }
+                    
+                }else{
+                    prehrajMeditaciButton.setTitle("Přihlásit", for: .normal)
+                    if !labelAlreadyUpdated{
+                        obsahMeditaceLabel.text = "\(String(describing: obsahMeditaceLabel.text!)) \n \nPro přehrání meditace je nutné meditaci zakoupit na webu a přihlásit se pod svým uživatelským jménem."
+                        labelAlreadyUpdated = true
+                    }
+                }
+            }
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

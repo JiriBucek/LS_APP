@@ -192,7 +192,6 @@
 				89BD948D22168385005B1223 /* MeditationImages */,
 				8964D8E921295D9A00D59220 /* IkonkyPlayer */,
 				892B332F21275AD900BAF2F9 /* Images */,
-				892B333221275B2000BAF2F9 /* Sounds */,
 				892B33292127496000BAF2F9 /* MeditaceCell.swift */,
 				897FA7D72217D6CE007F43A5 /* publicStuff.swift */,
 				8922761B2216EE0F004B6F70 /* DownloadVC.swift */,
@@ -214,13 +213,6 @@
 				897A626121FE2C0E0064A241 /* locked.png */,
 			);
 			path = Images;
-			sourceTree = "<group>";
-		};
-		892B333221275B2000BAF2F9 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sounds;
 			sourceTree = "<group>";
 		};
 		8964D8E921295D9A00D59220 /* IkonkyPlayer */ = {
