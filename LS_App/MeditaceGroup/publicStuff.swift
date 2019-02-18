@@ -69,3 +69,12 @@ public func deleteSoundFiles(id: Int) -> Bool{
         return false
     }
 }
+
+
+public func cancelAllAlamofireRequests(){
+    Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+        sessionDataTask.forEach { $0.cancel() }
+        uploadData.forEach { $0.cancel() }
+        downloadData.forEach { $0.cancel() }
+    }
+}

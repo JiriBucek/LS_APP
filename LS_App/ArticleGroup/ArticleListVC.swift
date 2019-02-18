@@ -24,7 +24,7 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     
     @IBAction func refreshBtn(_ sender: Any) {
         articlesArray?.removeAll()
-        
+        cancelAllAlamofireRequests()
         spinnerSK.startAnimating()
         doNotMoveTableView = false
         overallLoadnigView.isHidden = false

@@ -25,11 +25,7 @@ class DownloadVC: UIViewController {
     @IBOutlet weak var zrusitBtn: UIButton!
     
     @IBAction func prerusitBtnPressed(_ sender: Any) {
-        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
-            sessionDataTask.forEach { $0.cancel() }
-            uploadData.forEach { $0.cancel() }
-            downloadData.forEach { $0.cancel() }
-        }
+        cancelAllAlamofireRequests()
         stahovatSlovo = false
         self.dismiss(animated: true, completion: nil)
     }
@@ -42,7 +38,7 @@ class DownloadVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        greyDownloadView.layer.cornerRadius = 15
+        greyDownloadView.layer.cornerRadius = 20
         greyDownloadView.clipsToBounds = true
         zrusitBtn.layer.cornerRadius = zrusitBtn.frame.height/2
         zrusitBtn.clipsToBounds = true

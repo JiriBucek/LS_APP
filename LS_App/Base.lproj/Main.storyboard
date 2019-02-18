@@ -918,7 +918,6 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         <inset key="contentEdgeInsets" minX="30" minY="30" maxX="30" maxY="30"/>
                                         <state key="normal" image="play.png">
                                             <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="playBtnPressed:" destination="FO9-6C-WA2" eventType="touchUpInside" id="Kpi-w7-end"/>
@@ -935,7 +934,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="apV-oB-pds" customClass="mujSlider" customModule="LS_App" customModuleProvider="target">
                                 <rect key="frame" x="28" y="493" width="358" height="31"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="minimumTrackTintColor" red="0.088678114119999998" green="0.49555915589999999" blue="0.98482519390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="minimumTrackTintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="maximumTrackTintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="0.70189279317855835" green="0.70200991630554199" blue="0.70186787843704224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -1091,7 +1090,6 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="cmN-Ec-VVM">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.6407851577" green="0.82124739889999998" blue="0.93667936330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="19"/>
@@ -1123,7 +1121,6 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="rdy-PC-oQi">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.15686274509803921" green="0.39215686274509803" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.15686274509803921" green="0.39215686274509803" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="19"/>
@@ -1151,7 +1148,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
         <image name="15_back.png" width="474" height="474"/>
         <image name="15_forward.png" width="474" height="474"/>
         <image name="LS_logo_pruhledne" width="341" height="341"/>
-        <image name="account" width="33" height="33"/>
+        <image name="account" width="24" height="24"/>
         <image name="icons8-flower-25" width="25" height="25"/>
         <image name="icons8-meditation-25" width="25" height="25"/>
         <image name="ikonka_player" width="30" height="30"/>
