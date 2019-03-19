@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		891D85532146A147006A40F6 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891D85522146A147006A40F6 /* MenuVC.swift */; };
 		8922761C2216EE0F004B6F70 /* DownloadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922761B2216EE0F004B6F70 /* DownloadVC.swift */; };
 		892B332021244FD300BAF2F9 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892B331F21244FD300BAF2F9 /* LoadingCell.xib */; };
 		892B33222124500900BAF2F9 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B33212124500800BAF2F9 /* LoadingCell.swift */; };
@@ -17,7 +16,7 @@
 		892B333621275E8C00BAF2F9 /* DetailMeditaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */; };
 		8946ABA92180E0B5007EF199 /* mujSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8946ABA82180E0B5007EF199 /* mujSlider.swift */; };
 		8964D8E821294ACE00D59220 /* MeditacePlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */; };
-		897FA7D82217D6CE007F43A5 /* publicStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897FA7D72217D6CE007F43A5 /* publicStuff.swift */; };
+		897FA7D82217D6CE007F43A5 /* publicCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897FA7D72217D6CE007F43A5 /* publicCode.swift */; };
 		8988CBC121FD22BD00B9D50B /* signInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8988CBC021FD22BD00B9D50B /* signInVC.swift */; };
 		899163FD215C46B600A850EC /* GOTHICBI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163F9215C46B000A850EC /* GOTHICBI.TTF */; };
 		899163FE215C46B600A850EC /* GOTHIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 899163FA215C46B100A850EC /* GOTHIC.TTF */; };
@@ -26,7 +25,6 @@
 		89916402215E1BB200A850EC /* articleWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89916401215E1BB200A850EC /* articleWebVC.swift */; };
 		89A9B61822042C5900527EED /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A9B61722042C5900527EED /* InfoVC.swift */; };
 		89C1059C21078BAE006EBD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059B21078BAE006EBD5F /* AppDelegate.swift */; };
-		89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1059D21078BAE006EBD5F /* HomeVC.swift */; };
 		89C105A121078BAE006EBD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C1059F21078BAE006EBD5F /* Main.storyboard */; };
 		89C105A321078BB2006EBD5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C105A221078BB2006EBD5F /* Assets.xcassets */; };
 		89C105A621078BB2006EBD5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C105A421078BB2006EBD5F /* LaunchScreen.storyboard */; };
@@ -56,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		4F5C6FB3141DBBD8FAB7FD1E /* Pods_LS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		891D85522146A147006A40F6 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		8922761B2216EE0F004B6F70 /* DownloadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVC.swift; sourceTree = "<group>"; };
 		892B331F21244FD300BAF2F9 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		892B33212124500800BAF2F9 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
@@ -66,7 +63,7 @@
 		892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMeditaceVC.swift; sourceTree = "<group>"; };
 		8946ABA82180E0B5007EF199 /* mujSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mujSlider.swift; sourceTree = "<group>"; };
 		8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditacePlayerVC.swift; sourceTree = "<group>"; };
-		897FA7D72217D6CE007F43A5 /* publicStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publicStuff.swift; sourceTree = "<group>"; };
+		897FA7D72217D6CE007F43A5 /* publicCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publicCode.swift; sourceTree = "<group>"; };
 		8988CBBF21F8BEDD00B9D50B /* LS_playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = LS_playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8988CBC021FD22BD00B9D50B /* signInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInVC.swift; sourceTree = "<group>"; };
 		899163F9215C46B000A850EC /* GOTHICBI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHICBI.TTF; sourceTree = "<group>"; };
@@ -77,7 +74,6 @@
 		89A9B61722042C5900527EED /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		89C1059821078BAE006EBD5F /* LS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C1059B21078BAE006EBD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89C1059D21078BAE006EBD5F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		89C105A021078BAE006EBD5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89C105A221078BB2006EBD5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89C105A521078BB2006EBD5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -118,35 +114,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		892B332321270A9000BAF2F9 /* ArticleGroup */ = {
+		892B332321270A9000BAF2F9 /* ArticlesFeature */ = {
 			isa = PBXGroup;
 			children = (
-				89C105CB210793BF006EBD5F /* ArticleCell.swift */,
+				8958259822412F9700DE7C0C /* Controllers */,
+				8958259A22412FF500DE7C0C /* Model */,
+				8958259922412FC900DE7C0C /* View */,
+			);
+			path = ArticlesFeature;
+			sourceTree = "<group>";
+		};
+		892B3326212747D500BAF2F9 /* MeditationsFeature */ = {
+			isa = PBXGroup;
+			children = (
+				8958259C2241306700DE7C0C /* View */,
+				8958259D2241306E00DE7C0C /* Model */,
+				8958259B2241303700DE7C0C /* Controllers */,
+			);
+			path = MeditationsFeature;
+			sourceTree = "<group>";
+		};
+		8958259822412F9700DE7C0C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				89C105C9210792D0006EBD5F /* ArticleListVC.swift */,
-				89C105CD210795E3006EBD5F /* ArticleClass.swift */,
-				892B331F21244FD300BAF2F9 /* LoadingCell.xib */,
-				892B33212124500800BAF2F9 /* LoadingCell.swift */,
 				89ED1BE42114C766001CC7F6 /* ArticleVC.swift */,
 				89916401215E1BB200A850EC /* articleWebVC.swift */,
 			);
-			path = ArticleGroup;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		892B3326212747D500BAF2F9 /* MeditaceGroup */ = {
+		8958259922412FC900DE7C0C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				892B33292127496000BAF2F9 /* MeditaceCell.swift */,
-				897FA7D72217D6CE007F43A5 /* publicStuff.swift */,
+				89C105CB210793BF006EBD5F /* ArticleCell.swift */,
+				892B331F21244FD300BAF2F9 /* LoadingCell.xib */,
+				892B33212124500800BAF2F9 /* LoadingCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8958259A22412FF500DE7C0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89C105CD210795E3006EBD5F /* ArticleClass.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8958259B2241303700DE7C0C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				8922761B2216EE0F004B6F70 /* DownloadVC.swift */,
 				8988CBC021FD22BD00B9D50B /* signInVC.swift */,
-				892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */,
 				892B3324212710AB00BAF2F9 /* MeditaceVC.swift */,
 				892B333521275E8C00BAF2F9 /* DetailMeditaceVC.swift */,
 				8964D8E721294ACE00D59220 /* MeditacePlayerVC.swift */,
 				89A9B61722042C5900527EED /* InfoVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8958259C2241306700DE7C0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				892B33292127496000BAF2F9 /* MeditaceCell.swift */,
 				8946ABA82180E0B5007EF199 /* mujSlider.swift */,
 			);
-			path = MeditaceGroup;
+			path = View;
+			sourceTree = "<group>";
+		};
+		8958259D2241306E00DE7C0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				897FA7D72217D6CE007F43A5 /* publicCode.swift */,
+				892B332B21274BFA00BAF2F9 /* MeditaceClass.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8958259E224130C800DE7C0C /* CommonFiles */ = {
+			isa = PBXGroup;
+			children = (
+				899163F4215C467A00A850EC /* Font */,
+				89C1059B21078BAE006EBD5F /* AppDelegate.swift */,
+				89C1059F21078BAE006EBD5F /* Main.storyboard */,
+				89C105A221078BB2006EBD5F /* Assets.xcassets */,
+				89C105A421078BB2006EBD5F /* LaunchScreen.storyboard */,
+				89C105A721078BB2006EBD5F /* Info.plist */,
+			);
+			path = CommonFiles;
 			sourceTree = "<group>";
 		};
 		899163F4215C467A00A850EC /* Font */ = {
@@ -184,16 +241,9 @@
 		89C1059A21078BAE006EBD5F /* LS_App */ = {
 			isa = PBXGroup;
 			children = (
-				899163F4215C467A00A850EC /* Font */,
-				89C1059B21078BAE006EBD5F /* AppDelegate.swift */,
-				89C1059D21078BAE006EBD5F /* HomeVC.swift */,
-				892B332321270A9000BAF2F9 /* ArticleGroup */,
-				89C1059F21078BAE006EBD5F /* Main.storyboard */,
-				89C105A221078BB2006EBD5F /* Assets.xcassets */,
-				89C105A421078BB2006EBD5F /* LaunchScreen.storyboard */,
-				89C105A721078BB2006EBD5F /* Info.plist */,
-				892B3326212747D500BAF2F9 /* MeditaceGroup */,
-				891D85522146A147006A40F6 /* MenuVC.swift */,
+				8958259E224130C800DE7C0C /* CommonFiles */,
+				892B3326212747D500BAF2F9 /* MeditationsFeature */,
+				892B332321270A9000BAF2F9 /* ArticlesFeature */,
 			);
 			path = LS_App;
 			sourceTree = "<group>";
@@ -409,10 +459,8 @@
 				89C105CC210793BF006EBD5F /* ArticleCell.swift in Sources */,
 				89ED1BE52114C766001CC7F6 /* ArticleVC.swift in Sources */,
 				892B333621275E8C00BAF2F9 /* DetailMeditaceVC.swift in Sources */,
-				897FA7D82217D6CE007F43A5 /* publicStuff.swift in Sources */,
+				897FA7D82217D6CE007F43A5 /* publicCode.swift in Sources */,
 				89C105CA210792D0006EBD5F /* ArticleListVC.swift in Sources */,
-				891D85532146A147006A40F6 /* MenuVC.swift in Sources */,
-				89C1059E21078BAE006EBD5F /* HomeVC.swift in Sources */,
 				89A9B61822042C5900527EED /* InfoVC.swift in Sources */,
 				8964D8E821294ACE00D59220 /* MeditacePlayerVC.swift in Sources */,
 				8946ABA92180E0B5007EF199 /* mujSlider.swift in Sources */,
@@ -596,7 +644,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F9SQL5NE4J;
-				INFOPLIST_FILE = LS_App/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LS_App/CommonFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -615,7 +663,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F9SQL5NE4J;
-				INFOPLIST_FILE = LS_App/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LS_App/CommonFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

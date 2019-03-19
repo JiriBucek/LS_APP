@@ -189,7 +189,7 @@ class DetailMeditaceVC: UIViewController {
         
         if let tokenUnwrpd = token{
             let headers: HTTPHeaders = [
-                "Authorization": "Bearer \(String(describing: token!))",
+                "Authorization": "Bearer \(String(describing: tokenUnwrpd))",
                 "Accept": "application/json"
             ]
         
