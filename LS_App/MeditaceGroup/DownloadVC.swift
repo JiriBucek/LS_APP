@@ -35,8 +35,17 @@ class DownloadVC: UIViewController {
     var stahovatSlovo = true
     
     
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = false
+        //obrazovka se znovu bude vypínat
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIApplication.shared.isIdleTimerDisabled = true
+        //nevypne se obrazovka a nestopne se download
         
         greyDownloadView.layer.cornerRadius = 20
         greyDownloadView.clipsToBounds = true
