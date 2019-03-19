@@ -12,7 +12,7 @@ do {
     print(urls)
     // process files
 } catch {
-    print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+    print("Error \(documentsURL.path): \(error.localizedDescription)")
 }
 
 

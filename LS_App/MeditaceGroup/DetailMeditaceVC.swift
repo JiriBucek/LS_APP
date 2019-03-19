@@ -187,35 +187,39 @@ class DetailMeditaceVC: UIViewController {
         let url = URL(string: "https://www.ay.energy/api/media/audio")
         let parameters: Parameters = ["id" : id!]
         
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer \(String(describing: token!))",
-            "Accept": "application/json"
-        ]
+        if let tokenUnwrpd = token{
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer \(String(describing: token!))",
+                "Accept": "application/json"
+            ]
         
-        Alamofire.request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300)
-            .responseData{ response in
-                let json = JSON(response.data as Any)
-                
-                if vcName == "player"{
-                    let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vcName) as! MeditacePlayerVC
-                    newVC.musicUrl = json["body"]["musicUrl"].string
-                    newVC.voiceUrl = json["body"]["voiceUrl"].string
-                    newVC.id = self.id!
-                    newVC.downloaded = self.downloaded ?? false
-                    self.navigationController?.pushViewController(newVC, animated: true)
-
-                }else if vcName == "downloadVC"{
-                    let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vcName) as! DownloadVC
-                    newVC.musicUrl = json["body"]["musicUrl"].string
-                    newVC.voiceUrl = json["body"]["voiceUrl"].string
-                    newVC.id = self.id
-                    //newVC.view.isOpaque = false
-                    newVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            Alamofire.request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300)
+                .responseData{ response in
+                    let json = JSON(response.data as Any)
                     
-                    self.navigationController?.present(newVC, animated: true)
-                }
-                print(response.result)
-                }
+                    if vcName == "player"{
+                        let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vcName) as! MeditacePlayerVC
+                        newVC.musicUrl = json["body"]["musicUrl"].string
+                        newVC.voiceUrl = json["body"]["voiceUrl"].string
+                        newVC.id = self.id!
+                        newVC.downloaded = self.downloaded ?? false
+                        self.navigationController?.pushViewController(newVC, animated: true)
+
+                    }else if vcName == "downloadVC"{
+                        let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vcName) as! DownloadVC
+                        newVC.musicUrl = json["body"]["musicUrl"].string
+                        newVC.voiceUrl = json["body"]["voiceUrl"].string
+                        newVC.id = self.id
+                        //newVC.view.isOpaque = false
+                        newVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                        
+                        self.navigationController?.present(newVC, animated: true)
+                    }
+                    print(response.result)
+                    }
+        }else{
+            displayMessage(userMessage: "Ke stažení je zapotřebí internetové připojení.", loadMeditationVC: false)
+        }
     }
         
     func displayMessage(userMessage:String, loadMeditationVC: Bool) -> Void {
