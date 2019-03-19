@@ -4,57 +4,22 @@ import Alamofire
 import SwiftyJSON
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
+    //  VC pro zadání přihlašovacích údajů. 
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var prihlasitBtn: UIButton!
-    
     
     @IBAction func bezregistraceBtn(_ sender: Any) {
         let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
         self.navigationController?.pushViewController(meditaceVC, animated: true)
     }
     
-    
     @IBAction func registraceBtn(_ sender: Any) {
         UIApplication.shared.open(URL(string: "http://www.laskyplnysvet.cz/audiomeditace")!, options: [:], completionHandler: nil)
     }
     
-    var userName: String?
-    var userPassword: String?
-    var myActivityIndicator = UIActivityIndicatorView()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated: true)
-
-        myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-        
-        userNameTextField.layer.cornerRadius = userNameTextField.frame.size.height/2
-        userNameTextField.clipsToBounds = true
-        userNameTextField.layer.borderWidth = 0.5
-        
-        userPasswordTextField.layer.cornerRadius = userPasswordTextField.frame.size.height/2
-        userPasswordTextField.clipsToBounds = true
-        userPasswordTextField.layer.borderWidth = 0.5
-        
-        prihlasitBtn.layer.cornerRadius = 25
-        prihlasitBtn.clipsToBounds = true
-        
-        //delegate proto, aby se schovala klávesnice po kliknutí na return nebo mimo klávesnici
-        self.userNameTextField.delegate = self
-        self.userPasswordTextField.delegate = self
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
     @IBAction func signInButtonTapped(_ sender: Any) {
-        
         userName = userNameTextField.text
         userPassword = userPasswordTextField.text
         
@@ -71,17 +36,40 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         signInRequest()
     }
     
-    func displayMessage(userMessage:String) -> Void {
-        //funkce pro zobrazování upozornění
+    var userName: String?
+    var userPassword: String?
+    var myActivityIndicator = UIActivityIndicatorView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true)
         
-        DispatchQueue.main.async
-            {
+        myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        
+        userNameTextField.layer.cornerRadius = userNameTextField.frame.size.height/2
+        userNameTextField.clipsToBounds = true
+        userNameTextField.layer.borderWidth = 0.5
+        
+        userPasswordTextField.layer.cornerRadius = userPasswordTextField.frame.size.height/2
+        userPasswordTextField.clipsToBounds = true
+        userPasswordTextField.layer.borderWidth = 0.5
+        
+        prihlasitBtn.layer.cornerRadius = 25
+        prihlasitBtn.clipsToBounds = true
+        
+        //  Delegate pro schování klávesnice po kliknutí na return nebo mimo klávesnici.
+        self.userNameTextField.delegate = self
+        self.userPasswordTextField.delegate = self
+    }
+    
+    func displayMessage(userMessage:String) -> Void {
+        //  Zobrazování upozornění
+        DispatchQueue.main.async{
                 let alertController = UIAlertController(title: "Upozornění", message: userMessage, preferredStyle: .alert)
                 
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                    DispatchQueue.main.async
-                        {
-                            self.dismiss(animated: true, completion: nil)
+                    DispatchQueue.main.async{
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
                 alertController.addAction(OKAction)
@@ -90,9 +78,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func removeActivityIndicator(activityIndicator: UIActivityIndicatorView)
+        // Schová activity spinner.
     {
-        DispatchQueue.main.async
-            {
+        DispatchQueue.main.async{
                 activityIndicator.stopAnimating()
                 activityIndicator.removeFromSuperview()
         }
@@ -100,7 +88,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
 
 func signInRequest(){
-    //komplexní funkce pro přihlašování. V meditaceVC je jednodušší funkce přes Alamofire, která pouze zjistí token.
+    //  Funkce pro přihlašování.
     let myUrl = URL(string: "https://www.ay.energy/api/media/login/")
     var request = URLRequest(url:myUrl!)
     
@@ -119,13 +107,13 @@ func signInRequest(){
         request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
     } catch let error {
         print(error.localizedDescription)
-        displayMessage(userMessage: "Něco se pokazilo při vytváření sign in requestu.")
+        displayMessage(userMessage: "Error při vytváření sign in requestu.")
         return
     }
     
     let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-        
         if let httpResponse = response as? HTTPURLResponse {
+            // Špatný login
             if httpResponse.statusCode == 401{
                 self.displayMessage(userMessage: "Chybné přihlašovací údaje")
                 self.removeActivityIndicator(activityIndicator: self.myActivityIndicator)
@@ -135,17 +123,16 @@ func signInRequest(){
         
         self.removeActivityIndicator(activityIndicator: self.myActivityIndicator)
         
-        if error != nil
-        {
+        if error != nil{
             self.displayMessage(userMessage: "Nelze ověřit identitu uživatele. Prosím zkus později.")
             print("error při přihlašování=\(String(describing: error))")
             return
         }
         
         if data != nil{
+            //  Uspech.
             let downloadedJSON = JSON(data!)
             if let token = downloadedJSON["body"]["token"].string{
-                print("Token: ", token)
                 let saveAccessToken: Bool = KeychainWrapper.standard.set(token, forKey: "accessToken")
                 print("Token uložen do klíčenky: ", saveAccessToken)
                 
@@ -155,9 +142,9 @@ func signInRequest(){
                 let savePassWord: Bool = KeychainWrapper.standard.set(self.userPassword!, forKey: "passWord")
                 print("Heslo uloženo do klíčenky: ", savePassWord)
                 
-                // Až získám token, přesměruji se na seznam meditací
+                // Až získám token, přesměruji se VC seznamu meditací, který stáhne data meditací.
                 DispatchQueue.main.async{
-                //další VC můžu volat jen na hlavním threadu. Proto to musím volat takto. VC pushuju, aby byl v hierarchii navigation controleru.
+                //  Další VC můžu volat jen na hlavním threadu. Proto to musím volat takto. VC pushuju, aby byl v hierarchii navigation controleru.
                     let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
                     self.navigationController?.pushViewController(meditaceVC, animated: true)
                 }
@@ -168,7 +155,7 @@ func signInRequest(){
     }
     task.resume()
 }
-    //proto, aby se schovala klávesnice po kliknutí na return nebo mimo klávesnici
+    //  Schování lávesnice po kliknutí na return nebo mimo klávesnici
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -178,8 +165,6 @@ func signInRequest(){
         userNameTextField.resignFirstResponder()
         return true
     }
-    
-    
 }
 
 

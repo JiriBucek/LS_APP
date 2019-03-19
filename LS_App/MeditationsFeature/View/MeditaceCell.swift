@@ -9,7 +9,7 @@
 import UIKit
 
 class MeditaceCell: UITableViewCell {
-
+    // TableView buňka pro meditační featuru aplikace
     
     @IBOutlet weak var nadpisCellMeditace: UILabel!
     
@@ -19,17 +19,12 @@ class MeditaceCell: UITableViewCell {
     
     @IBOutlet weak var vrchniObrazek: UIImageView!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

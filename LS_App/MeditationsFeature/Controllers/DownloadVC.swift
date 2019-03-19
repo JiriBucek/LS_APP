@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class DownloadVC: UIViewController {
-    
+    // VC pro stažení audio souborů meditace.
     
     @IBOutlet weak var hudbaLabel: UILabel!
     
@@ -29,15 +29,15 @@ class DownloadVC: UIViewController {
         stahovatSlovo = false
         self.dismiss(animated: true, completion: nil)
     }
+    
     var voiceUrl: String?
     var musicUrl: String?
     var id: Int?
     var stahovatSlovo = true
     
-    
     override func viewWillDisappear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
-        //obrazovka se znovu bude vypínat
+        //  Obrazovka se znovu bude vypínat.
     }
     
     
@@ -45,7 +45,7 @@ class DownloadVC: UIViewController {
         super.viewDidLoad()
         
         UIApplication.shared.isIdleTimerDisabled = true
-        //nevypne se obrazovka a nestopne se download
+        //  Nevypne se obrazovka a nestopne se download.
         
         greyDownloadView.layer.cornerRadius = 20
         greyDownloadView.clipsToBounds = true
@@ -55,7 +55,6 @@ class DownloadVC: UIViewController {
         if !checkInternet(){
             displayMessage(userMessage: "Pro stahování meditací je zapotřebí připojení k internetu.")
         }
-        
         
         let hudbaDestination: DownloadRequest.DownloadFileDestination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -74,7 +73,7 @@ class DownloadVC: UIViewController {
         if let musicURLunwrapped = musicUrl{
         
             Alamofire.download(musicURLunwrapped, to: hudbaDestination)
-                //stahování hudby, po dokončení se stahuje slovo
+                //  Stahování hudby, po dokončení se stahuje slovo
                 .downloadProgress{progress in
  
                     let stazeno = Double(progress.completedUnitCount/100000)/10
@@ -86,7 +85,7 @@ class DownloadVC: UIViewController {
                 
                 .response{ response in
                     if self.stahovatSlovo{
-                    //pokud přeruším stahování u prvního souboru, nechci, aby se začal stahovat tento
+                    //  Pokud přeruším stahování u prvního souboru, nechci, aby se začal stahovat tento.
             
                         Alamofire.download(self.voiceUrl!, to: slovoDestination)
                             //stahování slova
@@ -98,13 +97,12 @@ class DownloadVC: UIViewController {
                                 self.slovoProgressView.progress = Float(progress.fractionCompleted)
                             }
                             .response{response in
-                                //po dokončení stahování slova se načte seznam meditací
+                                //  Po dokončení stahování slova se načte seznam meditací.
                                 self.dismiss(animated: true, completion: nil)
         
-                                let rootVC = self.presentingViewController as! UINavigationController!
+                                let rootVC = self.presentingViewController as! UINavigationController
                                 let meditaceVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "meditaceVC") as! MeditaceVC
-                                rootVC?.pushViewController(meditaceVC, animated: true)
-                                
+                                rootVC.pushViewController(meditaceVC, animated: true)
                         }
                     }
                 }

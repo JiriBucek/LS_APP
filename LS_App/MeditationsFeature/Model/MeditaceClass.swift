@@ -9,6 +9,7 @@
 import UIKit
 
 class MeditaceClass: NSObject {
+    //  Třída parametrů meditace.
     
     var id: Int?
     var nadpis: String?

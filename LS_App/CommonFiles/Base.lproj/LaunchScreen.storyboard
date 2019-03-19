@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="50.724637681159422" y="374.18478260869568"/>
         </scene>
-        <!--Láskyplniý svět-->
+        <!--Láskyplný svět-->
         <scene sceneID="b8f-qs-4x3">
             <objects>
-                <navigationController title="Láskyplniý svět" id="Z18-Ve-pSz" sceneMemberID="viewController">
+                <navigationController title="Láskyplný svět" id="Z18-Ve-pSz" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="hvw-17-haj">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
