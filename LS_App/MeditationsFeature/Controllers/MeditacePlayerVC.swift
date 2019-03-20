@@ -10,14 +10,9 @@ import UIKit
 import AVFoundation
 
 class MeditacePlayerVC: UIViewController {
+    //  Přehrávač audio meditací
     
-    
-    //dvojka je spodní
     @IBOutlet weak var slider: mujSlider!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
     
     @IBAction func sliderMoved(_ sender: Any) {
         let sliderValue = slider.value
@@ -87,13 +82,16 @@ class MeditacePlayerVC: UIViewController {
     var downloaded: Bool = false
     var id: Int?
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         UIApplication.shared.isIdleTimerDisabled = true
-        //obrazovka se nevypne
-        
-        super.viewDidLoad()
+        //  Obrazovka se nevypíná.
         
         playSlovo(time: 0)
         playerSlovo?.pause()
@@ -104,9 +102,9 @@ class MeditacePlayerVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        //po ukončení vypnu timer a obrazovka se zase vypíná
+        //  Po ukončení vypnu timer a obrazovka se zase vypíná
         if self.isMovingFromParentViewController{
-            //zmacknul jsem back button?
+            //  Stisknul jsem back button?
             playerSlovo?.pause()
             playerHudba?.pause()
             timer?.invalidate()
@@ -115,8 +113,7 @@ class MeditacePlayerVC: UIViewController {
     }
 
     func playHudba() -> Void {
-        //přehrává hudbu
-        //let url = Bundle.main.url(forResource: podkladovaHudba, withExtension: "mp3")!
+        //  Přehrává hudbu
         var url: URL?
         
         if let musicUrlUnwrpd = musicUrl{
@@ -124,7 +121,7 @@ class MeditacePlayerVC: UIViewController {
         }
         
         if downloaded{
-            //pokud mám soubor offline, tak přehrávám offline
+            //  Pokud mám soubor offline, tak přehrávám offline
             url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
             url = url?.appendingPathComponent("\(id!)_hudba.mp3")
             print("URL hudba: ", url as Any)
@@ -134,7 +131,7 @@ class MeditacePlayerVC: UIViewController {
         
         playerHudba = AVPlayer(playerItem: playerItem)
         
-        //zajišťuje repeat play hudby
+        //  Zajišťuje repeat play hudby
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerHudba?.currentItem, queue: nil) { (_) in
             self.playerHudba?.seek(to: kCMTimeZero)
             self.playerHudba?.play()
@@ -144,33 +141,32 @@ class MeditacePlayerVC: UIViewController {
     }
     
     func playSlovo(time: TimeInterval) -> Void {
-        //přehrává zvuky
+        //  Přehrává mluvené slovo meditace.
         var url: URL?
         
         if playerSlovo != nil{
             playerSlovo?.pause()
         }
-        //let url = Bundle.main.url(forResource: mluveneSlovo, withExtension: "mp3")!
+        
         if let voiceUrlUnwrpd = voiceUrl{
             url = URL(string: voiceUrlUnwrpd)
         }
         
         if downloaded{
-            //pokud mám soubor offline, tak přehrávám offline
+            //  Pokud mám soubor offline, tak přehrávám offline
             url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
             url = url?.appendingPathComponent("\(id!)_slovo.mp3")
             print("URL slovo: ", url as Any)
         }
         
         let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
-            playerSlovo = AVPlayer(playerItem: playerItem)
-            //player.prepareToPlay()
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
-            //playerSlovo!.setRate(1, time: CMTime(seconds: time, preferredTimescale: 1), atHostTime: CMTime(seconds: time, preferredTimescale: 1))
+        playerSlovo = AVPlayer(playerItem: playerItem)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
         playerSlovo!.play()
     }
     
     @objc func timerFunc(){
+        //  Updatuje progress slideru a label s délkou přehrání
         delkaNahravky = Double((playerSlovo?.currentItem?.duration.seconds)!)
         momentalniPozice = Double((playerSlovo?.currentItem?.currentTime().seconds)!)
         
@@ -185,7 +181,7 @@ class MeditacePlayerVC: UIViewController {
     }
     
     func skipSlovo(oKolik: Double){
-        //posouvá mluvené slovo vpřed nebo vzad
+        //  Posouvá mluvené slovo vpřed nebo vzad
         if playerSlovo != nil{
             var pozice = (playerSlovo?.currentItem?.currentTime().seconds)! + oKolik
             if pozice < 0{
@@ -202,7 +198,7 @@ class MeditacePlayerVC: UIViewController {
     }
     
     func animateButton(sender: UIButton){
-        //animace tlačítka při zmáčknutí
+        //  Animace tlačítka při stisknutí
         UIButton.animate(withDuration: 0.2,
                          animations: {
                             sender.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)
@@ -215,6 +211,8 @@ class MeditacePlayerVC: UIViewController {
     }
     
     func sekundyParser(seconds : Int) -> String {
+        //  Parsuje sekundy v INT na string s dvojtečkou.
+        
         let minuty = "\((seconds % 3600) / 60)"
         var sekundy = "\((seconds % 3600) % 60)"
         
@@ -227,7 +225,7 @@ class MeditacePlayerVC: UIViewController {
 }
 
 extension AVPlayer {
-    //udává, zda player hraje či ne
+    //  Udává, zda player hraje či ne
     var isPlaying: Bool {
         if (self.rate != 0 && self.error == nil) {
             return true

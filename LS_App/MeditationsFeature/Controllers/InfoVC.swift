@@ -10,12 +10,11 @@ import UIKit
 import SwiftKeychainWrapper
 
 class InfoVC: UIViewController {
-    
+    // VC s info textem ohledně fungování účtu. Zobrazuje, pod jakým mailem je user přihlášen.
     
     @IBAction func odhlasitBtnPrsd(_ sender: Any) {
-        
+        //  Odhlásit/přihlásit button
         if KeychainWrapper.standard.string(forKey: "userName") != nil{
-            print("jsem tu")
             KeychainWrapper.standard.removeObject(forKey: "userName")
             KeychainWrapper.standard.removeObject(forKey: "passWord")
             let meditaceVC = MeditaceVC()
@@ -52,19 +51,6 @@ class InfoVC: UIViewController {
                 emailLabel.text = "Nepřihlášen"
             }
         }
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

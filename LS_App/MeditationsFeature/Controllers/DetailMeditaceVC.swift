@@ -15,6 +15,7 @@ import Alamofire
 import SwiftyJSON
 
 class DetailMeditaceVC: UIViewController {
+    //  VC s popisem meditace a možností přehrávání.
 
     @IBOutlet weak var velkyImageMeditace: UIImageView!
     
@@ -25,37 +26,42 @@ class DetailMeditaceVC: UIViewController {
     @IBOutlet weak var obsahMeditaceLabel: UILabel!
     
     @IBAction func prehrajMeditaciPressed(_ sender: Any) {
+        //  Přehraj button mění funkce dle toho: zda je uživatel přihlášen, je k dispozici internet, daná meditace je nakoupena, meditace je stáhnuta nebo bude streamována.
         
         if let dostupnost = dostupnost, let downloaded = downloaded{
             print("Dostupne: \(dostupnost), downloaded: \(downloaded), signed in: \(signedIn), net: \(checkInternet())")
             if checkInternet(){
                 if dostupnost{
+                    //  Internet ano, meditace zakoupena.
                     let backItem = UIBarButtonItem()
                     backItem.title = "Zpět"
                     navigationItem.backBarButtonItem = backItem
                     meditaceFilesRequest(vcName: "player")
-                   
                 }else{
                     if signedIn{
+                        // Internet ano, meditace nezakoupena, uživatel přihlášen.
                         let url = URL(string: "http://www.laskyplnysvet.cz/audiomeditace")
                             if UIApplication.shared.canOpenURL(url!) {
                                 UIApplication.shared.open(url!, options: [:], completionHandler: nil)
                             }
                         }else{
+                            // Internet ano, meditace nezakoupena, uživatel nepřihlášen.
                             print("SignInVC")
                             loadSignInVC()
                         }
                     }
-                
             }else{
                 if downloaded, dostupnost{
+                    // Internet ne, meditace stažena, koupena.
                     let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! MeditacePlayerVC
                     newVC.id = self.id!
                     newVC.downloaded = self.downloaded ?? false
                     self.navigationController?.pushViewController(newVC, animated: true)
                 }else if dostupnost{
+                    // Internet ne, meditace zakoupena, nestažena.
                     displayMessage(userMessage: "K přehrávání meditací online je zapotřebí připojení k internetu. Pokud chcete přehrávat offline, stáhněte si meditaci pomocí tlačítka \"Stáhnout meditaci\" na této obrazovce.", loadMeditationVC: false)
                 }else{
+                    // Internet ne, nezakoupena, nestažena.
                     print("SignInVC")
                     loadSignInVC()
                 }
@@ -67,8 +73,7 @@ class DetailMeditaceVC: UIViewController {
     
     
     @IBAction func stahnoutMeditaciPrssd(_ sender: Any) {
-        
-        
+        //  Stažení audio souborů meditace. Pokud je již stažena, slouží k jejich mazání.
         if let downloaded = downloaded, let dostupnost = dostupnost{
             
             if downloaded{
@@ -78,7 +83,6 @@ class DetailMeditaceVC: UIViewController {
                 askForPermissionToDelete(userMessage: "Přejete si smazat stažené soubory této meditace?")
             }else if dostupnost{
                 meditaceFilesRequest(vcName: "downloadVC")
-                print("stahnout btn pressed")
             }else{
                 displayMessage(userMessage: "Tuto meditaci musíte nejdříve zakoupit na webu Láskyplného Světa.", loadMeditationVC: false)
             }
@@ -97,15 +101,12 @@ class DetailMeditaceVC: UIViewController {
     var downloaded: Bool?
     
     var labelAlreadyUpdated = false
-    //obsah label je upgradovan o text ve viewwillappear. Diky tomu neni upgradován vícekrát.
+    //  Obsah label je upgradovan o text ve viewwillappear. Diky tomu neni upgradován vícekrát.
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         prehrajMeditaciButton.layer.cornerRadius = 20
         prehrajMeditaciButton.clipsToBounds = true
-
         
         if nadpis != nil{
             nadpisMeditaceLabel.text = nadpis
@@ -129,13 +130,13 @@ class DetailMeditaceVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         
+        // Nastavení textů buttonů a textu popisu meditace dle stavu meditace: zakoupena, stažena apod.
         if let downloaded = downloaded, let dostupnost = dostupnost{
             
             if downloaded, dostupnost{
                 downloadedImage.image = #imageLiteral(resourceName: "downloaded")
             }
             
-            //nastavení buttonu podle toho, zda je meditace stahnuta, dostupna a zda je uzivatel prihlasen
             if dostupnost{
                 
                 if downloaded{
@@ -146,7 +147,6 @@ class DetailMeditaceVC: UIViewController {
                         obsahMeditaceLabel.text = "\(String(describing: obsahMeditaceLabel.text!)) \n \nAudiosoubory této meditace máte staženy v telefonu. Meditaci můžete přehrávat offline."
                         labelAlreadyUpdated = true
                     }
-                    
                 }else{
                     prehrajMeditaciButton.setTitle("Přehraj online", for: .normal)
                     stahnoutMeditaciBtn.setTitle("Stáhnout meditaci", for: .normal)
@@ -163,7 +163,6 @@ class DetailMeditaceVC: UIViewController {
                         obsahMeditaceLabel.text = "\(String(describing: obsahMeditaceLabel.text!)) \n \nMeditaci lze zakoupit na webu Láskyplného Světa. Po přihlášení zde v aplikaci pomocí Vašeho emailu a hesla bude možné meditaci zde přehrát. ."
                         labelAlreadyUpdated = true
                     }
-                    
                 }else{
                     prehrajMeditaciButton.setTitle("Přihlásit", for: .normal)
                     if !labelAlreadyUpdated{
@@ -176,13 +175,10 @@ class DetailMeditaceVC: UIViewController {
         
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func meditaceFilesRequest(vcName: String){
+        // Stáhne informační data jednotlivých meditací
+        
         let token = KeychainWrapper.standard.string(forKey: "accessToken")
         let url = URL(string: "https://www.ay.energy/api/media/audio")
         let parameters: Parameters = ["id" : id!]
@@ -223,6 +219,8 @@ class DetailMeditaceVC: UIViewController {
     }
         
     func displayMessage(userMessage:String, loadMeditationVC: Bool) -> Void {
+        // Zobrazí alert se zprávou. Může hned zavolat meditaceVC
+        
             DispatchQueue.main.async
                 {
                     let alertController = UIAlertController(title: nil, message: userMessage, preferredStyle: .alert)
@@ -251,7 +249,7 @@ class DetailMeditaceVC: UIViewController {
     
         
     func askForPermissionToDelete(userMessage:String) -> Void {
-        //tento alert se ptá, zda opravdu vymazat meditace
+        // Tento alert se ptá, zda opravdu vymazat meditace
         
         DispatchQueue.main.async
             {
@@ -284,72 +282,3 @@ class DetailMeditaceVC: UIViewController {
     
 
 }
-
-/*
-    func playHudba() -> Void {
-    //přehrává hudbu
-        
-        let url = Bundle.main.url(forResource: podkladovaHudba, withExtension: "mp3")!
-        do {
-            playerHudba = try AVAudioPlayer(contentsOf: url)
-            guard let playerHudba = playerHudba else { return }
-            playerHudba.numberOfLoops = -1
-            //nekonečně přehrávání
-            playerHudba.prepareToPlay()
-            playerHudba.play()
-    } catch let error {
-    print(error.localizedDescription)
-    }
-    }
-    
-    
-    
-    func playSlovo(time: TimeInterval) -> Void {
-        //přehrává zvuky
-        if playerSlovo != nil{
-            playerSlovo?.pause()
-        }
-        
-        let url = Bundle.main.url(forResource: mluveneSlovo, withExtension: "mp3")!
-        do {
-            playerSlovo = try AVAudioPlayer(contentsOf: url)
-            guard let player = playerSlovo else { return }
-           
-            player.prepareToPlay()
-            player.currentTime = time
-            player.play()
-            
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func skipSlovo(oKolik: Double){
-        if playerSlovo != nil{
-            var pozice = (playerSlovo?.currentTime)! + oKolik
-            if pozice < 0{
-                pozice = 0
-            }
-            
-            if pozice < (playerSlovo?.duration)!{
-                print(pozice)
-                playerSlovo?.currentTime = pozice
-            }else{
-                playerSlovo?.stop()
-            }
-        }
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-*/
