@@ -129,18 +129,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                 
                 let mediaURL = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/media/\(article.mediaId!)?_fields=media_details"
                 
-
-                
-                /*
-                if let malyObrazekUrl = json["_embedded"]["wp:featuredmedia"][0]["media_details"]["sizes"]["thumbnail"]["source_url"].string{
-                   article.obrazekURL = malyObrazekUrl
-                    print(malyObrazekUrl)
-                }
-                
-                if let velkyObrazekURL = json["_embedded"]["wp:featuredmedia"][0]["source_url"].string{
-                    article.velkyObrazekURL = velkyObrazekURL
-                }*/
-                
                 if let linkClanku = json["link"].string{
                     article.linkClanku = linkClanku
                 }
@@ -155,8 +143,8 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
                         if let obrazekUrl = mediaJson["media_details"]["sizes"]["thumbnail"]["source_url"].string{
                             self.articlesTableView.beginUpdates()
                             article.obrazekURL = obrazekUrl
-                            let rowNumber = self.articlesArray?.index(of: article) as! Int
-                            let rowIndexPath = IndexPath(row: rowNumber, section: 0)
+                            let rowNumber = self.articlesArray?.index(of: article)!
+                            let rowIndexPath = IndexPath(row: rowNumber!, section: 0)
                             self.articlesTableView.reloadRows(at: [rowIndexPath], with: .none)
                             self.articlesTableView.endUpdates()
                             

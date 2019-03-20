@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import Kingfisher
 
 class ArticleClass: NSObject {
-    //classa, která obsahuje veškeré info každého článku zvlášť
+    //  Třída, která obsahuje info každého článku.
     var nadpis: String?
     var popisek: String?
-    //var obsah: String?
     var linkClanku: String?
     var obrazekURL: String?
-    //var velkyObrazekURL: String?
     var mediaId: String?
 }

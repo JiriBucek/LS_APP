@@ -31,7 +31,6 @@
 		89C105CA210792D0006EBD5F /* ArticleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C105C9210792D0006EBD5F /* ArticleListVC.swift */; };
 		89C105CC210793BF006EBD5F /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C105CB210793BF006EBD5F /* ArticleCell.swift */; };
 		89C105CE210795E3006EBD5F /* ArticleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C105CD210795E3006EBD5F /* ArticleClass.swift */; };
-		89ED1BE52114C766001CC7F6 /* ArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED1BE42114C766001CC7F6 /* ArticleVC.swift */; };
 		B3B72B38AB01A7F20DFEF0B0 /* Pods_LS_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5C6FB3141DBBD8FAB7FD1E /* Pods_LS_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +63,6 @@
 		89C105C9210792D0006EBD5F /* ArticleListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListVC.swift; sourceTree = "<group>"; };
 		89C105CB210793BF006EBD5F /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		89C105CD210795E3006EBD5F /* ArticleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleClass.swift; sourceTree = "<group>"; };
-		89ED1BE42114C766001CC7F6 /* ArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleVC.swift; sourceTree = "<group>"; };
 		A8D97B2D0C8B9F14B3B2F633 /* Pods-LS_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LS_App.release.xcconfig"; path = "Pods/Target Support Files/Pods-LS_App/Pods-LS_App.release.xcconfig"; sourceTree = "<group>"; };
 		E8919F40F65A7A3C65C35171 /* Pods-LS_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LS_App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LS_App/Pods-LS_App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				89C105C9210792D0006EBD5F /* ArticleListVC.swift */,
-				89ED1BE42114C766001CC7F6 /* ArticleVC.swift */,
 				89916401215E1BB200A850EC /* articleWebVC.swift */,
 			);
 			path = Controllers;
@@ -332,20 +329,16 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/SKActivityIndicatorView/SKActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -362,7 +355,6 @@
 				892B3325212710AB00BAF2F9 /* MeditaceVC.swift in Sources */,
 				892B332A2127496000BAF2F9 /* MeditaceCell.swift in Sources */,
 				89C105CC210793BF006EBD5F /* ArticleCell.swift in Sources */,
-				89ED1BE52114C766001CC7F6 /* ArticleVC.swift in Sources */,
 				892B333621275E8C00BAF2F9 /* DetailMeditaceVC.swift in Sources */,
 				897FA7D82217D6CE007F43A5 /* publicCode.swift in Sources */,
 				89C105CA210792D0006EBD5F /* ArticleListVC.swift in Sources */,

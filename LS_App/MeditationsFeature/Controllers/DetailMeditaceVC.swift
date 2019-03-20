@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import SwiftyUserDefaults
 import Kingfisher
 import SwiftKeychainWrapper
 import Alamofire
