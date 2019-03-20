@@ -103,7 +103,7 @@ class MeditacePlayerVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         //  Po ukončení vypnu timer a obrazovka se zase vypíná
-        if self.isMovingFromParentViewController{
+        if self.isMovingFromParent{
             //  Stisknul jsem back button?
             playerSlovo?.pause()
             playerHudba?.pause()
@@ -133,7 +133,7 @@ class MeditacePlayerVC: UIViewController {
         
         //  Zajišťuje repeat play hudby
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerHudba?.currentItem, queue: nil) { (_) in
-            self.playerHudba?.seek(to: kCMTimeZero)
+            self.playerHudba?.seek(to: CMTime.zero)
             self.playerHudba?.play()
         }
         

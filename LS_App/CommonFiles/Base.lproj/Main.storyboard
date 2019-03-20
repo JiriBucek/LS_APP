@@ -18,41 +18,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--MenuVC-->
-        <scene sceneID="jlM-Lc-ZQx">
-            <objects>
-                <viewController id="ywl-Rp-nNp" customClass="MenuVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mG8-7g-bqt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView clipsSubviews="YES" contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" allowsLinkPreview="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BA-Bd-TqC">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <dataDetectorTypes key="dataDetectorTypes" link="YES" calendarEvent="YES"/>
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="YES" minimumFontSize="15"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="7BA-Bd-TqC" firstAttribute="leading" secondItem="RB2-qJ-kb5" secondAttribute="leading" id="7vo-Aa-cwr"/>
-                            <constraint firstItem="7BA-Bd-TqC" firstAttribute="bottom" secondItem="RB2-qJ-kb5" secondAttribute="bottom" id="dTX-dD-scC"/>
-                            <constraint firstItem="7BA-Bd-TqC" firstAttribute="top" secondItem="RB2-qJ-kb5" secondAttribute="top" id="fbL-0T-ceu"/>
-                            <constraint firstItem="7BA-Bd-TqC" firstAttribute="trailing" secondItem="RB2-qJ-kb5" secondAttribute="trailing" id="soi-QV-Vct"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="RB2-qJ-kb5"/>
-                    </view>
-                    <connections>
-                        <outlet property="webViewOutlet" destination="7BA-Bd-TqC" id="0sc-x8-b4S"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1IC-ov-heR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-95.200000000000003" y="-680.5097451274363"/>
-        </scene>
         <!--Články-->
         <scene sceneID="Aff-Tg-2yL">
             <objects>
@@ -61,15 +26,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="articles" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-1b-qXy">
-                                <rect key="frame" x="0.0" y="57" width="375" height="561"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="articles" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-1b-qXy">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="189" id="KEA-6b-rOq" customClass="ArticleCell" customModule="LS_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="189"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KEA-6b-rOq" id="8EN-Qe-d6K">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="188.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="188.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ku2-tl-Juv">
@@ -194,7 +159,7 @@
                         <outlet property="loadingSpinner" destination="nBO-P0-GVg" id="jXI-D7-QB2"/>
                         <outlet property="loadingView" destination="oud-Pz-Dun" id="L9u-jb-7oF"/>
                         <outlet property="overallLoadnigView" destination="JAL-8X-vqz" id="CLY-U1-LiU"/>
-                        <segue destination="lo7-3R-Nno" kind="show" id="TnX-ry-noT"/>
+                        <segue destination="lo7-3R-Nno" kind="show" identifier="articleDetail" id="TnX-ry-noT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHT-Pk-1FF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -295,98 +260,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61c-YI-JRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3552.1739130434785" y="-45.652173913043484"/>
-        </scene>
-        <!--ArticleVC-->
-        <scene sceneID="PbL-3M-rAA">
-            <objects>
-                <viewController id="dUd-Nj-rz9" customClass="ArticleVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jfj-OQ-5zq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNM-f3-qk9">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nM2-Hg-GfG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B6H-ay-Xn0">
-                                                <rect key="frame" x="5" y="5" width="404" height="230.66666666666666"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="B6H-ay-Xn0" secondAttribute="height" multiplier="375:214" id="OtH-gs-Jo0"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="dYG-pp-YGY"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="gJU-Zd-ZBF">
-                                                <rect key="frame" x="5" y="240.66666666666671" width="404" height="60.333333333333343"/>
-                                                <rect key="contentStretch" x="0.90000000000000002" y="0.0" width="1" height="1"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="nTd-Pb-9KY"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <size key="shadowOffset" width="1" height="-1"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" pagingEnabled="YES" maximumZoomScale="3" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5S-NP-pz1">
-                                                <rect key="frame" x="5" y="306" width="404" height="405"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment>
-                                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                        <attributes>
-                                                            <font key="NSFont" size="17" name="Avenir-Book"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="d5S-NP-pz1" firstAttribute="top" secondItem="gJU-Zd-ZBF" secondAttribute="bottom" constant="5" id="6Uq-Ua-Imo"/>
-                                            <constraint firstAttribute="trailing" secondItem="d5S-NP-pz1" secondAttribute="trailing" constant="5" id="9AS-GT-yta"/>
-                                            <constraint firstAttribute="trailing" secondItem="B6H-ay-Xn0" secondAttribute="trailing" constant="5" id="9nh-ac-8GO"/>
-                                            <constraint firstItem="d5S-NP-pz1" firstAttribute="leading" secondItem="nM2-Hg-GfG" secondAttribute="leading" constant="5" id="ZfV-2D-Rh1"/>
-                                            <constraint firstItem="B6H-ay-Xn0" firstAttribute="leading" secondItem="nM2-Hg-GfG" secondAttribute="leading" constant="5" id="fcR-07-S71"/>
-                                            <constraint firstItem="B6H-ay-Xn0" firstAttribute="top" secondItem="nM2-Hg-GfG" secondAttribute="top" constant="5" id="hJg-rz-UlY"/>
-                                            <constraint firstAttribute="bottom" secondItem="d5S-NP-pz1" secondAttribute="bottom" constant="5" id="iUq-X4-khZ"/>
-                                            <constraint firstItem="gJU-Zd-ZBF" firstAttribute="leading" secondItem="nM2-Hg-GfG" secondAttribute="leading" constant="5" id="sNg-cL-W26"/>
-                                            <constraint firstItem="gJU-Zd-ZBF" firstAttribute="top" secondItem="B6H-ay-Xn0" secondAttribute="bottom" constant="5" id="vp3-Me-r4l"/>
-                                            <constraint firstAttribute="trailing" secondItem="gJU-Zd-ZBF" secondAttribute="trailing" constant="5" id="xni-Qv-Jwb"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="nM2-Hg-GfG" secondAttribute="trailing" id="5hl-SZ-13x"/>
-                                    <constraint firstItem="nM2-Hg-GfG" firstAttribute="height" secondItem="jNM-f3-qk9" secondAttribute="height" placeholder="YES" id="JC2-x7-UOp"/>
-                                    <constraint firstItem="nM2-Hg-GfG" firstAttribute="leading" secondItem="jNM-f3-qk9" secondAttribute="leading" id="MYA-jr-Wga"/>
-                                    <constraint firstItem="nM2-Hg-GfG" firstAttribute="top" secondItem="jNM-f3-qk9" secondAttribute="top" id="N7E-h9-E2I"/>
-                                    <constraint firstAttribute="bottom" secondItem="nM2-Hg-GfG" secondAttribute="bottom" id="g5T-DC-aMk"/>
-                                    <constraint firstItem="nM2-Hg-GfG" firstAttribute="width" secondItem="jNM-f3-qk9" secondAttribute="width" id="swd-DX-tM8"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="jNM-f3-qk9" firstAttribute="bottom" secondItem="fKT-zY-CjP" secondAttribute="bottom" id="A7i-65-A2p"/>
-                            <constraint firstItem="jNM-f3-qk9" firstAttribute="top" secondItem="fKT-zY-CjP" secondAttribute="top" id="Z35-Il-0ZM"/>
-                            <constraint firstItem="jNM-f3-qk9" firstAttribute="trailing" secondItem="fKT-zY-CjP" secondAttribute="trailing" id="hjZ-hV-Zz9"/>
-                            <constraint firstItem="jNM-f3-qk9" firstAttribute="leading" secondItem="fKT-zY-CjP" secondAttribute="leading" id="pTa-lc-4NQ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="fKT-zY-CjP"/>
-                    </view>
-                    <connections>
-                        <outlet property="nadpisOutlet" destination="gJU-Zd-ZBF" id="Cr0-Wx-AMX"/>
-                        <outlet property="textOutlet" destination="d5S-NP-pz1" id="90P-O5-kz0"/>
-                        <outlet property="velkyObrazekOutlet" destination="B6H-ay-Xn0" id="P3I-MF-Gkc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q3B-l4-5Bd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3422" y="-761"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TOe-cc-KsK">
@@ -553,7 +426,7 @@
                         <outlet property="meditaceTableView" destination="5gq-Rz-C7E" id="9vI-X4-Jk9"/>
                         <outlet property="overallLoadingView" destination="dDr-Sn-t0d" id="kcA-AQ-cc5"/>
                         <outlet property="spinnerView" destination="XiD-d5-jkI" id="3jg-9b-4AE"/>
-                        <segue destination="kow-Hp-nJg" kind="show" id="ORq-lq-0Ue"/>
+                        <segue destination="kow-Hp-nJg" kind="show" identifier="signIn" id="ORq-lq-0Ue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qN-oH-Aau" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -588,7 +461,7 @@
                                                     <action selector="signInButtonTapped:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="QHb-zb-Duh"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bat-Ja-Vwg">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bat-Ja-Vwg">
                                                 <rect key="frame" x="51.666666666666657" y="164.33333333333334" width="310.66666666666674" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Leo-J7-NdF"/>
@@ -622,7 +495,7 @@
                                                     <action selector="bezregistraceBtn:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="E5K-E2-S0W"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="heslo" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vp6-nj-NY7">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="heslo" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vp6-nj-NY7">
                                                 <rect key="frame" x="51.666666666666657" y="234.33333333333337" width="310.66666666666674" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="aXH-to-B13"/>
@@ -810,7 +683,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="3uw-5i-Xaz">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis Nadpis Nadpis Nadpis Nadpis Nadpis " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="3uw-5i-Xaz">
                                                         <rect key="frame" x="0.0" y="294.66666666666669" width="414" height="49.333333333333314"/>
                                                         <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="20"/>
                                                         <nil key="textColor"/>
@@ -888,7 +761,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                         <outlet property="prehrajMeditaciButton" destination="ZbB-uS-oXf" id="qed-q1-isM"/>
                         <outlet property="stahnoutMeditaciBtn" destination="zAx-8f-IIv" id="MIf-hH-0JD"/>
                         <outlet property="velkyImageMeditace" destination="WC5-Vl-5yV" id="Ric-Wv-t5F"/>
-                        <segue destination="FO9-6C-WA2" kind="show" id="nzk-pQ-fVJ"/>
+                        <segue destination="FO9-6C-WA2" kind="show" identifier="meditaceDetail" id="nzk-pQ-fVJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rvj-a7-qf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -918,7 +791,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         <rect key="frame" x="56.666666666666671" y="30" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="8wa-bn-GMf"/>
-                                            <constraint firstAttribute="height" constant="40" id="mW3-LU-6NW"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="mW3-LU-6NW"/>
                                         </constraints>
                                         <state key="normal" title="Vzad" image="15_back.png"/>
                                         <connections>
@@ -928,8 +801,8 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-hj-WGg">
                                         <rect key="frame" x="152" y="15" width="70" height="70"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="oI9-tL-eny"/>
-                                            <constraint firstAttribute="width" constant="70" id="sDs-pB-HeA"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="oI9-tL-eny"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="sDs-pB-HeA"/>
                                         </constraints>
                                         <state key="normal" title="Hudba" image="sound.png"/>
                                         <connections>
@@ -939,8 +812,8 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81f-wV-C2Y">
                                         <rect key="frame" x="277.66666666666669" y="30" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="3Le-Zb-kBJ"/>
-                                            <constraint firstAttribute="height" constant="40" id="d3Y-ph-7p6"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="3Le-Zb-kBJ"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="d3Y-ph-7p6"/>
                                         </constraints>
                                         <state key="normal" title="Vpřed" image="15_forward.png"/>
                                         <connections>
@@ -998,7 +871,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                     <action selector="sliderMoved:" destination="FO9-6C-WA2" eventType="valueChanged" id="9Di-eG-tt0"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
                                 <rect key="frame" x="0.0" y="438" width="414" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="013-pg-57d"/>
@@ -1067,7 +940,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         <rect key="frame" x="66.333333333333357" y="198.66666666666666" width="198.66666666666663" height="2"/>
                                         <color key="tintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hudba: 0 MB / 0MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-Uz-1Ke">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hudba: 0 MB / 0MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-Uz-1Ke">
                                         <rect key="frame" x="86.999999999999986" y="84.666666666666657" width="157.66666666666663" height="21"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1077,13 +950,13 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         <rect key="frame" x="66.333333333333357" y="125.66666666666666" width="198.66666666666663" height="2"/>
                                         <color key="tintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Probíhá stahování" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKz-k0-8pd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Probíhá stahování" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="UKz-k0-8pd">
                                         <rect key="frame" x="79.000000000000014" y="30" width="173.33333333333337" height="24.666666666666671"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mluvené slovo: 0 MB / ? MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5j-8B-MJu">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mluvené slovo: 0 MB / ? MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v5j-8B-MJu">
                                         <rect key="frame" x="25" y="157.66666666666666" width="281.33333333333331" height="21"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                         <nil key="textColor"/>

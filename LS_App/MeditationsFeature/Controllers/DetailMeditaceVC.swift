@@ -41,7 +41,7 @@ class DetailMeditaceVC: UIViewController {
                         // Internet ano, meditace nezakoupena, uživatel přihlášen.
                         let url = URL(string: "http://www.laskyplnysvet.cz/audiomeditace")
                             if UIApplication.shared.canOpenURL(url!) {
-                                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                                UIApplication.shared.open(url!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                             }
                         }else{
                             // Internet ano, meditace nezakoupena, uživatel nepřihlášen.
@@ -280,3 +280,8 @@ class DetailMeditaceVC: UIViewController {
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

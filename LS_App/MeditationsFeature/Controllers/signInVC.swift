@@ -16,7 +16,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func registraceBtn(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "http://www.laskyplnysvet.cz/audiomeditace")!, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: "http://www.laskyplnysvet.cz/audiomeditace")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
     
     @IBAction func signInButtonTapped(_ sender: Any) {
@@ -44,7 +44,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
         
-        myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        myActivityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         
         userNameTextField.layer.cornerRadius = userNameTextField.frame.size.height/2
         userNameTextField.clipsToBounds = true
@@ -169,3 +169,8 @@ func signInRequest(){
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

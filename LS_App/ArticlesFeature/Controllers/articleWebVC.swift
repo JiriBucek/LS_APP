@@ -26,7 +26,7 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-        webView.scrollView.contentInset = UIEdgeInsetsMake(-310, 0, 0, 0)
+        webView.scrollView.contentInset = UIEdgeInsets.init(top: -310, left: 0, bottom: 0, right: 0)
         
         self.webView!.isOpaque = false
         self.webView!.backgroundColor = UIColor.clear
@@ -90,9 +90,9 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
             
             //  Pokud je nový odkaz na serveru laskyplnysvet, tak se posune zobrazeni a tim se schova horní menu.
             if odkaz?.range(of: "laskyplnysvet") == nil{
-                webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                webView.scrollView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
             }else{
-                webView.scrollView.contentInset = UIEdgeInsetsMake(-310, 0, 0, 0)
+                webView.scrollView.contentInset = UIEdgeInsets.init(top: -310, left: 0, bottom: 0, right: 0)
             }
             
         }
@@ -108,7 +108,7 @@ class articleWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate{
         webView.allowsBackForwardNavigationGestures = true
         webView.allowsLinkPreview = true
         
-        webView.scrollView.contentInset = UIEdgeInsetsMake(-310, 0, 0, 0)
+        webView.scrollView.contentInset = UIEdgeInsets.init(top: -310, left: 0, bottom: 0, right: 0)
         
         let url = URL(string: linkClanku)
         let urlRequest = URLRequest(url: url!)
