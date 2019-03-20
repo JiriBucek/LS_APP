@@ -279,6 +279,5 @@ class DetailMeditaceVC: UIViewController {
                 self.present(alertController, animated: true, completion:nil)
         }
     }
-    
-
 }
+

@@ -191,9 +191,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="articlesTableView" destination="OhX-1b-qXy" id="z0v-3b-m66"/>
+                        <outlet property="loadingSpinner" destination="nBO-P0-GVg" id="jXI-D7-QB2"/>
                         <outlet property="loadingView" destination="oud-Pz-Dun" id="L9u-jb-7oF"/>
                         <outlet property="overallLoadnigView" destination="JAL-8X-vqz" id="CLY-U1-LiU"/>
-                        <outlet property="spinnerSK" destination="nBO-P0-GVg" id="KsA-th-c3b"/>
                         <segue destination="lo7-3R-Nno" kind="show" id="TnX-ry-noT"/>
                     </connections>
                 </viewController>

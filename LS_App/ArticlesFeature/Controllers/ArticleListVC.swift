@@ -15,58 +15,47 @@ import NVActivityIndicatorView
 
 
 class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
-    //VC, který zobrazuje seznam článků
+    //  VC, který zobrazuje seznam článků.
     
     @IBOutlet weak var articlesTableView: UITableView!
-    
-    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_fields=link,title,excerpt,featured_media"
-
     
     @IBAction func refreshBtn(_ sender: Any) {
         articlesArray?.removeAll()
         cancelAllAlamofireRequests()
-        spinnerSK.startAnimating()
+        loadingSpinner.startAnimating()
         doNotMoveTableView = false
         overallLoadnigView.isHidden = false
         loadArticles(APIurl: APIadresa)
     }
     
-    // "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_embed=true&_fields=id,excerpt,link,title"
-    
-    //https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&context=embed&_embed=true
-    
-    var articlesArray: [ArticleClass]? = []
-    
     @IBOutlet weak var loadingView: UIImageView!
     
     @IBOutlet weak var overallLoadnigView: UIView!
     
-    @IBOutlet weak var spinnerSK: NVActivityIndicatorView!
+    @IBOutlet weak var loadingSpinner: NVActivityIndicatorView!
     
     
     var loadingMore = false
-    //Stahuju zrovna další články
+    //  Stahuju zrovna další články?
     
+    let APIadresa = "https://laskyplnysvet.cz/stesti/wp-json/wp/v2/posts?per_page=20&offset=0&_fields=link,title,excerpt,featured_media"
+    
+    var articlesArray: [ArticleClass]? = []
     
     var doNotMoveTableView = true
-    
     var cellHeights: [IndexPath : CGFloat] = [:]
-    //je potřeba tohle nastavit, aby se tableview scrollovalo smooth. Jinak přeskakuje
+    //  Kvůli plynulosti posouvání tableview
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.tintColor = UIColor.white
 
-        let spinnerFont = UIFont(name: "Century Gothic", size: 15)
         let loadingNib = UINib(nibName: "LoadingCell", bundle: nil)
         articlesTableView.register(loadingNib, forCellReuseIdentifier: "loadingCell")
         
         if NetworkReachabilityManager()!.isReachable{
-        
-            spinnerSK.startAnimating()
-            
+            loadingSpinner.startAnimating()
             loadArticles(APIurl: APIadresa)
         }else{
             displayMessage(userMessage: "K zobrazení článků je nutné připojení k internetu.")
@@ -76,10 +65,6 @@ class ArticleListVC: UIViewController, UITabBarDelegate, UITableViewDataSource, 
     override func viewWillAppear(_ animated: Bool) {
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func viewWillDisappear(_ animated: Bool) {
         //vyčistí requesty
