@@ -89,7 +89,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
 func signInRequest(){
     //  Funkce pro přihlašování.
-    let myUrl = URL(string: "https://www.ay.energy/api/media/login/")
+    let myUrl = URL(string: "http://68.183.64.160/api/media/login/")
     var request = URLRequest(url:myUrl!)
     
     request.httpMethod = "POST"

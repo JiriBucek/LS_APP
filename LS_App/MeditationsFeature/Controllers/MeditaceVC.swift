@@ -138,7 +138,7 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
         userName = KeychainWrapper.standard.string(forKey: "userName")
         userPassWord = KeychainWrapper.standard.string(forKey: "passWord")
         
-        let url = URL(string: "https://www.ay.energy/api/media/login")
+        let url = URL(string: "http://68.183.64.160/api/media/login")
         let parameters: Parameters = ["username" : userName!, "password" : userPassWord!]
         
         Alamofire.request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200..<300)
@@ -159,13 +159,18 @@ class MeditaceVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UIT
                     }
                 case .failure:
                     print("Error při requestu o token.")
+                    print(response.result)
+                    print(response)
+                    print(response.response)
+                    self.spinnerView.stopAnimating()
+                    self.displayMessage(userMessage: "Chyba při pokusu o přihlášení. Zkuste prosím později. ")
                 }
         }
     }
     
     func meditationListRequest(){
         //  Stáhne data meditací.
-        let urlMeditace = URL(string: "https://www.ay.energy/api/media/meditations")
+        let urlMeditace = URL(string: "http://68.183.64.160/api/media/meditations")
         
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(String(describing: token))",

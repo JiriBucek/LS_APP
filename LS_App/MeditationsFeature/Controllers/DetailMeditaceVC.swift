@@ -179,7 +179,7 @@ class DetailMeditaceVC: UIViewController {
         // Stáhne informační data jednotlivých meditací
         
         let token = KeychainWrapper.standard.string(forKey: "accessToken")
-        let url = URL(string: "https://www.ay.energy/api/media/audio")
+        let url = URL(string: "http://68.183.64.160/api/media/audio")
         let parameters: Parameters = ["id" : id!]
         
         if let tokenUnwrpd = token{
