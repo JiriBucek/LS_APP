@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z09-Al-xCi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z09-Al-xCi">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,13 +45,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="XHP-aU-ZeR">
-                                                    <rect key="frame" x="98" y="59.333333333333343" width="249" height="35"/>
+                                                    <rect key="frame" x="98" y="59.333333333333343" width="288" height="35"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="18"/>
                                                     <color key="textColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="V11-po-AOG">
-                                                    <rect key="frame" x="98" y="94.333333333333329" width="249" height="34.999999999999986"/>
+                                                    <rect key="frame" x="98" y="94.333333333333329" width="288" height="34.999999999999986"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                                     <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -433,6 +433,91 @@
             </objects>
             <point key="canvasLocation" x="1639.1304347826087" y="865.17857142857144"/>
         </scene>
+        <!--RegistrationVC-->
+        <scene sceneID="Pk3-cm-aLp">
+            <objects>
+                <viewController id="C7P-bd-xws" customClass="RegistrationVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W23-MQ-xha">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ub2-4v-rEi">
+                                <rect key="frame" x="50.666666666666657" y="185.33333333333334" width="313" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4Vh-ad-4EE"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="Udd-g3-PnC">
+                                <rect key="frame" x="144.33333333333334" y="39.999999999999993" width="125.33333333333334" height="125.33333333333331"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Udd-g3-PnC" secondAttribute="height" multiplier="1:1" id="OnF-fN-eNs"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgp-4i-s2W">
+                                <rect key="frame" x="50.666666666666657" y="255.33333333333337" width="313" height="50"/>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ImM-di-Btf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="21"/>
+                                <state key="normal" title="Registrovat se">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerPressed:" destination="C7P-bd-xws" eventType="touchUpInside" id="dyK-hN-ntw"/>
+                                    <action selector="signInButtonTapped:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="g24-xv-sMr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nya-KY-dNk">
+                                <rect key="frame" x="70.666666666666671" y="335.33333333333331" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="8wg-bJ-HdC"/>
+                                    <constraint firstAttribute="height" constant="25" id="M4w-v8-zRl"/>
+                                </constraints>
+                                <state key="selected" image="checkmark"/>
+                                <connections>
+                                    <action selector="newsletterButtonPressed:" destination="C7P-bd-xws" eventType="touchUpInside" id="i4f-wI-6Yi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zasílat newsletter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usU-Ib-L81">
+                                <rect key="frame" x="115.66666666666667" y="325.33333333333331" width="139.66666666666663" height="45"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mgp-4i-s2W" firstAttribute="centerX" secondItem="W23-MQ-xha" secondAttribute="centerX" id="1lb-ev-pPx"/>
+                            <constraint firstItem="nya-KY-dNk" firstAttribute="top" secondItem="Mgp-4i-s2W" secondAttribute="bottom" constant="30" id="8E3-0n-En8"/>
+                            <constraint firstItem="ub2-4v-rEi" firstAttribute="width" secondItem="Udd-g3-PnC" secondAttribute="width" multiplier="2.5" id="9WV-Dz-i3P"/>
+                            <constraint firstItem="Udd-g3-PnC" firstAttribute="centerX" secondItem="W23-MQ-xha" secondAttribute="centerX" id="F4e-Pd-7Ro"/>
+                            <constraint firstItem="nya-KY-dNk" firstAttribute="leading" secondItem="Mgp-4i-s2W" secondAttribute="leading" constant="20" id="KQ4-O7-7Gn"/>
+                            <constraint firstItem="Mgp-4i-s2W" firstAttribute="top" secondItem="ub2-4v-rEi" secondAttribute="bottom" constant="20" id="Kbg-pt-lMe"/>
+                            <constraint firstItem="usU-Ib-L81" firstAttribute="top" secondItem="Mgp-4i-s2W" secondAttribute="bottom" constant="20" id="LEU-vn-0pO"/>
+                            <constraint firstItem="Udd-g3-PnC" firstAttribute="width" secondItem="W23-MQ-xha" secondAttribute="width" multiplier="0.3" constant="1" id="NtM-va-riM"/>
+                            <constraint firstItem="usU-Ib-L81" firstAttribute="leading" secondItem="nya-KY-dNk" secondAttribute="trailing" constant="20" id="cvk-xA-bmv"/>
+                            <constraint firstItem="Udd-g3-PnC" firstAttribute="top" secondItem="xLT-pK-YJJ" secondAttribute="top" constant="20" id="dHn-RL-oSF"/>
+                            <constraint firstItem="usU-Ib-L81" firstAttribute="centerY" secondItem="nya-KY-dNk" secondAttribute="centerY" id="gHZ-gy-Hj0"/>
+                            <constraint firstItem="ub2-4v-rEi" firstAttribute="top" secondItem="Udd-g3-PnC" secondAttribute="bottom" constant="20" id="siZ-69-Q3Z"/>
+                            <constraint firstItem="ub2-4v-rEi" firstAttribute="centerX" secondItem="W23-MQ-xha" secondAttribute="centerX" id="uwK-TO-m3e"/>
+                            <constraint firstItem="Mgp-4i-s2W" firstAttribute="width" secondItem="ub2-4v-rEi" secondAttribute="width" id="zpA-KB-4FW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xLT-pK-YJJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="ub2-4v-rEi" id="ym2-2F-ZM7"/>
+                        <outlet property="newsletterButton" destination="nya-KY-dNk" id="mdG-qy-h4b"/>
+                        <outlet property="registerButton" destination="Mgp-4i-s2W" id="5Dq-qa-Po4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WC5-xK-Whd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="405.79710144927537" y="1667.9347826086957"/>
+        </scene>
         <!--Přihlášení-->
         <scene sceneID="xN8-b6-Sf0">
             <objects>
@@ -483,6 +568,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="registraceBtn:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="VpX-Nb-HNJ"/>
+                                                    <segue destination="C7P-bd-xws" kind="show" id="g6m-FY-Thj"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hk-Kx-3ME">
@@ -788,7 +874,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-fk-xQ9">
-                                        <rect key="frame" x="56.666666666666671" y="30" width="40" height="40"/>
+                                        <rect key="frame" x="56.666666666666671" y="39" width="40" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="8wa-bn-GMf"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="mW3-LU-6NW"/>
@@ -799,7 +885,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-hj-WGg">
-                                        <rect key="frame" x="152" y="15" width="70" height="70"/>
+                                        <rect key="frame" x="152" y="39" width="70" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="oI9-tL-eny"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="sDs-pB-HeA"/>
@@ -810,7 +896,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81f-wV-C2Y">
-                                        <rect key="frame" x="277.66666666666669" y="30" width="40" height="40"/>
+                                        <rect key="frame" x="277.66666666666669" y="39" width="40" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="3Le-Zb-kBJ"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="d3Y-ph-7p6"/>
@@ -1074,8 +1160,9 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
     <resources>
         <image name="15_back.png" width="474" height="474"/>
         <image name="15_forward.png" width="474" height="474"/>
-        <image name="LS_logo_pruhledne" width="341" height="341"/>
+        <image name="LS_logo_pruhledne" width="341.33334350585938" height="341.33334350585938"/>
         <image name="account" width="24" height="24"/>
+        <image name="checkmark" width="600" height="347"/>
         <image name="icons8-flower-25" width="25" height="25"/>
         <image name="icons8-meditation-25" width="25" height="25"/>
         <image name="ikonka_player" width="30" height="30"/>
