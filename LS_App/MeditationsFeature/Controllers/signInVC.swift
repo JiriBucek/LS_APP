@@ -16,7 +16,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func registraceBtn(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "http://www.laskyplnysvet.cz/audiomeditace")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+    // Plan B registration implementation
+    //UIApplication.shared.open(URL(string: "http://www.laskyplnysvet.cz/audiomeditace")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
     
     @IBAction func signInButtonTapped(_ sender: Any) {
