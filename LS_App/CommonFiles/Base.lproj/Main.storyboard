@@ -720,6 +720,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                     <connections>
                         <outlet property="emailLabel" destination="NV5-uE-j8f" id="wqj-96-9FW"/>
                         <outlet property="odhlasitBtn" destination="cQO-cH-7My" id="Fqe-IP-Be5"/>
+                        <outlet property="textView" destination="CbY-IK-ieh" id="n4j-d8-Dgd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyO-Pp-Dxq" userLabel="First Responder" sceneMemberID="firstResponder"/>

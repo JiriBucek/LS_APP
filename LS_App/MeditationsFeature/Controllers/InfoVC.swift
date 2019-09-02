@@ -11,6 +11,9 @@ import SwiftKeychainWrapper
 
 class InfoVC: UIViewController {
     // VC s info textem ohledně fungování účtu. Zobrazuje, pod jakým mailem je user přihlášen.
+
+    @IBOutlet weak var textView: UITextView!
+
     
     @IBAction func odhlasitBtnPrsd(_ sender: Any) {
         //  Odhlásit/přihlásit button
@@ -51,6 +54,18 @@ class InfoVC: UIViewController {
                 emailLabel.text = "Nepřihlášen"
             }
         }
+        setupTextView()
     }
 
+    private func setupTextView() {
+
+        let attributedString = NSMutableAttributedString(string: """
+            Po přihlášení je zapotřebí se zaregistrovat. V emailu poté nalezneš přihlašovací údaje, kterými se v této aplikaci přihlásíš.\n Nové audiomeditace získáš zde \n. Nemůžeš v aplikaci nalézt tebou zakoupené audiomeditace? Pak nám napiš na podpora@laskyplnysvet.cz a vše rychle vyřešíme :). Tvoř svůj svět.
+        """)
+
+        let 
+
+
+
+    }
 }
