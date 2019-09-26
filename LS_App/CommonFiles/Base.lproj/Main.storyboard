@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z09-Al-xCi">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z09-Al-xCi">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,35 +21,35 @@
             <objects>
                 <viewController title="Články" id="UM7-im-dRJ" customClass="ArticleListVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H25-99-xYX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="articles" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-1b-qXy">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="189" id="KEA-6b-rOq" customClass="ArticleCell" customModule="LS_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KEA-6b-rOq" id="8EN-Qe-d6K">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="188.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="189"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ku2-tl-Juv">
-                                                    <rect key="frame" x="20" y="59.333333333333343" width="70" height="70"/>
+                                                    <rect key="frame" x="20" y="59.666666666666657" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="QK4-yb-Iqs"/>
                                                         <constraint firstAttribute="height" constant="70" id="r3Q-LY-64b"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! Nadpis !!! " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="XHP-aU-ZeR">
-                                                    <rect key="frame" x="98" y="59.333333333333343" width="288" height="35"/>
+                                                    <rect key="frame" x="98" y="59.666666666666657" width="288" height="35"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="18"/>
                                                     <color key="textColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! Popis!!! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="V11-po-AOG">
-                                                    <rect key="frame" x="98" y="94.333333333333329" width="288" height="34.999999999999986"/>
+                                                    <rect key="frame" x="98" y="94.666666666666671" width="288" height="35.000000000000014"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                                     <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -84,27 +82,27 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAL-8X-vqz">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oud-Pz-Dun">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="i6a-CN-ETT">
-                                        <rect key="frame" x="157" y="211.66666666666669" width="100" height="100"/>
+                                        <rect key="frame" x="157" y="221.66666666666669" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="X8j-pQ-3gp"/>
                                             <constraint firstAttribute="width" constant="100" id="b3L-8a-Fhb"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tvoř svůj svět" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRw-Tj-aMT">
-                                        <rect key="frame" x="143.66666666666666" y="331.66666666666669" width="126.99999999999997" height="29"/>
+                                        <rect key="frame" x="143.66666666666666" y="341.66666666666669" width="126.99999999999997" height="29"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
                                         <color key="textColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBO-P0-GVg" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                        <rect key="frame" x="187" y="380.66666666666669" width="40" height="40"/>
+                                        <rect key="frame" x="187" y="390.66666666666669" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="LiF-xw-x8U"/>
                                             <constraint firstAttribute="height" constant="40" id="fkx-js-AJN"/>
@@ -171,11 +169,11 @@
             <objects>
                 <viewController storyboardIdentifier="web" id="lo7-3R-Nno" customClass="articleWebVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v0m-cg-aSP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cvf-Pn-N5T">
-                                <rect key="frame" x="0.0" y="2" width="414" height="621"/>
+                                <rect key="frame" x="0.0" y="2" width="414" height="641"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -187,11 +185,11 @@
                                 <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OE6-ll-CU0">
-                                <rect key="frame" x="0.0" y="3" width="414" height="620"/>
+                                <rect key="frame" x="0.0" y="3" width="414" height="640"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8O-E1-8T7">
-                                <rect key="frame" x="137" y="221.66666666666669" width="140" height="180"/>
+                                <rect key="frame" x="137" y="231.66666666666669" width="140" height="180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZ6-cq-c8C" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
                                         <rect key="frame" x="50" y="40" width="40" height="40"/>
@@ -285,38 +283,38 @@
             <objects>
                 <viewController storyboardIdentifier="meditaceVC" title="Meditace" id="QQN-uS-WsP" customClass="MeditaceVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YE1-QZ-TnW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5gq-Rz-C7E">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meditaceCell" rowHeight="189" id="c17-Wo-abW" customClass="MeditaceCell" customModule="LS_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c17-Wo-abW" id="ATU-dm-yQw">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="188.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="189"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yTA-Ze-A0W">
-                                                    <rect key="frame" x="20" y="44.333333333333343" width="100" height="100"/>
+                                                    <rect key="frame" x="20" y="44.666666666666657" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="H98-dn-DTB"/>
                                                         <constraint firstAttribute="height" constant="100" id="KNK-WP-xim"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XFd-Op-ls1">
-                                                    <rect key="frame" x="28" y="52.333333333333343" width="92" height="84"/>
+                                                    <rect key="frame" x="28" y="52.666666666666657" width="92" height="84"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tady je nadpis" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6P6-Ge-8Pb">
-                                                    <rect key="frame" x="128" y="44.333333333333343" width="258" height="50"/>
+                                                    <rect key="frame" x="128" y="44.666666666666657" width="258" height="50"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="18"/>
                                                     <color key="textColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Tady je popisek Tady je popisek Tady je popisek " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="udk-Sc-UQg">
-                                                    <rect key="frame" x="128" y="94.333333333333329" width="258" height="49.999999999999986"/>
+                                                    <rect key="frame" x="128" y="94.666666666666671" width="258" height="50.000000000000014"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                                     <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -354,16 +352,16 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDr-Sn-t0d">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tvoř svůj svět" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3o-cp-9nU">
-                                        <rect key="frame" x="143.66666666666666" y="331.66666666666669" width="126.99999999999997" height="29"/>
+                                        <rect key="frame" x="143.66666666666666" y="341.66666666666669" width="126.99999999999997" height="29"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
                                         <color key="textColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiD-d5-jkI" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                        <rect key="frame" x="187" y="380.66666666666669" width="40" height="40"/>
+                                        <rect key="frame" x="187" y="390.66666666666669" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Idt-jf-686"/>
                                             <constraint firstAttribute="width" constant="40" id="KmI-r5-cxi"/>
@@ -375,7 +373,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="4CG-Tj-Z5N">
-                                        <rect key="frame" x="157" y="211.66666666666669" width="100" height="100"/>
+                                        <rect key="frame" x="157" y="221.66666666666669" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="0m1-m2-qLL"/>
                                             <constraint firstAttribute="width" constant="100" id="U2d-sn-dNl"/>
@@ -438,26 +436,25 @@
             <objects>
                 <viewController id="C7P-bd-xws" customClass="RegistrationVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W23-MQ-xha">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ub2-4v-rEi">
-                                <rect key="frame" x="50.666666666666657" y="185.33333333333334" width="313" height="50"/>
+                                <rect key="frame" x="50.666666666666657" y="165.33333333333334" width="313" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4Vh-ad-4EE"/>
                                 </constraints>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="Udd-g3-PnC">
-                                <rect key="frame" x="144.33333333333334" y="39.999999999999993" width="125.33333333333334" height="125.33333333333331"/>
+                                <rect key="frame" x="144.33333333333334" y="19.999999999999993" width="125.33333333333334" height="125.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Udd-g3-PnC" secondAttribute="height" multiplier="1:1" id="OnF-fN-eNs"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgp-4i-s2W">
-                                <rect key="frame" x="50.666666666666657" y="255.33333333333337" width="313" height="50"/>
+                                <rect key="frame" x="50.666666666666657" y="235.33333333333337" width="313" height="50"/>
                                 <color key="backgroundColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ImM-di-Btf"/>
@@ -472,7 +469,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nya-KY-dNk">
-                                <rect key="frame" x="70.666666666666671" y="335.33333333333331" width="25" height="25"/>
+                                <rect key="frame" x="70.666666666666671" y="315.33333333333331" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="8wg-bJ-HdC"/>
                                     <constraint firstAttribute="height" constant="25" id="M4w-v8-zRl"/>
@@ -483,7 +480,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zasílat newsletter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usU-Ib-L81">
-                                <rect key="frame" x="115.66666666666667" y="325.33333333333331" width="139.66666666666663" height="45"/>
+                                <rect key="frame" x="115.66666666666667" y="305.33333333333331" width="139.66666666666663" height="45"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -508,6 +505,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xLT-pK-YJJ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bOa-xo-hpX"/>
                     <connections>
                         <outlet property="emailTextField" destination="ub2-4v-rEi" id="ym2-2F-ZM7"/>
                         <outlet property="newsletterButton" destination="nya-KY-dNk" id="mdG-qy-h4b"/>
@@ -527,10 +525,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="tei-lB-Rud">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCH-oc-91T">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="930.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="956.66666666666663"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0UW-dI-Nh1">
                                                 <rect key="frame" x="51.666666666666657" y="304.33333333333331" width="310.66666666666674" height="50"/>
@@ -551,7 +549,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Leo-J7-NdF"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                             </textField>
@@ -586,7 +583,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="aXH-to-B13"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
@@ -656,11 +652,11 @@
             <objects>
                 <viewController title="Info" id="nRH-Fm-8dG" customClass="InfoVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7qw-vP-2aq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-IK-ieh">
-                                <rect key="frame" x="0.0" y="19.999999999999986" width="414" height="224.66666666666663"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-IK-ieh">
+                                <rect key="frame" x="10" y="10" width="394" height="474"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" link="YES" selected="YES"/>
@@ -669,25 +665,25 @@
 Pro přihlášení je zapotřebí se nejprve registrovat na www.laskyplnysvet.cz/audiomeditace. Na této stránce je také možnost meditace nakupovat. 
 
 Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a zakoupené meditace budete mít k dispozici pro poslech i zde ve speciálním přehrávači.  </string>
-                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jste přihlášen(a) jako:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-mQ-tdD">
-                                <rect key="frame" x="116.33333333333333" y="274.66666666666669" width="181.33333333333337" height="21"/>
+                                <rect key="frame" x="116.33333333333333" y="514" width="181.33333333333337" height="21"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nepřihlášen." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NV5-uE-j8f">
-                                <rect key="frame" x="156" y="315.66666666666669" width="102" height="21"/>
+                                <rect key="frame" x="156" y="555" width="102" height="21"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQO-cH-7My">
-                                <rect key="frame" x="82.666666666666671" y="356.66666666666669" width="248.66666666666663" height="40"/>
+                                <rect key="frame" x="82.666666666666671" y="596" width="248.66666666666663" height="40"/>
                                 <color key="backgroundColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="wgf-H2-Nd1"/>
@@ -701,25 +697,44 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                     <action selector="signInButtonTapped:" destination="i8u-wf-Ir0" eventType="touchUpInside" id="fnQ-xU-33d"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2f-IV-Yu9">
+                                <rect key="frame" x="82.666666666666671" y="656" width="248.66666666666663" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gZJ-EN-ZdQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <state key="normal" title="Registrovat">
+                                    <color key="titleColor" red="0.17858356237411499" green="0.43539637327194214" blue="0.63627761602401733" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="C7P-bd-xws" kind="show" id="hGg-1v-jXV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="CbY-IK-ieh" firstAttribute="leading" secondItem="JRU-eL-ojN" secondAttribute="leading" id="FfE-GI-JJW"/>
+                            <constraint firstItem="M2f-IV-Yu9" firstAttribute="centerX" secondItem="cQO-cH-7My" secondAttribute="centerX" id="1Sh-hW-UUw"/>
+                            <constraint firstItem="M2f-IV-Yu9" firstAttribute="width" secondItem="cQO-cH-7My" secondAttribute="width" id="8fd-fi-KK2"/>
+                            <constraint firstItem="CbY-IK-ieh" firstAttribute="leading" secondItem="JRU-eL-ojN" secondAttribute="leading" constant="10" id="FfE-GI-JJW"/>
                             <constraint firstItem="QQX-mQ-tdD" firstAttribute="centerX" secondItem="7qw-vP-2aq" secondAttribute="centerX" id="GXC-c1-PQd"/>
                             <constraint firstItem="cQO-cH-7My" firstAttribute="width" secondItem="7qw-vP-2aq" secondAttribute="width" multiplier="0.6" id="HxV-RD-YIJ"/>
+                            <constraint firstItem="M2f-IV-Yu9" firstAttribute="top" secondItem="cQO-cH-7My" secondAttribute="bottom" constant="20" id="Rnt-r9-htW"/>
                             <constraint firstItem="cQO-cH-7My" firstAttribute="top" secondItem="NV5-uE-j8f" secondAttribute="bottom" constant="20" id="TUh-K2-Ltm"/>
-                            <constraint firstItem="CbY-IK-ieh" firstAttribute="trailing" secondItem="JRU-eL-ojN" secondAttribute="trailing" id="dSq-MV-Xdc"/>
+                            <constraint firstItem="CbY-IK-ieh" firstAttribute="trailing" secondItem="JRU-eL-ojN" secondAttribute="trailing" constant="-10" id="dSq-MV-Xdc"/>
                             <constraint firstItem="cQO-cH-7My" firstAttribute="centerX" secondItem="7qw-vP-2aq" secondAttribute="centerX" id="dnl-zr-Fbb"/>
-                            <constraint firstItem="CbY-IK-ieh" firstAttribute="top" secondItem="JRU-eL-ojN" secondAttribute="top" id="gwx-7j-CSo"/>
+                            <constraint firstItem="CbY-IK-ieh" firstAttribute="top" secondItem="JRU-eL-ojN" secondAttribute="top" constant="10" id="gwx-7j-CSo"/>
                             <constraint firstItem="QQX-mQ-tdD" firstAttribute="top" secondItem="CbY-IK-ieh" secondAttribute="bottom" constant="30" id="iEr-r0-1qE"/>
                             <constraint firstItem="NV5-uE-j8f" firstAttribute="top" secondItem="QQX-mQ-tdD" secondAttribute="bottom" constant="20" id="mbc-aQ-HzI"/>
                             <constraint firstItem="NV5-uE-j8f" firstAttribute="centerX" secondItem="7qw-vP-2aq" secondAttribute="centerX" id="nkY-vx-sF2"/>
+                            <constraint firstItem="JRU-eL-ojN" firstAttribute="bottom" secondItem="M2f-IV-Yu9" secondAttribute="bottom" constant="20" id="vXV-nL-Vbz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JRU-eL-ojN"/>
                     </view>
                     <connections>
                         <outlet property="emailLabel" destination="NV5-uE-j8f" id="wqj-96-9FW"/>
                         <outlet property="odhlasitBtn" destination="cQO-cH-7My" id="Fqe-IP-Be5"/>
+                        <outlet property="registerButton" destination="M2f-IV-Yu9" id="xx4-yg-eeo"/>
                         <outlet property="textView" destination="CbY-IK-ieh" id="n4j-d8-Dgd"/>
                     </connections>
                 </viewController>
@@ -732,17 +747,17 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
             <objects>
                 <viewController storyboardIdentifier="meditaceDetail" id="kow-Hp-nJg" customClass="DetailMeditaceVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Vt-9X-U34">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uth-kn-AlZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amK-mQ-Kf5">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkh-f9-pYz">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meditace_default.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="WC5-Vl-5yV">
                                                         <rect key="frame" x="5" y="5" width="404" height="274.66666666666669"/>
@@ -777,7 +792,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAx-8f-IIv">
-                                                        <rect key="frame" x="144.66666666666666" y="542.66666666666663" width="124.99999999999997" height="40.333333333333371"/>
+                                                        <rect key="frame" x="144.66666666666666" y="542.66666666666663" width="124.99999999999997" height="60.333333333333371"/>
                                                         <state key="normal" title="Stáhnout meditaci"/>
                                                         <connections>
                                                             <action selector="stahnoutMeditaciPrssd:" destination="kow-Hp-nJg" eventType="touchUpInside" id="Ajs-ql-cL6"/>
@@ -860,11 +875,11 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
             <objects>
                 <viewController storyboardIdentifier="player" id="FO9-6C-WA2" customClass="MeditacePlayerVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ey8-vV-AjK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sf2-e9-7dW">
-                                <rect key="frame" x="20" y="523" width="374" height="100"/>
+                                <rect key="frame" x="20" y="543" width="374" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OfM-QK-s8X">
                                         <rect key="frame" x="0.0" y="49.666666666666629" width="1" height="1"/>
@@ -875,7 +890,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-fk-xQ9">
-                                        <rect key="frame" x="56.666666666666671" y="39" width="40" height="22"/>
+                                        <rect key="frame" x="56.666666666666671" y="30" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="8wa-bn-GMf"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="mW3-LU-6NW"/>
@@ -886,7 +901,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-hj-WGg">
-                                        <rect key="frame" x="152" y="39" width="70" height="22"/>
+                                        <rect key="frame" x="152" y="15" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="oI9-tL-eny"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="sDs-pB-HeA"/>
@@ -897,7 +912,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81f-wV-C2Y">
-                                        <rect key="frame" x="277.66666666666669" y="39" width="40" height="22"/>
+                                        <rect key="frame" x="277.66666666666669" y="30" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="3Le-Zb-kBJ"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="d3Y-ph-7p6"/>
@@ -921,10 +936,10 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3f-5O-REg">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="438"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="458"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-0C-MFn">
-                                        <rect key="frame" x="0.0" y="12" width="414" height="414"/>
+                                        <rect key="frame" x="0.0" y="22" width="414" height="414"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Xwe-0C-MFn" secondAttribute="height" multiplier="15:15" id="KyW-fd-Wbm"/>
                                         </constraints>
@@ -946,7 +961,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                 </constraints>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="apV-oB-pds" customClass="mujSlider" customModule="LS_App" customModuleProvider="target">
-                                <rect key="frame" x="28" y="493" width="358" height="31"/>
+                                <rect key="frame" x="28" y="513" width="358" height="31"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="minimumTrackTintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="maximumTrackTintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -959,7 +974,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00 / 25:46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-YA-SNk">
-                                <rect key="frame" x="0.0" y="438" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="458" width="414" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="013-pg-57d"/>
                                 </constraints>
@@ -1102,7 +1117,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="cmN-Ec-VVM">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -1133,7 +1148,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                     <tabBarItem key="tabBarItem" title="Meditace" image="icons8-meditation-25" selectedImage="icons8-meditation-25" id="tco-16-4wG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="rdy-PC-oQi">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.15686274509803921" green="0.39215686274509803" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -1173,5 +1188,6 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rXA-tk-Q0h"/>
+        <segue reference="hGg-1v-jXV"/>
     </inferredMetricsTieBreakers>
 </document>

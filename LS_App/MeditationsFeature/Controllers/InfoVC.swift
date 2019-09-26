@@ -28,11 +28,20 @@ class InfoVC: UIViewController {
         self.navigationController?.pushViewController(signInVC, animated: true)
         
     }
-    
     @IBOutlet weak var emailLabel: UILabel!
     
     @IBOutlet weak var odhlasitBtn: UIButton!
     
+    @IBOutlet weak var registerButton: UIButton! {
+        didSet {
+            registerButton.layer.borderColor = UIColor(red: 46/255,
+                                                       green: 111/255,
+                                                       blue: 162/255,
+                                                       alpha: 1).cgColor
+            registerButton.layer.borderWidth = 1
+            registerButton.layer.cornerRadius = registerButton.bounds.height / 2
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,13 +68,10 @@ class InfoVC: UIViewController {
 
     private func setupTextView() {
 
-        let attributedString = NSMutableAttributedString(string: """
-            Po přihlášení je zapotřebí se zaregistrovat. V emailu poté nalezneš přihlašovací údaje, kterými se v této aplikaci přihlásíš.\n Nové audiomeditace získáš zde \n. Nemůžeš v aplikaci nalézt tebou zakoupené audiomeditace? Pak nám napiš na podpora@laskyplnysvet.cz a vše rychle vyřešíme :). Tvoř svůj svět.
-        """)
 
-        let 
-
-
-
+        let text =  """
+            Pro přihlášení je zapotřebí se zaregistrovat. V emailu poté nalezneš přihlašovací údaje, kterými se v této aplikaci přihlásíš.\n\nNové audiomeditace získáš na https://laskyplnysvet.cz/audiomeditace.\n\nNemůžeš v aplikaci nalézt tebou zakoupené audiomeditace? Pak nám napiš na podpora@laskyplnysvet.cz a vše rychle vyřešíme :).\n\nTvoř svůj svět.
+            """
+        textView.text = text
     }
 }
