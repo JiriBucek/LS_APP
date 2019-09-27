@@ -70,7 +70,7 @@ class InfoVC: UIViewController {
 
 
         let text =  """
-            Pro přihlášení je zapotřebí se zaregistrovat. V emailu poté nalezneš přihlašovací údaje, kterými se v této aplikaci přihlásíš.\n\nNové audiomeditace získáš na https://laskyplnysvet.cz/audiomeditace.\n\nNemůžeš v aplikaci nalézt tebou zakoupené audiomeditace? Pak nám napiš na podpora@laskyplnysvet.cz a vše rychle vyřešíme :).\n\nTvoř svůj svět.
+            Pro přihlášení je zapotřebí se zaregistrovat. V emailu poté nalezneš přihlašovací údaje, kterými se v této aplikaci přihlásíš.\n\nNové audiomeditace získáš na https://laskyplnysvet.cz/audiomeditace.\n\nNemůžeš v aplikaci nalézt tebou zakoupené audiomeditace? Pak nám napiš na muj@laskyplnysvet.cz a vše rychle vyřešíme :).\n\nTvoř svůj svět.
             """
         textView.text = text
     }
