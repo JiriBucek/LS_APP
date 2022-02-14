@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.s,d s,d
+        if #available(iOS 13, *) {
+             let navigationController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
+             let navigationBar = navigationController.navigationBar
+             let appearance = UINavigationBarAppearance()
+             appearance.configureWithOpaqueBackground()
+             appearance.backgroundColor = .red
+             navigationBar.standardAppearance = appearance;
+             navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+             navigationBar.isTranslucent = false
+         }
+        
         return true
     }
 
