@@ -1,0 +1,26 @@
+{
+  "DVTSourceControlWorkspaceBlueprintLocationsKey" : {
+    "47F978DD071992D7A203EE409834FE7E3F302521" : {
+      "DVTSourceControlBranchIdentifierKey" : "master",
+      "DVTSourceControlLocationRevisionKey" : "3302c20a2cdfd7edd15877750b1a00eef214bb79",
+      "DVTSourceControlBranchOptionsKey" : 4,
+      "DVTSourceControlBranchRemoteNameKey" : "origin",
+      "DVTSourceControlWorkspaceBlueprintLocationTypeKey" : "DVTSourceControlBranch"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "47F978DD071992D7A203EE409834FE7E3F302521",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A3131B96-196F-48A7-AB4F-565AE18B9516",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "47F978DD071992D7A203EE409834FE7E3F302521" : "LS_APP\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LS_App",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LS_App.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/JiriBucek\/LS_APP.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "47F978DD071992D7A203EE409834FE7E3F302521"
+    }
+  ]
+}

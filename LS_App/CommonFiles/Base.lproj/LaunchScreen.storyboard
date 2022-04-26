@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z18-Ve-pSz">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,52 +13,39 @@
             <objects>
                 <viewController title="Láskyplný svět" id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dHW-IV-PyW">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LS_logo_pruhledne" translatesAutoresizingMaskIntoConstraints="NO" id="6YJ-Si-Kto">
-                                <rect key="frame" x="157" y="211.66666666666669" width="100" height="100"/>
+                                <rect key="frame" x="157" y="268" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="nwM-8l-xm0"/>
                                     <constraint firstAttribute="height" constant="100" id="oIv-1g-hMM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tvoř svůj svět" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1a-aH-k0L">
-                                <rect key="frame" x="143.66666666666666" y="331.66666666666669" width="126.99999999999997" height="29"/>
+                                <rect key="frame" x="143.66666666666666" y="388" width="126.99999999999997" height="29"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
                                 <color key="textColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-tq-aHT">
-                                <rect key="frame" x="0.0" y="623" width="414" height="49"/>
-                                <color key="backgroundColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <tabBarItem title="" id="XfA-3n-WeV"/>
-                                    <tabBarItem title="" id="BF6-dY-IYy"/>
-                                </items>
-                                <color key="barTintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="selectedImageTintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tabBar>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BA5-tq-aHT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="05n-dk-Fnn"/>
-                            <constraint firstItem="BA5-tq-aHT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2u7-dn-qcy"/>
                             <constraint firstItem="u1a-aH-k0L" firstAttribute="top" secondItem="6YJ-Si-Kto" secondAttribute="bottom" constant="20" id="AUT-Q6-OJ7"/>
                             <constraint firstItem="dHW-IV-PyW" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Gne-nI-t4b"/>
                             <constraint firstItem="dHW-IV-PyW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="L5L-H5-oqo"/>
                             <constraint firstAttribute="trailing" secondItem="dHW-IV-PyW" secondAttribute="trailing" id="LVA-93-zyA"/>
                             <constraint firstItem="6YJ-Si-Kto" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Rvo-mn-Hrg"/>
                             <constraint firstItem="u1a-aH-k0L" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="S5s-8C-qgQ"/>
-                            <constraint firstItem="BA5-tq-aHT" firstAttribute="top" secondItem="dHW-IV-PyW" secondAttribute="bottom" id="Xl8-qq-GW3"/>
+                            <constraint firstItem="6YJ-Si-Kto" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Yiz-cR-afb"/>
                             <constraint firstItem="6YJ-Si-Kto" firstAttribute="baseline" secondItem="dHW-IV-PyW" secondAttribute="centerY" id="frM-B8-lYB"/>
-                            <constraint firstItem="BA5-tq-aHT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qN6-ar-dru"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="8e4-DR-S1N"/>
                 </viewController>
@@ -68,32 +53,8 @@
             </objects>
             <point key="canvasLocation" x="50.724637681159422" y="374.18478260869568"/>
         </scene>
-        <!--Láskyplný svět-->
-        <scene sceneID="b8f-qs-4x3">
-            <objects>
-                <navigationController title="Láskyplný svět" id="Z18-Ve-pSz" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="hvw-17-haj">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="19"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="19"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="01J-lp-oVM" kind="relationship" relationship="rootViewController" id="ZVy-Uv-UjF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LW0-ri-Uxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-851" y="299"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="LS_logo_pruhledne" width="341" height="341"/>
+        <image name="LS_logo_pruhledne" width="341.33334350585938" height="341.33334350585938"/>
     </resources>
 </document>

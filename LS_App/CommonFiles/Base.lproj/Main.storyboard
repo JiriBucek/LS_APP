@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r89-qM-EqY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r89-qM-EqY">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -167,7 +167,7 @@
         <!--Article WebVC-->
         <scene sceneID="wHC-oe-oOU">
             <objects>
-                <viewController storyboardIdentifier="web" id="lo7-3R-Nno" customClass="articleWebVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="web" id="lo7-3R-Nno" customClass="ArticleWebVC" customModule="LS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v0m-cg-aSP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -959,7 +959,7 @@ Vaše přihlašovací údaje pak použijte pro přihlášení v této aplikaci a
                                     <constraint firstItem="Xwe-0C-MFn" firstAttribute="centerY" secondItem="q3f-5O-REg" secondAttribute="centerY" id="m32-ud-qgm"/>
                                 </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="apV-oB-pds" customClass="mujSlider" customModule="LS_App" customModuleProvider="target">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="apV-oB-pds" customClass="LSSlider" customModule="LS_App" customModuleProvider="target">
                                 <rect key="frame" x="28" y="562" width="358" height="31"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="minimumTrackTintColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -12,7 +12,7 @@ import AVFoundation
 class MeditacePlayerVC: UIViewController {
     //  Přehrávač audio meditací
     
-    @IBOutlet weak var slider: mujSlider!
+    @IBOutlet weak var slider: LSSlider!
     
     @IBAction func sliderMoved(_ sender: Any) {
         let sliderValue = slider.value
